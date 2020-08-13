@@ -24,6 +24,9 @@ public class InputManager : MonoBehaviour
             if (Input.GetButtonDown("Kick" + id))
                 charactersManager.Kick(id);
 
+            if (Input.GetButtonDown("Swap" + id))
+                charactersManager.Swap(id);
+
             if (Input.GetButtonDown("Special" + id))
                 charactersManager.KickAllTheOthers(id);
             

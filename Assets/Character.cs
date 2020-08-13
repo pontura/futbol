@@ -9,8 +9,8 @@ public class Character : MonoBehaviour
     public int id;
     public float speed = 5;
 
-    [HideInInspector]
-    public CharacterActions actions;
+    [HideInInspector]  public CharacterActions actions;
+    [HideInInspector]  public CharacterSignal characterSignal;
 
     private void Awake()
     {
@@ -36,5 +36,12 @@ public class Character : MonoBehaviour
         }
 
         transform.Translate(Vector3.right * _x * speed*Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
+    }
+    public void SetSignal(CharacterSignal signal)
+    {
+        characterSignal = signal;
+        signal.transform.SetParent(actions.transform);
+        signal.transform.localScale = Vector3.one;
+        signal.transform.localPosition = Vector3.zero;        
     }
 }

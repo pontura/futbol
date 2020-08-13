@@ -54,7 +54,10 @@ public class CharacterActions : MonoBehaviour
         anim.Play("kick_1");
         if (ball != null)
         {
-            Vector3 dir = -transform.right * kickForce;
+            Vector2 direction = -transform.right;
+            if (transform.localScale.x<0)
+                direction = transform.right;
+            Vector3 dir = direction * kickForce;
             dir += Vector3.up * kickForce / 4;
             ball.rb.AddForce(dir);
         }

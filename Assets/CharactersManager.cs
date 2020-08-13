@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharactersManager : MonoBehaviour
 {
+    public GameObject boardFloor;
+    Vector2 limits;
+    public Ball ball;
     public bool player1;
     public bool player2;
     public bool player3;
@@ -16,11 +19,16 @@ public class CharactersManager : MonoBehaviour
     public List<Character> playingCharacters;
     int team_1_id = 0;
     int team_2_id = 0;
+    public CharactersSignals signals;
 
+    private void Start()
+    {
+        limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
+    }
     public void AddCharacter(int characterID)
     {
-        int teamID = 1;
-        if (characterID  == 2 || characterID == 4) teamID = 2;
+
+        int teamID = GetTeamByPlayer(characterID);
 
         if (characterID == 1) player1 = true;
         else if(characterID == 2) player2 = true;
@@ -31,31 +39,77 @@ public class CharactersManager : MonoBehaviour
         character.id = characterID;
         playingCharacters.Add(character);
         totalPlayers++;
+        signals.Add(character);
+    }
+    int GetTeamByPlayer(int characterID)
+    {
+        int teamID = 1;
+        if (characterID == 2 || characterID == 4) teamID = 2;
+        return teamID;
+    }
+    Character GetNearest(int teamID)
+    {
+        List<Character> team;
+        if (teamID == 1)
+            team = team1;
+        else team = team2;
+        float distanceMin = 1000;
+        Character character = null;
+        foreach (Character c in team)
+        {
+            float distance = Vector3.Distance(c.transform.position, ball.transform.position);
+            if (distanceMin > distance)
+            {
+                character = c;
+                distanceMin = distance;
+            }
+        }
+        return character;
     }
     Character GetNextCharacterByTeam(int teamID)
     {
-        switch(teamID)
+        switch (teamID)
         {
             case 1:
                 team_1_id++;
-                if (team_1_id > totalCharatersInTeam)   team_1_id = 1;
-                return team1[team_1_id-1];
+                if (team_1_id > totalCharatersInTeam) team_1_id = 1;
+                return team1[team_1_id - 1];
             case 2:
                 team_2_id++;
                 if (team_2_id > totalCharatersInTeam) team_2_id = 1;
-                return team2[team_2_id-1];
+                return team2[team_2_id - 1];
         }
-        return null;
+        return null;    
     }
     public void SetPosition(int playerID, float _x, float _y)
     {
         Character character = GetPlayer(playerID);
+        if (character.transform.position.x >= limits.x && _x>0 || character.transform.position.x <= -limits.x && _x < 0) _x = 0;
+        if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition((int)_x, (int)_y);
     }
-    public void Kick(int playerID)
+    public void Kick(int characterID)
     {
-        Character character = GetPlayer(playerID);
+        Character character = GetPlayer(characterID);
         character.Kick();
+    }    
+    public void Swap(int characterID)
+    {
+        int teamID = GetTeamByPlayer(characterID);
+        Character character = GetPlayer(characterID);       
+        Character newCharacter = GetNearest(teamID);
+        if (newCharacter != character)
+            SwapTo(character, newCharacter);
+    }
+    public void SwapTo(Character from, Character to)
+    {
+        int teamID = from.teamID;
+        to.id = from.id;        
+        signals.ChangeSignal(from, to);
+
+        from.id = 0;
+        playingCharacters.Remove(from);
+        playingCharacters.Add(to);
     }
     public void KickAllTheOthers(int characterID)
     {
