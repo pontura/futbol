@@ -1,0 +1,117 @@
+# =============== #
+# Unity generated #
+# =============== #
+obj/
+UnityGenerated/
+Library/
+Packages/
+Logs/
+RewiredBackup/
+web/
+.vs/
+Temp/
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+Assets/VacuumShaders/Curved World/Example Scenes/0. Tutorial/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/0. Tutorial/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/0. Tutorial/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Animations.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Models.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Shaders.meta
+Assets/VacuumShaders/Curved World/Example Scenes/1. Classic Runner/Files/Textures.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/2. Little Planet.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Animation.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Audio/Effects.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Audio/Mixers.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Audio/Music.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Fonts/LuckiestGuy.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/MobileInput/Scripts/Editor.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/MobileInput/Scripts/PlatformSpecific.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/MobileInput/Textures.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Models/Characters.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Models/Environment.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Audio.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Camera.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Enemy.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Helpers.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Managers.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Scripts/Scripts/Player.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Skyboxes.meta
+Assets/VacuumShaders/Curved World/Example Scenes/2. Little Planet/Files/Textures.meta
+Assets/VacuumShaders/Curved World/Example Scenes/3. Cylindrical Tower/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/3. Cylindrical Tower/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Animations.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Animator.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/PhysicsMaterials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/4. Perspective 2D/Files/Sprites.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Animations/AnimationClips/Characters/Ellen.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Characters/Ellen.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Effects/Environment.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Environment/Rock.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Environment/Stonework.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Environment/VegetationSmall.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Materials/Interactables.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Characters/Ellen.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Effects.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Environment/Rock.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Environment/Stonework.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Environment/VegetationSmall.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Models/Interactables.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Characters/Ellen.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Effects.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Environment/Rock.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Environment/Stonework.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Environment/VegetationSmall.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Art/Textures/Interactables.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Audio/Ellen/Locomotion/Walk/Stone.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Audio/Interactables/Teleporters.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/3DGamekit/Character.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Character.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Shaders.meta
+Assets/VacuumShaders/Curved World/Example Scenes/5. Spiral Vertical/Files/Textures.meta
+Assets/VacuumShaders/Curved World/Example Scenes/6. Spiral Vertical Double/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/7. Spiral Horizontal Double/Files/Materials.meta
+Assets/VacuumShaders/Curved World/Example Scenes/7. Spiral Horizontal Double/Files/Models.meta
+Assets/VacuumShaders/Curved World/Example Scenes/7. Spiral Horizontal Double/Files/Prefabs.meta
+Assets/VacuumShaders/Curved World/Example Scenes/7. Spiral Horizontal Double/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/7. Spiral Horizontal Double/Files/Textures.meta
+Assets/VacuumShaders/Curved World/Example Scenes/8. Follow (Script Bending)/8. Follow (Script Bending).meta
+Assets/VacuumShaders/Curved World/Example Scenes/8. Follow (Script Bending)/Files/Script.meta
+Assets/VacuumShaders/Curved World/Example Scenes/9. Templates/Files/Scripts.meta
+Assets/VacuumShaders/Curved World/Example Scenes/Settings.meta
+Assets/VacuumShaders/Curved World/Packages.meta
+Assets/xtras/VacuumShaders/Curved World.meta
