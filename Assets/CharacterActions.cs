@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterActions : MonoBehaviour
 {
-    public Animator anim;
-    public float kickForce = 1000;
-    Ball ball;
+    Animator anim;
+    
+    
 
     public states state;
 
@@ -17,9 +17,15 @@ public class CharacterActions : MonoBehaviour
         KICK,
         ACTION_DONE
     }
-    private void Start()
+
+    public void Init(GameObject go, int teamID)
     {
-        lookTo = (int)-transform.localScale.x;
+        anim = go.GetComponent<Animator>();
+        if (teamID == 1) lookTo = -1;
+        else lookTo = 1;
+        Vector3 scale = transform.localScale;
+        scale.x *= lookTo;
+        transform.localScale = scale;
     }
     public void Idle()
     {
@@ -52,15 +58,7 @@ public class CharacterActions : MonoBehaviour
             return;
         this.state = states.KICK;
         anim.Play("kick_1");
-        if (ball != null)
-        {
-            Vector2 direction = -transform.right;
-            if (transform.localScale.x<0)
-                direction = transform.right;
-            Vector3 dir = direction * kickForce;
-            dir += Vector3.up * kickForce / 4;
-            ball.rb.AddForce(dir);
-        }
+        
         Invoke("Reset", 0.25f);
     }
     private void Reset()
@@ -68,18 +66,5 @@ public class CharacterActions : MonoBehaviour
         state = states.ACTION_DONE;
         Idle();
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Ball")
-        {
-            ball = other.GetComponent<Ball>();
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Ball")
-        {
-            ball = null;
-        }
-    }
+   
 }

@@ -4,17 +4,42 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    Ball ball;
+    float kickForce = 1000;
     [HideInInspector]
     public int teamID;
     public int id;
     public float speed = 5;
-
-    [HideInInspector]  public CharacterActions actions;
-    [HideInInspector]  public CharacterSignal characterSignal;
-
+    [SerializeField] private Transform characterContainer;
+    [HideInInspector] public CharacterActions actions;
+    [HideInInspector] public CharacterSignal characterSignal;
+    [HideInInspector] public BallCatcher ballCathcer;
     private void Awake()
     {
         actions = GetComponent<CharacterActions>();
+        ballCathcer = GetComponent<BallCatcher>();
+    }
+    public void Init(int _temaID)
+    {
+        this.teamID = _temaID;
+        GameObject go = Instantiate(Resources.Load<GameObject>("players/" + teamID) as GameObject);
+        go.transform.SetParent(characterContainer);
+        go.transform.localEulerAngles = go.transform.localPosition = Vector3.zero;
+        go.transform.localScale = Vector3.one;
+        actions.Init(go, teamID);
+    }
+    public void OnCatch(Ball _ball)
+    {
+        this.ball = _ball;
+        ballCathcer.Catch(ball);
+    }
+    public void OnBallTriggerEnter(Ball _ball)
+    {
+        ball = _ball;
+    }
+    public void OnBallTriggerExit(Ball _ball)
+    {
+        ball = null;
     }
     public void SetPosition(int _x, int _y)
     {
@@ -23,6 +48,12 @@ public class Character : MonoBehaviour
     public void Kick()
     {
         actions.Kick();
+
+        if (ball != null && ball.GetCharacter() == this)
+        {
+            ball.Kick(kickForce);
+            ballCathcer.LoseBall();
+        }
     }
     void MoveTo(int _x, int _y)
     {

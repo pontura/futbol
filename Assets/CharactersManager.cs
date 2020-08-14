@@ -14,6 +14,7 @@ public class CharactersManager : MonoBehaviour
 
     public int totalPlayers = 0;
     int totalCharatersInTeam = 5;
+    public GameObject containerTeam1, containerTeam2;
     public List<Character> team1;
     public List<Character> team2;
     public List<Character> playingCharacters;
@@ -24,10 +25,19 @@ public class CharactersManager : MonoBehaviour
     private void Start()
     {
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
+        foreach(Character character in containerTeam1.GetComponentsInChildren<Character>())
+        {
+            team1.Add(character);
+            character.Init(1);
+        }
+        foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
+        {
+            team2.Add(character);
+            character.Init(2);
+        }
     }
     public void AddCharacter(int characterID)
     {
-
         int teamID = GetTeamByPlayer(characterID);
 
         if (characterID == 1) player1 = true;

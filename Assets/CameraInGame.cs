@@ -13,9 +13,9 @@ public class CameraInGame : MonoBehaviour
     }
     void Update()
     {
-        Vector3 pos = transform.localPosition;
-        pos.x = target.localPosition.x / 1.2f;
-        transform.localPosition = Vector3.Lerp(transform.position, pos, 0.2f);
+        Vector3 pos = transform.position;
+        pos.x = target.position.x / 1.2f;
+        transform.position = Vector3.Lerp(transform.position, pos, 0.2f);
        // Vector3 ballPos = Vector3.Lerp(transform.position, target.transform.position, 0.1f);
         //ballPos.x /=1.5f;
         //ballPos.y = offset.y;
