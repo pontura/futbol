@@ -42,7 +42,7 @@ public class AI : MonoBehaviour
     {
         state = states.NONE;
     }
-    void CharacterCatchBall(Character _character)
+    public virtual void CharacterCatchBall(Character _character)
     {
 
         if (character.teamID == _character.teamID)

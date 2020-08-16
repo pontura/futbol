@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+   
     CharactersManager charactersManager;
     Ball ball;
-    [HideInInspector]
     public int teamID;
     public int id;
-    float speed;
-    float original_speed = 8;
+    public float speed;
+    float original_speed = 6;
     [SerializeField] private Transform characterContainer;
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCathcer;
     [HideInInspector] public bool isBeingControlled;
     [HideInInspector] public AI ai;
+    [HideInInspector] public bool isGoldKeeper;
 
     private void Awake()
     {
+        if (GetComponent<GoalKeeper>())
+            isGoldKeeper = true;
         speed = original_speed;
         actions = GetComponent<CharacterActions>();
         ballCathcer = GetComponent<BallCatcher>();
@@ -72,7 +75,7 @@ public class Character : MonoBehaviour
     {
         speed = original_speed + value;
     }
-    void MoveTo(int _x, int _y)
+    public virtual void MoveTo(int _x, int _y)
     {
         if (_x == 0 && _y == 0)
             actions.Idle();

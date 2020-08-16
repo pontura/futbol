@@ -25,7 +25,7 @@ public class CharactersManager : MonoBehaviour
     private void Start()
     {
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
-        limits.x -= 2;
+        limits.x -= 1;
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
@@ -40,13 +40,17 @@ public class CharactersManager : MonoBehaviour
     }
     void Loop()
     {
-        AI.states state = team1[0].ai.state;
-        if(state == AI.states.NONE)
-        {
-            SwapIfNeeded(1);
-            SwapIfNeeded(2);
-        }
+        CheckStateByTeam(team1[0]);
+        CheckStateByTeam(team2[0]);
         Invoke("Loop", 0.25f);
+    }
+    void CheckStateByTeam(Character character)
+    {
+        AI.states state = character.ai.state;
+        if (state != AI.states.ATTACKING)
+        {
+            SwapIfNeeded(character.teamID);
+        }
     }
     void SwapIfNeeded(int teamID)
     {
@@ -95,7 +99,7 @@ public class CharactersManager : MonoBehaviour
         foreach (Character c in team)
         {
             float distance = Vector3.Distance(c.transform.position, ball.transform.position);
-            if (distanceMin > distance)
+            if (distanceMin > distance && !c.isGoldKeeper)
             {
                 if (hasControl)
                 {
@@ -136,6 +140,11 @@ public class CharactersManager : MonoBehaviour
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition((int)_x, (int)_y);
     }
+    public void GoalKeeperLoseBall(int characterID)
+    {
+        print("GoalKeeperLoseBall");
+        Swap(characterID);
+    }
     public void ButtonPressed(int buttonID, int characterID)
     {
         Character character = GetPlayer(characterID);
@@ -147,6 +156,8 @@ public class CharactersManager : MonoBehaviour
                 case 2: character.Kick(CharacterActions.kickTypes.SOFT); break;
                 case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
+            if(character.isGoldKeeper)
+                GoalKeeperLoseBall(characterID);
         }
         else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
         {
@@ -168,6 +179,8 @@ public class CharactersManager : MonoBehaviour
     }
     public void SwapTo(Character from, Character to)
     {
+        if (to == null) return;
+        if (from == null) return;
         int teamID = from.teamID;
         to.id = from.id;        
         signals.ChangeSignal(from, to);

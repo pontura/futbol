@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterActions : MonoBehaviour
 {
     Animator anim;
-    Character character;
+    public Character character;
 
     public states state;
     Collider[] colliders;
@@ -46,7 +46,7 @@ public class CharacterActions : MonoBehaviour
        anim.Play("idle");
     }
     int lookTo;
-    public void LookTo(int v )
+    public virtual void LookTo(int v )
     {
         if (lookTo != v)
         {

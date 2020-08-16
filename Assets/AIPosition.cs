@@ -6,7 +6,7 @@ public class AIPosition : MonoBehaviour
 {
     Vector3 originalPosition;
     Vector3 gotoPosition;
-    AI ai;
+    public AI ai;
     System.Action OnDone;
 
     void Start()
@@ -15,7 +15,7 @@ public class AIPosition : MonoBehaviour
         originalPosition = transform.position;
         enabled = false;
     }
-    private void Update()
+    void Update()
     {
         int _h, _v = 0;
         if (Vector3.Distance(transform.position, gotoPosition) > 0.5f)
@@ -36,7 +36,7 @@ public class AIPosition : MonoBehaviour
             OnDone();
         }
     }
-    public void SetActive(System.Action OnDone)
+    public virtual void SetActive(System.Action OnDone)
     {
         this.enabled = true;
         this.OnDone = OnDone;

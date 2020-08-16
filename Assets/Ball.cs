@@ -8,10 +8,6 @@ public class Ball : MonoBehaviour
     public Rigidbody rb;
     Character character;
 
-    public float kickHard = 1000;
-    public float kickSoft = 3000;
-    public float kickBaloon = 800;
-
     Vector3 limits;
 
     void Start()
@@ -28,6 +24,10 @@ public class Ball : MonoBehaviour
         if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
             velocity.z *= -1;
         rb.velocity = velocity;
+        Vector3 pos = transform.position;
+        if (transform.position.y < 0)
+            pos.y = 1;
+        transform.position = pos;
     }
     public void SetPlayer(Character _character)
     {
@@ -49,13 +49,16 @@ public class Ball : MonoBehaviour
             if (transform.localPosition.y < 1f && character.ballCathcer.state == BallCatcher.states.IDLE)
             {
                 if (lastCharacterWithBall != null)
+                {
+                    if (lastCharacterWithBall.isGoldKeeper)
+                        Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
+
                     lastCharacterWithBall.ballCathcer.LoseBall();
+                }
 
                 character.OnCatch(this);
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
-
-                
             }
         }
     }
@@ -72,16 +75,16 @@ public class Ball : MonoBehaviour
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
-                dir *= kickHard;
-                dir += Vector3.up * kickHard / 3;
+                dir *= Data.Instance.settings.kickHard;
+                dir += Vector3.up * Data.Instance.settings.kickHardAngle;
                 break;
             case CharacterActions.kickTypes.SOFT:
-                dir *= kickSoft;
-                dir += Vector3.up * 200;
+                dir *= Data.Instance.settings.kickSoft;
+                dir += Vector3.up * Data.Instance.settings.kickSoftAngle;
                 break;
             case CharacterActions.kickTypes.BALOON:
-                dir *= kickBaloon;
-                dir += Vector3.up * kickBaloon;
+                dir *= Data.Instance.settings.kickBaloon;
+                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle;
                 break;
         }
        
