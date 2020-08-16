@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012892830758}
   - component: {fileID: 114000013950545636}
+  - component: {fileID: 999694241}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -46,3 +47,19 @@ MonoBehaviour:
   DEBUG: 0
   lastScene: 
   newScene: 
+  settings: {fileID: 999694241}
+--- !u!114 &999694241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b930e79caea734f821d118633cad65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.9290118, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.35794687, a: 1}

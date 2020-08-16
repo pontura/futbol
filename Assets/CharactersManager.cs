@@ -25,16 +25,42 @@ public class CharactersManager : MonoBehaviour
     private void Start()
     {
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
-        foreach(Character character in containerTeam1.GetComponentsInChildren<Character>())
+        limits.x -= 2;
+        foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(1);
+            character.Init(1, this);
         }
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(2);
+            character.Init(2, this);
         }
+        Loop();
+    }
+    void Loop()
+    {
+        AI.states state = team1[0].ai.state;
+        if(state == AI.states.NONE)
+        {
+            SwapIfNeeded(1);
+            SwapIfNeeded(2);
+        }
+        Invoke("Loop", 0.25f);
+    }
+    void SwapIfNeeded(int teamID)
+    {
+        Character to = GetNearest(teamID);
+        Character from = GetNearest(teamID, true);
+        if (to != from)
+            SwapTo(from, to);
+    }
+    public void CharacterCatchBall(Character character)
+    {
+        if (character.isBeingControlled)
+            return;
+        Character characterNear = GetNearest(character.teamID, true);
+        SwapTo(characterNear, character);
     }
     public void AddCharacter(int characterID)
     {
@@ -50,6 +76,7 @@ public class CharactersManager : MonoBehaviour
         playingCharacters.Add(character);
         totalPlayers++;
         signals.Add(character);
+        character.SetControlled(true);
     }
     int GetTeamByPlayer(int characterID)
     {
@@ -57,7 +84,7 @@ public class CharactersManager : MonoBehaviour
         if (characterID == 2 || characterID == 4) teamID = 2;
         return teamID;
     }
-    Character GetNearest(int teamID)
+    Character GetNearest(int teamID, bool hasControl = false)
     {
         List<Character> team;
         if (teamID == 1)
@@ -70,8 +97,19 @@ public class CharactersManager : MonoBehaviour
             float distance = Vector3.Distance(c.transform.position, ball.transform.position);
             if (distanceMin > distance)
             {
-                character = c;
-                distanceMin = distance;
+                if (hasControl)
+                {
+                    if (c.isBeingControlled)
+                    {
+                        character = c;
+                        distanceMin = distance;
+                    }
+                }
+                else
+                {
+                    character = c;
+                    distanceMin = distance;
+                }
             }
         }
         return character;
@@ -98,16 +136,33 @@ public class CharactersManager : MonoBehaviour
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition((int)_x, (int)_y);
     }
-    public void Kick(int characterID)
+    public void ButtonPressed(int buttonID, int characterID)
     {
         Character character = GetPlayer(characterID);
-        character.Kick();
-    }    
+        if (character.ai.state == AI.states.ATTACKING)
+        {
+            switch (buttonID)
+            {
+                case 1: character.Kick(CharacterActions.kickTypes.HARD); break;
+                case 2: character.Kick(CharacterActions.kickTypes.SOFT); break;
+                case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
+            }
+        }
+        else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
+        {
+            switch (buttonID)
+            {
+                case 1: character.Dash(); break;
+                case 2: Swap(characterID); break;
+               // case 3: KickAllTheOthers(characterID); break;
+            }
+        }
+    }   
     public void Swap(int characterID)
     {
         int teamID = GetTeamByPlayer(characterID);
         Character character = GetPlayer(characterID);       
-        Character newCharacter = GetNearest(teamID);
+        Character newCharacter = GetNearest(teamID, false);
         if (newCharacter != character)
             SwapTo(character, newCharacter);
     }
@@ -120,16 +175,18 @@ public class CharactersManager : MonoBehaviour
         from.id = 0;
         playingCharacters.Remove(from);
         playingCharacters.Add(to);
+        from.SetControlled(false);
+        to.SetControlled(true);
     }
-    public void KickAllTheOthers(int characterID)
-    {
-        List<Character> team = team1;
-        if (characterID == 2 || characterID == 4) team = team2;
+    //public void KickAllTheOthers(int characterID)
+    //{
+    //    List<Character> team = team1;
+    //    if (characterID == 2 || characterID == 4) team = team2;
 
-        foreach (Character character in team)
-            if (character.id == 0)
-                character.Kick();
-    }
+    //    foreach (Character character in team)
+    //        if (character.id == 0)
+    //            character.Kick();
+    //}
     Character GetPlayer(int id)
     {
         foreach (Character character in playingCharacters)

@@ -9,5 +9,7 @@ public static class Events
     public static System.Action<string> GotoBackTo = delegate { };
     public static System.Action Back = delegate { };
 
+    public static System.Action<Character> CharacterCatchBall = delegate { };
+    public static System.Action OnBallKicked = delegate { };
 }
    

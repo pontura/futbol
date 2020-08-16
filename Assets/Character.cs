@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    CharactersManager charactersManager;
     Ball ball;
-    float kickForce = 1000;
     [HideInInspector]
     public int teamID;
     public int id;
-    public float speed = 5;
+    float speed;
+    float original_speed = 8;
     [SerializeField] private Transform characterContainer;
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCathcer;
+    [HideInInspector] public bool isBeingControlled;
+    [HideInInspector] public AI ai;
+
     private void Awake()
     {
+        speed = original_speed;
         actions = GetComponent<CharacterActions>();
         ballCathcer = GetComponent<BallCatcher>();
+        ai = GetComponent<AI>();
     }
-    public void Init(int _temaID)
+    public void Init(int _temaID, CharactersManager charactersManager)
     {
+        this.charactersManager = charactersManager;
         this.teamID = _temaID;
         GameObject go = Instantiate(Resources.Load<GameObject>("players/" + teamID) as GameObject);
         go.transform.SetParent(characterContainer);
@@ -32,6 +39,8 @@ public class Character : MonoBehaviour
     {
         this.ball = _ball;
         ballCathcer.Catch(ball);
+        charactersManager.CharacterCatchBall(this);
+        Events.CharacterCatchBall(this);
     }
     public void OnBallTriggerEnter(Ball _ball)
     {
@@ -45,15 +54,23 @@ public class Character : MonoBehaviour
     {
         MoveTo(_x, _y);            
     }
-    public void Kick()
+    public void Kick(CharacterActions.kickTypes kickType)
     {
-        actions.Kick();
+        actions.Kick(kickType);
 
         if (ball != null && ball.GetCharacter() == this)
         {
-            ball.Kick(kickForce);
+            ball.Kick(kickType);
             ballCathcer.LoseBall();
         }
+    }
+    public void Dash()
+    {
+        actions.Dash();
+    }
+    public void ChangeSpeedTo(float value)
+    {
+        speed = original_speed + value;
     }
     void MoveTo(int _x, int _y)
     {
@@ -74,5 +91,9 @@ public class Character : MonoBehaviour
         signal.transform.SetParent(actions.transform);
         signal.transform.localScale = Vector3.one;
         signal.transform.localPosition = Vector3.zero;        
+    }
+    public void SetControlled(bool _isBeingControlled)
+    {
+        this.isBeingControlled = _isBeingControlled;
     }
 }

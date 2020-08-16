@@ -31,7 +31,7 @@ public class BallCatcher : MonoBehaviour
         container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
-        Invoke("Reset", 1);
+        Invoke("Reset", 0.25f);
     }
     private void Reset()
     {
