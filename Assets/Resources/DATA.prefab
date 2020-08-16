@@ -63,3 +63,10 @@ MonoBehaviour:
   colors:
   - {r: 0.9290118, g: 1, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.35794687, a: 1}
+  limits: {x: 40, y: 20}
+  kickHard: 1000
+  kickHardAngle: 300
+  kickSoft: 900
+  kickSoftAngle: 150
+  kickBaloon: 380
+  kickBaloonAngle: 450

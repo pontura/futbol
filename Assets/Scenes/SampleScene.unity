@@ -215,9 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 170217515}
-  kickHard: 1000
-  kickSoft: 500
-  kickBaloon: 1000
 --- !u!54 &170217515
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -666,6 +663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483686594}
+  - component: {fileID: 483686598}
   - component: {fileID: 483686596}
   - component: {fileID: 483686595}
   - component: {fileID: 483686597}
@@ -750,6 +748,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signal_to_add: {fileID: 1086866123758598450, guid: 5b398e6a51a197545a4ccb4a8427c631,
     type: 3}
+--- !u!114 &483686598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483686593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757449135606c6447808b074cd30d1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersManager: {fileID: 483686595}
 --- !u!1001 &545853719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,6 +1788,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: kickBaloon
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: kickBaloonAngle
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: kickSoft
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: kickSoftAngle
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
