@@ -10,7 +10,6 @@ public class Character : MonoBehaviour
     public int teamID;
     public int id;
     public float speed;
-    float original_speed = 6;
     [SerializeField] private Transform characterContainer;
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
@@ -23,7 +22,7 @@ public class Character : MonoBehaviour
     {
         if (GetComponent<GoalKeeper>())
             isGoldKeeper = true;
-        speed = original_speed;
+        speed = Data.Instance.settings.speed;
         actions = GetComponent<CharacterActions>();
         ballCathcer = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
@@ -40,6 +39,7 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
+        speed = Data.Instance.settings.speedWithBall;
         this.ball = _ball;
         ballCathcer.Catch(ball);
         charactersManager.CharacterCatchBall(this);
@@ -51,6 +51,7 @@ public class Character : MonoBehaviour
     }
     public void OnBallTriggerExit(Ball _ball)
     {
+        speed = Data.Instance.settings.speed;
         ball = null;
     }
     public void SetPosition(int _x, int _y)
@@ -73,7 +74,7 @@ public class Character : MonoBehaviour
     }
     public void ChangeSpeedTo(float value)
     {
-        speed = original_speed + value;
+        speed = Data.Instance.settings.speed + value;
     }
     public virtual void MoveTo(int _x, int _y)
     {

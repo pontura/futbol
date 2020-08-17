@@ -81,7 +81,7 @@ public class CharacterActions : MonoBehaviour
             return;
         this.state = states.DASH;
         anim.Play("dash");
-        character.ChangeSpeedTo(10);
+        character.ChangeSpeedTo(Data.Instance.settings.speedDash);
 
         Invoke("Reset", 0.25f);
     }

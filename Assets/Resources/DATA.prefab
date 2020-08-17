@@ -70,3 +70,6 @@ MonoBehaviour:
   kickSoftAngle: 150
   kickBaloon: 380
   kickBaloonAngle: 450
+  speed: 5
+  speedWithBall: 4
+  speedDash: 10

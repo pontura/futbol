@@ -1788,22 +1788,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: kickBaloon
-      value: 380
-      objectReference: {fileID: 0}
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: kickBaloonAngle
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: kickSoft
-      value: 900
-      objectReference: {fileID: 0}
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: kickSoftAngle
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
