@@ -7,7 +7,12 @@ public class AIPosition : MonoBehaviour
     Vector3 originalPosition;
     Vector3 gotoPosition;
     public AI ai;
-    System.Action OnDone;
+    public states state;
+    public enum states
+    {
+        GOING,
+        WAITING
+    }
 
     void Start()
     {
@@ -17,6 +22,8 @@ public class AIPosition : MonoBehaviour
     }
     void Update()
     {
+        if (ai.character.isBeingControlled)
+            this.enabled = false;
         int _h, _v = 0;
         if (Vector3.Distance(transform.position, gotoPosition) > 0.5f)
         {
@@ -29,17 +36,17 @@ public class AIPosition : MonoBehaviour
             else
                 _v = -1;
             ai.character.SetPosition(_h, _v);
-        } else
+        } else if (state == states.GOING)
         {
             ai.character.actions.Idle();
-            this.enabled = false;
-            OnDone();
+            state = states.WAITING;
+            Invoke("StopWaiting", GetRandomBetween(0,40) );
         }
     }
-    public virtual void SetActive(System.Action OnDone)
+    public virtual void SetActive()
     {
         this.enabled = true;
-        this.OnDone = OnDone;
+        state = states.GOING;
         if (ai.state == AI.states.DEFENDING)
             gotoPosition = originalPosition;
         else
@@ -52,5 +59,18 @@ public class AIPosition : MonoBehaviour
 
             gotoPosition.z += ((float)Random.Range(-30, 30) / 10);
         }
+    }
+    void StopWaiting()
+    {
+        state = states.GOING;
+        float _x = GetRandomBetween(-40, 40);
+        float _z = GetRandomBetween(-40, 40);
+        if (transform.position.x + _x > Data.Instance.settings.limits.x || transform.position.x + _x < Data.Instance.settings.limits.x) _x *= -1;
+        if (transform.position.z + _z > Data.Instance.settings.limits.y || transform.position.z + _z < Data.Instance.settings.limits.y) _z *= -1;
+        gotoPosition = transform.position + new Vector3(_x, 0, _z);
+    }
+    float GetRandomBetween(int a, int b)
+    {
+        return (float)Random.Range(a, b) / 10;
     }
 }

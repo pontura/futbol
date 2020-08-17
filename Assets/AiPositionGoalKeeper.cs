@@ -22,7 +22,7 @@ public class AiPositionGoalKeeper : AIPosition
                 goalKeeper.MoveTo(0, -1);
         }
     }
-    public override void SetActive(System.Action OnDone)
+    public override void SetActive()
     {
         this.enabled = true;
     }
