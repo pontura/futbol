@@ -86,7 +86,7 @@ public class Character : MonoBehaviour
                 actions.LookTo(_x);
             actions.Run();
         }
-
+        ballCathcer.SetRotation(_x, _y);
         transform.Translate(Vector3.right * _x * speed*Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
     public void SetSignal(CharacterSignal signal)

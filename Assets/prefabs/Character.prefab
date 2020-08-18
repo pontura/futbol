@@ -88,7 +88,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268174012}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 9ab70dacdfa6593478479cbf09a5d9e3, type: 2}
   m_Animations:
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2c7c4236293f44af1b1c9f4ee99ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   state: 0
 --- !u!136 &2908317565382538890
 CapsuleCollider:
@@ -208,12 +209,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamID: 0
   id: 0
+  speed: 0
   characterContainer: {fileID: 470543275296796378}
   actions: {fileID: 0}
   characterSignal: {fileID: 0}
   ballCathcer: {fileID: 0}
   isBeingControlled: 0
   ai: {fileID: 0}
+  isGoldKeeper: 0
 --- !u!114 &1118783848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d511b5c583418cd4782a8ec279dba418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  state: 0
 --- !u!1 &2908317565457134968
 GameObject:
   m_ObjectHideFlags: 0

@@ -69,7 +69,7 @@ public class CharacterActions : MonoBehaviour
         if (state == states.KICK)
             return;
         this.state = states.KICK;
-        anim.Play("kick_1");
+        anim.Play("kick");
         
         Invoke("Reset", 0.25f);
     //    SetColliders(false);
