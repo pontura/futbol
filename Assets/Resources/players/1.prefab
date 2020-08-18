@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 8221468472088972034}
   - component: {fileID: 8221468472088972037}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 8221468472216841119}
   - component: {fileID: 8221468472216841118}
   m_Layer: 0
-  m_Name: color_3
+  m_Name: color_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 8221468472254323067}
   - component: {fileID: 8221468472254323066}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 8221468472334599987}
   - component: {fileID: 8221468472334599986}
   m_Layer: 0
-  m_Name: color_3
+  m_Name: color_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1866,7 +1866,7 @@ GameObject:
   - component: {fileID: 8221468472724077626}
   - component: {fileID: 8221468472724077629}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2224,7 +2224,7 @@ GameObject:
   - component: {fileID: 8221468472919298364}
   - component: {fileID: 8221468472919298367}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2567,7 +2567,7 @@ GameObject:
   - component: {fileID: 8221468473194284830}
   - component: {fileID: 8221468473194284817}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2648,7 +2648,7 @@ GameObject:
   - component: {fileID: 8221468473326897502}
   - component: {fileID: 8221468473326897489}
   m_Layer: 0
-  m_Name: color_4
+  m_Name: color_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2844,7 +2844,7 @@ GameObject:
   - component: {fileID: 8221468473453606763}
   - component: {fileID: 8221468473453606762}
   m_Layer: 0
-  m_Name: Punga
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 8221468473574111228}
   - component: {fileID: 8221468473574111231}
   m_Layer: 0
-  m_Name: color_3
+  m_Name: color_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
