@@ -10,6 +10,7 @@ public class Settings : MonoBehaviour
     public class TeamSettings
     {
         public string name;
+        public int designID;
         public Color color;
         public Color clothColorA;
         public Color clothColorB;

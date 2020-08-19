@@ -13,7 +13,9 @@ public class CustomizableDesign : MonoBehaviour
         Character character = GetComponentInParent<Character>();
         foreach (GameObject go in designs)
             go.SetActive(false);
-        designs[character.teamID - 1].SetActive(true);
+        Settings.TeamSettings teamSettings = Data.Instance.settings.teamSettings[character.teamID - 1];
+        if(teamSettings.designID>0)
+            designs[teamSettings.designID-1].SetActive(true);
 
     }
 
