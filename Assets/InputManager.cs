@@ -13,7 +13,8 @@ public class InputManager : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
         //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
         //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
         //if (Input.GetButtonDown("Kick3") && !charactersManager.player3) charactersManager.AddCharacter(3);

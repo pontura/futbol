@@ -42,7 +42,9 @@ public class BallCatcher : MonoBehaviour
         if (_x == 0 && _y == 0)
             return;
         float rot = 0;
-        if (_x == 1 && _y == 0)
+        if (_x == 1 && _y == 1)
+            rot = 0 + 45;
+        else if (_x == 1 && _y == 0)
             rot = 90;
         else if (_x == 1 && _y == -1)
             rot = 90 + 45;

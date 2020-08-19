@@ -61,20 +61,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamSettings:
-  - name: Team1
-    designID: 1
+  - name: Sportivo Punga
+    designID: 3
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 1, g: 0, b: 0, a: 1}
     clothColorB: {r: 1, g: 1, b: 0, a: 1}
-    clothColorC: {r: 0, g: 0.6392157, b: 0.30980393, a: 1}
+    clothColorC: {r: 0, g: 0, b: 0, a: 1}
     clothColorD: {r: 1, g: 0, b: 0, a: 1}
-  - name: Team2
+  - name: Caca Juniors
     designID: 2
     color: {r: 0, g: 0.121568635, b: 0.6392157, a: 1}
-    clothColorA: {r: 0, g: 0.119796254, b: 0.6392157, a: 1}
-    clothColorB: {r: 1, g: 0.9584457, b: 0, a: 1}
-    clothColorC: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-    clothColorD: {r: 0, g: 0, b: 0.74509805, a: 1}
+    clothColorA: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
+    clothColorB: {r: 1, g: 1, b: 0, a: 1}
+    clothColorC: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
+    clothColorD: {r: 0, g: 0, b: 0, a: 1}
   limits: {x: 40, y: 20}
   kickHard: 1000
   kickHardAngle: 300
@@ -83,5 +83,6 @@ MonoBehaviour:
   kickBaloon: 380
   kickBaloonAngle: 450
   speed: 5
+  goalKeeperSpeed: 2
   speedWithBall: 4
   speedDash: 10

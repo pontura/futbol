@@ -38,16 +38,26 @@ public class CharacterActions : MonoBehaviour
         scale.x *= lookTo;
         transform.localScale = scale;
     }
+    public void LookAtBall()
+    {
+        if (Game.Instance.ball.transform.position.x > transform.position.x)
+            LookTo(1);
+        else
+            LookTo(-1);
+    }
     public void Idle()
     {
         if (state == states.IDLE || state == states.KICK)
             return;
         this.state = states.IDLE;
-       anim.Play("idle");
+        anim.Play("idle");
+        LookAtBall();
     }
     int lookTo;
     public virtual void LookTo(int v )
     {
+        if (character.isGoldKeeper)
+            return;
         if (lookTo != v)
         {
             lookTo = v;

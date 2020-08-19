@@ -30,6 +30,7 @@ public class Settings : MonoBehaviour
     public float kickBaloonAngle;
 
     public float speed;
+    public float goalKeeperSpeed;
     public float speedWithBall;
     public float speedDash;
 }

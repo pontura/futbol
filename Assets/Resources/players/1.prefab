@@ -928,6 +928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8221468472041096232}
+  - component: {fileID: 1037147621058949675}
   m_Layer: 0
   m_Name: cara
   m_TagString: Untagged
@@ -951,6 +952,20 @@ Transform:
   m_Father: {fileID: 8221468471637580890}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037147621058949675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221468472041096233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b4792e612c89040b7dc7d813770775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idle: {fileID: 8221468471851296317}
+  angry: {fileID: 8221468472966445068}
 --- !u!1 &8221468472088972035
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,10 +16,8 @@ public class AI : MonoBehaviour
         NONE
     }
     void Start()
-    {
-       
+    {       
         character = GetComponent<Character>();
-       // Loop();
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
         aiPosition = GetComponent<AIPosition>();
@@ -29,15 +27,6 @@ public class AI : MonoBehaviour
         Events.CharacterCatchBall -= CharacterCatchBall;
         Events.OnBallKicked -= OnBallKicked;
     }
-    //void Loop()
-    //{
-    //    Invoke("Loop", 1);
-    //    CheckState();
-    //}
-    //void CheckState()
-    //{
-
-    //}
     void OnBallKicked()
     {
         state = states.NONE;
@@ -54,11 +43,12 @@ public class AI : MonoBehaviour
         else
             aiPosition.SetActive();
     }
-    //void OnPosition()
-    //{
-    //    ResetAll();
-    //}
-    void ResetAll()
+    public void ResetPosition()
+    {
+        ResetAll();
+        aiPosition.ResetPosition();
+    }
+    public void ResetAll()
     {
         aiPosition.enabled = false;
     }

@@ -22,6 +22,14 @@ public class CharactersManager : MonoBehaviour
     int team_2_id = 0;
     public CharactersSignals signals;
 
+    private void Awake()
+    {
+        Events.OnGoal += OnGoal;
+    }
+    private void OnDestroy()
+    {
+        Events.OnGoal -= OnGoal;
+    }
     private void Start()
     {
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
@@ -37,6 +45,20 @@ public class CharactersManager : MonoBehaviour
             character.Init(2, this);
         }
         Loop();
+    }
+    public void ResetAll()
+    {
+        foreach (Character c in team1)
+        {
+            c.ai.ResetPosition();
+            c.actions.LookAtBall();
+           
+        }
+        foreach (Character c in team2)
+        {
+            c.ai.ResetPosition();
+            c.actions.LookAtBall();
+        }
     }
     void Loop()
     {
@@ -142,7 +164,6 @@ public class CharactersManager : MonoBehaviour
     }
     public void GoalKeeperLoseBall(int characterID)
     {
-        print("GoalKeeperLoseBall");
         Swap(characterID);
     }
     public void ButtonPressed(int buttonID, int characterID)
@@ -191,15 +212,26 @@ public class CharactersManager : MonoBehaviour
         from.SetControlled(false);
         to.SetControlled(true);
     }
-    //public void KickAllTheOthers(int characterID)
-    //{
-    //    List<Character> team = team1;
-    //    if (characterID == 2 || characterID == 4) team = team2;
+    public void OnGoal(int teamID)
+    {
+        List<Character> team_win;
+        List<Character> team_lose;
+        if (teamID == 1)
+        {
+            team_win = team1;
+            team_lose = team2;
+        }
+        else
+        {
+            team_win = team2;
+            team_lose = team1;
+        }
 
-    //    foreach (Character character in team)
-    //        if (character.id == 0)
-    //            character.Kick();
-    //}
+        foreach (Character character in team_win)
+            character.OnGoal(true);
+        foreach (Character character in team_lose)
+            character.OnGoal(false);
+    }
     Character GetPlayer(int id)
     {
         foreach (Character character in playingCharacters)

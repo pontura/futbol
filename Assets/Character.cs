@@ -22,7 +22,10 @@ public class Character : MonoBehaviour
     {
         if (GetComponent<GoalKeeper>())
             isGoldKeeper = true;
-        speed = Data.Instance.settings.speed;
+        if (isGoldKeeper)
+            speed = Data.Instance.settings.goalKeeperSpeed;
+        else
+            speed = Data.Instance.settings.speed;
         actions = GetComponent<CharacterActions>();
         ballCathcer = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
@@ -99,5 +102,10 @@ public class Character : MonoBehaviour
     public void SetControlled(bool _isBeingControlled)
     {
         this.isBeingControlled = _isBeingControlled;
+    }
+    public void OnGoal(bool win)
+    {
+        actions.Idle();
+        ai.ResetAll();
     }
 }

@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     Transform container;
     public Rigidbody rb;
     Character character;
-
+    public Character characterThatKicked;
     Vector3 limits;
 
     void Start()
@@ -15,13 +15,36 @@ public class Ball : MonoBehaviour
         limits = Data.Instance.settings.limits;
         container = transform.parent;
         this.rb = GetComponent<Rigidbody>();
+        Reset();
+    }
+    public void KickIfOnGoal()
+    {
+        if (character != null)
+            Kick(CharacterActions.kickTypes.HARD);
+    }
+    public void Reset()
+    {
+     
+        rb.velocity = Vector3.zero;
+        transform.position = new Vector3(0, 3, 0);
+        FreeBall();
     }
     private void Update()
     {
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
+
         Vector3 velocity = rb.velocity;
+        if(transform.position.y<2.6f && transform.position.z< 4.5f && transform.position.z > -4.5f)
+        {
+            if (transform.position.x <= -limits.x / 2)
+                Game.Instance.Goal(1, characterThatKicked);
+            else if (transform.position.x >= limits.x / 2)
+                Game.Instance.Goal(2, characterThatKicked);
+        } else
         if (transform.position.x >= limits.x/2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
             velocity.x *= -1;
-        if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
+        else if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
             velocity.z *= -1;
         rb.velocity = velocity;
         Vector3 pos = transform.position;
@@ -39,6 +62,10 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+      
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
+
         Character lastCharacterWithBall = null;
         if (character != null)
             lastCharacterWithBall = character;
@@ -55,7 +82,7 @@ public class Ball : MonoBehaviour
 
                     lastCharacterWithBall.ballCathcer.LoseBall();
                 }
-
+                characterThatKicked = character;
                 character.OnCatch(this);
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -93,6 +120,8 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
         if (other.tag == "Player")
         {
             Character character = other.GetComponent<Character>();
@@ -101,6 +130,8 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
         if (other.tag == "Player")
         {
             Character character = other.GetComponent<Character>();

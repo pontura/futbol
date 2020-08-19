@@ -73,4 +73,8 @@ public class AIPosition : MonoBehaviour
     {
         return (float)Random.Range(a, b) / 10;
     }
+    public void ResetPosition()
+    {
+        transform.position = originalPosition;
+    }
 }
