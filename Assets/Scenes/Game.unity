@@ -1836,6 +1836,10 @@ PrefabInstance:
       propertyPath: teamSettings.Array.data[1].clothColorA.b
       value: 0.57254905
       objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[0].designID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
