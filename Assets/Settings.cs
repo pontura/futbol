@@ -1,10 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Settings : MonoBehaviour
 {
-    public Color[] colors;
+    public TeamSettings[] teamSettings;
+    [Serializable]
+    public class TeamSettings
+    {
+        public string name;
+        public Color color;
+        public Color clothColorA;
+        public Color clothColorB;
+        public Color clothColorC;
+        public Color clothColorD;
+    }
+
     public Vector2 limits = new Vector2(40, 20);
 
     public float kickHard;

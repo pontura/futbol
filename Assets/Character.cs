@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
     {
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
-        GameObject go = Instantiate(Resources.Load<GameObject>("players/" + teamID) as GameObject);
+        GameObject go = Instantiate(Resources.Load<GameObject>("players/" + Random.Range(1,4)) as GameObject);
         go.transform.SetParent(characterContainer);
         go.transform.localEulerAngles = go.transform.localPosition = Vector3.zero;
         go.transform.localScale = Vector3.one;
