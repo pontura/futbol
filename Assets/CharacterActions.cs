@@ -22,7 +22,8 @@ public class CharacterActions : MonoBehaviour
     {
         SOFT,
         HARD,
-        BALOON
+        BALOON,
+        HEAD
     }
     private void Start()
     {
@@ -79,10 +80,12 @@ public class CharacterActions : MonoBehaviour
         if (state == states.KICK)
             return;
         this.state = states.KICK;
-        anim.Play("kick");
+        if (kickType == kickTypes.HEAD)
+            anim.Play("head");
+        else
+            anim.Play("kick");
         
         Invoke("Reset", 0.25f);
-    //    SetColliders(false);
     }
     public void Dash()
     {

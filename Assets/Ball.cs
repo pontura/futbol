@@ -87,6 +87,12 @@ public class Ball : MonoBehaviour
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }
+            else
+            {
+                transform.localEulerAngles = character.ballCathcer.container.transform.localEulerAngles;
+                character.actions.Kick(CharacterActions.kickTypes.HEAD);
+                Kick(CharacterActions.kickTypes.HEAD);                
+            }
         }
     }
     void FreeBall()
@@ -113,29 +119,13 @@ public class Ball : MonoBehaviour
                 dir *= Data.Instance.settings.kickBaloon;
                 dir += Vector3.up * Data.Instance.settings.kickBaloonAngle;
                 break;
+            case CharacterActions.kickTypes.HEAD:
+                dir *= Data.Instance.settings.kickBaloon;
+                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle;
+                break;
         }
-       
+        rb.velocity = Vector3.zero;
         rb.AddForce(dir);
         Events.OnBallKicked();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (Game.Instance.state != Game.states.PLAYING)
-            return;
-        if (other.tag == "Player")
-        {
-            Character character = other.GetComponent<Character>();
-            character.OnBallTriggerEnter(this);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (Game.Instance.state != Game.states.PLAYING)
-            return;
-        if (other.tag == "Player")
-        {
-            Character character = other.GetComponent<Character>();
-            character.OnBallTriggerExit(this);
-        }
     }
 }

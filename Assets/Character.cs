@@ -48,15 +48,6 @@ public class Character : MonoBehaviour
         charactersManager.CharacterCatchBall(this);
         Events.CharacterCatchBall(this);
     }
-    public void OnBallTriggerEnter(Ball _ball)
-    {
-        ball = _ball;
-    }
-    public void OnBallTriggerExit(Ball _ball)
-    {
-        speed = Data.Instance.settings.speed;
-        ball = null;
-    }
     public void SetPosition(int _x, int _y)
     {
         MoveTo(_x, _y);            
