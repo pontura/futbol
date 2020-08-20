@@ -30,15 +30,15 @@ public class Character : MonoBehaviour
         ballCathcer = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
     }
-    public void Init(int _temaID, CharactersManager charactersManager)
+    public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
-        GameObject go = Instantiate(Resources.Load<GameObject>("players/" + Random.Range(1,4)) as GameObject);
-        go.transform.SetParent(characterContainer);
-        go.transform.localEulerAngles = go.transform.localPosition = Vector3.zero;
-        go.transform.localScale = Vector3.one;
-        actions.Init(go, teamID);
+        GameObject asset = Instantiate(asset_to_instantiate);
+        asset.transform.SetParent(characterContainer);
+        asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
+        asset.transform.localScale = Vector3.one;
+        actions.Init(asset, teamID);
     }
     public void OnCatch(Ball _ball)
     {

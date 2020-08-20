@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharactersManager : MonoBehaviour
 {
+    public List<GameObject> all;
+
     public GameObject boardFloor;
     Vector2 limits;
     public Ball ball;
@@ -37,12 +39,12 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(1, this);
+            character.Init(1, this, all[Random.Range(0, all.Count)] );
         }
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(2, this);
+            character.Init(2, this, all[Random.Range(0, all.Count)]);
         }
         Loop();
     }
