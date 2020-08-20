@@ -5,6 +5,7 @@ using System;
 
 public class Settings : MonoBehaviour
 {
+    public int totalTime;
     public TeamSettings[] teamSettings;
     [Serializable]
     public class TeamSettings
@@ -19,6 +20,7 @@ public class Settings : MonoBehaviour
     }
 
     public Vector2 limits = new Vector2(40, 20);
+    public float forceBarSpeed;
 
     public float kickHard;
     public float kickHardAngle;
@@ -33,4 +35,5 @@ public class Settings : MonoBehaviour
     public float goalKeeperSpeed;
     public float speedWithBall;
     public float speedDash;
+
 }

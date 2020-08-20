@@ -34,6 +34,22 @@ public class Game : MonoBehaviour
     }
     public void Goal(int teamID, Character character)
     {
+        List<Character> winner;
+        List<Character> loser;
+        if (teamID == 1)
+        {
+            winner = charactersManager.team1;
+            loser = charactersManager.team2;
+        }
+        else
+        {
+            winner = charactersManager.team2;
+            loser = charactersManager.team1;
+        }
+        
+        foreach (Character ch in winner)
+            Events.SetDialogue(ch, Data.Instance.textsData.GetRandomDialogue("goal", ch.characterID));
+
 
         ball.KickIfOnGoal();
         state = states.GOAL;
@@ -44,7 +60,8 @@ public class Game : MonoBehaviour
     }
     IEnumerator GoalC()
     {
-        yield return new WaitForSeconds(2);
+      
+        yield return new WaitForSeconds(4);
         ball.Reset();   
         charactersManager.ResetAll();
         cameraInGame.SetTargetTo(ball.transform);

@@ -6,6 +6,7 @@ public class CharacterActions : MonoBehaviour
 {
     Animator anim;
     public Character character;
+    
 
     public states state;
     Collider[] colliders;

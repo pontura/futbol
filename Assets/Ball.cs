@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public UIForce uIForce;
     Transform container;
     public Rigidbody rb;
     Character character;
@@ -102,26 +103,42 @@ public class Ball : MonoBehaviour
     }
     public void Kick(CharacterActions.kickTypes kickType)
     {
+        float force = 1;
+        if (kickType != CharacterActions.kickTypes.HEAD)
+        {
+            force= uIForce.GetForce();
+            if (force <= 0 && character != null)
+            {
+                if (character.transform.localScale.x == -1)
+                    character.MoveTo(1, 0);
+                else
+                    character.MoveTo(-1, 0);
+                force = 0.4f;
+            } else
+                force += 1;
+        }
+
         FreeBall();
         character = null;
         Vector3 dir = transform.forward;
+       
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
-                dir *= Data.Instance.settings.kickHard;
-                dir += Vector3.up * Data.Instance.settings.kickHardAngle;
+                dir *= Data.Instance.settings.kickHard* force;
+                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.SOFT:
-                dir *= Data.Instance.settings.kickSoft;
-                dir += Vector3.up * Data.Instance.settings.kickSoftAngle;
+                dir *= Data.Instance.settings.kickSoft * force;
+                dir += Vector3.up * Data.Instance.settings.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
-                dir *= Data.Instance.settings.kickBaloon;
-                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle;
+                dir *= Data.Instance.settings.kickBaloon * force;
+                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
-                dir *= Data.Instance.settings.kickBaloon;
-                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle;
+                dir *= Data.Instance.settings.kickBaloon * force;
+                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;

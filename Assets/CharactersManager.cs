@@ -39,12 +39,14 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(1, this, all[Random.Range(0, all.Count)] );
+            int id = Random.Range(0, all.Count);
+            character.Init(1, this, all[id] );
         }
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(2, this, all[Random.Range(0, all.Count)]);
+            int id = Random.Range(0, all.Count);
+            character.Init(2, this, all[id]);
         }
         Loop();
     }
@@ -170,6 +172,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void ButtonPressed(int buttonID, int characterID)
     {
+        print("buttonID " + buttonID);
         Character character = GetPlayer(characterID);
         if (character.ai.state == AI.states.ATTACKING)
         {

@@ -29,10 +29,10 @@ public class InputManager : MonoBehaviour
             if (Input.GetButtonDown("Button1_" + id))
                 charactersManager.ButtonPressed(1, id);
 
-            if (Input.GetButtonDown("Button2_" + id))
+            else if (Input.GetButtonDown("Button2_" + id))
                 charactersManager.ButtonPressed(2, id);
 
-            if (Input.GetButtonDown("Button3_" + id))
+            else if (Input.GetButtonDown("Button3_" + id))
                 charactersManager.ButtonPressed(3, id);
             
         }

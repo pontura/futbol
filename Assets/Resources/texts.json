@@ -1,0 +1,82 @@
+{
+	"dialogs":
+	{
+		"random":
+		[
+			"Mano!",
+			"No doy más...",
+			"Para donde pateabamos?",
+			"Me fumaría uno...",
+			"Referiii, cobrá algo!",
+			"Afuera!",
+			"Pasaaá"
+		],
+		"goal": 
+		[
+			"GOOOL!",
+			"GOL!"
+		],
+		"full": 
+		[
+			"FAUU!",
+			"FUUUL CHE!"
+		]
+	},
+	"characters":
+	[
+		{
+			"id": 1,
+			"avatarName": "Punga",
+			"dialogs": {
+				"random": [ "Parate de guate" ],
+				"goal":  [ "VAMOOO", "GAAAAL" ],
+				"full":  [ "EEE!" ]
+			}
+		},
+		{
+			"id": 2,
+			"avatarName": "Chucky",
+			"dialogs": {
+				"random": [ "Muñeccoo" ],
+				"goal":  [ "see", "goooo!" ],
+				"full":  [ "eh full!" ]
+			}
+		},
+		{
+			"id": 3,
+			"avatarName": "Kim jong",
+			"dialogs": {
+				"random": [ "Atención todoss" ],
+				"goal":  [ "see", "goooo!" ],
+				"full":  [ "eh full!" ]
+			}
+		},
+		{
+			"id": 4,
+			"avatarName": "Frutillita",
+			"dialogs": {
+				"random": [ "Más Amor" ],
+				"goal":  [ "see", "goooo!" ],
+				"full":  [ "eh full!" ]
+			}
+		},
+		{
+			"id": 5,
+			"avatarName": "Oompa loompa",
+			"dialogs": {
+				"random": [ "Nos vemo" ],
+				"goal":  [ "see", "goooo!" ],
+				"full":  [ "eh full!" ]
+			}
+		},
+		{
+			"id": 6,
+			"avatarName": "Ruso",
+			"dialogs": {
+				"random": [ "русский язык", "язы крусский" ],
+				"goal":  [ "see", "goooo!" ],
+				"full":  [ "eh full!" ]
+			}
+		}
+	]
+}

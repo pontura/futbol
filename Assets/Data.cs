@@ -13,22 +13,12 @@ public class Data : MonoBehaviour
     public string newScene;
     private float time_ViewingMap = 7.5f;
     public Settings settings;
+    public TextsData textsData;
 
     public static Data Instance
     {
         get
         {
-            if (mInstance == null)
-            {
-                mInstance = FindObjectOfType<Data>();
-
-                if (mInstance == null)
-                {
-                    GameObject go = Instantiate(Resources.Load<GameObject>(PREFAB_PATH)) as GameObject;
-                    mInstance = go.GetComponent<Data>();
-                    go.transform.localPosition = new Vector3(0, 0, 0);
-                }
-            }
             return mInstance;
         }
     }

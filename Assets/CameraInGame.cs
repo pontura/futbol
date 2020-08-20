@@ -7,6 +7,7 @@ public class CameraInGame : MonoBehaviour
     public Transform target;
     public Vector3 offset;
     public float offset_lookAt;
+    float speed = 0.035f;
 
     void Start()
     {
@@ -20,16 +21,17 @@ public class CameraInGame : MonoBehaviour
     {
         Vector3 pos = transform.position;
         pos.x = target.position.x * 15 / 20;
-        transform.position = Vector3.Lerp(transform.position, pos, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, pos, speed);
         transform.localEulerAngles = new Vector3(20, target.position.x * 15 / 20, target.position.x * 5 / 20);
-        //Vector3 ballPos = Vector3.Lerp(transform.position, target.transform.position, 0.1f);
-        //ballPos.x /= offset_lookAt;
-        //ballPos.y = offset.y;
-        //ballPos.z = offset.z;
-        //transform.LookAt(ballPos);
     }
     public void OnGoal(Character character)
     {
+        StartCoroutine(GoalCoroutine(character));
+        
+    }
+    IEnumerator GoalCoroutine(Character character)
+    {
+        yield return new WaitForSeconds(1);
         SetTargetTo(character.transform);
     }
 }

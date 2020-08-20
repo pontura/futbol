@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
-{
-   
+{   
     CharactersManager charactersManager;
     Ball ball;
-    public int teamID;
-    public int id;
+   
+
+    public int id; //for player Input;
+    public int characterID; //for data;
+
     public float speed;
     [SerializeField] private Transform characterContainer;
+    [HideInInspector] public int teamID;
+    [HideInInspector] public TextsData.CharactersData data;    
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCathcer;
@@ -18,20 +22,26 @@ public class Character : MonoBehaviour
     [HideInInspector] public AI ai;
     [HideInInspector] public bool isGoldKeeper;
 
-    private void Awake()
+    void Awake()
     {
         if (GetComponent<GoalKeeper>())
             isGoldKeeper = true;
-        if (isGoldKeeper)
-            speed = Data.Instance.settings.goalKeeperSpeed;
-        else
-            speed = Data.Instance.settings.speed;
         actions = GetComponent<CharacterActions>();
         ballCathcer = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
     }
+    void Start()
+    {
+        if (isGoldKeeper)
+            speed = Data.Instance.settings.goalKeeperSpeed;
+        else
+            speed = Data.Instance.settings.speed;        
+    }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
+        this.characterID = int.Parse (asset_to_instantiate.name); //con el nombre sacamos el id:
+        print(characterID + "   "  + asset_to_instantiate.name);
+        data = Data.Instance.textsData.GetCharactersData(characterID);
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
         GameObject asset = Instantiate(asset_to_instantiate);
