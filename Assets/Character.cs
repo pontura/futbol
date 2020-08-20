@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
+        actions.Reset();
         speed = Data.Instance.settings.speedWithBall;
         this.ball = _ball;
         ballCathcer.Catch(ball);

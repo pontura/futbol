@@ -105,9 +105,10 @@ public class CharacterActions : MonoBehaviour
     //}
     public void Reset()
     {
+        CancelInvoke();
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
-        Idle();
+        
        // SetColliders(true);
     }
    
