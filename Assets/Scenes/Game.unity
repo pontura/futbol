@@ -709,6 +709,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304a3384460b90244a491ae747a56f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  all:
+  - {fileID: 8221468473453606760, guid: 2b553adb2ac15884480dee18c28d85db, type: 3}
+  - {fileID: 8281527998283743665, guid: a8f7a7cd833471a4a9ddb857ac64cb67, type: 3}
+  - {fileID: 4367421719257010718, guid: 90fe52d1f82ab9245899bc87a7a45606, type: 3}
+  - {fileID: 226667898465156278, guid: a4b299ff3821a4544bd7fa78f28c3dcf, type: 3}
+  - {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
+  - {fileID: 1833487088215971624, guid: c861c01bd1b69cb449090a5311f5763e, type: 3}
   boardFloor: {fileID: 413866836}
   ball: {fileID: 170217514}
   player1: 0

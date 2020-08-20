@@ -98,17 +98,17 @@ public class CharacterActions : MonoBehaviour
 
         Invoke("Reset", 0.25f);
     }
-    void SetColliders(bool isOn)
-    {
-        foreach (Collider c in colliders)
-            c.enabled = isOn;
-    }
-    private void Reset()
+    //void SetColliders(bool isOn)
+    //{
+    //    foreach (Collider c in colliders)
+    //        c.enabled = isOn;
+    //}
+    public void Reset()
     {
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
         Idle();
-        SetColliders(true);
+       // SetColliders(true);
     }
    
 }

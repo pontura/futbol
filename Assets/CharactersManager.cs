@@ -213,6 +213,8 @@ public class CharactersManager : MonoBehaviour
         playingCharacters.Add(to);
         from.SetControlled(false);
         to.SetControlled(true);
+        to.actions.Reset();
+        from.actions.Reset();
     }
     public void OnGoal(int teamID)
     {
