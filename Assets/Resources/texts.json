@@ -77,6 +77,15 @@
 				"goal":  [ "see", "goooo!" ],
 				"full":  [ "eh full!" ]
 			}
+		},
+		{
+			"id": 7,
+			"avatarName": "Nisman",
+			"dialogs": {
+				"random": [ "A mi me mataron" ],
+				"goal":  [ "Gol! Yegua!" ],
+				"full":  [ "Mano!" ]
+			}
 		}
 	]
 }
