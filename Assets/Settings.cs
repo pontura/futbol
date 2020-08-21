@@ -33,6 +33,7 @@ public class Settings : MonoBehaviour
 
     public float speed;
     public float goalKeeperSpeed;
+    public float referiSpeed;
     public float speedWithBall;
     public float speedDash;
 

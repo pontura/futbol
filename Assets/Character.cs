@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
-{   
-    CharactersManager charactersManager;
-    Ball ball;
-   
+{
+    
 
     public int id; //for player Input;
     public int characterID; //for data;
 
     public float speed;
-    [SerializeField] private Transform characterContainer;
+    public Transform characterContainer;
+
+    [HideInInspector] public Ball ball;
+    [HideInInspector] public CharactersManager charactersManager;
     [HideInInspector] public int teamID;
     [HideInInspector] public TextsData.CharactersData data;    
     [HideInInspector] public CharacterActions actions;
@@ -30,15 +31,12 @@ public class Character : MonoBehaviour
         ballCathcer = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
     }
-    void Start()
+    public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
         if (isGoldKeeper)
             speed = Data.Instance.settings.goalKeeperSpeed;
         else
-            speed = Data.Instance.settings.speed;        
-    }
-    public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
-    {
+            speed = Data.Instance.settings.speed;
         this.characterID = int.Parse (asset_to_instantiate.name); //con el nombre sacamos el id:
         print(characterID + "   "  + asset_to_instantiate.name);
         data = Data.Instance.textsData.GetCharactersData(characterID);
@@ -91,7 +89,8 @@ public class Character : MonoBehaviour
                 actions.LookTo(_x);
             actions.Run();
         }
-        ballCathcer.SetRotation(_x, _y);
+        if(ballCathcer != null)
+            ballCathcer.SetRotation(_x, _y);
         transform.Translate(Vector3.right * _x * speed*Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
     public void SetSignal(CharacterSignal signal)

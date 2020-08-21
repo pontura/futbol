@@ -77,9 +77,10 @@ public class CharacterActions : MonoBehaviour
     }
     public void Kick(kickTypes kickType)
     {
-        CancelInvoke();
+       
         if (state == states.KICK)
             return;
+        CancelInvoke();
         this.state = states.KICK;
         if (kickType == kickTypes.HEAD)
             anim.Play("head");
@@ -90,9 +91,10 @@ public class CharacterActions : MonoBehaviour
     }
     public void Dash()
     {
-        CancelInvoke();
+        
         if (state == states.DASH)
             return;
+        CancelInvoke();
         this.state = states.DASH;
         anim.Play("dash");
         character.ChangeSpeedTo(Data.Instance.settings.speedDash);

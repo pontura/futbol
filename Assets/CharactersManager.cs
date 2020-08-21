@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharactersManager : MonoBehaviour
 {
     public List<GameObject> all;
-
+    public GameObject referi_to_instantiate;
+    public Referi referi;
     public GameObject boardFloor;
     Vector2 limits;
     public Ball ball;
@@ -34,6 +35,7 @@ public class CharactersManager : MonoBehaviour
     }
     private void Start()
     {
+        referi.InitReferi(this, referi_to_instantiate);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())

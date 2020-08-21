@@ -88,6 +88,7 @@ MonoBehaviour:
   kickBaloonAngle: 450
   speed: 5
   goalKeeperSpeed: 2
+  referiSpeed: 3
   speedWithBall: 4
   speedDash: 10
 --- !u!114 &864794640

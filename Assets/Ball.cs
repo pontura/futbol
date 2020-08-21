@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     public UIForce uIForce;
     Transform container;
     public Rigidbody rb;
-    Character character;
+    public Character character;
     public Character characterThatKicked;
     Vector3 limits;
 
@@ -70,8 +70,12 @@ public class Ball : MonoBehaviour
         Character lastCharacterWithBall = null;
         if (character != null)
             lastCharacterWithBall = character;
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Referi")
+        {
+            Character character = collision.gameObject.GetComponent<Character>();
+            character.actions.Kick(CharacterActions.kickTypes.HEAD);
+        }
+         else   if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
             if (transform.localPosition.y < 1f && character.ballCathcer.state == BallCatcher.states.IDLE)
