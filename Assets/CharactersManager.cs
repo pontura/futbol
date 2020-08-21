@@ -84,6 +84,8 @@ public class CharactersManager : MonoBehaviour
     {
         Character to = GetNearest(teamID);
         Character from = GetNearest(teamID, true);
+        if (to == null || from == null)
+            return;
         if (to != from && to.id != from.id)
             SwapTo(from, to);
     }

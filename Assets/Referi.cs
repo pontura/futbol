@@ -34,10 +34,12 @@ public class Referi : Character
     }    
     void Update()
     {
+        if (ball.character != null)
+            return;
         if (Game.Instance.state != Game.states.GOAL)
         {
             _z = 0;
-            if (ball.character != null &&  Mathf.Abs(transform.position.x - ball.transform.position.x) < 2)
+            if (Mathf.Abs(transform.position.x - ball.transform.position.x) < 2)
                 actions.Idle();
             else if (transform.position.x < ball.transform.position.x)
                 MoveTo(1, _z);

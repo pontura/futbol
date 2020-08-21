@@ -324,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -714,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.2
+      value: 5.73
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -3554,16 +3554,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 483686594}
     m_Modifications:
-    - target: {fileID: 1190645660885416538, guid: 995fab1f93e905a479b0de8891d5a7e4,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1207793120651966039, guid: 995fab1f93e905a479b0de8891d5a7e4,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1983475939388143691, guid: 995fab1f93e905a479b0de8891d5a7e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3617,16 +3607,6 @@ PrefabInstance:
     - target: {fileID: 1983475939388143691, guid: 995fab1f93e905a479b0de8891d5a7e4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4418431689885724146, guid: 995fab1f93e905a479b0de8891d5a7e4,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5494368291774307819, guid: 995fab1f93e905a479b0de8891d5a7e4,
-        type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7239933154404133154, guid: 995fab1f93e905a479b0de8891d5a7e4,
@@ -3718,7 +3698,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
