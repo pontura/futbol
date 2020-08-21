@@ -209,7 +209,6 @@ public class CharactersManager : MonoBehaviour
     }
     public void SwapTo(Character from, Character to)
     {
-        print("swap to from " + from.id + "    to: " + to.id);
         if (to == null) return;
         if (from == null) return;
         int teamID = from.teamID;

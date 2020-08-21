@@ -94,7 +94,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
-                transform.localEulerAngles = character.ballCathcer.container.transform.localEulerAngles;
+                transform.eulerAngles = character.ballCathcer.container.transform.eulerAngles;
                 character.actions.Kick(CharacterActions.kickTypes.HEAD);
                 Kick(CharacterActions.kickTypes.HEAD);                
             }
@@ -110,7 +110,7 @@ public class Ball : MonoBehaviour
         float force = 1;
         if (kickType != CharacterActions.kickTypes.HEAD)
         {
-            force= uIForce.GetForce();
+            force = uIForce.GetForce();
             if (force <= 0 && character != null)
             {
                 if (character.transform.localScale.x == -1)

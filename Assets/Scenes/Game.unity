@@ -946,6 +946,7 @@ MonoBehaviour:
   - {fileID: 226667898465156278, guid: a4b299ff3821a4544bd7fa78f28c3dcf, type: 3}
   - {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
   - {fileID: 1833487088215971624, guid: c861c01bd1b69cb449090a5311f5763e, type: 3}
+  - {fileID: 2674879857765329069, guid: 2604c087dee734d41bf6d2b880ce7f41, type: 3}
   referi_to_instantiate: {fileID: 1833487088215971624, guid: 9952d7da2a1a1564d8ff9d1673ded1ae,
     type: 3}
   referi: {fileID: 3160418783750167796}
