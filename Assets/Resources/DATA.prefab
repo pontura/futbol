@@ -84,7 +84,7 @@ MonoBehaviour:
   kickHardAngle: 300
   kickSoft: 900
   kickSoftAngle: 150
-  kickBaloon: 380
+  kickBaloon: 320
   kickBaloonAngle: 450
   speed: 5
   goalKeeperSpeed: 2
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     dialogs:
+      random: []
       goal: []
       full: []
     characters: []

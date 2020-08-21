@@ -44,7 +44,10 @@ public class UIPanelCenter : MonoBehaviour
     }
     void SetField()
     {
-        timerField.text = "00:" + secs.ToString();
+       // int hours = secs / 3600;
+        int minutes = (secs % 3600) / 60;
+        int seconds = (secs % 3600) % 60;
+        timerField.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
     void Reset()
     {

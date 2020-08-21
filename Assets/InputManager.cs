@@ -17,8 +17,8 @@ public class InputManager : MonoBehaviour
             return;
         //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
         //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
-        //if (Input.GetButtonDown("Kick3") && !charactersManager.player3) charactersManager.AddCharacter(3);
-        //if (Input.GetButtonDown("Kick4") && !charactersManager.player4) charactersManager.AddCharacter(4);
+        if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
+        if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
 
         for (int id = 1; id < charactersManager.totalPlayers + 1; id++)
         {

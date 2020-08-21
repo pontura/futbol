@@ -68,7 +68,7 @@ public class CharactersManager : MonoBehaviour
     {
         CheckStateByTeam(team1[0]);
         CheckStateByTeam(team2[0]);
-        Invoke("Loop", 0.25f);
+        Invoke("Loop", 0.5f);
     }
     void CheckStateByTeam(Character character)
     {
@@ -82,7 +82,7 @@ public class CharactersManager : MonoBehaviour
     {
         Character to = GetNearest(teamID);
         Character from = GetNearest(teamID, true);
-        if (to != from)
+        if (to != from && to.id != from.id)
             SwapTo(from, to);
     }
     public void CharacterCatchBall(Character character)
@@ -92,17 +92,17 @@ public class CharactersManager : MonoBehaviour
         Character characterNear = GetNearest(character.teamID, true);
         SwapTo(characterNear, character);
     }
-    public void AddCharacter(int characterID)
+    public void AddCharacter(int id)
     {
-        int teamID = GetTeamByPlayer(characterID);
+        int teamID = GetTeamByPlayer(id);
 
-        if (characterID == 1) player1 = true;
-        else if(characterID == 2) player2 = true;
-        else if(characterID == 3) player3 = true;
-        else if(characterID == 4) player4 = true;
+        if (id == 1) player1 = true;
+        else if(id == 2) player2 = true;
+        else if(id == 3) player3 = true;
+        else if(id == 4) player4 = true;
 
         Character character = GetNextCharacterByTeam(teamID);
-        character.id = characterID;
+        character.id = id;
         playingCharacters.Add(character);
         totalPlayers++;
         signals.Add(character);
@@ -170,10 +170,10 @@ public class CharactersManager : MonoBehaviour
     {
         Swap(characterID);
     }
-    public void ButtonPressed(int buttonID, int characterID)
+    public void ButtonPressed(int buttonID, int id)
     {
-        print("buttonID " + buttonID);
-        Character character = GetPlayer(characterID);
+       // print("buttonID " + buttonID);
+        Character character = GetPlayer(id);
         if (character.ai.state == AI.states.ATTACKING)
         {
             switch (buttonID)
@@ -183,14 +183,14 @@ public class CharactersManager : MonoBehaviour
                 case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
             if(character.isGoldKeeper)
-                GoalKeeperLoseBall(characterID);
+                GoalKeeperLoseBall(id);
         }
         else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
         {
             switch (buttonID)
             {
                 case 1: character.Dash(); break;
-                case 2: Swap(characterID); break;
+                case 2: Swap(id); break;
                // case 3: KickAllTheOthers(characterID); break;
             }
         }
@@ -205,6 +205,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void SwapTo(Character from, Character to)
     {
+        print("swap to from " + from.id + "    to: " + to.id);
         if (to == null) return;
         if (from == null) return;
         int teamID = from.teamID;

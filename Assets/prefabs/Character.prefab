@@ -164,9 +164,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.6
-  m_Height: 3.82
+  m_Height: 2.6
   m_Direction: 1
-  m_Center: {x: 0, y: -0.15, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2908317565382538886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,10 +179,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7aa7f3132659b4d88576cc54bbaf76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamID: 0
   id: 0
+  characterID: 0
   speed: 0
   characterContainer: {fileID: 470543275296796378}
+  teamID: 0
+  data:
+    id: 0
+    avatarName: 
+    dialogs:
+      random: []
+      goal: []
+      full: []
   actions: {fileID: 0}
   characterSignal: {fileID: 0}
   ballCathcer: {fileID: 0}
