@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - GoalKeeper
   - Goal
+  - Referi
   layers:
   - Default
   - TransparentFX
