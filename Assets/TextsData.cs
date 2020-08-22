@@ -44,43 +44,45 @@ public class TextsData : MonoBehaviour
             if (d.id == referiID)
                 characterData = d;
         }
-        return GetText(dialogueType, characterData);        
+        return GetText(dialogueType, characterData, false);        
     }   
     public string GetRandomDialogue(string dialogueType, int characterID)
     {
         CharactersData characterData = GetCharactersData(characterID);
-        return GetText(dialogueType, characterData);
+        return GetText(dialogueType, characterData, true);
     }
-    string GetText(string dialogueType, CharactersData characterData)
+    string GetText(string dialogueType, CharactersData characterData, bool isPlayer)
     {
         List<string> arr;
         switch (dialogueType)
         {
             case "random":
-                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.random.Count > 0)
+                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.random.Count > 0 || !isPlayer)
                     arr = characterData.dialogs.random;
                 else
                     arr = data.dialogs.random;
                 break;
             case "goal":
-                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.goal.Count > 0)
+                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.goal.Count > 0 || !isPlayer)
                     arr = characterData.dialogs.goal;
                 else
                     arr = data.dialogs.goal;
                 break;
             case "init":
-                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.init.Count > 0)
+                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.init.Count > 0 || !isPlayer)
                     arr = characterData.dialogs.init;
                 else
                     arr = data.dialogs.init;
                 break;
             default:
-                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.full.Count > 0)
+                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.full.Count > 0 || !isPlayer)
                     arr = characterData.dialogs.full;
                 else
                     arr = data.dialogs.full;
                 break;
         }
+        if (arr == null || arr.Count == 0)
+            return "AMOR";
         return arr[UnityEngine.Random.Range(0, arr.Count)];
     }
     public CharactersData GetCharactersData(int characterID)

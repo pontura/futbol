@@ -13,15 +13,10 @@ public class Referi : Character
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
         asset.transform.localScale = Vector3.one;
-        print("InitReferi " + characterContainer.name);
         actions.Init(asset, 0);
         Invoke("ChangeZ", Random.Range(4, 10));
         ball = Game.Instance.ball;
     }
-
-
-
-
     int _z;
     void ChangeZ()
     {
@@ -34,8 +29,6 @@ public class Referi : Character
     }    
     void Update()
     {
-        if (ball.character != null)
-            return;
         if (Game.Instance.state != Game.states.GOAL)
         {
             _z = 0;
