@@ -3,88 +3,115 @@
 	{
 		"random":
 		[
-			"Mano!",
-			"No doy más...",
-			"Para donde pateabamos?",
-			"Me fumaría uno...",
-			"Referiii, cobrá algo!",
-			"Afuera!",
-			"Pasaaá"
+			"¡MANO!",
+			"NO DOY MÁS...",
+			"¿PARA DÓNDE PATEÁBAMOS?",
+			"¡ESTÁ REFRESCANDO!",
+			"¡AFUERA!"
 		],
 		"goal": 
 		[
-			"GOOOL!",
-			"GOL!"
+			"¡GOOOL!",
+			"¡GOLAZO!",
+			"¡GOAL!",
+			"¡GOL!"
 		],
 		"full": 
 		[
-			"FAUU!",
-			"FUUUL CHE!"
+			"¡FAUU!",
+			"¡FUUUL CHE!"
 		]
 	},
 	"characters":
 	[
 		{
 			"id": 1,
-			"avatarName": "Punga",
+			"avatarName": "Punga Punga",
 			"dialogs": {
-				"random": [ "Parate de guate" ],
-				"goal":  [ "VAMOOO", "GAAAAL" ],
-				"full":  [ "EEE!" ]
+				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA" ],
+				"goal":  [ "¡GRACIAS GAUCHITO!", "¡¡GAAAAL!!", "¡PARA VOS, MAMÁ!" ],
+				"full":  [ "¡EEEEE!" ]
 			}
 		},
 		{
 			"id": 2,
-			"avatarName": "Chucky",
+			"avatarName": "Chunky Doll",
 			"dialogs": {
-				"random": [ "Muñeccoo" ],
-				"goal":  [ "see", "goooo!" ],
-				"full":  [ "eh full!" ]
+				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?" ],
+				"goal":  [ "¡GHOHOHOOOOAAL!" ],
+				"full":  [ "¡COBRÁ O TE DESCUARTIZO!" ]
 			}
 		},
 		{
 			"id": 3,
-			"avatarName": "Kim jong",
+			"avatarName": "Kim Yin",
 			"dialogs": {
-				"random": [ "Atención todoss" ],
-				"goal":  [ "see", "goooo!" ],
-				"full":  [ "eh full!" ]
+				"random": [ "¡DE RODILLAS!", "¡VIVA EL PARTIDO!", "¿ESTE ES EL PARTIDO COMUNISTA?", "ESTA CANCHA LA CONSTRUÍ YO" ],
+				"goal":  [ "¡PARA LA PATRIA!", "¡VIVA!" ],
+				"full":  [ "¡MATEN A ESE DESERTOR!" ]
 			}
 		},
 		{
 			"id": 4,
-			"avatarName": "Frutillita",
+			"avatarName": "Ceresitas",
 			"dialogs": {
-				"random": [ "Más Amor" ],
-				"goal":  [ "see", "goooo!" ],
-				"full":  [ "eh full!" ]
+				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA" ],
+				"goal":  [ "¡FUÉ CON MUCHO AMOR!", "FUÉ SIN QUERER..." ],
+				"full":  [ "ME VAS A HACER LLORAR..." ]
 			}
 		},
 		{
 			"id": 5,
-			"avatarName": "Oompa loompa",
+			"avatarName": "Poonga Loompa",
 			"dialogs": {
-				"random": [ "Nos vemo" ],
-				"goal":  [ "see", "goooo!" ],
-				"full":  [ "eh full!" ]
+				"random": [ "ODIO A TIM BURTON", "EL ÚLTIMO CHOCOLATE QUE COMISTE LO CAGUÉ YO", "AGUANTE NAVE JUNGLA" ],
+				"goal":  [ "¡GOLAAAAAZO!", "¡CHOCOGOLLLL!" ],
+				"full":  [ "¡FULLLL!" ]
 			}
 		},
 		{
 			"id": 6,
-			"avatarName": "Ruso",
+			"avatarName": "Mischa Gurkovsky",
 			"dialogs": {
 				"random": [ "русский язык", "язы крусский" ],
-				"goal":  [ "see", "goooo!" ],
-				"full":  [ "eh full!" ]
+				"goal":  [ "¡VIVA CAMARADA!", "VICTORIA" ],
+				"full":  [ "CERDOS CAPITALISTAS..." ]
 			}
 		},
 		{
 			"id": 7,
-			"avatarName": "Nisman",
+			"avatarName": "Fiscal Nissmar",
 			"dialogs": {
-				"random": [ "A mi me mataron" ],
-				"goal":  [ "Gol! Yegua!" ],
-				"full":  [ "Mano!" ]
+				"random": [ "¿Y SI ME PEGO UN CORCHAZO?", "MAÑANA TENGO QUE PREPARAR LA DENUNCIA...", "MAÑANA VOY A ONCE A PEGAR COTILLÓN PORNO", "...¿PAGUÉ LA TARJETA?", "TENDRÍA QUE CAMBIAR LAS MILLAS POR UN PASAJE A MIAMI..." ],
+				"goal":  [ "¡GOL, YEGUA!", "¡¡GOLAZO!!" ],
+				"full":  [ "¡CORRUPCIÓN!" ]
+			}
+		},
+		{
+			"id": 8,
+			"avatarName": "Lizzie Queen",
+			"dialogs": {
+				"random": [ "ESTA CANCHA ME PERTENECE", "NO ME TOQUEN" ],
+				"goal":  [ "¡GOAL!" ],
+				"full":  [ "FUCKING ARGENTINES!" ]
+			}
+		},
+		{
+			"id": 9,
+			"avatarName": "Spud Boy",
+			"dialogs": {
+				"random": [ "POTATOES!", "MONGOLOIDS!", "FREEDOM OF CHOICE!" ],
+				"goal":  [ "WHIP IT GOOD!", "THAT´S GOOD" ],
+				"full":  [ "BIG MESS!" ]
+			}
+		},
+		{
+			"id": 10,
+			"avatarName": "Tina Warner",
+			"dialogs": {
+				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWWSSSS!" ],
+				"goal":  [ "GOOOAL!" ],
+				"full":  [ "HEEEYY!!!!" ]
 			}
 		}
 	]
