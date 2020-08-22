@@ -37,4 +37,7 @@ public class Settings : MonoBehaviour
     public float speedWithBall;
     public float speedDash;
 
+    public Vector2 dialoguesTimeToAppear;
+    public float dialoguesDuration;
+
 }

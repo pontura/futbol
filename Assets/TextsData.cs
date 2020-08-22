@@ -12,6 +12,7 @@ public class TextsData : MonoBehaviour
     {
         public DialoguesData dialogs;
         public CharactersData[] characters;
+        public CharactersData[] referis;
     }
     [Serializable]
     public class CharactersData
@@ -27,16 +28,31 @@ public class TextsData : MonoBehaviour
         public List<string> random;
         public List<string> goal;
         public List<string> full;
-
+        public List<string> init;
     }
-    void Start()
+    void Awake()
     {
         TextAsset targetFile = Resources.Load<TextAsset>("texts");
         data = JsonUtility.FromJson<TextData>(targetFile.text);
     }
+    public string GetRandomReferiDialogue(string dialogueType)
+    {
+        int referiID = 1;
+        CharactersData characterData = data.referis[0];
+        foreach (CharactersData d in data.referis)
+        {
+            if (d.id == referiID)
+                characterData = d;
+        }
+        return GetText(dialogueType, characterData);        
+    }   
     public string GetRandomDialogue(string dialogueType, int characterID)
     {
         CharactersData characterData = GetCharactersData(characterID);
+        return GetText(dialogueType, characterData);
+    }
+    string GetText(string dialogueType, CharactersData characterData)
+    {
         List<string> arr;
         switch (dialogueType)
         {
@@ -52,6 +68,12 @@ public class TextsData : MonoBehaviour
                 else
                     arr = data.dialogs.goal;
                 break;
+            case "init":
+                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.init.Count > 0)
+                    arr = characterData.dialogs.init;
+                else
+                    arr = data.dialogs.init;
+                break;
             default:
                 if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.full.Count > 0)
                     arr = characterData.dialogs.full;
@@ -59,7 +81,6 @@ public class TextsData : MonoBehaviour
                     arr = data.dialogs.full;
                 break;
         }
-       
         return arr[UnityEngine.Random.Range(0, arr.Count)];
     }
     public CharactersData GetCharactersData(int characterID)

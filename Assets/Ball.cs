@@ -78,14 +78,14 @@ public class Ball : MonoBehaviour
          else   if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
-            if (transform.localPosition.y < 1f && character.ballCathcer.state == BallCatcher.states.IDLE)
+            if (transform.localPosition.y < 1f && character.ballCatcher.state == BallCatcher.states.IDLE)
             {
                 if (lastCharacterWithBall != null)
                 {
                     if (lastCharacterWithBall.isGoldKeeper)
                         Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
 
-                    lastCharacterWithBall.ballCathcer.LoseBall();
+                    lastCharacterWithBall.ballCatcher.LoseBall();
                 }
                 characterThatKicked = character;
                 character.OnCatch(this);
@@ -94,7 +94,7 @@ public class Ball : MonoBehaviour
             }
             else
             {
-                transform.eulerAngles = character.ballCathcer.container.transform.eulerAngles;
+                transform.eulerAngles = character.ballCatcher.container.transform.eulerAngles;
                 character.actions.Kick(CharacterActions.kickTypes.HEAD);
                 Kick(CharacterActions.kickTypes.HEAD);                
             }

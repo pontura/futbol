@@ -22,6 +22,18 @@
 			"¡FUUUL CHE!"
 		]
 	},
+	"referis":
+	[
+		{
+			"id": 1,
+			"avatarName": "Edu Feiman",
+			"dialogs": {
+				"init": ["NO ME HAGAN CALENTAR, NEGRES"],
+				"random": [ "UN CHARUTO", "UNE MENOS", "ROJA PARA VOS, PORRERO", "ROJA, DRAGADITOS!", "ROJA POR FEMINISTA"],
+				"goal":  [ "TE LO ANULO POR MINITA", "NEGRO DE MIERDA", "TOMÁ FEMI-NAZI ASQUEROSE", "LAS BOLAS GOL" ]
+			}
+		}
+	],
 	"characters":
 	[
 		{

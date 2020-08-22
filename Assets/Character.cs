@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public TextsData.CharactersData data;    
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
-    [HideInInspector] public BallCatcher ballCathcer;
+    [HideInInspector] public BallCatcher ballCatcher;
     [HideInInspector] public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public bool isGoldKeeper;
@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
         if (GetComponent<GoalKeeper>())
             isGoldKeeper = true;
         actions = GetComponent<CharacterActions>();
-        ballCathcer = GetComponent<BallCatcher>();
+        ballCatcher = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
@@ -38,7 +38,6 @@ public class Character : MonoBehaviour
         else
             speed = Data.Instance.settings.speed;
         this.characterID = int.Parse (asset_to_instantiate.name); //con el nombre sacamos el id:
-        print(characterID + "   "  + asset_to_instantiate.name);
         data = Data.Instance.textsData.GetCharactersData(characterID);
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
@@ -53,7 +52,7 @@ public class Character : MonoBehaviour
         actions.Reset();
         speed = Data.Instance.settings.speedWithBall;
         this.ball = _ball;
-        ballCathcer.Catch(ball);
+        ballCatcher.Catch(ball);
         charactersManager.CharacterCatchBall(this);
         Events.CharacterCatchBall(this);
     }
@@ -68,7 +67,7 @@ public class Character : MonoBehaviour
         if (ball != null && ball.GetCharacter() == this)
         {
             ball.Kick(kickType);
-            ballCathcer.LoseBall();
+            ballCatcher.LoseBall();
         }
     }
     public void Dash()
@@ -89,8 +88,8 @@ public class Character : MonoBehaviour
                 actions.LookTo(_x);
             actions.Run();
         }
-        if(ballCathcer != null)
-            ballCathcer.SetRotation(_x, _y);
+        if(ballCatcher != null)
+            ballCatcher.SetRotation(_x, _y);
         transform.Translate(Vector3.right * _x * speed*Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
     public void SetSignal(CharacterSignal signal)

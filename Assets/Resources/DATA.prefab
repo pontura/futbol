@@ -82,8 +82,8 @@ MonoBehaviour:
   forceBarSpeed: 3
   kickHard: 1000
   kickHardAngle: 300
-  kickSoft: 900
-  kickSoftAngle: 150
+  kickSoft: 600
+  kickSoftAngle: 120
   kickBaloon: 320
   kickBaloonAngle: 450
   speed: 5
@@ -91,6 +91,8 @@ MonoBehaviour:
   referiSpeed: 3
   speedWithBall: 4
   speedDash: 10
+  dialoguesTimeToAppear: {x: 2, y: 4}
+  dialoguesDuration: 4
 --- !u!114 &864794640
 MonoBehaviour:
   m_ObjectHideFlags: 0

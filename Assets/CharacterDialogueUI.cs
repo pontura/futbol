@@ -15,7 +15,7 @@ public class CharacterDialogueUI : MonoBehaviour
         this.character = character;
         this.enabled = true;
         field.text = text;
-        Invoke("Reset", 1.5f);
+        Invoke("Reset", Data.Instance.settings.dialoguesDuration);
     }
     void Update()
     {

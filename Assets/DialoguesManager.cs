@@ -12,6 +12,11 @@ public class DialoguesManager : MonoBehaviour
     {
         Events.SetDialogue += SetDialogue;
         Invoke("LoopRandomDialogues", 5);
+        Invoke("InitReferi", 0.5f);
+    }
+    private void InitReferi()
+    {
+        SetReferi("init");
     }
     void OnDestroy()
     {
@@ -19,7 +24,7 @@ public class DialoguesManager : MonoBehaviour
     }
     void LoopRandomDialogues()
     {
-        Invoke("LoopRandomDialogues", 5);
+        Invoke("LoopRandomDialogues", Random.Range(Data.Instance.settings.dialoguesTimeToAppear.x, Data.Instance.settings.dialoguesTimeToAppear.y));
         Character character;
         if(Random.Range(0,10)<5)
             character = Game.Instance.charactersManager.team1[Random.Range(0, Game.Instance.charactersManager.team1.Count)];
@@ -28,6 +33,13 @@ public class DialoguesManager : MonoBehaviour
 
         string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID);
         Events.SetDialogue(character, text);
+
+        SetReferi("random");
+    }
+    void SetReferi(string type)
+    {
+        string text = Data.Instance.textsData.GetRandomReferiDialogue(type);
+        Events.SetDialogue(Game.Instance.charactersManager.referi, text);
     }
     void SetDialogue(Character character, string text)
     {

@@ -82,8 +82,8 @@ public class CharactersManager : MonoBehaviour
     }
     void SwapIfNeeded(int teamID)
     {
-        Character to = GetNearest(teamID);
-        Character from = GetNearest(teamID, true);
+        Character to = GetNearest(teamID, false, ball.transform.position);
+        Character from = GetNearest(teamID, true, ball.transform.position);
         if (to == null || from == null)
             return;
         if (to != from && to.id != from.id)
@@ -93,7 +93,7 @@ public class CharactersManager : MonoBehaviour
     {
         if (character.isBeingControlled)
             return;
-        Character characterNear = GetNearest(character.teamID, true);
+        Character characterNear = GetNearest(character.teamID, true, ball.transform.position);
         SwapTo(characterNear, character);
     }
     public void AddCharacter(int id)
@@ -118,7 +118,8 @@ public class CharactersManager : MonoBehaviour
         if (characterID == 2 || characterID == 4) teamID = 2;
         return teamID;
     }
-    Character GetNearest(int teamID, bool hasControl = false)
+    //hasControl = if true solo busca entre los activos.
+    Character GetNearest(int teamID, bool hasControl, Vector3 pos)
     {
         List<Character> team;
         if (teamID == 1)
@@ -128,7 +129,7 @@ public class CharactersManager : MonoBehaviour
         Character character = null;
         foreach (Character c in team)
         {
-            float distance = Vector3.Distance(c.transform.position, ball.transform.position);
+            float distance = Vector3.Distance(c.transform.position, pos);
             if (distanceMin > distance && !c.isGoldKeeper)
             {
                 if (hasControl)
@@ -178,32 +179,48 @@ public class CharactersManager : MonoBehaviour
     {
        // print("buttonID " + buttonID);
         Character character = GetPlayer(id);
-        if (character.ai.state == AI.states.ATTACKING)
-        {
-            switch (buttonID)
-            {
-                case 1: character.Kick(CharacterActions.kickTypes.HARD); break;
-                case 2: character.Kick(CharacterActions.kickTypes.SOFT); break;
-                case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
-            }
-            if(character.isGoldKeeper)
-                GoalKeeperLoseBall(id);
-        }
-        else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
+        if(ball.character == null || ball.character != character)
         {
             switch (buttonID)
             {
                 case 1: character.Dash(); break;
                 case 2: Swap(id); break;
-               // case 3: KickAllTheOthers(characterID); break;
+                    // case 3: KickAllTheOthers(characterID); break;
             }
         }
+        else if (character.ai.state == AI.states.ATTACKING)
+        {
+            switch (buttonID)
+            {
+                case 1: character.Kick(CharacterActions.kickTypes.HARD); break;
+                case 2:
+                    Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward*4);
+
+                    if(ball.character != characterNear)
+                        character.ballCatcher.LookAt(characterNear.transform.position);
+
+                    character.Kick(CharacterActions.kickTypes.SOFT); 
+                    break;
+                case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
+            }
+            if(character.isGoldKeeper)
+                GoalKeeperLoseBall(id);
+        }
+        //else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
+        //{
+        //    switch (buttonID)
+        //    {
+        //        case 1: character.Dash(); break;
+        //        case 2: Swap(id); break;
+        //       // case 3: KickAllTheOthers(characterID); break;
+        //    }
+        //}
     }   
     public void Swap(int characterID)
     {
         int teamID = GetTeamByPlayer(characterID);
         Character character = GetPlayer(characterID);       
-        Character newCharacter = GetNearest(teamID, false);
+        Character newCharacter = GetNearest(teamID, false, ball.transform.position);
         if (newCharacter != character)
             SwapTo(character, newCharacter);
     }

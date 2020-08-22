@@ -37,6 +37,11 @@ public class BallCatcher : MonoBehaviour
     {
         state = states.IDLE;
     }
+    public void LookAt(Vector3 targetPos)
+    {
+        targetPos.y = container.transform.position.y;
+        container.transform.LookAt(targetPos);
+    }
     public void SetRotation(int _x, int _y)
     {
         if (_x == 0 && _y == 0)
