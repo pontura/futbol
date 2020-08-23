@@ -29,7 +29,7 @@
 			"avatarName": "Edu Feiman",
 			"dialogs": {
 				"init": ["SERÁ JUSTICIA"],
-				"random": [ "AQUÍ HAY OLOR A CHARUTO", "¿QUIÉN SE FUMÓ UN CHARUTO?", "ANTIDOPPING PARA TODOS", "UNE MENOS", "ME GUSTA MÁS EL EQUIPO DE LA DERECHA", "NO SE DICE JUGADORES, SE DICE JUGADOROS", "ROJA POR PORRERO", "ROJA POR ROJO", "ALGUIEN TIENE QUE DECIR ¡BASTA!", "ME PARECE QUE EL PLAYER 1 SE FUMÓ UN CHARUTO", "ROJA POR FEMINISTA"],
+				"random": [ "AQUÍ HAY OLOR A CHARUTO", "¿QUIÉN SE FUMÓ UN CHARUTO?", "ANTIDOPPING PARA TODOS", "UNE MENOS", "ME GUSTA MÁS EL EQUIPO DE LA DERECHA", "NO SE DICE JUGADORES, SE DICE JUGADOROS", "ROJA POR PORRERO", "ROJA POR ROJO", "ALGUIEN TIENE QUE DECIR ¡BASSSSTA!", "ME PARECE QUE EL PLAYER 1 SE FUMÓ UN CHARUTO", "ROJA POR FEMINISTA"],
 				"goal":  [ "SE DICE GOL, NO GOLE", "OTRO GOL DE LA CORRUPCIÓN", "¡NO!" ]
 			}
 		}
@@ -50,7 +50,7 @@
 			"avatarName": "Chunky Doll",
 			"dialogs": {
 				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?" ],
-				"goal":  [ "¡GHOHOHOOOOAAL!" ],
+				"goal":  [ "¡GORE!" ],
 				"full":  [ "¡COBRÁ O TE DESCUARTIZO!" ]
 			}
 		},
@@ -124,6 +124,33 @@
 				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWWSSSS!" ],
 				"goal":  [ "GOOOAL!" ],
 				"full":  [ "HEEEYY!!!!" ]
+			}
+		},
+		{
+			"id": 11,
+			"avatarName": "Harold Payne",
+			"dialogs": {
+				"random": [ "HIDING THE PAIN", "MÁTENME", "QUIERO UN CAFECITO" ],
+				"goal":  [ "YAY!" ],
+				"full":  [ "DEAD INSIDE" ]
+			}
+		},
+		{
+			"id": 12,
+			"avatarName": "Mirta Manujín",
+			"dialogs": {
+				"random": [ "UNA CANCHA HECHA DE CHORIPANES", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS" ],
+				"goal":  [ "¡ARTE!" ],
+				"full":  [ "¡INTERVENCIÓN!" ]
+			}
+		},
+		{
+			"id": 13,
+			"avatarName": "Tincho M. Diocre",
+			"dialogs": {
+				"random": [ "NI DE UN LADO NI DEL OTRO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI IZQUIERDA NI DERECHA", "OJO, NO DIGO NEGRO DE PIEL: ¡DE ALMA!", "EN UN PAÍS EN SERIO ESTARÍAS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!" ],
+				"goal":  [ "¡MERITOCRACIA!" ],
+				"full":  [ "¡PAÍS DE MIERDA!" ]
 			}
 		}
 	]
