@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.770004, y: -51.65996}
+  m_AnchoredPosition: {x: -159.56998, y: -46.133953}
   m_SizeDelta: {x: 102.287476, y: 40.83819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239358790
@@ -1427,7 +1427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.500008, y: -51.65996}
+  m_AnchoredPosition: {x: 158, y: -46.133953}
   m_SizeDelta: {x: 102.287476, y: 40.83819}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &741117449
@@ -1662,6 +1662,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &881415380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881415381}
+  - component: {fileID: 881415383}
+  - component: {fileID: 881415382}
+  m_Layer: 5
+  m_Name: escudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &881415381
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881415380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20749, y: 0.20749, z: 0.20749}
+  m_Children: []
+  m_Father: {fileID: 1831282256}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 51, y: -52}
+  m_SizeDelta: {x: 451, y: 451}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &881415382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881415380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 94ed12af01bd5ec41817f6e420591726, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &881415383
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881415380}
+  m_CullTransparentMesh: 0
 --- !u!1001 &949705866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1778,7 +1852,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.7216981, b: 0.9054269, a: 0}
+  m_BackGroundColor: {r: 0.36862746, g: 0.6784314, b: 0.8784314, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2027,8 +2101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.5, y: -23.026}
-  m_SizeDelta: {x: 102.287476, y: 22.701706}
+  m_AnchoredPosition: {x: 207, y: -17.499992}
+  m_SizeDelta: {x: 200.27, y: 22.701706}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086203433
 MonoBehaviour:
@@ -2062,7 +2136,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TEAM 2
+  m_Text: Bosta Juniors
 --- !u!222 &1086203434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2270,8 +2344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.770004, y: -23.026}
-  m_SizeDelta: {x: 102.287476, y: 22.701706}
+  m_AnchoredPosition: {x: -224.8, y: -17.5}
+  m_SizeDelta: {x: 237.3, y: 22.701706}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273684123
 MonoBehaviour:
@@ -2305,7 +2379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TEAM 1
+  m_Text: Sportivo Punga
 --- !u!222 &1273684124
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2614,6 +2688,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: teamSettings.Array.data[1].name
       value: Bosta Juniors
       objectReference: {fileID: 0}
@@ -2639,6 +2717,518 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: teamSettings.Array.data[0].clothColorD.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[0].clothColorA.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[0].clothColorA.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[0].clothColorA.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[1].color.r
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[1].color.g
+      value: 0.19215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[1].color.b
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].name
+      value: Silver Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].designID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].color.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].color.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].color.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorA.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorA.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorA.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorB.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorB.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorC.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorC.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorC.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].name
+      value: "Atl\xE9tico San Jesus"
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].designID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorA.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorA.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorA.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorB.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorB.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorC.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorC.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorC.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].name
+      value: Porcelana Futbol Club
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].designID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorA.r
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorA.g
+      value: 0.19215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorA.b
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorB.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorB.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorC.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorC.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorC.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].name
+      value: Madchester Rehab Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].designID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorA.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorA.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorA.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorB.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorB.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorC.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorC.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorC.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].name
+      value: Real Lamadrid
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].designID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].color.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].color.b
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorA.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorA.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorA.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorB.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorB.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorC.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorC.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorC.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].name
+      value: Chicago Boys
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].designID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].color.g
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].color.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorA.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorA.g
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorA.b
+      value: 0.31764707
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorA.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorB.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorB.g
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorB.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorC.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorC.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorC.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorC.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorD.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[2].clothColorD.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorD.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorD.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[3].clothColorD.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorD.r
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorD.g
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[4].clothColorD.b
+      value: 0.8784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorD.r
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorD.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[5].clothColorD.b
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorB.b
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorD.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[6].clothColorD.b
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: teamSettings.Array.data[7].clothColorB.b
       value: 0.31764707
       objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
@@ -2781,6 +3371,7 @@ RectTransform:
   m_Children:
   - {fileID: 239358789}
   - {fileID: 1273684122}
+  - {fileID: 2137185224}
   m_Father: {fileID: 1748213156}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3356,6 +3947,7 @@ RectTransform:
   m_Children:
   - {fileID: 741117448}
   - {fileID: 1086203432}
+  - {fileID: 881415381}
   m_Father: {fileID: 1748213156}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3568,6 +4160,80 @@ Transform:
   m_Father: {fileID: 483686594}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2137185223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137185224}
+  - component: {fileID: 2137185226}
+  - component: {fileID: 2137185225}
+  m_Layer: 5
+  m_Name: escudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2137185224
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137185223}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20749001, y: 0.20749001, z: 0.20749001}
+  m_Children: []
+  m_Father: {fileID: 1634276716}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.1, y: -52}
+  m_SizeDelta: {x: 451, y: 451}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2137185225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137185223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2137185226
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137185223}
+  m_CullTransparentMesh: 0
 --- !u!4 &362486807549609134
 Transform:
   m_ObjectHideFlags: 0
