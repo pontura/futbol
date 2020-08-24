@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idle: {fileID: 1833487086613923453}
-  angry: {fileID: 0}
+  angry: {fileID: 4043705259793198279}
 --- !u!1 &1833487087541333206
 GameObject:
   m_ObjectHideFlags: 0

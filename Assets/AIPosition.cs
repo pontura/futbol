@@ -58,6 +58,7 @@ public class AIPosition : MonoBehaviour
                 gotoPosition.x = originalPosition.x + (Data.Instance.settings.limits.x / 2) - ((float)Random.Range(0, 30)/10);
 
             gotoPosition.z += ((float)Random.Range(-30, 30) / 10);
+            SetLimits();
         }
     }
     void StopWaiting()
@@ -65,9 +66,15 @@ public class AIPosition : MonoBehaviour
         state = states.GOING;
         float _x = GetRandomBetween(-40, 40);
         float _z = GetRandomBetween(-40, 40);
-        if (transform.position.x + _x > Data.Instance.settings.limits.x || transform.position.x + _x < Data.Instance.settings.limits.x) _x *= -1;
-        if (transform.position.z + _z > Data.Instance.settings.limits.y || transform.position.z + _z < Data.Instance.settings.limits.y) _z *= -1;
         gotoPosition = transform.position + new Vector3(_x, 0, _z);
+        SetLimits();
+    }
+    void SetLimits()
+    {
+        if (Mathf.Abs(gotoPosition.z) > Data.Instance.settings.limits.y / 2)
+            gotoPosition.z = originalPosition.z;
+        if (Mathf.Abs(gotoPosition.x) > Data.Instance.settings.limits.x / 2)
+            gotoPosition.x = originalPosition.x;
     }
     float GetRandomBetween(int a, int b)
     {

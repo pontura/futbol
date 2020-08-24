@@ -78,7 +78,8 @@ public class Ball : MonoBehaviour
          else   if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
-            if (transform.localPosition.y < 1f && character.ballCatcher.state == BallCatcher.states.IDLE)
+            print("transform.localPosition.y " + transform.localPosition.y  + " character.ballCatcher.state: " + character.ballCatcher.state);
+            if (transform.localPosition.y < 0.9f && character.ballCatcher.state == BallCatcher.states.IDLE)
             {
                 if (lastCharacterWithBall != null)
                 {
@@ -92,11 +93,26 @@ public class Ball : MonoBehaviour
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }
-            else
+            //  else if (transform.localPosition.y < 1.8f)
+            else if (  character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
+                    || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5)
             {
+                character.SetCollidersOff();
+                character.actions.Kick(CharacterActions.kickTypes.CHILENA);
+                Vector3 lookTo = Vector3.zero;
+                if (character.transform.localScale.x < 0)
+                    lookTo.y = 90 + (character.transform.localScale.z * 10);
+                else
+                    lookTo.y = -90 + (character.transform.localScale.z * 10);
+                transform.eulerAngles = lookTo;
+                
+                Kick(CharacterActions.kickTypes.CHILENA);               
+            }
+            else {
+                character.SetCollidersOff();
                 transform.eulerAngles = character.ballCatcher.container.transform.eulerAngles;
                 character.actions.Kick(CharacterActions.kickTypes.HEAD);
-                Kick(CharacterActions.kickTypes.HEAD);                
+                Kick(CharacterActions.kickTypes.HEAD);
             }
         }
     }
@@ -108,7 +124,7 @@ public class Ball : MonoBehaviour
     public void Kick(CharacterActions.kickTypes kickType)
     {
         float force = 1;
-        if (kickType != CharacterActions.kickTypes.HEAD)
+        if (kickType != CharacterActions.kickTypes.HEAD || kickType != CharacterActions.kickTypes.CHILENA)
         {
             force = uIForce.GetForce();
             if (force <= 0 && character != null)
@@ -141,8 +157,12 @@ public class Ball : MonoBehaviour
                 dir += Vector3.up * Data.Instance.settings.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
-                dir *= Data.Instance.settings.kickBaloon * force;
-                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
+                dir *= Data.Instance.settings.kickHead * force;
+                dir += Vector3.up * Data.Instance.settings.kickHeadAngle * force;
+                break;
+            case CharacterActions.kickTypes.CHILENA:
+                dir *= Data.Instance.settings.kickChilena * force;
+                dir += Vector3.up * Data.Instance.settings.kickChilenaAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;

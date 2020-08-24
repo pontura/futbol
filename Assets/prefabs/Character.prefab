@@ -245,8 +245,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 17e3cacfa2f7e3944babdb21c7aa458a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 2.29
+  m_Radius: 0.5
+  m_Height: 3.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2908317565382538886
@@ -275,9 +275,10 @@ MonoBehaviour:
       random: []
       goal: []
       full: []
+      init: []
   actions: {fileID: 0}
   characterSignal: {fileID: 0}
-  ballCathcer: {fileID: 0}
+  ballCatcher: {fileID: 0}
   isBeingControlled: 0
   ai: {fileID: 0}
   isGoldKeeper: 0

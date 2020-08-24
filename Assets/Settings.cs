@@ -31,6 +31,12 @@ public class Settings : MonoBehaviour
     public float kickBaloon;
     public float kickBaloonAngle;
 
+    public float kickHead;
+    public float kickHeadAngle;
+
+    public float kickChilena;
+    public float kickChilenaAngle;
+
     public float speed;
     public float goalKeeperSpeed;
     public float referiSpeed;

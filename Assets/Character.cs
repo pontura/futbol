@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
 
     public int id; //for player Input;
     public int characterID; //for data;
-
+    Collider[] colliders;
     public float speed;
     public Transform characterContainer;
 
@@ -30,6 +30,10 @@ public class Character : MonoBehaviour
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
+    }
+    public virtual void Start()
+    {
+        colliders = GetComponents<Collider>();
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
@@ -56,7 +60,7 @@ public class Character : MonoBehaviour
         charactersManager.CharacterCatchBall(this);
         Events.CharacterCatchBall(this);
     }
-    public void SetPosition(int _x, int _y)
+    public virtual void SetPosition(int _x, int _y)
     {
         MoveTo(_x, _y);            
     }
@@ -107,5 +111,16 @@ public class Character : MonoBehaviour
     {
         actions.Idle();
         ai.ResetAll();
+    }
+    public void SetCollidersOff()
+    {
+        foreach (Collider c in colliders)
+            c.enabled = false;
+        Invoke("ResetColliders", 0.2f); 
+    }
+    void ResetColliders()
+    {
+        foreach (Collider c in colliders)
+            c.enabled = true;
     }
 }

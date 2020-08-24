@@ -34,7 +34,15 @@ public class DialoguesManager : MonoBehaviour
         string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID);
         Events.SetDialogue(character, text);
 
-        SetReferi("random");
+        int referiRandom = Random.Range(0, 10);
+        if (referiRandom < 4)
+            SetReferi("random");
+        else if (referiRandom < 10)
+        {
+            SetReferi("full");
+            Game.Instance.charactersManager.referi.actions.Action();
+        }
+        
     }
     void SetReferi(string type)
     {

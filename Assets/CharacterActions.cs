@@ -9,7 +9,7 @@ public class CharacterActions : MonoBehaviour
     
 
     public states state;
-    Collider[] colliders;
+    
 
     public enum states
     {
@@ -17,18 +17,20 @@ public class CharacterActions : MonoBehaviour
         RUN,
         KICK,
         DASH,
-        ACTION_DONE
+        ACTION_DONE,
+        SPECIAL_ACTION
     }
     public enum kickTypes
     {
         SOFT,
         HARD,
         BALOON,
-        HEAD
+        HEAD,
+        CHILENA
     }
     private void Start()
     {
-        colliders = GetComponents<Collider>();
+       
     }
     public void Init(GameObject go, int teamID)
     {
@@ -49,7 +51,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Idle()
     {
-        if (state == states.IDLE || state == states.KICK)
+        if (state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
             return;
         this.state = states.IDLE;
         anim.Play("idle");
@@ -68,31 +70,50 @@ public class CharacterActions : MonoBehaviour
             transform.localScale = scale;
         }
     }
+    void LookToAttack()
+    {
+
+    }
     public void Run()
     {
-        if (state == states.RUN || state == states.KICK || state == states.DASH)
+        if (state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         anim.Play("run");
     }
     public void Kick(kickTypes kickType)
-    {
-       
+    {       
         if (state == states.KICK)
             return;
-        CancelInvoke();
-        this.state = states.KICK;
-        if (kickType == kickTypes.HEAD)
-            anim.Play("head");
-        else
-            anim.Play("kick");
         
-        Invoke("Reset", 0.25f);
+        CancelInvoke();
+        print("Kick " + kickType);
+
+        this.state = states.KICK;
+        if (kickType == kickTypes.CHILENA)
+        {
+            if (character.teamID == 1)
+                LookTo(1);
+            else
+                LookTo(-1);
+            anim.Play("chilena");
+            Invoke("Reset", 0.75f);
+        }
+        else if (kickType == kickTypes.HEAD)
+        {
+            anim.Play("head");
+            Invoke("Reset", 0.5f);
+        }
+        else
+        {
+            anim.Play("kick");
+            Invoke("Reset", 0.35f);
+        }
+
     }
     public void Dash()
     {
-        
-        if (state == states.DASH)
+        if (state == states.KICK || state == states.DASH)
             return;
         CancelInvoke();
         this.state = states.DASH;
@@ -101,18 +122,28 @@ public class CharacterActions : MonoBehaviour
 
         Invoke("Reset", 0.25f);
     }
-    //void SetColliders(bool isOn)
-    //{
-    //    foreach (Collider c in colliders)
-    //        c.enabled = isOn;
-    //}
     public void Reset()
     {
         CancelInvoke();
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
-        
-       // SetColliders(true);
     }
-   
+    public void Pita()
+    {
+        anim.Play("start");
+    }
+    public void Action()
+    {       
+        if (state == states.SPECIAL_ACTION)
+            return;
+        CancelInvoke();
+        state = states.SPECIAL_ACTION;
+        anim.Play("action");
+        Invoke("ResetSpecial", 2f);
+    }
+    void ResetSpecial()
+    {
+        state = states.ACTION_DONE;
+        Idle();
+    }
 }
