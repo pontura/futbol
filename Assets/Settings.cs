@@ -48,4 +48,12 @@ public class Settings : MonoBehaviour
     public Vector2 dialoguesTimeToAppear;
     public float dialoguesDuration;
 
+    public TeamSettings GetTeamSettings(int teamID)
+    {
+        if (teamID == 1)
+            return teamSettings[(int)Data.Instance.settings.selectedTeams.x];
+        else
+            return teamSettings[(int)Data.Instance.settings.selectedTeams.y];
+    }
+
 }

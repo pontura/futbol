@@ -13,8 +13,8 @@ public class CustomizablePart : MonoBehaviour
         Character character = GetComponentInParent<Character>();
         string[] arr = gameObject.name.Split("_"[0]);
         string colorName = arr[arr.Length - 1];
-        Settings.TeamSettings teamSettings = Data.Instance.settings.teamSettings[character.teamID - 1];
-        switch(colorName)
+        Settings.TeamSettings teamSettings = Data.Instance.settings.GetTeamSettings(character.teamID);
+        switch (colorName)
         {
             case "A":  GetComponent<SpriteRenderer>().color = teamSettings.clothColorA; break;
             case "B": GetComponent<SpriteRenderer>().color = teamSettings.clothColorB; break;

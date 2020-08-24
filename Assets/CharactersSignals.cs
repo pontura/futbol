@@ -10,7 +10,7 @@ public class CharactersSignals : MonoBehaviour
     {
         CharacterSignal s = Instantiate(signal_to_add);
         character.SetSignal(s);
-        s.Init(Data.Instance.settings.teamSettings[character.teamID-1].color);
+        s.Init(Data.Instance.settings.GetTeamSettings(character.teamID).color);
     }
     public void ChangeSignal(Character from, Character to)
     {

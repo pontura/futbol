@@ -14,11 +14,7 @@ public class TeamUI : MonoBehaviour
     void Start()
     {
         Events.OnGoal += OnGoal;
-        Settings.TeamSettings settings;
-        if (teamID == 1)
-            settings = Data.Instance.settings.teamSettings[(int)Data.Instance.settings.selectedTeams.x];
-        else
-            settings = Data.Instance.settings.teamSettings[(int)Data.Instance.settings.selectedTeams.y];
+        Settings.TeamSettings settings = Data.Instance.settings.GetTeamSettings(teamID);
         teamNameField.text = settings.name;
         escudo.sprite = settings.escudo;
         SetField();
