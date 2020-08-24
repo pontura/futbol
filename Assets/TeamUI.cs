@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TeamUI : MonoBehaviour
 {
+    public Image escudo;
     public Text scoreField;
     public Text teamNameField;
     public int score;
@@ -13,6 +14,13 @@ public class TeamUI : MonoBehaviour
     void Start()
     {
         Events.OnGoal += OnGoal;
+        Settings.TeamSettings settings;
+        if (teamID == 1)
+            settings = Data.Instance.settings.teamSettings[(int)Data.Instance.settings.selectedTeams.x];
+        else
+            settings = Data.Instance.settings.teamSettings[(int)Data.Instance.settings.selectedTeams.y];
+        teamNameField.text = settings.name;
+        escudo.sprite = settings.escudo;
         SetField();
     }
     void OnDestroy()

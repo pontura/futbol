@@ -17,7 +17,7 @@ public class SelectorScreen : MonoBehaviour
 
     public Text[] character1_texts;
     public Text[] character2_texts;
-
+    public int teamsDone;
     public enum states
     {
         IDLE,
@@ -25,6 +25,7 @@ public class SelectorScreen : MonoBehaviour
         PLAYERS,
         DONE
     }
+    List<Sprite> all;
     void Start()
     {
         Data.Instance.charactersData.Init();
@@ -36,12 +37,14 @@ public class SelectorScreen : MonoBehaviour
         character1_texts = characters1_container.GetComponentsInChildren<Text>();
         character2_texts = characters2_container.GetComponentsInChildren<Text>();
 
-       
+        all = new List<Sprite>();
+        foreach (Settings.TeamSettings data in Data.Instance.settings.teamSettings) all.Add(data.escudo);
+
     }
     private void Init()
     {
-        List<Sprite> all = new List<Sprite>();
-        foreach (Settings.TeamSettings data in Data.Instance.settings.teamSettings) all.Add(data.escudo);
+        teamsDone = 0;
+      
         ruletaEscudo_team1.Init(all);
         ruletaEscudo_team2.Init(all);
     }
@@ -77,7 +80,7 @@ public class SelectorScreen : MonoBehaviour
         //}
       
     }
-    int teamsDone;
+   
     void OnDoneTeam(int selectedID)
     {
         

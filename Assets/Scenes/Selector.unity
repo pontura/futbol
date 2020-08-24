@@ -480,7 +480,7 @@ PrefabInstance:
     - target: {fileID: 3587995110547645331, guid: 6dae15890635803418cbb2b214c59553,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3587995110547645331, guid: 6dae15890635803418cbb2b214c59553,
         type: 3}
@@ -4380,6 +4380,7 @@ MonoBehaviour:
   characters2_container: {fileID: 1748815731}
   character1_texts: []
   character2_texts: []
+  teamsDone: 0
   team1_characterID: 0
   team2_characterID: 0
 --- !u!114 &1748213158
@@ -4974,7 +4975,7 @@ PrefabInstance:
     - target: {fileID: 3587995110547645331, guid: 6dae15890635803418cbb2b214c59553,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3587995110547645331, guid: 6dae15890635803418cbb2b214c59553,
         type: 3}

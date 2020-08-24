@@ -938,20 +938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304a3384460b90244a491ae747a56f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  all:
-  - {fileID: 8221468473453606760, guid: 2b553adb2ac15884480dee18c28d85db, type: 3}
-  - {fileID: 8281527998283743665, guid: a8f7a7cd833471a4a9ddb857ac64cb67, type: 3}
-  - {fileID: 4367421719257010718, guid: 90fe52d1f82ab9245899bc87a7a45606, type: 3}
-  - {fileID: 226667898465156278, guid: a4b299ff3821a4544bd7fa78f28c3dcf, type: 3}
-  - {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
-  - {fileID: 1833487088215971624, guid: c861c01bd1b69cb449090a5311f5763e, type: 3}
-  - {fileID: 2674879857765329069, guid: 2604c087dee734d41bf6d2b880ce7f41, type: 3}
-  - {fileID: 3410515606220679625, guid: 5c4bc449a31f4a94ba9d2d4bec518359, type: 3}
-  - {fileID: 3177298910664495984, guid: c406f0c4c212f9f4f90d63b456cb812c, type: 3}
-  - {fileID: 6901122285471923383, guid: 91c6614d5900efd45985683b6cf566c3, type: 3}
-  - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
-  - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
-  - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
   referi_to_instantiate: {fileID: 1833487088215971624, guid: 9952d7da2a1a1564d8ff9d1673ded1ae,
     type: 3}
   referi: {fileID: 3160418783750167796}
@@ -2595,6 +2581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccd4348226c00549953a23c9e91abe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  all: []
+  team1: 
+  team2: 
+  availablesTeam1: 
+  availablesTeam2: 
 --- !u!1 &1564226207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,6 +2697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd66f657b640d2a489e57ac6c19eccb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escudo: {fileID: 2137185225}
   scoreField: {fileID: 239358790}
   teamNameField: {fileID: 1273684123}
   score: 0
@@ -3282,6 +3274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd66f657b640d2a489e57ac6c19eccb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escudo: {fileID: 881415382}
   scoreField: {fileID: 741117449}
   teamNameField: {fileID: 1086203433}
   score: 0
