@@ -31,7 +31,7 @@
 				"init": ["SERÁ JUSTICIA"],
 				"random": [ "AQUÍ HAY OLOR A CHARUTO", "¿QUIÉN SE FUMÓ UN CHARUTO?", "ANTIDOPPING PARA TODOS", "UNE MENOS", "ME GUSTA MÁS EL EQUIPO DE LA DERECHA", "NO SE DICE JUGADORES, SE DICE JUGADOROS", "ALGUIEN TIENE QUE DECIR ¡BASSSSTA!", "ME PARECE QUE EL PLAYER 1 SE FUMÓ UN CHARUTO"],
 				"goal":  [ "SE DICE GOL, NO GOLE", "OTRO GOL DE LA CORRUPCIÓN", "¡NO!" ],
-				"full": ["POR PORRERO", "POR KIRCHNO - COMUNISTA", "POR NEO FEMINAZI", "POR HABLAR CON LA E", "PORQUE ACÁ MANDO YO", "POR MOTOCHORRA"]
+				"full": ["POR PORRERO", "POR KIRCHNO - COMUNISTA", "POR NEO FEMINAZI", "POR HABLAR CON LA E", "PORQUE ACÁ MANDO YO", "POR MOTOCHORRA", "PORQUE SÍ", "POR LAS DUDAS", "POR SI TE QUEDABAN GANAS DE DELINQUIR", "PORQUE TENÉS OLOR A CHARUTO" ]
 			}
 		}
 	],
@@ -41,7 +41,7 @@
 			"id": 1,
 			"avatarName": "Punga Punga",
 			"dialogs": {
-				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA" ],
+				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA", "NINGÚN PIBE NACE PUNGA PUNGA" ],
 				"goal":  [ "¡GRACIAS GAUCHITO!", "¡¡GAAAAL!!", "¡PARA VOS, MAMÁ!" ],
 				"full":  [ "¡EEEEE!" ]
 			}
@@ -60,7 +60,7 @@
 			"avatarName": "Kim Yin",
 			"dialogs": {
 				"random": [ "¡DE RODILLAS!", "¡VIVA EL PARTIDO!", "¿ESTE ES EL PARTIDO COMUNISTA?", "ESTA CANCHA LA CONSTRUÍ YO" ],
-				"goal":  [ "¡PARA LA PATRIA!", "¡VIVA!" ],
+				"goal":  [ "¡PARA LA PATRIA!", "¡VIVA!", "ESE GOL LO HICE YO" ],
 				"full":  [ "¡MATEN A ESE DESERTOR!" ]
 			}
 		},
@@ -68,7 +68,7 @@
 			"id": 4,
 			"avatarName": "Ceresitas",
 			"dialogs": {
-				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA" ],
+				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA", "¿QUERÉS UN CUPCAKE?" ],
 				"goal":  [ "¡FUÉ CON MUCHO AMOR!", "FUÉ SIN QUERER..." ],
 				"full":  [ "ME VAS A HACER LLORAR..." ]
 			}
@@ -87,7 +87,7 @@
 			"avatarName": "Mischa Gurkovsky",
 			"dialogs": {
 				"random": [ "русский язык", "язы крусский" ],
-				"goal":  [ "¡VIVA CAMARADA!", "VICTORIA" ],
+				"goal":  [ "¡VIVA TROTSKY!", "VICTORIA" ],
 				"full":  [ "CERDOS CAPITALISTAS..." ]
 			}
 		},
@@ -104,8 +104,8 @@
 			"id": 8,
 			"avatarName": "Lizzie Queen",
 			"dialogs": {
-				"random": [ "ESTA CANCHA ME PERTENECE", "NO ME TOQUEN" ],
-				"goal":  [ "¡GOAL!" ],
+				"random": [ "ESTA CANCHA ME PERTENECE", "NO ME TOQUEN", "BESEN MIS PIES" ],
+				"goal":  [ "GOAL!" ],
 				"full":  [ "FUCKING ARGENTINES!" ]
 			}
 		},
@@ -114,7 +114,7 @@
 			"avatarName": "Spud Boy",
 			"dialogs": {
 				"random": [ "POTATOES!", "MONGOLOIDS!", "FREEDOM OF CHOICE!" ],
-				"goal":  [ "WHIP IT GOOD!", "THAT´S GOOD" ],
+				"goal":  [ "WHIP IT GOOD!", "THAT´S GOOD!" ],
 				"full":  [ "BIG MESS!" ]
 			}
 		},
@@ -122,7 +122,7 @@
 			"id": 10,
 			"avatarName": "Tina Warner",
 			"dialogs": {
-				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWWSSSS!" ],
+				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!" ],
 				"goal":  [ "GOOOAL!" ],
 				"full":  [ "HEEEYY!!!!" ]
 			}
@@ -131,7 +131,7 @@
 			"id": 11,
 			"avatarName": "Harold Payne",
 			"dialogs": {
-				"random": [ "HIDING THE PAIN", "MÁTENME", "QUIERO UN CAFECITO" ],
+				"random": [ "HIDING THE PAIN", "MÁTENME", "QUIERO UN CAFECITO", "SE ME ESTÁ PASANDO EL EFECTO DEL DIAZEPAM" ],
 				"goal":  [ "YAY!" ],
 				"full":  [ "DEAD INSIDE" ]
 			}
@@ -140,7 +140,7 @@
 			"id": 12,
 			"avatarName": "Mirta Manujín",
 			"dialogs": {
-				"random": [ "UNA CANCHA HECHA DE CHORIPANES", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS" ],
+				"random": [ "UNA CANCHA HECHA DE CAPITANES DEL ESPACIO", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS" ],
 				"goal":  [ "¡ARTE!" ],
 				"full":  [ "¡INTERVENCIÓN!" ]
 			}
@@ -149,9 +149,9 @@
 			"id": 13,
 			"avatarName": "Tincho M. Diocre",
 			"dialogs": {
-				"random": [ "NI DE UN LADO NI DEL OTRO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI IZQUIERDA NI DERECHA", "OJO, NO DIGO NEGRO DE PIEL: ¡DE ALMA!", "EN UN PAÍS EN SERIO ESTARÍAS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!" ],
+				"random": [ "NI DE UN LADO NI DEL OTRO", "ME PUSE UN AXXE MUSK ENTERO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR IGUAL", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI DE IZQUIERDA NI DE DERECHA", "OJO, NO DIGO NEGRO DE PIEL", "EN UN PAÍS EN SERIO ESTARÍAMOS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!", "RÉFERÍ, ¡HAY MUJERES JUGANDO!", "A MÍ NADIE ME REGALÓ NADA" ],
 				"goal":  [ "¡MERITOCRACIA!" ],
-				"full":  [ "¡PAÍS DE MIERDA!" ]
+				"full":  [ "¡PAÍS DE MIERDA!", "¿PARA QUÉ PAGO MIS IMPUESTOS?", "VIENEN DE BOLIVIA PARA HACERNOS GOLES" ]
 			}
 		}
 	]
