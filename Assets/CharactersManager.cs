@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharactersManager : MonoBehaviour
 {
-    public List<GameObject> all;
+    
     public GameObject referi_to_instantiate;
     public Referi referi;
     public GameObject boardFloor;
@@ -38,17 +38,19 @@ public class CharactersManager : MonoBehaviour
         referi.InitReferi(this, referi_to_instantiate);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
+        int id = 0;
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            int id = Random.Range(0, all.Count);
-            character.Init(1, this, all[id] );
+            character.Init(1, this, Data.Instance.charactersData.GetCharacter(1, id));
+            id++;
         }
+        id = 0;
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            int id = Random.Range(0, all.Count);
-            character.Init(2, this, all[id]);
+            character.Init(2, this, Data.Instance.charactersData.GetCharacter(2, id));
+            id++;
         }
         Loop();
     }

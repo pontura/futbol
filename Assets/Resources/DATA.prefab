@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114000013950545636}
   - component: {fileID: 999694241}
   - component: {fileID: 864794640}
+  - component: {fileID: 4719560070244982194}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   newScene: 
   settings: {fileID: 999694241}
   textsData: {fileID: 864794640}
+  charactersData: {fileID: 4719560070244982194}
 --- !u!114 &999694241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,62 +66,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 240
   teamSettings:
-  - name: Sportivo Punga
+  - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
+    name: Sportivo Punga
     designID: 3
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 1, g: 0, b: 0, a: 1}
     clothColorB: {r: 1, g: 1, b: 0, a: 1}
     clothColorC: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorD: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
-  - name: Bosta Juniors
+  - escudo: {fileID: 21300000, guid: 94ed12af01bd5ec41817f6e420591726, type: 3}
+    name: Bosta Juniors
     designID: 2
     color: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
     clothColorA: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
     clothColorB: {r: 1, g: 1, b: 0, a: 1}
     clothColorC: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
-  - name: Silver Plate
+  - escudo: {fileID: 21300000, guid: fabf00887be20e84f8b55c073721d11c, type: 3}
+    name: Silver Plate
     designID: 1
     color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorA: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorB: {r: 1, g: 0, b: 0, a: 1}
     clothColorC: {r: 0, g: 0, b: 0, a: 1}
     clothColorD: {r: 1, g: 0, b: 0, a: 1}
-  - name: "Atl\xE9tico San Jesus"
+  - escudo: {fileID: 21300000, guid: fc0f2e2a9334cad458433f9e0c2ad355, type: 3}
+    name: "Atl\xE9tico San Jesus"
     designID: 0
     color: {r: 1, g: 1, b: 0, a: 1}
     clothColorA: {r: 1, g: 1, b: 0, a: 1}
     clothColorB: {r: 1, g: 1, b: 0, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
-  - name: Porcelana Futbol Club
+  - escudo: {fileID: 21300000, guid: 48d9c348e24fb0a47b4a0c04aa0df862, type: 3}
+    name: Porcelana Futbol Club
     designID: 3
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
     clothColorB: {r: 1, g: 0, b: 0, a: 1}
     clothColorC: {r: 1, g: 1, b: 1, a: 1}
     clothColorD: {r: 0.36862746, g: 0.6784314, b: 0.8784314, a: 1}
-  - name: Madchester Rehab Farm
+  - escudo: {fileID: 21300000, guid: 50b4ddccf8f7b7d4e9c59084c33fbe5c, type: 3}
+    name: Madchester Rehab Farm
     designID: 0
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 1, g: 0, b: 0, a: 1}
     clothColorB: {r: 1, g: 0, b: 0, a: 1}
     clothColorC: {r: 1, g: 0, b: 0, a: 1}
     clothColorD: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
-  - name: Real Lamadrid
+  - escudo: {fileID: 21300000, guid: be50b7959d3852c4d819944012ff4644, type: 3}
+    name: Real Lamadrid
     designID: 2
     color: {r: 0, g: 0.44313726, b: 0.7372549, a: 1}
     clothColorA: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorB: {r: 0, g: 0.44313726, b: 0.7372549, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0.44313726, b: 0.7372549, a: 1}
-  - name: Chicago Boys
+  - escudo: {fileID: 21300000, guid: edb787081496582419317863c49c30b2, type: 3}
+    name: Chicago Boys
     designID: 0
     color: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorA: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorB: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
+  selectedTeams: {x: 0, y: 0}
   limits: {x: 40, y: 20}
   forceBarSpeed: 3
   kickHard: 1000
@@ -159,3 +170,48 @@ MonoBehaviour:
       init: []
     characters: []
     referis: []
+--- !u!114 &4719560070244982194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd4348226c00549953a23c9e91abe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all:
+  - {fileID: 8221468473453606760, guid: 2b553adb2ac15884480dee18c28d85db, type: 3}
+  - {fileID: 8281527998283743665, guid: a8f7a7cd833471a4a9ddb857ac64cb67, type: 3}
+  - {fileID: 4367421719257010718, guid: 90fe52d1f82ab9245899bc87a7a45606, type: 3}
+  - {fileID: 226667898465156278, guid: a4b299ff3821a4544bd7fa78f28c3dcf, type: 3}
+  - {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
+  - {fileID: 1833487088215971624, guid: c861c01bd1b69cb449090a5311f5763e, type: 3}
+  - {fileID: 2674879857765329069, guid: 2604c087dee734d41bf6d2b880ce7f41, type: 3}
+  - {fileID: 3410515606220679625, guid: 5c4bc449a31f4a94ba9d2d4bec518359, type: 3}
+  - {fileID: 3177298910664495984, guid: c406f0c4c212f9f4f90d63b456cb812c, type: 3}
+  - {fileID: 6901122285471923383, guid: 91c6614d5900efd45985683b6cf566c3, type: 3}
+  - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
+  - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
+  - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
+  thumbs:
+  - {fileID: 21300000, guid: 7313414c3a49cb74198699e206b1c821, type: 3}
+  - {fileID: 21300000, guid: ad6f49a6b25217542b571e65d82e5ae0, type: 3}
+  - {fileID: 21300000, guid: 26787e02e9f440b45835cb1be71729f5, type: 3}
+  - {fileID: 21300000, guid: 26aef86bf9b18554581f2d8590cf0242, type: 3}
+  - {fileID: 21300000, guid: 7e7559a09ca320c4dac1d36f0802b056, type: 3}
+  - {fileID: 21300000, guid: a90abd47135f896449e196fb82af78a6, type: 3}
+  - {fileID: 21300000, guid: 40a003e7c1e2762429c8eb658fe31591, type: 3}
+  - {fileID: 21300000, guid: d49bc416d0fb0f343bcd6c500b8d304c, type: 3}
+  - {fileID: 21300000, guid: a3e438ddfb730a34682ca367759f328e, type: 3}
+  - {fileID: 21300000, guid: 4c709aa58db3634489ef5d800c9f8926, type: 3}
+  - {fileID: 21300000, guid: 38a4ec2d4835c9442b7491d91a545c4b, type: 3}
+  - {fileID: 21300000, guid: 437d02f9f8d60664490ab86d098d60a3, type: 3}
+  - {fileID: 21300000, guid: 8395013c41d11864bb7c77b506143b2b, type: 3}
+  team1: 010000000300000005000000060000000700000002000000
+  team2: 080000000a0000000c0000000b000000090000000d000000
+  availablesTeam1: 04000000
+  availablesTeam2: 
+  totalCharacters: 13

@@ -10,6 +10,7 @@ public class Settings : MonoBehaviour
     [Serializable]
     public class TeamSettings
     {
+        public Sprite escudo;
         public string name;
         public int designID;
         public Color color;
@@ -18,6 +19,7 @@ public class Settings : MonoBehaviour
         public Color clothColorC;
         public Color clothColorD;
     }
+    public Vector2 selectedTeams;
 
     public Vector2 limits = new Vector2(40, 20);
     public float forceBarSpeed;

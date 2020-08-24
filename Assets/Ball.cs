@@ -94,8 +94,9 @@ public class Ball : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }
             //  else if (transform.localPosition.y < 1.8f)
-            else if (  character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
-                    || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5)
+            else if (transform.localPosition.y >1.5f &&
+                      (character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
+                    || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5))
             {
                 character.SetCollidersOff();
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);

@@ -14,6 +14,7 @@ public class Data : MonoBehaviour
     private float time_ViewingMap = 7.5f;
     public Settings settings;
     public TextsData textsData;
+    public CharactersData charactersData;
 
     public static Data Instance
     {
@@ -22,13 +23,9 @@ public class Data : MonoBehaviour
             return mInstance;
         }
     }
-    public void LoadLevel(string aLevelName, bool showMap)
+    public void LoadLevel(string aLevelName)
     {
         this.newScene = aLevelName;
-        Invoke("LoadDelayed", 0.75f);       
-    }
-    void LoadDelayed()
-    {
          SceneManager.LoadScene(newScene);
     }
     void Awake()
