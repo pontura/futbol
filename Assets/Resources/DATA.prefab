@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 999694241}
   - component: {fileID: 864794640}
   - component: {fileID: 4719560070244982194}
+  - component: {fileID: 1526771216}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -130,19 +131,19 @@ MonoBehaviour:
     clothColorB: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
-  selectedTeams: {x: 0, y: 0}
+  selectedTeams: {x: 1, y: 0}
   limits: {x: 40, y: 20}
   forceBarSpeed: 3
-  kickHard: 1000
-  kickHardAngle: 300
-  kickSoft: 600
-  kickSoftAngle: 120
-  kickBaloon: 320
+  kickHard: 800
+  kickHardAngle: 280
+  kickSoft: 500
+  kickSoftAngle: 110
+  kickBaloon: 250
   kickBaloonAngle: 450
   kickHead: 300
   kickHeadAngle: 130
-  kickChilena: 800
-  kickChilenaAngle: 60
+  kickChilena: 700
+  kickChilenaAngle: 40
   speed: 5
   goalKeeperSpeed: 2
   referiSpeed: 2
@@ -196,22 +197,24 @@ MonoBehaviour:
   - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
   - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
   - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
-  thumbs:
-  - {fileID: 21300000, guid: 7313414c3a49cb74198699e206b1c821, type: 3}
-  - {fileID: 21300000, guid: ad6f49a6b25217542b571e65d82e5ae0, type: 3}
-  - {fileID: 21300000, guid: 26787e02e9f440b45835cb1be71729f5, type: 3}
-  - {fileID: 21300000, guid: 26aef86bf9b18554581f2d8590cf0242, type: 3}
-  - {fileID: 21300000, guid: 7e7559a09ca320c4dac1d36f0802b056, type: 3}
-  - {fileID: 21300000, guid: a90abd47135f896449e196fb82af78a6, type: 3}
-  - {fileID: 21300000, guid: 40a003e7c1e2762429c8eb658fe31591, type: 3}
-  - {fileID: 21300000, guid: d49bc416d0fb0f343bcd6c500b8d304c, type: 3}
-  - {fileID: 21300000, guid: a3e438ddfb730a34682ca367759f328e, type: 3}
-  - {fileID: 21300000, guid: 4c709aa58db3634489ef5d800c9f8926, type: 3}
-  - {fileID: 21300000, guid: 38a4ec2d4835c9442b7491d91a545c4b, type: 3}
-  - {fileID: 21300000, guid: 437d02f9f8d60664490ab86d098d60a3, type: 3}
-  - {fileID: 21300000, guid: 8395013c41d11864bb7c77b506143b2b, type: 3}
   team1: 010000000300000005000000060000000700000002000000
   team2: 080000000a0000000c0000000b000000090000000d000000
   availablesTeam1: 04000000
   availablesTeam2: 
-  totalCharacters: 13
+--- !u!114 &1526771216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd4348226c00549953a23c9e91abe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all: []
+  team1: 
+  team2: 
+  availablesTeam1: 
+  availablesTeam2: 

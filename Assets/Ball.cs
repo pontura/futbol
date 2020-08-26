@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
             return;
 
         Vector3 velocity = rb.velocity;
-        if(transform.position.y<2.6f && transform.position.z< 4.5f && transform.position.z > -4.5f)
+        if(transform.position.y<2.9f && transform.position.z< 4.5f && transform.position.z > -4.5f)
         {
             if (transform.position.x <= -limits.x / 2)
                 Game.Instance.Goal(1, characterThatKicked);
@@ -102,9 +102,9 @@ public class Ball : MonoBehaviour
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);
                 Vector3 lookTo = Vector3.zero;
                 if (character.transform.localScale.x < 0)
-                    lookTo.y = 90 + (character.transform.localScale.z * 10);
+                    lookTo.y = 90 - (character.transform.position.z * 5);
                 else
-                    lookTo.y = -90 + (character.transform.localScale.z * 10);
+                    lookTo.y = -90 - (character.transform.position.z * 5);
                 transform.eulerAngles = lookTo;
                 
                 Kick(CharacterActions.kickTypes.CHILENA);               
