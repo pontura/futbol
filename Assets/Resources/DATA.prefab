@@ -142,8 +142,8 @@ MonoBehaviour:
   kickBaloonAngle: 450
   kickHead: 300
   kickHeadAngle: 130
-  kickChilena: 700
-  kickChilenaAngle: 40
+  kickChilena: 800
+  kickChilenaAngle: 45
   speed: 5
   goalKeeperSpeed: 2
   referiSpeed: 2
