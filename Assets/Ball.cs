@@ -78,7 +78,6 @@ public class Ball : MonoBehaviour
          else   if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
-            print("transform.localPosition.y " + transform.localPosition.y  + " character.ballCatcher.state: " + character.ballCatcher.state);
             if (transform.localPosition.y < 0.9f && character.ballCatcher.state == BallCatcher.states.IDLE)
             {
                 if (lastCharacterWithBall != null)
