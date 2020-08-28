@@ -382,7 +382,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0
-      minScalar: 0.12
+      minScalar: 0.17
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1014,9 +1014,9 @@ ParticleSystem:
         m_RotationOrder: 4
     rateOverDistance:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 40
-      minScalar: 0
+      minMaxState: 3
+      scalar: 25
+      minScalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5273,7 +5273,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0
-      minScalar: 0.12
+      minScalar: 0.17
       maxCurve:
         serializedVersion: 2
         m_Curve:
