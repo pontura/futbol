@@ -67,7 +67,6 @@ public class Character : MonoBehaviour
     public void Kick(CharacterActions.kickTypes kickType)
     {
         actions.Kick(kickType);
-
         if (ball != null && ball.GetCharacter() == this)
         {
             ball.Kick(kickType);

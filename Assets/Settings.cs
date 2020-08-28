@@ -21,6 +21,8 @@ public class Settings : MonoBehaviour
     }
     public Vector2 selectedTeams;
 
+    public float timeToSwapCharactersAutomatically = 0.7f;
+
     public Vector2 limits = new Vector2(40, 20);
     public float forceBarSpeed;
 

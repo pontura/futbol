@@ -69,7 +69,6 @@ public class CharactersData : MonoBehaviour
     }
     public GameObject GetCharacter(int teamID, int id)
     {
-        print("team: " + teamID + " id: " + id);
         if(teamID == 1)
             return all[team1[id]-1];
         else

@@ -14,5 +14,7 @@ public static class Events
     public static System.Action<int> OnGoal = delegate { };
     public static System.Action<Character, string> SetDialogue = delegate { };
     public static System.Action<int, InputManagerUI.buttonTypes> OnButtonPressed = delegate { };
+
+    public static System.Action KickToGoal = delegate { };
 }
    

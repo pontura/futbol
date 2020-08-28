@@ -28,13 +28,17 @@ public class CharactersManager : MonoBehaviour
     private void Awake()
     {
         Events.OnGoal += OnGoal;
+        Events.KickToGoal += KickToGoal;
     }
     private void OnDestroy()
     {
         Events.OnGoal -= OnGoal;
+        Events.KickToGoal -= KickToGoal;
     }
     private void Start()
     {
+        
+        //AddCharacter(2);
         referi.InitReferi(this, referi_to_instantiate);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
@@ -53,6 +57,9 @@ public class CharactersManager : MonoBehaviour
             id++;
         }
         Loop();
+
+        AddCharacter(1);
+       // AddCharacter(2);
     }
     public void ResetAll()
     {
@@ -72,7 +79,7 @@ public class CharactersManager : MonoBehaviour
     {
         CheckStateByTeam(team1[0]);
         CheckStateByTeam(team2[0]);
-        Invoke("Loop", 0.5f);
+        Invoke("Loop", Data.Instance.settings.timeToSwapCharactersAutomatically);
     }
     void CheckStateByTeam(Character character)
     {
@@ -194,7 +201,15 @@ public class CharactersManager : MonoBehaviour
         {
             switch (buttonID)
             {
-                case 1: character.Kick(CharacterActions.kickTypes.HARD); break;
+                case 1:
+                    float timeCatched = ball.GetDurationOfBeingCatch();
+                    
+                    if(timeCatched<0.25f)
+                        character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+                    else
+                        character.Kick(CharacterActions.kickTypes.HARD);
+                    
+                    break;
                 case 2:
                     Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward*4);
 
@@ -269,5 +284,11 @@ public class CharactersManager : MonoBehaviour
                 return character;
         return null;
     }
-    
+    void KickToGoal()
+    {
+        if(ball.character!= null)
+            ball.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+    }
+
+
 }

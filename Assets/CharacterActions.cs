@@ -26,7 +26,8 @@ public class CharacterActions : MonoBehaviour
         HARD,
         BALOON,
         HEAD,
-        CHILENA
+        CHILENA,
+        KICK_TO_GOAL
     }
     private void Start()
     {
@@ -81,13 +82,20 @@ public class CharacterActions : MonoBehaviour
         this.state = states.RUN;
         anim.Play("run");
     }
+    public void GoalKeeperJump()
+    {
+        if (state == states.SPECIAL_ACTION)
+            return;
+        this.state = states.SPECIAL_ACTION;
+        anim.Play("jump");
+        Invoke("ResetSpecial", 1.2f);
+    }
     public void Kick(kickTypes kickType)
     {       
         if (state == states.KICK)
             return;
         
         CancelInvoke();
-        print("Kick " + kickType);
 
         this.state = states.KICK;
         if (kickType == kickTypes.CHILENA)

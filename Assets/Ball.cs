@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     public Character character;
     public Character characterThatKicked;
     Vector3 limits;
+    float timeCatched;
 
     void Start()
     {
@@ -84,28 +85,26 @@ public class Ball : MonoBehaviour
                 {
                     if (lastCharacterWithBall.isGoldKeeper)
                         Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
-
                     lastCharacterWithBall.ballCatcher.LoseBall();
                 }
+                timeCatched = Time.time;
                 characterThatKicked = character;
                 character.OnCatch(this);
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }
-            //  else if (transform.localPosition.y < 1.8f)
+            else if(character.isGoldKeeper)
+            {
+                print("____________GoalKeeperJump");
+                character.actions.GoalKeeperJump();
+            }
             else if (transform.localPosition.y >1.5f &&
                       (character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
                     || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5))
             {
                 character.SetCollidersOff();
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);
-                Vector3 lookTo = Vector3.zero;
-                if (character.transform.localScale.x < 0)
-                    lookTo.y = 90 - (character.transform.position.z * 5);
-                else
-                    lookTo.y = -90 - (character.transform.position.z * 5);
-                transform.eulerAngles = lookTo;
-                
+                AimGoal(character);
                 Kick(CharacterActions.kickTypes.CHILENA);               
             }
             else {
@@ -116,27 +115,50 @@ public class Ball : MonoBehaviour
             }
         }
     }
+    public void AimGoal(Character character, float randomYRotation = 0)
+    {
+        Vector3 lookTo = Vector3.zero;
+        if (character.teamID == 1)
+            lookTo.y = -90 - (character.transform.position.z * 5);
+        else
+            lookTo.y = 90 + (character.transform.position.z * 5);
+
+        if (randomYRotation > 0)
+            lookTo.y += Random.Range(-randomYRotation, randomYRotation);
+        transform.eulerAngles = lookTo;
+    }
     void FreeBall()
     {
         rb.constraints = RigidbodyConstraints.None;
         transform.SetParent(container);
     }
+    float AddForceToKick(float force)
+    {       
+        force = uIForce.GetForce();
+        if (force <= 0 && character != null)
+        {
+            if (character.transform.localScale.x == -1)
+                character.MoveTo(1, 0);
+            else
+                character.MoveTo(-1, 0);
+            force = 0.4f;
+        }
+        else
+            force += 1;
+        return force;
+    }
     public void Kick(CharacterActions.kickTypes kickType)
     {
         float force = 1;
-        if (kickType != CharacterActions.kickTypes.HEAD || kickType != CharacterActions.kickTypes.CHILENA)
+        if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL)
         {
-            force = uIForce.GetForce();
-            if (force <= 0 && character != null)
-            {
-                if (character.transform.localScale.x == -1)
-                    character.MoveTo(1, 0);
-                else
-                    character.MoveTo(-1, 0);
-                force = 0.4f;
-            } else
-                force += 1;
-        }
+            character.SetCollidersOff();
+            AimGoal(character, 40);
+        } else if (   
+            kickType != CharacterActions.kickTypes.HEAD 
+            || kickType != CharacterActions.kickTypes.CHILENA
+            )
+            force = AddForceToKick(force);
 
         FreeBall();
         character = null;
@@ -164,9 +186,17 @@ public class Ball : MonoBehaviour
                 dir *= Data.Instance.settings.kickChilena * force;
                 dir += Vector3.up * Data.Instance.settings.kickChilenaAngle * force;
                 break;
+            case CharacterActions.kickTypes.KICK_TO_GOAL:
+                dir *= Data.Instance.settings.kickHard * 1.5f;
+                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
+                break;
         }
         rb.velocity = Vector3.zero;
         rb.AddForce(dir);
         Events.OnBallKicked();
+    }
+    public float GetDurationOfBeingCatch()
+    {
+        return Time.time - timeCatched;
     }
 }
