@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     Vector3 limits;
     float timeCatched;
 
+
     void Start()
     {
         limits = Data.Instance.settings.limits;
