@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallFX : MonoBehaviour
 {
     public ParticleSystem kickParticles;
+    public float rate = 250;
     public float speedDecrease = 10;
     ParticleSystem.EmissionModule emissionModule;
     float value;
@@ -20,7 +21,7 @@ public class BallFX : MonoBehaviour
     }   
     void OnBallKicked()
     {
-        value += 150;
+        value += rate;
         emissionModule.rateOverTime = value;
         kickParticles.Play();
         StartCoroutine(TurnOff());
