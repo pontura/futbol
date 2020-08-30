@@ -69,10 +69,14 @@ public class Ball : MonoBehaviour
         if (Game.Instance.state != Game.states.PLAYING)
             return;
 
-        Character lastCharacterWithBall = null;
-        if (character != null)
-            lastCharacterWithBall = character;
-        if (collision.gameObject.tag == "Referi")
+        //Character lastCharacterWithBall = null;
+        //if (character != null)
+        //    lastCharacterWithBall = character;
+        if (collision.gameObject.tag == "Goal")
+        {
+            rb.velocity = Vector3.zero;
+        }
+        else if (collision.gameObject.tag == "Referi")
         {
             Character character = collision.gameObject.GetComponent<Character>();
             character.actions.Kick(CharacterActions.kickTypes.HEAD);
@@ -80,14 +84,16 @@ public class Ball : MonoBehaviour
          else   if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
+
+            print(character.name + " y: " + transform.localPosition.y + " character.ballCatcher.state: " + character.ballCatcher.state);
             if (transform.localPosition.y < 0.9f && character.ballCatcher.state == BallCatcher.states.IDLE)
             {
-                if (lastCharacterWithBall != null)
-                {
-                    if (lastCharacterWithBall.isGoldKeeper)
-                        Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
-                    lastCharacterWithBall.ballCatcher.LoseBall();
-                }
+                //if (lastCharacterWithBall != null)
+                //{
+                //    if (lastCharacterWithBall.isGoldKeeper)
+                //        Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
+                //    lastCharacterWithBall.ballCatcher.LoseBall();
+                //}
                 timeCatched = Time.time;
                 characterThatKicked = character;
                 character.OnCatch(this);

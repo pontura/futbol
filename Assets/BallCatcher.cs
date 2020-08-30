@@ -28,13 +28,15 @@ public class BallCatcher : MonoBehaviour
     }
     public void LoseBall()
     {
+        print("LoseBall ");
         container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
-        Invoke("Reset", 0.25f);
+        Invoke("Reset", 0.2f);
     }
     private void Reset()
     {
+        print("Reset ");
         state = states.IDLE;
     }
     public void LookAt(Vector3 targetPos)
