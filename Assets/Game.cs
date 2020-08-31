@@ -31,6 +31,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         cameraInGame.SetTargetTo(ball.transform);
+        Events.PlaySound("crowd", "crowd_quiet");
     }
     public void Goal(int teamID, Character character)
     {
@@ -60,8 +61,9 @@ public class Game : MonoBehaviour
     }
     IEnumerator GoalC()
     {
-      
+        Events.PlaySound("crowd", "crowd_gol");
         yield return new WaitForSeconds(4);
+        Events.PlaySound("crowd", "crowd_quiet");
         ball.Reset();   
         charactersManager.ResetAll();
         cameraInGame.SetTargetTo(ball.transform);

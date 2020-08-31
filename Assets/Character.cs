@@ -34,6 +34,7 @@ public class Character : MonoBehaviour
     public virtual void Start()
     {
         colliders = GetComponents<Collider>();
+        Loop();
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
@@ -50,6 +51,17 @@ public class Character : MonoBehaviour
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
         asset.transform.localScale = Vector3.one;
         actions.Init(asset, teamID);
+    }
+    void Loop()
+    {
+        Vector3 dest = Game.Instance.cameraInGame.transform.localEulerAngles;
+        if (transform.localScale.x < 0)
+        {
+            dest.y *= -1;
+            dest.z *= -1;
+        }
+        characterContainer.localEulerAngles = dest;
+        Invoke("Loop", 0.1f);
     }
     public void OnCatch(Ball _ball)
     {

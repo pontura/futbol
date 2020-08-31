@@ -40,9 +40,9 @@ public class Ball : MonoBehaviour
         Vector3 velocity = rb.velocity;
         if(transform.position.y<2.9f && transform.position.z< 4.5f && transform.position.z > -4.5f)
         {
-            if (transform.position.x <= -limits.x / 2)
+            if (transform.position.x <= (-limits.x / 2) + 0.25f)
                 Game.Instance.Goal(1, characterThatKicked);
-            else if (transform.position.x >= limits.x / 2)
+            else if (transform.position.x >= (limits.x / 2) - 0.25f)
                 Game.Instance.Goal(2, characterThatKicked);
         } else
         if (transform.position.x >= limits.x/2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
@@ -68,10 +68,9 @@ public class Ball : MonoBehaviour
       
         if (Game.Instance.state != Game.states.PLAYING)
             return;
+        if (character != null && character.isGoldKeeper)
+            return;
 
-        //Character lastCharacterWithBall = null;
-        //if (character != null)
-        //    lastCharacterWithBall = character;
         if (collision.gameObject.tag == "Goal")
         {
             rb.velocity = Vector3.zero;
@@ -85,15 +84,8 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            print(character.name + " y: " + transform.localPosition.y + " character.ballCatcher.state: " + character.ballCatcher.state);
             if (transform.localPosition.y < 0.9f && character.ballCatcher.state == BallCatcher.states.IDLE)
             {
-                //if (lastCharacterWithBall != null)
-                //{
-                //    if (lastCharacterWithBall.isGoldKeeper)
-                //        Game.Instance.charactersManager.GoalKeeperLoseBall(lastCharacterWithBall.id);
-                //    lastCharacterWithBall.ballCatcher.LoseBall();
-                //}
                 timeCatched = Time.time;
                 characterThatKicked = character;
                 character.OnCatch(this);
@@ -174,26 +166,32 @@ public class Ball : MonoBehaviour
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
+                Events.PlaySound("common", "kick3");
                 dir *= Data.Instance.settings.kickHard* force;
                 dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.SOFT:
+                Events.PlaySound("common", "kick2");
                 dir *= Data.Instance.settings.kickSoft * force;
                 dir += Vector3.up * Data.Instance.settings.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
+                Events.PlaySound("common", "kick1");
                 dir *= Data.Instance.settings.kickBaloon * force;
                 dir += Vector3.up * Data.Instance.settings.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
+                Events.PlaySound("common", "kick1");
                 dir *= Data.Instance.settings.kickHead * force;
                 dir += Vector3.up * Data.Instance.settings.kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
+                Events.PlaySound("common", "kick3");
                 dir *= Data.Instance.settings.kickChilena * force;
                 dir += Vector3.up * Data.Instance.settings.kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
+                Events.PlaySound("common", "kick3");
                 dir *= Data.Instance.settings.kickHard * 1.5f;
                 dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;

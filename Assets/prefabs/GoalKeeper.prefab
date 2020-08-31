@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4932910987359265217}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.8, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.8, y: 0.8, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 8526696997393370622}
@@ -163,8 +163,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 17e3cacfa2f7e3944babdb21c7aa458a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 3.82
+  m_Radius: 0.8
+  m_Height: 2.6
   m_Direction: 1
   m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &4932910986811592799
@@ -179,13 +179,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895fc40b8e476d24ba8f949db30eebac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamID: 0
   id: 0
+  characterID: 0
   speed: 0
   characterContainer: {fileID: 4824073138760584615}
+  ball: {fileID: 0}
+  charactersManager: {fileID: 0}
+  teamID: 0
+  data:
+    id: 0
+    avatarName: 
+    dialogs:
+      random: []
+      goal: []
+      full: []
+      init: []
   actions: {fileID: 0}
   characterSignal: {fileID: 0}
-  ballCathcer: {fileID: 0}
+  ballCatcher: {fileID: 0}
   isBeingControlled: 0
   ai: {fileID: 0}
   isGoldKeeper: 0

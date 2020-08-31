@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharactersManager : MonoBehaviour
 {
-    
+    public float rotationOffset = 10;
     public GameObject referi_to_instantiate;
     public Referi referi;
     public GameObject boardFloor;
@@ -179,11 +179,11 @@ public class CharactersManager : MonoBehaviour
         if (character.transform.position.x >= limits.x && _x>0 || character.transform.position.x <= -limits.x && _x < 0) _x = 0;
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition((int)_x, (int)_y);
+        Vector3 rot = character.characterContainer.transform.localEulerAngles;
+        rot.y += transform.position.x * rotationOffset;
+        character.characterContainer.transform.localEulerAngles = rot;
     }
-    public void GoalKeeperLoseBall(int characterID)
-    {
-        Swap(characterID);
-    }
+
     public void ButtonPressed(int buttonID, int id)
     {
        // print("buttonID " + buttonID);
@@ -220,8 +220,6 @@ public class CharactersManager : MonoBehaviour
                     break;
                 case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
-            if(character.isGoldKeeper)
-                GoalKeeperLoseBall(id);
         }
         //else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
         //{
