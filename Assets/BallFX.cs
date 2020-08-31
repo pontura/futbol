@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallFX : MonoBehaviour
 {
     public ParticleSystem kickParticles;
-    public float rate = 500;
+    public float rate = 650;
     public float speedDecrease = 10;
     ParticleSystem.EmissionModule emissionModule;
     float value;
@@ -30,7 +30,7 @@ public class BallFX : MonoBehaviour
     {
         while (value > 0)
         {
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.01f);
             value -= speedDecrease;
             emissionModule.rateOverTime = value;
         }

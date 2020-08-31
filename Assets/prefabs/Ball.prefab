@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIForce: {fileID: 0}
-  rb: {fileID: 170217515, guid: ec3e8f3ed27e2244caaedaf589590a03, type: 3}
+  rb: {fileID: 170217515}
   character: {fileID: 0}
   characterThatKicked: {fileID: 0}
 --- !u!114 &170217516
@@ -5240,8 +5240,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0
-      minScalar: 2.5
+      scalar: 0.2
+      minScalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5357,7 +5357,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.06
-      minScalar: 0.17
+      minScalar: 0.22
       maxCurve:
         serializedVersion: 2
         m_Curve:

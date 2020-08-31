@@ -41,36 +41,36 @@
 			"id": 1,
 			"avatarName": "Punga Punga",
 			"dialogs": {
-				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA", "NINGÚN PIBE NACE PUNGA PUNGA" ],
-				"goal":  [ "¡GRACIAS GAUCHITO!", "¡¡GAAAAL!!", "¡PARA VOS, MAMÁ!" ],
-				"full":  [ "¡EEEEE!" ]
+				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA", "NINGÚN PIBE NACE PUNGA PUNGA", "BIEMPIOLA", "EL FICHÍN MAS PIOLA DE LA PANDEMIA" ],
+				"goal":  [ "¡GRACIAS GAUCHITO!", "¡¡GAAAAL!!", "¡PARA VOS, MAMÁ!", "TE RECABIÓ POR GIL" ],
+				"full":  [ "¡EEEEE, GATO!", "FUISTE...", "TE LA VAMO A DAR" ]
 			}
 		},
 		{
 			"id": 2,
 			"avatarName": "Chunky Doll",
 			"dialogs": {
-				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?" ],
+				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?", "AL PLAYER 2 LO QUIERO MATAR" ],
 				"goal":  [ "¡GORE!" ],
-				"full":  [ "¡COBRÁ O TE DESCUARTIZO!" ]
+				"full":  [ "¡COBRÁ O TE DESCUARTIZO!", ":(" ]
 			}
 		},
 		{
 			"id": 3,
 			"avatarName": "Kim Yin",
 			"dialogs": {
-				"random": [ "¡DE RODILLAS!", "¡VIVA EL PARTIDO!", "¿ESTE ES EL PARTIDO COMUNISTA?", "ESTA CANCHA LA CONSTRUÍ YO" ],
-				"goal":  [ "¡PARA LA PATRIA!", "¡VIVA!", "ESE GOL LO HICE YO" ],
-				"full":  [ "¡MATEN A ESE DESERTOR!" ]
+				"random": [ "¡DE RODILLAS!", "¡VIVA EL PARTIDO!", "¿ESTE ES EL PARTIDO COMUNISTA?", "ESTA CANCHA LA CONSTRUÍ YO", "이 경기장 수용" ],
+				"goal":  [ "¡PARA LA PATRIA!", "¡VIVA!", "ESE GOL LO HICE YO", "골!", "나는 그와 모든 목표를했다", "나는이 서양 게임을 좋아한다" ],
+				"full":  [ "¡MATEN AL DESERTOR!", "LA VENGANZA SERÁ NUCLEAR", "탈영병을 처형하세요!", "¡NO ME MIREN A LOS OJOS!" ]
 			}
 		},
 		{
 			"id": 4,
 			"avatarName": "Ceresitas",
 			"dialogs": {
-				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA", "¿QUERÉS UN CUPCAKE?" ],
+				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA", "¿QUERÉS UN CUPCAKE?", "TIENES UN HERMOSO CORAZÓN", "ENCANTADA DE CONOCERTE", "HOLA, MI NOMBRE ES CERESITAS" ],
 				"goal":  [ "¡FUÉ CON MUCHO AMOR!", "FUÉ SIN QUERER..." ],
-				"full":  [ "ME VAS A HACER LLORAR..." ]
+				"full":  [ "ME VAS A HACER LLORAR...", "¡BUUUU!" ]
 			}
 		},
 		{
@@ -78,7 +78,7 @@
 			"avatarName": "Poonga Loompa",
 			"dialogs": {
 				"random": [ "ODIO A TIM BURTON", "EL ÚLTIMO CHOCOLATE QUE COMISTE LO CAGUÉ YO", "AGUANTE NAVE JUNGLA" ],
-				"goal":  [ "¡GOLAAAAAZO!", "¡CHOCOGOLLLL!" ],
+				"goal":  [ "¡GOLAAAAAZO!", "¡CHOCOGOLLLL!", "¡¡GOOOOOL!!" ],
 				"full":  [ "¡FULLLL!" ]
 			}
 		},
@@ -86,17 +86,17 @@
 			"id": 6,
 			"avatarName": "Mischa Gurkovsky",
 			"dialogs": {
-				"random": [ "русский язык", "язы крусский" ],
-				"goal":  [ "¡VIVA TROTSKY!", "VICTORIA" ],
-				"full":  [ "CERDOS CAPITALISTAS..." ]
+				"random": [ "Какая редкая смесь товарищей ...", "Да здравствует революция!", "В следующую игру я играю без винтовки", "LA PRRROXIMA VENGO SIN EL FUSIL" ],
+				"goal":  [ "Цель!", "VICTORRRIA", "¡MUERRRAN, CERDOS CAPITALISTAS!", "Цель!!" ],
+				"full":  [ "Я отомщу" ]
 			}
 		},
 		{
 			"id": 7,
 			"avatarName": "Fiscal Nissmar",
 			"dialogs": {
-				"random": [ "¿Y SI ME PEGO UN CORCHAZO?", "MAÑANA TENGO QUE PREPARAR LA DENUNCIA...", "MAÑANA VOY A ONCE A PEGAR COTILLÓN PORNO", "...¿PAGUÉ LA TARJETA?", "TENDRÍA QUE CAMBIAR LAS MILLAS POR UN PASAJE A MIAMI..." ],
-				"goal":  [ "¡GOL, YEGUA!", "¡¡GOLAZO!!" ],
+				"random": [ "LE TENGO QUE PEDIR EL CHUMBO AL DE SISTEMAS...", "MAÑANA TENGO QUE PREPARAR LA DENUNCIA...", "MAÑANA VOY A ONCE A PEGAR COTILLÓN PORNO", "...¿PAGUÉ LA TARJETA?", "TENDRÍA QUE CAMBIAR LAS MILLAS POR UN PASAJE A MIAMI...", "NECESITO DORMIR" ],
+				"goal":  [ "¡GOOOOL!", "¡¡GOLAZO!!" ],
 				"full":  [ "¡CORRUPCIÓN!" ]
 			}
 		},
@@ -104,18 +104,18 @@
 			"id": 8,
 			"avatarName": "Lizzie Queen",
 			"dialogs": {
-				"random": [ "ESTA CANCHA ME PERTENECE", "NO ME TOQUEN", "BESEN MIS PIES" ],
-				"goal":  [ "GOAL!" ],
-				"full":  [ "FUCKING ARGENTINES!" ]
+				"random": [ "ESTA CANCHA ME PERTENECE", "NO ME TOQUEN", "BESEN MIS PIES", "SUS PAÍSES ME PERTENECEN", "SUS ALMAS ME PERTENECEN", "BESEN LA PARTE DE ATRÁS DE MIS RODILLAS", "¿PUEDO DEJAR DE SONREIR?" ],
+				"goal":  [ "GOAL!", "GOLD!" ],
+				"full":  [ "FUCKING ARGENTINES!", "UNFAIR!" ]
 			}
 		},
 		{
 			"id": 9,
 			"avatarName": "Spud Boy",
 			"dialogs": {
-				"random": [ "POTATOES!", "MONGOLOIDS!", "FREEDOM OF CHOICE!" ],
-				"goal":  [ "WHIP IT GOOD!", "THAT´S GOOD!" ],
-				"full":  [ "BIG MESS!" ]
+				"random": [ "POTATOES!", "MONGOLOIDS!", "FREEDOM OF CHOICE!", "ARE WE NOT MEN?", "I BE SUPD BOY", "COMO PESA ESTE SINTE..." ],
+				"goal":  [ "WHIP IT GOOD!", "THAT´S GOOD!", "SUPPLY AND DEMAND", "THAT´S PEP", "DEVOLUTION TIME!", "PEEK-A-BOO!" ],
+				"full":  [ "BIG MESS!", "SOCIETY'S FOOLS!" ]
 			}
 		},
 		{
@@ -124,16 +124,16 @@
 			"dialogs": {
 				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!" ],
 				"goal":  [ "GOOOAL!" ],
-				"full":  [ "HEEEYY!!!!" ]
+				"full":  [ "HEEEYY!!!!", "WTF!!!" ]
 			}
 		},
 		{
 			"id": 11,
 			"avatarName": "Harold Payne",
 			"dialogs": {
-				"random": [ "HIDING THE PAIN", "MÁTENME", "QUIERO UN CAFECITO", "SE ME ESTÁ PASANDO EL EFECTO DEL DIAZEPAM" ],
-				"goal":  [ "YAY!" ],
-				"full":  [ "DEAD INSIDE" ]
+				"random": [ "HIDING THE PAIN", "MÁTENME", "QUIERO UN CAFECITO", "SE ME ESTÁ PASANDO EL EFECTO DEL DIAZEPAM", "HAROLD PAYNE A LA ÓRDEN", "THIS FUCKING SMILE IS KILLING MY SOUL", "¿YA SACARON LA FOTO?" ],
+				"goal":  [ "YAY!", "YIPEE!" ],
+				"full":  [ "DEAD INSIDE", "LIFE SUCKS" ]
 			}
 		},
 		{
@@ -149,9 +149,9 @@
 			"id": 13,
 			"avatarName": "Tincho M. Diocre",
 			"dialogs": {
-				"random": [ "NI DE UN LADO NI DEL OTRO", "ME PUSE UN AXXE MUSK ENTERO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR IGUAL", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI DE IZQUIERDA NI DE DERECHA", "OJO, NO DIGO NEGRO DE PIEL", "EN UN PAÍS EN SERIO ESTARÍAMOS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!", "RÉFERÍ, ¡HAY MUJERES JUGANDO!", "A MÍ NADIE ME REGALÓ NADA" ],
+				"random": [ "NI DE UN LADO NI DEL OTRO", "ME PUSE UN AXXE MUSK ENTERO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR IGUAL", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI DE IZQUIERDA NI DE DERECHA", "OJO, NO DIGO NEGRO DE PIEL", "EN UN PAÍS EN SERIO ESTARÍAMOS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!", "RÉFERÍ, ¡HAY MUJERES JUGANDO!", "A MÍ NADIE ME REGALÓ NADA", "ESTOS GRÁFICOS SON UNA MIERDA" ],
 				"goal":  [ "¡MERITOCRACIA!" ],
-				"full":  [ "¡PAÍS DE MIERDA!", "¿PARA QUÉ PAGO MIS IMPUESTOS?", "VIENEN DE BOLIVIA PARA HACERNOS GOLES" ]
+				"full":  [ "¡PAÍS DE MIERDA!", "¿PARA QUÉ PAGO MIS IMPUESTOS?", "VIENEN DE BOLIVIA PARA HACERNOS GOLES", "SOMOS VENEZUELA" ]
 			}
 		}
 	]
