@@ -55,20 +55,9 @@ public class Game : MonoBehaviour
         ball.KickIfOnGoal();
         state = states.GOAL;
         Events.OnGameStatusChanged(state);
-        Events.OnGoal(teamID);
-        cameraInGame.OnGoal(character);
-        StartCoroutine(GoalC());
+        
+        
+        StartCoroutine(GetComponent<GoalMoment>().Init(teamID, character));
     }
-    IEnumerator GoalC()
-    {
-        Events.PlaySound("crowd", "crowd_gol");
-        yield return new WaitForSeconds(4);
-        Events.PlaySound("crowd", "crowd_quiet");
-        ball.Reset();   
-        charactersManager.ResetAll();
-        cameraInGame.SetTargetTo(ball.transform);
-      
-        state = states.PLAYING;
-        Events.OnGameStatusChanged(state);
-    }
+   
 }

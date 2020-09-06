@@ -94,7 +94,6 @@ public class Ball : MonoBehaviour
             }
             else if(character.isGoldKeeper)
             {
-                print("____________GoalKeeperJump");
                 character.actions.GoalKeeperJump();
             }
             else if (transform.localPosition.y >1.5f &&

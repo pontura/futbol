@@ -125,8 +125,9 @@ public class Ruleta : MonoBehaviour {
     }
     void Ready()
     {
-        OnDone(selectedID);
+       
         state = states.FINISH;
+         OnDone(selectedID);
     }
     void ResetPosition()
     {

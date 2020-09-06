@@ -52,15 +52,19 @@ public class Character : MonoBehaviour
         asset.transform.localScale = Vector3.one;
         actions.Init(asset, teamID);
     }
+
     void Loop()
     {
-        Vector3 dest = Game.Instance.cameraInGame.transform.localEulerAngles;
-        if (transform.localScale.x < 0)
+        if (Game.Instance.state == Game.states.PLAYING)
         {
-            dest.y *= -1;
-            dest.z *= -1;
+            Vector3 dest = Game.Instance.cameraInGame.transform.localEulerAngles;
+            if (transform.localScale.x < 0)
+            {
+                dest.y *= -1;
+                dest.z *= -1;
+            }
+            characterContainer.localEulerAngles = dest;
         }
-        characterContainer.localEulerAngles = dest;
         Invoke("Loop", 0.1f);
     }
     public void OnCatch(Ball _ball)

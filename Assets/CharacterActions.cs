@@ -18,7 +18,8 @@ public class CharacterActions : MonoBehaviour
         KICK,
         DASH,
         ACTION_DONE,
-        SPECIAL_ACTION
+        SPECIAL_ACTION,
+        GOAL
     }
     public enum kickTypes
     {
@@ -28,10 +29,6 @@ public class CharacterActions : MonoBehaviour
         HEAD,
         CHILENA,
         KICK_TO_GOAL
-    }
-    private void Start()
-    {
-       
     }
     public void Init(GameObject go, int teamID)
     {
@@ -89,6 +86,13 @@ public class CharacterActions : MonoBehaviour
         this.state = states.SPECIAL_ACTION;
         anim.Play("jump");
         Invoke("ResetSpecial", 1.2f);
+    }
+    public void Goal()
+    {
+        if (state == states.GOAL)
+            return;
+        this.state = states.GOAL;
+        anim.Play("goal");
     }
     public void Kick(kickTypes kickType)
     {       
