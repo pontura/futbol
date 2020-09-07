@@ -7,7 +7,7 @@ public class AI : MonoBehaviour
     public Character character;
     public states state;
 
-    AIPosition aiPosition;
+    public AIPosition aiPosition;
 
     public enum states
     {

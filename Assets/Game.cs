@@ -30,8 +30,13 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        Events.OnGameStatusChanged += OnGameStatusChanged;
         cameraInGame.SetTargetTo(ball.transform);
         Events.PlaySound("crowd", "crowd_quiet");
+    }
+    private void OnDestroy()
+    {
+        Events.OnGameStatusChanged -= OnGameStatusChanged;
     }
     public void Goal(int teamID, Character character)
     {
@@ -54,10 +59,12 @@ public class Game : MonoBehaviour
 
         ball.KickIfOnGoal();
         state = states.GOAL;
-        Events.OnGameStatusChanged(state);
-        
+        Events.OnGameStatusChanged(state);        
         
         StartCoroutine(GetComponent<GoalMoment>().Init(teamID, character));
     }
-   
+    void OnGameStatusChanged(states state)
+    {
+        this.state = state;
+    }
 }

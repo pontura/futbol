@@ -67,12 +67,13 @@ public class CharactersManager : MonoBehaviour
         {
             c.ai.ResetPosition();
             c.actions.LookAtBall();
-           
+            c.actions.Idle();
         }
         foreach (Character c in team2)
         {
             c.ai.ResetPosition();
             c.actions.LookAtBall();
+            c.actions.Idle();
         }
     }
     void Loop()

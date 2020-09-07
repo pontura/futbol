@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIPosition : MonoBehaviour
 {
-    Vector3 originalPosition;
+    public Vector3 originalPosition;
     Vector3 gotoPosition;
     public AI ai;
     public states state;
