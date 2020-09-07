@@ -6,8 +6,9 @@ public class AI : MonoBehaviour
 {
     public Character character;
     public states state;
-
+    public Ball ball;
     public AIPosition aiPosition;
+    public AiGotoBall aiGotoBall;
 
     public enum states
     {
@@ -16,11 +17,13 @@ public class AI : MonoBehaviour
         NONE
     }
     void Start()
-    {       
+    {
+        ball = Game.Instance.ball;
         character = GetComponent<Character>();
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
         aiPosition = GetComponent<AIPosition>();
+        aiGotoBall = GetComponent<AiGotoBall>();
     }
     private void OnDestroy()
     {
@@ -33,6 +36,7 @@ public class AI : MonoBehaviour
     }
     public virtual void CharacterCatchBall(Character _character)
     {
+        aiGotoBall.Reset();
         if (character.teamID == _character.teamID)
             state = states.ATTACKING;
         else
@@ -47,6 +51,7 @@ public class AI : MonoBehaviour
     {
         ResetAll();
         aiPosition.ResetPosition();
+        aiGotoBall.Reset();
     }
     public void ResetAll()
     {

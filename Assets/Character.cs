@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCatcher;
-    [HideInInspector] public bool isBeingControlled;
+    public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public bool isGoldKeeper;
 

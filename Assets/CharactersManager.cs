@@ -9,7 +9,7 @@ public class CharactersManager : MonoBehaviour
     public Referi referi;
     public GameObject boardFloor;
     Vector2 limits;
-    public Ball ball;
+    Ball ball;
     public bool player1;
     public bool player2;
     public bool player3;
@@ -37,7 +37,7 @@ public class CharactersManager : MonoBehaviour
     }
     private void Start()
     {
-        
+        ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, referi_to_instantiate);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
@@ -59,7 +59,7 @@ public class CharactersManager : MonoBehaviour
         Loop();
 
         AddCharacter(1);
-        AddCharacter(2);
+       // AddCharacter(2);
     }
     public void ResetAll()
     {

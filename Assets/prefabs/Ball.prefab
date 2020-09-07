@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: 170217514}
   - component: {fileID: 170217516}
   - component: {fileID: 170217515}
-  - component: {fileID: 769056462698603669}
-  - component: {fileID: 1117629725301433556}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -149,37 +147,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &769056462698603669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975457108487340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01dcf834399bb74cb223450acc28648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uIForce: {fileID: 0}
-  rb: {fileID: 170217515}
-  character: {fileID: 0}
-  characterThatKicked: {fileID: 0}
---- !u!114 &1117629725301433556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975457108487340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82622ec9011ab6c46af58c1530b69b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kickParticles: {fileID: 8144929745051871178}
-  rate: 250
-  speedDecrease: 30
 --- !u!1 &1202524177089050748
 GameObject:
   m_ObjectHideFlags: 0

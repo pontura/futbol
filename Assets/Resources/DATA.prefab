@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 999694241}
   - component: {fileID: 864794640}
   - component: {fileID: 4719560070244982194}
-  - component: {fileID: 1526771216}
+  - component: {fileID: 968984449}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -132,6 +132,7 @@ MonoBehaviour:
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   selectedTeams: {x: 1, y: 0}
+  timeToSwapCharactersAutomatically: 0.7
   limits: {x: 40, y: 20}
   forceBarSpeed: 3
   kickHard: 800
@@ -197,11 +198,12 @@ MonoBehaviour:
   - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
   - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
   - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
-  team1: 010000000300000005000000060000000700000002000000
-  team2: 080000000a0000000c0000000b000000090000000d000000
+  - {fileID: 2674879857765329069, guid: 5397d9487defc874f81b7d2dba4da044, type: 3}
+  team1: 01000000030000000500000006000000070000000e000000
+  team2: 080000000a0000000c0000000b000000090000000e000000
   availablesTeam1: 04000000
   availablesTeam2: 
---- !u!114 &1526771216
+--- !u!114 &968984449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,11 +212,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013221123710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccd4348226c00549953a23c9e91abe4, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f5814feb79d3b4f947b5d61014825c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  all: []
-  team1: 
-  team2: 
-  availablesTeam1: 
-  availablesTeam2: 
+  all:
+  - sourceName: crowd
+    audioSource: {fileID: 0}
+    clips:
+    - {fileID: 8300000, guid: c726d1ec0ea99b241a82f0051e4a1bc2, type: 3}
+    - {fileID: 8300000, guid: 0766679e4b7cb824690c0ed76c776d21, type: 3}
+  - sourceName: common
+    audioSource: {fileID: 0}
+    clips:
+    - {fileID: 8300000, guid: fa55b7c76ceb487418bff03e7d576af9, type: 3}
+    - {fileID: 8300000, guid: 0494a6409bfc03f4c8a3985a8a2310ce, type: 3}
+    - {fileID: 8300000, guid: ddfdfee4ccb8b6743b74d868dd7853ed, type: 3}

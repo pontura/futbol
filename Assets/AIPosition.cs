@@ -18,7 +18,7 @@ public class AIPosition : MonoBehaviour
     {
         ai = GetComponent<AI>();
         originalPosition = transform.position;
-        enabled = false;
+        //enabled = false;
     }
     void Update()
     {
