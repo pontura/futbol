@@ -6,28 +6,75 @@ public class AiPositionGoalKeeper : AIPosition
 {
     public GoalKeeper goalKeeper;
     public bool running;
-    float speedToGoalKeeperJump = 10;
+    Vector3 speedToCatch= new Vector2(1,10);
 
-    void Update()
+    float speed = 0.15f;
+    float timeToChange = 1;
+    float frameValue;
+
+    void ChangeSpeedRandom()
     {
-        if (!running && ai.ball.character == null)
+        speed = (float)Random.Range(speedToCatch.x, speedToCatch.y) / 100;
+    }
+    public override void UpdatedByAI()
+    {
+        frameValue += Time.deltaTime;
+        if (frameValue>timeToChange)
         {
-            if (ai.character.teamID == 1 &&     ai.ball.transform.position.x > 14  && ai.ball.rb.velocity.x > 4
-                || ai.character.teamID == 2 &&  ai.ball.transform.position.x < -14 && ai.ball.rb.velocity.x < -4
-                )
-            {
-                ai.ResetAll();
-                ai.aiGotoBall.Init();
-            }
+            ChangeSpeedRandom();
+            frameValue = 0;
         }
+        if (!running && ai.ball.character == null && IsBallGoingToGoal())
+            TryToCatch();
+        else if (IsBallInsideArea())
+            UpdateGotoBall();
+        else if (goalKeeper.teamID == 2 && ai.ball.transform.position.x < transform.position.x)
+            goalKeeper.MoveTo(-1, 0);
+        else if (goalKeeper.teamID == 1 && ai.ball.transform.position.x > transform.position.x)
+            goalKeeper.MoveTo(1, 0);
         else if (running && ai.ball.character != null && ai.ball.character == ai.character)
             UpdateRunToKick();
         else
             UpdateY();
     }
-    void UpdateGoalKeeping()
+    bool IsBallGoingToGoal()
     {
-
+        if (ai.character.teamID == 1 && ai.ball.transform.position.x > 14 && ai.ball.rb.velocity.x > 4
+            || ai.character.teamID == 2 && ai.ball.transform.position.x < -14 && ai.ball.rb.velocity.x < -4
+            )
+            return true;
+        return false;
+    }
+    bool IsBallInsideArea()
+    {
+        if (ai.ball.transform.position.z < goalKeeper.area_limits.y
+           &&
+           ai.ball.transform.position.z > -goalKeeper.area_limits.y
+          )
+        {
+            if (goalKeeper.teamID == 1 && ai.ball.transform.position.x > goalKeeper.area_limits.x
+                ||
+                goalKeeper.teamID == 2 && ai.ball.transform.position.x < -goalKeeper.area_limits.x
+               )
+                return true;
+        }
+        return false;
+    }
+    private void TryToCatch()
+    {
+        goalKeeper.actions.GoalKeeperJump();
+        Vector3 pos = transform.position;
+        
+        pos.z = Mathf.Lerp(pos.z, ai.ball.transform.position.z, speed);
+        transform.position = pos;
+    }
+    private void UpdateGotoBall()
+    {
+        goalKeeper.actions.Run();
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Lerp(pos.x, ai.ball.transform.position.x, 0.025f);
+        pos.z = Mathf.Lerp(pos.z, ai.ball.transform.position.z, 0.1f);
+        transform.position = pos;
     }
     void UpdateY()
     {

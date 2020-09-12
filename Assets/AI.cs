@@ -22,6 +22,7 @@ public class AI : MonoBehaviour
         character = GetComponent<Character>();
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
+        Events.SetCharacterNewDefender += SetCharacterNewDefender;
         aiPosition = GetComponent<AIPosition>();
         aiGotoBall = GetComponent<AiGotoBall>();
     }
@@ -29,10 +30,32 @@ public class AI : MonoBehaviour
     {
         Events.CharacterCatchBall -= CharacterCatchBall;
         Events.OnBallKicked -= OnBallKicked;
+        Events.SetCharacterNewDefender -= SetCharacterNewDefender;
+    }
+    private void Update()
+    {
+        if (character.isBeingControlled)
+            return;
+        else if (aiGotoBall.enabled)
+            aiGotoBall.UpdatedByAI();
+        else if(aiPosition.enabled)
+            aiPosition.UpdatedByAI();
     }
     void OnBallKicked()
     {
         state = states.NONE;
+    }
+    void SetCharacterNewDefender(Character _character)
+    {
+        if (character.teamID != _character.teamID || aiGotoBall.enabled == true)
+            return;
+        if (_character.characterID == character.characterID)
+        {
+            ResetAll();
+            aiGotoBall.SetActive();
+        } 
+        else
+            aiGotoBall.Reset();
     }
     public virtual void CharacterCatchBall(Character _character)
     {
@@ -56,5 +79,6 @@ public class AI : MonoBehaviour
     public void ResetAll()
     {
         aiPosition.enabled = false;
+        aiGotoBall.enabled = false;
     }
 }

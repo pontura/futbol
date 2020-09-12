@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 4094763623509557768}
   - component: {fileID: 3412157949364424465}
   - component: {fileID: 3801628201286537026}
+  - component: {fileID: 1894946110}
   m_Layer: 9
   m_Name: GoalKeeper
   m_TagString: Player
@@ -200,7 +201,7 @@ MonoBehaviour:
   isBeingControlled: 0
   ai: {fileID: 0}
   isGoldKeeper: 0
-  area_limits: {x: 16.5, y: 4}
+  area_limits: {x: 15, y: 5}
 --- !u!114 &5404960763416151749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +230,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   state: 1
+  ball: {fileID: 0}
+  aiPosition: {fileID: 0}
+  aiGotoBall: {fileID: 0}
 --- !u!114 &3412157949364424465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,10 +259,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38756c9f46224994eba8ec8ce061ab56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
   ai: {fileID: 0}
-  state: 0
-  ball: {fileID: 0}
+  state: 1
   goalKeeper: {fileID: 4932910986811592799}
+  running: 0
+--- !u!114 &1894946110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793851902414820856}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bfab8e28aa104e4aab34da0651441de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7793851902471329285
 GameObject:
   m_ObjectHideFlags: 0

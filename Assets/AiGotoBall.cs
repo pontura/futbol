@@ -5,30 +5,39 @@ using UnityEngine;
 public class AiGotoBall : MonoBehaviour
 {
     AI ai;
-
+    Vector3 dest;
     private void Start()
     {
         ai = GetComponent<AI>();
         Reset();
     }
-    public void Init()
+    public void SetActive()
     {
-        Invoke("ResetGotoBall", Random.Range(0.55f, 1f));
         enabled = true;
+        Invoke("Loop", 0.25f);
     }
-    void ResetGotoBall()
+    void Loop()
     {
-        ai.aiPosition.enabled = true;
-        enabled = false;
+        dest = ai.ball.transform.position;
+        float distToBall =  Vector3.Distance(transform.position, dest);
+        if (distToBall<3 && Random.Range(0,10)<5)
+        {
+            ai.character.Dash();
+        }
+        Invoke("Loop", 1.25f);
     }
     public void Reset()
     {
+        CancelInvoke();
         enabled = false;
     }
-    private void Update()
+    public virtual void UpdatedByAI()
     {
-        Vector3 pos = transform.position;
-        pos.z = Mathf.Lerp(pos.z, ai.ball.transform.position.z, 0.15f);
-        transform.position = pos; 
+        int _x = 0;
+        int _z = 0;
+        if (transform.position.x < dest.x)  _x = 1; else _x = -1;
+        if (transform.position.z < dest.z)  _z = 1;  else _z = -1;
+        if(ai != null && ai.character != null)
+            ai.character.MoveTo(_x, _z);
     }
 }

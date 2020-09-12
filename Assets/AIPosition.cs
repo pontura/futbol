@@ -20,10 +20,8 @@ public class AIPosition : MonoBehaviour
         originalPosition = transform.position;
         //enabled = false;
     }
-    void Update()
-    {
-        if (ai.character.isBeingControlled)
-            this.enabled = false;
+    public virtual void UpdatedByAI()
+    {      
         int _h, _v = 0;
         if (Vector3.Distance(transform.position, gotoPosition) > 0.5f)
         {

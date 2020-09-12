@@ -10,6 +10,7 @@ public static class Events
     public static System.Action Back = delegate { };
 
     public static System.Action<Character> CharacterCatchBall = delegate { };
+    public static System.Action<Character> SetCharacterNewDefender = delegate { };
     public static System.Action OnBallKicked = delegate { };
     public static System.Action<int> OnGoal = delegate { };
     public static System.Action<Character, string> SetDialogue = delegate { };

@@ -28,7 +28,6 @@ public class BallCatcher : MonoBehaviour
     }
     public void LoseBall()
     {
-        print("LoseBall ");
         container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
@@ -36,7 +35,6 @@ public class BallCatcher : MonoBehaviour
     }
     private void Reset()
     {
-        print("Reset ");
         state = states.IDLE;
     }
     public void LookAt(Vector3 targetPos)

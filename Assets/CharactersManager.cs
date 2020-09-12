@@ -88,6 +88,7 @@ public class CharactersManager : MonoBehaviour
         if (state != AI.states.ATTACKING)
         {
             SwapIfNeeded(character.teamID);
+            CheckForNewDefender(character.teamID);
         }
     }
     void SwapIfNeeded(int teamID)
@@ -98,6 +99,13 @@ public class CharactersManager : MonoBehaviour
             return;
         if (to != from && to.id != from.id)
             SwapTo(from, to);
+    }
+    void CheckForNewDefender(int teamID)
+    {
+        Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
+        if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
+            return;
+        Events.SetCharacterNewDefender(nearestToDefend);
     }
     public void CharacterCatchBall(Character character)
     {
