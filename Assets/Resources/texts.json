@@ -41,7 +41,7 @@
 			"id": 1,
 			"avatarName": "Punga Punga",
 			"dialogs": {
-				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA", "NINGÚN PIBE NACE PUNGA PUNGA", "BIEMPIOLA", "EL FICHÍN MAS PIOLA DE LA PANDEMIA" ],
+				"random": [ "ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR", "FOBAL ES VIDA", "QUIERO PONERME DE MODA", "NINGÚN PIBE NACE PUNGA PUNGA", "BIEMPIOLA", "EL FICHÍN MAS PIOLA DE LA PANDEMIA", "GRACIAS POR JUGAR FICHINES PUNK", "THE ULTIMATE POST CHORIPLANDEMIC THRASH PARTY GAME"  ],
 				"goal":  [ "¡GRACIAS GAUCHITO!", "¡¡GAAAAL!!", "¡PARA VOS, MAMÁ!", "TE RECABIÓ POR GIL" ],
 				"full":  [ "¡EEEEE, GATO!", "FUISTE...", "TE LA VAMO A DAR" ]
 			}
@@ -50,9 +50,9 @@
 			"id": 2,
 			"avatarName": "Chunky Doll",
 			"dialogs": {
-				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?", "AL PLAYER 2 LO QUIERO MATAR" ],
+				"random": [ "¡SOMOS AMIGOS HASTA EL FIN!", "A VECES ME ASUSTO A MÍ MISMO", "¿QUERÉS JUGAR?", "AL PLAYER 2 LO QUIERO MATAR", "DISCULPÁ, ¿ME DARÍAS CUERDA?", "¿A QUIÉN LE DECÍS MUÑECO?", "YO NO SOY UN MUÑECO, SOY UN COLLECTIBLE ACTION FIGURE", "LA PRÓXIMA TE DESCUARTIZO", "TA BUENA TOY STORRY", "MADE IN CHINA" ],
 				"goal":  [ "¡GORE!" ],
-				"full":  [ "¡COBRÁ O TE DESCUARTIZO!", ":(" ]
+				"full":  [ "¡AAAAHHHRRRRGGGGG!", ":(", "DAMN", "7<CK!" ]
 			}
 		},
 		{
@@ -68,7 +68,7 @@
 			"id": 4,
 			"avatarName": "Ceresitas",
 			"dialogs": {
-				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA", "¿QUERÉS UN CUPCAKE?", "TIENES UN HERMOSO CORAZÓN", "ENCANTADA DE CONOCERTE", "HOLA, MI NOMBRE ES CERESITAS" ],
+				"random": [ "LOS QUIERO MUCHO...", "¿ME QUERÉS?", "ES RE LINDO SER TU AMIGUITA", "¿QUERÉS UN CUPCAKE?", "TIENES UN HERMOSO CORAZÓN", "ENCANTADA DE CONOCERTE", "HOLA, MI NOMBRE ES CERESITAS", "EMPATEMOS", "<3", "¡¡AMOR!!" ],
 				"goal":  [ "¡FUÉ CON MUCHO AMOR!", "FUÉ SIN QUERER..." ],
 				"full":  [ "ME VAS A HACER LLORAR...", "¡BUUUU!" ]
 			}
@@ -77,9 +77,9 @@
 			"id": 5,
 			"avatarName": "Poonga Loompa",
 			"dialogs": {
-				"random": [ "ODIO A TIM BURTON", "EL ÚLTIMO CHOCOLATE QUE COMISTE LO CAGUÉ YO", "AGUANTE NAVE JUNGLA" ],
+				"random": [ "ODIO A TIM BURTON", "EL ÚLTIMO CHOCOLATE QUE COMISTE LO CAGUÉ YO", "AGUANTE NAVE JUNGLA", "ODIO AL COMANDANTE FELTFORD", "MIS CHOCOLATES SON MEJORES QUE LOS DE FELTFORD" ],
 				"goal":  [ "¡GOLAAAAAZO!", "¡CHOCOGOLLLL!", "¡¡GOOOOOL!!" ],
-				"full":  [ "¡FULLLL!" ]
+				"full":  [ "¡FULLLL!", "¡¡INADI!!" ]
 			}
 		},
 		{
@@ -87,7 +87,7 @@
 			"avatarName": "Mischa Gurkovsky",
 			"dialogs": {
 				"random": [ "Какая редкая смесь товарищей ...", "Да здравствует революция!", "В следующую игру я играю без винтовки", "LA PRRROXIMA VENGO SIN EL FUSIL" ],
-				"goal":  [ "Цель!", "VICTORRRIA", "¡MUERRRAN, CERDOS CAPITALISTAS!", "Цель!!" ],
+				"goal":  [ "Цель!", "VICTORRRIA", "¡MUERRRAN, CERRRDOS CAPITALISTAS!", "Цель!!" ],
 				"full":  [ "Я отомщу" ]
 			}
 		},
@@ -122,8 +122,8 @@
 			"id": 10,
 			"avatarName": "Tina Warner",
 			"dialogs": {
-				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!" ],
-				"goal":  [ "GOOOAL!" ],
+				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!", "GOLDENBALL WILL DO WHAT I PLEASE", "BEST HAIR" ],
+				"goal":  [ "GOOOAL!", "SIMPLY THA BEST" ],
 				"full":  [ "HEEEYY!!!!", "WTF!!!" ]
 			}
 		},
@@ -140,7 +140,7 @@
 			"id": 12,
 			"avatarName": "Mirta Manujín",
 			"dialogs": {
-				"random": [ "UNA CANCHA HECHA DE CAPITANES DEL ESPACIO", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS" ],
+				"random": [ "UNA CANCHA HECHA DE CAPITANES DEL ESPACIO", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS", "FUTBOL DECONSTRUIDO O SOCCER ART", "¿QUIÉN VA GANANDO ESTE HAPPENING?", "ESTE VIDEOJUEGO ES ARTE" ],
 				"goal":  [ "¡ARTE!" ],
 				"full":  [ "¡INTERVENCIÓN!" ]
 			}
@@ -156,11 +156,11 @@
 		},
 		{
 			"id": 14,
-			"avatarName": "Fort",
+			"avatarName": "Comandante Feltford",
 			"dialogs": {
-				"random": [ "NI DE UN LADO NI DEL OTRO", "ME PUSE UN AXXE MUSK ENTERO", "ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR IGUAL", "NO ME REPRESENTAN LOS ISMOS", "NADIE MENOS", "JUEGAN POR UN PLAN", "NI DE IZQUIERDA NI DE DERECHA", "OJO, NO DIGO NEGRO DE PIEL", "EN UN PAÍS EN SERIO ESTARÍAMOS JUGANDO AL FIFA", "REFERÍ, ¡ESTÁN HABLANDO CON LA E!", "RÉFERÍ, ¡HAY MUJERES JUGANDO!", "A MÍ NADIE ME REGALÓ NADA", "ESTOS GRÁFICOS SON UNA MIERDA" ],
-				"goal":  [ "¡MERITOCRACIA!" ],
-				"full":  [ "¡PAÍS DE MIERDA!", "¿PARA QUÉ PAGO MIS IMPUESTOS?", "VIENEN DE BOLIVIA PARA HACERNOS GOLES", "SOMOS VENEZUELA" ]
+				"random": [ "DEME LO MÁS CARO", "LET´S GO", "¿ESTOY SALIENDO BIEN EN LA PANTALLA?", "BASTA, CHICOS", "CHOCOLATADA Y CHOCOLOCA NO ES LO MISMO", "ME ABURRÍS", "HOLA, BINVENIDOS A MI CANCHA", "UN ANTES Y UN DESPUÉS DE CONOCERME A MÍ", "AHORA SON PARTE DEL MUNDO FELTFORD", "¡VAMOS NEMEN!", "¡OUTSIDE THE CASA ROSADA CRYING FELTFOOORD!", "MORE GOLDEN STUFF, PLEASE", "HACE COMO 20 MINUTOS QUE NO GASTO DINERO", "MIS CHOCOS SON MEJORES QUE LOS DE POONGA LOOMPA" ],
+				"goal":  [ "¡¡MIAMI!!", "¡GOLD!" ],
+				"full":  [ "¡¡MAMÁAA!!" ]
 			}
 		}
 	]
