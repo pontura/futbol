@@ -65,11 +65,14 @@ public class GoalMoment : MonoBehaviour
             {
                 int _x = 0;
                 int _z = 0;
-                if (character.transform.position.x < targetPos.x) _x = 1;
-                else if (character.transform.position.x > targetPos.x) _x = -1;
-
-                if (character.transform.position.z < targetPos.z) _z = 1;
-                else if (character.transform.position.z > targetPos.z) _z = -1;
+                Vector3 pos = character.transform.position;
+                if (Mathf.Abs(pos.x - targetPos.x) > 0.25f)
+                {
+                    if (pos.x < targetPos.x) _x = 1;
+                    else if (pos.x > targetPos.x) _x = -1;
+                }
+                if (pos.z < targetPos.z) _z = 1;
+                else if (pos.z > targetPos.z) _z = -1;
                 character.MoveTo(_x, _z);
             }
             else if(character.actions.state != CharacterActions.states.GOAL)

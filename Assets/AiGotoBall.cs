@@ -24,7 +24,7 @@ public class AiGotoBall : MonoBehaviour
         {
             ai.character.Dash();
         }
-        Invoke("Loop", 1.25f);
+        Invoke("Loop", 0.85f);
     }
     public void Reset()
     {
@@ -35,9 +35,15 @@ public class AiGotoBall : MonoBehaviour
     {
         int _x = 0;
         int _z = 0;
-        if (transform.position.x < dest.x)  _x = 1; else _x = -1;
+        if (Mathf.Abs(transform.position.x - dest.x) > 0.25f)
+        {
+            if (transform.position.x < dest.x) _x = 1; else _x = -1;
+        }
         if (transform.position.z < dest.z)  _z = 1;  else _z = -1;
-        if(ai != null && ai.character != null)
+        if (_x == 0 && _z == 0)
+            return;
+        if (ai == null || ai.character == null)
+            return;
             ai.character.MoveTo(_x, _z);
     }
 }
