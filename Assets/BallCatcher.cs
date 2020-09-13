@@ -25,6 +25,7 @@ public class BallCatcher : MonoBehaviour
         ball.transform.localPosition = Vector3.zero;
         ball.rb.velocity = Vector3.zero;
         ball.transform.localEulerAngles = new Vector3(0, 0, 0);
+        state = states.GOT_IT;
     }
     public void LoseBall()
     {

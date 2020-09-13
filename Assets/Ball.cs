@@ -84,11 +84,13 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            if (transform.localPosition.y < 0.9f && character.ballCatcher.state == BallCatcher.states.IDLE)
+            if (transform.localPosition.y < 0.9f && character != this.character)//character.ballCatcher.state == BallCatcher.states.IDLE)
             {
                 timeCatched = Time.time;
                 characterThatKicked = character;
                 character.OnCatch(this);
+                if(this.character != null)
+                    this.character.ballCatcher.LoseBall();
                 this.character = character;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }

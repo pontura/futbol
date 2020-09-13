@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterActions : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     public Character character;
     
 
@@ -47,7 +47,7 @@ public class CharacterActions : MonoBehaviour
         else
             LookTo(-1);
     }
-    public void Idle()
+    public virtual void Idle()
     {
         if (state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
             return;
@@ -72,7 +72,7 @@ public class CharacterActions : MonoBehaviour
     {
 
     }
-    public void Run()
+    public virtual void Run()
     {
         if (state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
@@ -84,8 +84,17 @@ public class CharacterActions : MonoBehaviour
         if (state == states.SPECIAL_ACTION)
             return;
         this.state = states.SPECIAL_ACTION;
-        anim.Play("jump");
-        Invoke("ResetSpecial", 1.2f);
+        if(Random.Range(0,10)<5)
+        {
+            anim.Play("jump2");
+            Invoke("ResetSpecial", 1.5f);
+        }
+        else
+        {
+            anim.Play("jump");
+            Invoke("ResetSpecial", 1.1f);
+        }
+        
     }
     public void Goal()
     {
@@ -118,7 +127,12 @@ public class CharacterActions : MonoBehaviour
         }
         else
         {
-            anim.Play("kick");
+            if (kickType == kickTypes.BALOON)
+                anim.Play("kick");
+            else if (kickType == kickTypes.HARD)
+                anim.Play("kick_power");
+            else if (kickType == kickTypes.SOFT)
+                anim.Play("kick_soft");
             Invoke("Reset", 0.35f);
         }
 
