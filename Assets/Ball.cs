@@ -132,9 +132,9 @@ public class Ball : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         transform.SetParent(container);
     }
-    float AddForceToKick(float force)
+    float AddForceToKick()
     {       
-        force = uIForce.GetForce();
+        float force = uIForce.GetForce();
         if (force <= 0 && character != null)
         {
             if (character.transform.localScale.x == -1)
@@ -150,6 +150,8 @@ public class Ball : MonoBehaviour
     public void Kick(CharacterActions.kickTypes kickType)
     {
         float force = 1;
+        if (kickType == CharacterActions.kickTypes.HARD && uIForce.GetForce() > 0.6f)
+            kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
         if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL)
         {
             character.SetCollidersOff();
@@ -158,7 +160,7 @@ public class Ball : MonoBehaviour
             kickType != CharacterActions.kickTypes.HEAD 
             || kickType != CharacterActions.kickTypes.CHILENA
             )
-            force = AddForceToKick(force);
+            force = AddForceToKick();
 
         FreeBall();
         character = null;

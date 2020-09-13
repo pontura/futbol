@@ -35,7 +35,7 @@ public class AiGotoBall : MonoBehaviour
     {
         int _x = 0;
         int _z = 0;
-        if (Mathf.Abs(transform.position.x - dest.x) > 0.25f)
+        if (Mathf.Abs(transform.position.x - dest.x) > 0.15f)
         {
             if (transform.position.x < dest.x) _x = 1; else _x = -1;
         }
