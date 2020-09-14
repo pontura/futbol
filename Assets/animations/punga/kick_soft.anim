@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: kick 1
+  m_Name: kick_soft
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
