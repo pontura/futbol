@@ -162,6 +162,24 @@
 				"goal":  [ "¡¡MIAMI!!", "¡GOLD!" ],
 				"full":  [ "¡¡MAMÁAA!!" ]
 			}
+		},
+		{
+			"id": 15,
+			"avatarName": "Richard Orion",
+			"dialogs": {
+				"random": [ "TODO ES EN VANO SI NO HAY AMORRRRR", "SIENTO QUE MIS PAJARITOS ME NECESITAN", "¡¡AGUANTE BONAVENA!!" ],
+				"goal":  [ "¡¡VIVA LA PATRIA!!" ],
+				"full":  [ "SIENTO VERGÜENZA ANTE DIOS" ]
+			}
+		},
+		{
+			"id": 16,
+			"avatarName": "Bimbo Slice",
+			"dialogs": {
+				"random": [ "F4CK Y0U!" ],
+				"goal":  [ "FU34 OFF!" ],
+				"full":  [ "3UC7 YOU!" ]
+			}
 		}
 	]
 }
