@@ -59,7 +59,7 @@ public class CharactersManager : MonoBehaviour
         Loop();
 
         AddCharacter(1);
-       // AddCharacter(2);
+       //AddCharacter(2);
     }
     public void ResetAll()
     {

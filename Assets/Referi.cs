@@ -65,10 +65,14 @@ public class Referi : Character
                     _z = 1;
                 else
                     _z = -1;
-                if (transform.position.x < ball.transform.position.x)
-                    _x = 1;
-                else
-                    _x = -1;
+                if (Mathf.Abs(transform.position.x - ball.transform.position.x) > 1)
+                {
+
+                    if (transform.position.x < ball.transform.position.x)
+                        _x = 1;
+                    else
+                        _x = -1;
+                }
                 MoveTo(_x, _z);
 
             }

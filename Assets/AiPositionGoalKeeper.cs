@@ -99,7 +99,6 @@ public class AiPositionGoalKeeper : AIPosition
     public void CharacterCatchBall()
     {
         running = false;
-        print("goal keepr has ball");
         CancelInvoke();
         this.enabled = true;
         Invoke("CheckToRun", Random.Range(1.5f, 4.5f));

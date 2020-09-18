@@ -13,15 +13,18 @@ public class AIPosition : MonoBehaviour
         GOING,
         WAITING
     }
-
-    void Start()
+    private void Awake()
     {
         ai = GetComponent<AI>();
+    }
+    void Start()
+    {        
         originalPosition = transform.position;
         //enabled = false;
     }
     public virtual void UpdatedByAI()
     {      
+       
         int _h, _v = 0;
         if (Vector3.Distance(transform.position, gotoPosition) > 0.5f)
         {
