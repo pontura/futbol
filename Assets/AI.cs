@@ -9,6 +9,7 @@ public class AI : MonoBehaviour
     public Ball ball;
     public AIPosition aiPosition;
     public AiGotoBall aiGotoBall;
+    public AiHasBall aiHasBall;
 
     public enum states
     {
@@ -20,11 +21,14 @@ public class AI : MonoBehaviour
     {
         ball = Game.Instance.ball;
         character = GetComponent<Character>();
+        Events.OnGoal += OnGoal;
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
         Events.SetCharacterNewDefender += SetCharacterNewDefender;
         aiPosition = GetComponent<AIPosition>();
         aiGotoBall = GetComponent<AiGotoBall>();
+        aiHasBall = GetComponent<AiHasBall>();
+        ResetAll();
     }
     private void OnDestroy()
     {
@@ -34,12 +38,19 @@ public class AI : MonoBehaviour
     }
     private void Update()
     {
+       
         if (character.isBeingControlled)
             return;
+        if (aiHasBall != null && aiHasBall.enabled)
+            aiHasBall.UpdatedByAI();
         else if (aiGotoBall.enabled)
             aiGotoBall.UpdatedByAI();
-        else if(aiPosition.enabled)
+        else if (aiPosition.enabled)
             aiPosition.UpdatedByAI();
+    }
+    void OnGoal(int teamID)
+    {
+        ResetAll();
     }
     void OnBallKicked()
     {
@@ -60,10 +71,23 @@ public class AI : MonoBehaviour
     public virtual void CharacterCatchBall(Character _character)
     {
         aiGotoBall.Reset();
+
         if (character.teamID == _character.teamID)
             state = states.ATTACKING;
         else
             state = states.DEFENDING;
+
+        if (_character.characterID == character.characterID)
+        {
+            if (aiHasBall != null)
+            {
+                ResetAll();
+                aiHasBall.SetActive();
+                return;
+            }
+        }
+
+    
 
         if (character.isBeingControlled)
             ResetAll();
@@ -75,10 +99,18 @@ public class AI : MonoBehaviour
         ResetAll();
         aiPosition.ResetPosition();
         aiGotoBall.Reset();
+        if (aiHasBall != null)
+            aiHasBall.Reset();
     }
     public void ResetAll()
     {
+        aiGotoBall.Reset();
         aiPosition.enabled = false;
         aiGotoBall.enabled = false;
+
+        if (aiHasBall != null)
+        {
+            aiHasBall.enabled = false;
+        }
     }
 }
