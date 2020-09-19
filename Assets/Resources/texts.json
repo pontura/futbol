@@ -180,6 +180,33 @@
 				"goal":  [ "IN YOUR F8CK4N FACE!", "YEAH MAN!" ],
 				"full":  [ "3UC7 YOU!", "WHA???", "W7F!!!!", "IT´S A LOTTA SH3T" ]
 			}
+		},
+		{
+			"id": 17,
+			"avatarName": "Orfelia Gonzalez",
+			"dialogs": {
+				"random": [ "CÓRRASE, ONVRE HORRIBLE", "¿Y SI TOMAMOS EL CLUB?", "NO HABLO CON ABOLOS", "¿Y A MÍ QUÉ ME IMPORTA?" ],
+				"goal":  [ "¡TOMÁ, GORILA!" ],
+				"full":  [ "¡BOOMER!" ]
+			}
+		},
+		{
+			"id": 18,
+			"avatarName": "Boris Jameson",
+			"dialogs": {
+				"random": [ "...", "......", "....", "GROOOGGHHH", "RRRRRRRHHHH" ],
+				"goal":  [ "WWWAAARGGHHHH!!!", "BWWAARJJJ!!" ],
+				"full":  [ "HHWWWAARRK!!!", "GRRRRRR!!!" ]
+			}
+		},
+		{
+			"id": 19,
+			"avatarName": "Ronald W. Thrumb",
+			"dialogs": {
+				"random": [ "I AM THE LEAST RACIST PLAYER IN THIS FIELD", "I LIKE HIM A LOT", "WHY AREN´T YOU RICH?", "CAN´T YOU JUST BE WHITE?", "I AM THE LEAST ANTI SEMITIC PERSON IN THIS TEAM", "I AM THE LEAST NAZI MAN THIS SIDE OF THE FIELD", "HOW MUCH IS THIS PLANET?", "ME CAGOU EN CHU PAÍS" ],
+				"goal":  [ "LOSERS!", "I AM PROUD" ],
+				"full":  [ "CHINA!", "THAT´S SUCH A RACIST GOAL" ]
+			}
 		}
 	]
 }
