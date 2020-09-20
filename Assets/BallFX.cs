@@ -5,8 +5,8 @@ using UnityEngine;
 public class BallFX : MonoBehaviour
 {
     public ParticleSystem kickParticles;
-    public float rate = 650;
-    public float speedDecrease = 10;
+    public float rate = 2000;
+    public float speedDecrease = 40;
     ParticleSystem.EmissionModule emissionModule;
     float value;
 
