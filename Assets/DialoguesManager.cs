@@ -31,7 +31,7 @@ public class DialoguesManager : MonoBehaviour
         else
             character = Game.Instance.charactersManager.team2[Random.Range(0, Game.Instance.charactersManager.team2.Count)];
 
-        string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID);
+        string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper);
         Events.SetDialogue(character, text);
 
         int referiRandom = Random.Range(0, 10);

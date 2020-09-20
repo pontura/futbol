@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void PlaySound(string sourceName, string audioName)
+    void PlaySound(string sourceName, string audioName, bool loop)
     {
         foreach(AudioSourceManager m in all)
         {
@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
                     {
                         m.audioSource.clip = ac;
                         m.audioSource.Play();
+                        m.audioSource.loop = loop;
                     }
                 }
             }

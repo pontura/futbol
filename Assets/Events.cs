@@ -18,6 +18,6 @@ public static class Events
 
     public static System.Action KickToGoal = delegate { };
 
-    public static System.Action<string, string> PlaySound = delegate { };
+    public static System.Action<string, string, bool> PlaySound = delegate { };
 }
    

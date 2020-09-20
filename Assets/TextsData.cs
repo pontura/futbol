@@ -12,6 +12,7 @@ public class TextsData : MonoBehaviour
     {
         public DialoguesData dialogs;
         public CharactersData[] characters;
+        public CharactersData[] goalkeepers;
         public CharactersData[] referis;
     }
     [Serializable]
@@ -46,9 +47,9 @@ public class TextsData : MonoBehaviour
         }
         return GetText(dialogueType, characterData, false);        
     }   
-    public string GetRandomDialogue(string dialogueType, int characterID)
+    public string GetRandomDialogue(string dialogueType, int characterID, bool isGoalKeeper = false)
     {
-        CharactersData characterData = GetCharactersData(characterID);
+        CharactersData characterData = GetCharactersData(characterID, isGoalKeeper);
         return GetText(dialogueType, characterData, true);
     }
     string GetText(string dialogueType, CharactersData characterData, bool isPlayer)
@@ -85,8 +86,16 @@ public class TextsData : MonoBehaviour
             return "AMOR";
         return arr[UnityEngine.Random.Range(0, arr.Count)];
     }
-    public CharactersData GetCharactersData(int characterID)
+    public CharactersData GetCharactersData(int characterID, bool isGoalKeeper = false)
     {
+        if(isGoalKeeper)
+        {
+            foreach (CharactersData data in data.goalkeepers)
+            {
+                if (data.id == characterID)
+                    return data;
+            }
+        }
         foreach (CharactersData data in data.characters)
         {
             if (data.id == characterID)

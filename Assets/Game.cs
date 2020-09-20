@@ -32,7 +32,7 @@ public class Game : MonoBehaviour
     {
         Events.OnGameStatusChanged += OnGameStatusChanged;
         cameraInGame.SetTargetTo(ball.transform);
-        Events.PlaySound("crowd", "crowd_quiet");
+        Events.PlaySound("crowd", "crowd_quiet", true);
     }
     private void OnDestroy()
     {
@@ -54,7 +54,7 @@ public class Game : MonoBehaviour
         }
         
         foreach (Character ch in winner)
-            Events.SetDialogue(ch, Data.Instance.textsData.GetRandomDialogue("goal", ch.characterID));
+            Events.SetDialogue(ch, Data.Instance.textsData.GetRandomDialogue("goal", ch.characterID, ch.isGoldKeeper));
 
 
         ball.KickIfOnGoal();

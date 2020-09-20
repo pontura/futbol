@@ -65,25 +65,10 @@ public class SelectorScreen : MonoBehaviour
     void OnButtonPressed(int playerID, InputManagerUI.buttonTypes type)
     {
         ButtonClicked();
-
-        //switch (state)
-        //{
-        //    case states.IDLE:
-        //    case states.TEAM:
-        //        state = states.TEAM;
-        //        switch (playerID)
-        //        {
-        //            case 1: if (ruletaEscudo_team1.state == Ruleta.states.IDLE) ruletaEscudo_team1.SetOn(OnDoneTeam); break;
-        //            case 2: if (ruletaEscudo_team2.state == Ruleta.states.IDLE) ruletaEscudo_team2.SetOn(OnDoneTeam); break;
-        //        }
-        //        break;
-        //}
-      
     }
    
     void OnDoneTeam(int selectedID)
-    {
-        
+    {        
         teamsDone++;
         if(teamsDone>=2)
         {
@@ -105,18 +90,19 @@ public class SelectorScreen : MonoBehaviour
         Data.Instance.settings.selectedTeams = new Vector2(ruletaEscudo_team1.selectedID, ruletaEscudo_team2.selectedID);
         team1_field.text = Data.Instance.settings.teamSettings[ruletaEscudo_team1.selectedID].name;
         team2_field.text = Data.Instance.settings.teamSettings[ruletaEscudo_team2.selectedID].name;
-        SetCharacter(1);
-        SetCharacter(2);
+        SetCharacter(1, false);
+        SetCharacter(2, false);
     }
     public int team1_characterID;
     public int team2_characterID;
-    void SetCharacter(int teamID)
+    void SetCharacter(int teamID, bool isGoalKeeper)
     {
+        print("teamID: " + teamID + "  isGoalKeeper: " + isGoalKeeper + "   team2_characterID: " + team2_characterID + "    team1_characterID: " + team1_characterID);
         Ruleta ruleta;
-        List<Sprite> all = Data.Instance.charactersData.GetAvailablePlayers(teamID);
+        List<Sprite> all = Data.Instance.charactersData.GetAvailablePlayers(teamID, isGoalKeeper);
         if (teamID == 1)
         {
-            if (team1_characterID >= 6)
+            if (team1_characterID >= 5)
             {
                 TeamReady();
                 return;
@@ -128,7 +114,7 @@ public class SelectorScreen : MonoBehaviour
         }
         else
         {
-            if (team2_characterID >= 6)
+            if (team2_characterID >= 5)
             {
                 TeamReady();
                 return;
@@ -141,22 +127,53 @@ public class SelectorScreen : MonoBehaviour
     }
     void OnCharacterDoneTeam1(int id)
     {
-        int characterID = Data.Instance.charactersData.availablesTeam1[id];
-        print(characterID + " ID: " + id);
-        character1_texts[team1_characterID].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
-        
-        Data.Instance.charactersData.AddCharacterToTeam(1, characterID);
+        int characterID;
         team1_characterID++;
-        SetCharacter(1);
+        if (team1_characterID >= 4)
+        {
+            print("goalkeeper team1_characterID " + team1_characterID + "  id " + id);
+            characterID = Data.Instance.charactersData.availablesTeam1_goalkeepers[0];
+          //  print("team1_characterID " + team1_characterID + " id: " + id + " characterID: " + characterID);
+            character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
+
+            Data.Instance.charactersData.AddCharacterToTeam(1, characterID);
+            SetCharacter(1, true);
+        }
+        else
+        {
+            characterID = Data.Instance.charactersData.availablesTeam1[id];
+            character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
+
+            Data.Instance.charactersData.AddCharacterToTeam(1, characterID);
+            SetCharacter(1, false);
+        }
+
     }
     void OnCharacterDoneTeam2(int id)
     {
-        int characterID = Data.Instance.charactersData.availablesTeam2[id];
-        print(characterID + " ID: " + id);
-        character2_texts[team2_characterID].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
-        Data.Instance.charactersData.AddCharacterToTeam(2, characterID);
+        int characterID;
         team2_characterID++;
-        SetCharacter(2);
+        if (team2_characterID >= 4)
+        {
+            print("goalkeeper team2_characterID " + team2_characterID + "  id " + id);
+            print("id " + id);
+            characterID = Data.Instance.charactersData.availablesTeam2_goalkeepers[0];
+           // print("team2_characterID " + team2_characterID + " id: " + id + " characterID: " + characterID);
+            character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
+
+            Data.Instance.charactersData.AddCharacterToTeam(2, characterID);
+              SetCharacter(2, true);
+        }
+        else
+        {
+            characterID = Data.Instance.charactersData.availablesTeam2[id];
+            character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
+
+            Data.Instance.charactersData.AddCharacterToTeam(2, characterID);
+            SetCharacter(2, false);
+        }
+
+        
     }
     int teamsReady = 0;
     void TeamReady()

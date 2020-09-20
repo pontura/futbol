@@ -171,6 +171,7 @@ MonoBehaviour:
       full: []
       init: []
     characters: []
+    goalkeepers: []
     referis: []
 --- !u!114 &4719560070244982194
 MonoBehaviour:
@@ -198,11 +199,18 @@ MonoBehaviour:
   - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
   - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
   - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
-  - {fileID: 2674879857765329069, guid: 5397d9487defc874f81b7d2dba4da044, type: 3}
+  - {fileID: 1263429078001311856, guid: c0a3b0f1c2eb08946b2a4a2730886122, type: 3}
+  - {fileID: 1365646517792584576, guid: ad1d0f9f9ad6a7c42aaebfd62bbf6742, type: 3}
+  - {fileID: 5992651691167853353, guid: d3c3ab18ec4dbc84eb36bb89478e495f, type: 3}
+  all_goalkeepers: []
+  thumbs: []
+  thumbs_goalkeepers: []
   team1: 01000000030000000500000006000000070000000e000000
   team2: 080000000a0000000c0000000b000000090000000e000000
   availablesTeam1: 04000000
   availablesTeam2: 
+  availablesTeam1_goalkeepers: 
+  availablesTeam2_goalkeepers: 
 --- !u!114 &968984449
 MonoBehaviour:
   m_ObjectHideFlags: 0

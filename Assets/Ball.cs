@@ -169,32 +169,32 @@ public class Ball : MonoBehaviour
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
-                Events.PlaySound("common", "kick3");
+                Events.PlaySound("common", "kick3", false);
                 dir *= Data.Instance.settings.kickHard* force;
                 dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.SOFT:
-                Events.PlaySound("common", "kick2");
+                Events.PlaySound("common", "kick2", false);
                 dir *= Data.Instance.settings.kickSoft * force;
                 dir += Vector3.up * Data.Instance.settings.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
-                Events.PlaySound("common", "kick1");
+                Events.PlaySound("common", "kick1", false);
                 dir *= Data.Instance.settings.kickBaloon * force;
                 dir += Vector3.up * Data.Instance.settings.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
-                Events.PlaySound("common", "kick1");
+                Events.PlaySound("common", "kick1", false);
                 dir *= Data.Instance.settings.kickHead * force;
                 dir += Vector3.up * Data.Instance.settings.kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
-                Events.PlaySound("common", "kick3");
+                Events.PlaySound("common", "kick3", false);
                 dir *= Data.Instance.settings.kickChilena * force;
                 dir += Vector3.up * Data.Instance.settings.kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
-                Events.PlaySound("common", "kick3");
+                Events.PlaySound("common", "kick3", false);
                 dir *= Data.Instance.settings.kickHard * 1.5f;
                 dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
                 break;

@@ -33,14 +33,14 @@ public class GoalMoment : MonoBehaviour
 
         Events.OnGoal(teamID);
         Game.Instance.cameraInGame.OnGoal(character_made_goal);
-        Events.PlaySound("crowd", "crowd_gol");
+        Events.PlaySound("crowd", "crowd_gol", true);
 
         yield return new WaitForSeconds(0.2f);
         state = states.GOING_TO_TARGET;
         character_made_goal.actions.Goal();
         yield return new WaitForSeconds(6);
         state = states.IDLE;
-        Events.PlaySound("crowd", "crowd_quiet");
+        Events.PlaySound("crowd", "crowd_quiet", true);
         Game.Instance.ball.Reset();
         Game.Instance.charactersManager.ResetAll();
         Game.Instance.cameraInGame.SetTargetTo(Game.Instance.ball.transform);
