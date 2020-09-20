@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     {
         public string sourceName;
         [HideInInspector] public AudioSource audioSource;
-        public AudioClip[] clips;
+        public float volume = 1;
     }
     void Start()
     {
@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         foreach (AudioSourceManager m in all)
         {
             m.audioSource = gameObject.AddComponent<AudioSource>();
+            m.audioSource.volume = m.volume;
         }
     }
 
@@ -28,15 +29,9 @@ public class AudioManager : MonoBehaviour
         {
             if(m.sourceName == sourceName)
             {
-                foreach (AudioClip ac in m.clips)
-                {
-                    if (ac.name == audioName)
-                    {
-                        m.audioSource.clip = ac;
-                        m.audioSource.Play();
-                        m.audioSource.loop = loop;
-                    }
-                }
+                m.audioSource.clip = Resources.Load<AudioClip>("Audio/" + audioName) as AudioClip;
+                m.audioSource.Play();
+                m.audioSource.loop = loop;
             }
         }
     }

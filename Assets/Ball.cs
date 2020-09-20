@@ -38,17 +38,25 @@ public class Ball : MonoBehaviour
             return;
 
         Vector3 velocity = rb.velocity;
-        if(transform.position.y<2.9f && transform.position.z< 4.5f && transform.position.z > -4.5f)
+        if (transform.position.y < 2.9f && transform.position.z < 4.5f && transform.position.z > -4.5f)
         {
             if (transform.position.x <= (-limits.x / 2) + 0.25f)
                 Game.Instance.Goal(1, characterThatKicked);
             else if (transform.position.x >= (limits.x / 2) - 0.25f)
                 Game.Instance.Goal(2, characterThatKicked);
-        } else
-        if (transform.position.x >= limits.x/2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
+        }
+        else
+        if (transform.position.x >= limits.x / 2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
+        {
+            Events.PlaySound("common", "wallBack_" + Random.Range(1,6), false);
             velocity.x *= -1;
+        }
+
         else if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
+        {
+            Events.PlaySound("common", "wallFront_" + Random.Range(1, 3), false);
             velocity.z *= -1;
+        }
         rb.velocity = velocity;
         Vector3 pos = transform.position;
         if (transform.position.y < 0)

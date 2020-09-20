@@ -141,6 +141,7 @@ public class CharacterActions : MonoBehaviour
     {
         if (state == states.KICK || state == states.DASH)
             return;
+        Events.PlaySound("common", "dash", false);
         CancelInvoke();
         this.state = states.DASH;
         anim.Play("dash");
@@ -157,6 +158,8 @@ public class CharacterActions : MonoBehaviour
     public void Pita()
     {
         anim.Play("start");
+        print("pito");
+        Events.PlaySound("common", "pito", false);
     }
     public void Action()
     {       

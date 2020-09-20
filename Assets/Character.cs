@@ -73,6 +73,7 @@ public class Character : MonoBehaviour
         this.ball = _ball;
         ballCatcher.Catch(ball);
         charactersManager.CharacterCatchBall(this);
+        Events.PlaySound("common", "ballSnap", false); 
         Events.CharacterCatchBall(this);
     }
     public virtual void SetPosition(int _x, int _y)
