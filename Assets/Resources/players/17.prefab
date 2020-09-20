@@ -371,7 +371,6 @@ Transform:
   - {fileID: 1263429076305218422}
   - {fileID: 1263429076731417392}
   - {fileID: 2029267868397636159}
-  - {fileID: 4140797716349489691}
   m_Father: {fileID: 1263429077682574176}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3351,12 +3350,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6890543397579213844}
-  m_LocalRotation: {x: -0, y: -0, z: -0.49182352, w: 0.8706949}
-  m_LocalPosition: {x: 0.22, y: 0.34, z: 0.18}
+  m_LocalRotation: {x: -0, y: -0, z: -0.49182355, w: 0.87069494}
+  m_LocalPosition: {x: -1.0599997, y: -1.1299999, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1263429076327369538}
-  m_RootOrder: 3
+  m_Father: {fileID: 2029267868397636159}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -58.921}
 --- !u!212 &6285254888903294746
 SpriteRenderer:
@@ -3419,7 +3418,7 @@ GameObject:
   - component: {fileID: 2029267868397636159}
   - component: {fileID: 6595133383135404142}
   m_Layer: 0
-  m_Name: pelo
+  m_Name: lanas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3435,7 +3434,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.28, y: 1.47, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4140797716349489691}
   m_Father: {fileID: 1263429076327369538}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
