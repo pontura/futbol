@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    
 
     public int id; //for player Input;
     public int characterID; //for data;
@@ -43,7 +42,7 @@ public class Character : MonoBehaviour
         else
             speed = Data.Instance.settings.speed;
         this.characterID = int.Parse (asset_to_instantiate.name); //con el nombre sacamos el id:
-        data = Data.Instance.textsData.GetCharactersData(characterID);
+        data = Data.Instance.textsData.GetCharactersData(characterID, isGoldKeeper);
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
         GameObject asset = Instantiate(asset_to_instantiate);

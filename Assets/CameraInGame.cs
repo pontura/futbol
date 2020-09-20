@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraInGame : MonoBehaviour
 {
+    public Camera cam;
     float initial_y_position;
     float speed_to_tribuna = 20;
     public float camera_tribuna_y;
@@ -12,8 +13,12 @@ public class CameraInGame : MonoBehaviour
     public float offset_lookAt;
     float speed = 0.035f;
 
-    private void Start()
+    private void Awake()
     {
+        cam = GetComponent<Camera>();
+    }
+    private void Start()
+    {        
         initial_y_position = transform.position.y;
     }
     public void SetTargetTo(Transform t)
