@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharactersManager : MonoBehaviour
 {
     public float rotationOffset = 10;
-    public GameObject referi_to_instantiate;
     public Referi referi;
     public GameObject boardFloor;
     Vector2 limits;
@@ -39,7 +38,7 @@ public class CharactersManager : MonoBehaviour
     {
         ball = Game.Instance.ball;
         //AddCharacter(2);
-        referi.InitReferi(this, referi_to_instantiate);
+        referi.InitReferi(this, Resources.Load<GameObject>("referis/" + Data.Instance.charactersData.referiId) as GameObject);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
         int id = 0;

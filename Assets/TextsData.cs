@@ -45,8 +45,8 @@ public class TextsData : MonoBehaviour
             if (d.id == referiID)
                 characterData = d;
         }
-        return GetText(dialogueType, characterData, false);        
-    }   
+        return GetText(dialogueType, characterData, false);
+    }
     public string GetRandomDialogue(string dialogueType, int characterID, bool isGoalKeeper = false)
     {
         CharactersData characterData = GetCharactersData(characterID, isGoalKeeper);
@@ -88,7 +88,7 @@ public class TextsData : MonoBehaviour
     }
     public CharactersData GetCharactersData(int characterID, bool isGoalKeeper = false)
     {
-        if(isGoalKeeper)
+        if (isGoalKeeper)
         {
             foreach (CharactersData data in data.goalkeepers)
             {
@@ -97,6 +97,15 @@ public class TextsData : MonoBehaviour
             }
         }
         foreach (CharactersData data in data.characters)
+        {
+            if (data.id == characterID)
+                return data;
+        }
+        return null;
+    }
+    public CharactersData GetReferisData(int characterID)
+    {
+        foreach (CharactersData data in data.referis)
         {
             if (data.id == characterID)
                 return data;

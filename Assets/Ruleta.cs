@@ -38,6 +38,7 @@ public class Ruleta : MonoBehaviour {
     System.Action<int> OnDone;
 
     public void Init (List<Sprite> all) {
+        print("__________________________________" + all.Count);
         tapa.SetActive(true);
         items.Clear();
 
@@ -64,6 +65,7 @@ public class Ruleta : MonoBehaviour {
     }
     public void SetOn(System.Action<int> OnDone)
     {
+        print("__________________________________SetOn ");
         tapa.SetActive(false);
         this.OnDone = OnDone;
         InitialSpeed = UnityEngine.Random.Range(5, 20);

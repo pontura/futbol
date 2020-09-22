@@ -2,13 +2,7 @@
 	"dialogs":
 	{
 		"random":
-		[
-			"¡MANO!",
-			"NO DOY MÁS...",
-			"¿PARA DÓNDE PATEÁBAMOS?",
-			"¡ESTÁ REFRESCANDO!",
-			"¡AFUERA!"
-		],
+		[ ],
 		"goal": 
 		[
 			"¡GOOOL!",

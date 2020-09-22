@@ -207,14 +207,18 @@ MonoBehaviour:
   - {fileID: 5923188954979375151, guid: 62655e5696aa93544a9a801a8f7f9763, type: 3}
   - {fileID: 516929744901427017, guid: 43860d50acd98a441b46b6d08fae8f44, type: 3}
   - {fileID: 516929744901427017, guid: 8161faa947cf67f46b8dc1717281d022, type: 3}
+  all_referis: []
   thumbs: []
   thumbs_goalkeepers: []
-  team1: 0100000005000000060000000700000001000000
-  team2: 0a0000000c0000000b0000000900000002000000
+  thumbs_referis: []
+  team1: 0100000005000000060000000700000003000000
+  team2: 0a0000000c0000000b0000000900000004000000
   availablesTeam1: 04000000
   availablesTeam2: 
   availablesTeam1_goalkeepers: 
   availablesTeam2_goalkeepers: 
+  availableReferis: 
+  referiId: 2
 --- !u!114 &968984449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,12 +234,7 @@ MonoBehaviour:
   all:
   - sourceName: crowd
     audioSource: {fileID: 0}
-    clips:
-    - {fileID: 8300000, guid: c726d1ec0ea99b241a82f0051e4a1bc2, type: 3}
-    - {fileID: 8300000, guid: 0766679e4b7cb824690c0ed76c776d21, type: 3}
+    volume: 0.5
   - sourceName: common
     audioSource: {fileID: 0}
-    clips:
-    - {fileID: 8300000, guid: fa55b7c76ceb487418bff03e7d576af9, type: 3}
-    - {fileID: 8300000, guid: 0494a6409bfc03f4c8a3985a8a2310ce, type: 3}
-    - {fileID: 8300000, guid: ddfdfee4ccb8b6743b74d868dd7853ed, type: 3}
+    volume: 1
