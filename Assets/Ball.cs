@@ -48,13 +48,13 @@ public class Ball : MonoBehaviour
         else
         if (transform.position.x >= limits.x / 2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
         {
-            Events.PlaySound("common", "wallBack_" + Random.Range(1,6), false);
+            Events.PlaySound("dogs", "wallFront_" + Random.Range(1,3), false);
             velocity.x *= -1;
         }
 
         else if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
         {
-            Events.PlaySound("common", "wallFront_" + Random.Range(1, 3), false);
+            Events.PlaySound("dogs", "wallBack_" + Random.Range(1, 6), false);
             velocity.z *= -1;
         }
         rb.velocity = velocity;
@@ -155,19 +155,25 @@ public class Ball : MonoBehaviour
             force += 1;
         return force;
     }
-    public void Kick(CharacterActions.kickTypes kickType)
+    public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
+        print("Kick " + forceForce);
         float force = 1;
         if (kickType == CharacterActions.kickTypes.HARD && uIForce.GetForce() > 0.6f)
             kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
+
+       
         if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL)
         {
             character.SetCollidersOff();
             AimGoal(character, 40);
-        } else if (   
-            kickType != CharacterActions.kickTypes.HEAD 
-            || kickType != CharacterActions.kickTypes.CHILENA
-            )
+        }
+        else if (forceForce != 0)
+            force = forceForce;
+        else if (
+        kickType != CharacterActions.kickTypes.HEAD 
+        || kickType != CharacterActions.kickTypes.CHILENA
+        )
             force = AddForceToKick();
 
         FreeBall();

@@ -49,16 +49,22 @@ public class Referi : Character
                 destZ = Random.Range(-8, 8);
         }
         Invoke("ChangeZ", 1);
-    }    
+    }
+    float timer;
     void Update()
     {
         if (Game.Instance.state != Game.states.GOAL && actions.state != CharacterActions.states.SPECIAL_ACTION)
         {
+            timer += Time.deltaTime;
+            if (timer < 1)  return;
+
             int _z = 0;
             int _x = 0;
-
             if (Mathf.Abs(transform.position.x - ball.transform.position.x) < 2)
+            {
                 actions.Idle();
+                timer = 0;
+            }
             else
             {
                 if (transform.position.z < destZ)
@@ -67,14 +73,13 @@ public class Referi : Character
                     _z = -1;
                 if (Mathf.Abs(transform.position.x - ball.transform.position.x) > 1)
                 {
-
                     if (transform.position.x < ball.transform.position.x)
                         _x = 1;
                     else
                         _x = -1;
+                    MoveTo(_x, _z);
                 }
-                MoveTo(_x, _z);
-
+                
             }
         }
     }

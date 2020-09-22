@@ -80,12 +80,12 @@ public class Character : MonoBehaviour
     {
         MoveTo(_x, _y);            
     }
-    public void Kick(CharacterActions.kickTypes kickType)
+    public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
         actions.Kick(kickType);
         if (ball != null && ball.GetCharacter() == this)
         {
-            ball.Kick(kickType);
+            ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();
         }
     }

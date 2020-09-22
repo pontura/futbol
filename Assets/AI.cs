@@ -58,19 +58,21 @@ public class AI : MonoBehaviour
     }
     void SetCharacterNewDefender(Character _character)
     {
-        if (character.teamID != _character.teamID || aiGotoBall.enabled == true)
+        if (character.teamID != _character.teamID)
             return;
         if (_character.characterID == character.characterID)
         {
             ResetAll();
             aiGotoBall.SetActive();
-        } 
-        else
+        }
+        else if (aiGotoBall.enabled)
+        {
+            aiPosition.SetActive();
             aiGotoBall.Reset();
+        }
     }
     public virtual void CharacterCatchBall(Character _character)
-    {
-        aiGotoBall.Reset();
+    {        
 
         if (character.teamID == _character.teamID)
             state = states.ATTACKING;
@@ -87,12 +89,15 @@ public class AI : MonoBehaviour
             }
         }
 
-    
 
         if (character.isBeingControlled)
             ResetAll();
         else
+        {
+            aiGotoBall.Reset();
+            if(aiHasBall != null) aiHasBall.Reset();
             aiPosition.SetActive();
+        }
     }
     public void ResetPosition()
     {

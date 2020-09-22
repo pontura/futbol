@@ -238,3 +238,6 @@ MonoBehaviour:
   - sourceName: common
     audioSource: {fileID: 0}
     volume: 1
+  - sourceName: dogs
+    audioSource: {fileID: 0}
+    volume: 1

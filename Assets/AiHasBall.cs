@@ -6,7 +6,10 @@ public class AiHasBall : MonoBehaviour
 {
     AI ai;
     Vector3 dest;
+    public Character characterToPass;
     float center_goto_goal_x = 15;
+    int _z = 0;
+    public float timer;
 
     private void Awake()
     {
@@ -18,23 +21,46 @@ public class AiHasBall : MonoBehaviour
     }
     public void SetActive()
     {
+        characterToPass = null;
+        timer = Time.time;
         dest.x = center_goto_goal_x;
         if (ai.character.teamID == 1)
             dest.x *= -1;
         enabled = true;
-        Invoke("Loop", 0.25f);
-
-        if (ai.character.characterID == 8)
-            print(dest);
+        Invoke("Loop", 0.35f);
     }
     void Loop()
-    {       
-        Invoke("Loop", 1f);
+    {
+        if (!ai.character.isBeingControlled && characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
+        {
+            characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
+
+            Vector3 otherPos = characterToPass.transform.position;
+            float offset = 3;
+            if (ai.character.teamID == 1)
+                otherPos.x -= offset;
+            else if (ai.character.teamID == 2)
+                otherPos.x += offset;
+            
+            ai.character.ballCatcher.LookAt(otherPos);
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10,20)/10);
+            Reset();
+        }           
+
+        Invoke("Loop", 0.75f);
+        int rand = Random.Range(0, 100);
+        if (rand < 30)
+            _z = 1;
+        else if (rand < 60)
+            _z = -1;
+        else
+            _z = 0;
     }
     public void Reset()
     {
         CancelInvoke();
         enabled = false;
+        characterToPass = null;
     }
     void KickBall()
     {
@@ -42,20 +68,25 @@ public class AiHasBall : MonoBehaviour
     }
     public virtual void UpdatedByAI()
     {
-        if (Mathf.Abs(transform.position.x - dest.x) < 1)
+        if (ai.character.isBeingControlled)
+            return;
+        if (characterToPass == null && Mathf.Abs(transform.position.x - dest.x) < 1)
         {
             KickBall();
             return;
         }
         int _x = 0;
-        int _z = 0;
-        
+
         if (transform.position.x < dest.x) _x = 1; else _x = -1;
-        if (transform.position.z < dest.z) _z = 1; else _z = -1;
+        if (Mathf.Abs(transform.position.z- dest.z) > 3f)
+        {
+            if (transform.position.z < dest.z) _z = 1; else _z = -1;
+        }
         if (_x == 0 && _z == 0)
             return;
         if (ai == null || ai.character == null)
             return;
         ai.character.MoveTo(_x, _z);
+        timer += Time.deltaTime;
     }
 }

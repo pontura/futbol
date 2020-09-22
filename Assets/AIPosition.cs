@@ -46,6 +46,7 @@ public class AIPosition : MonoBehaviour
     }
     public virtual void SetActive()
     {
+        CancelInvoke();
         this.enabled = true;
         state = states.GOING;
         if (ai.state == AI.states.DEFENDING)

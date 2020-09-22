@@ -136,7 +136,29 @@ public class CharactersManager : MonoBehaviour
         return teamID;
     }
     //hasControl = if true solo busca entre los activos.
-    Character GetNearest(int teamID, bool hasControl, Vector3 pos)
+    public Character GetNearestTo(Character myCharacter, int teamID)
+    {
+        List<Character> team;
+        if (teamID == 1)
+            team = team1;
+        else team = team2;
+        float distanceMin = 1000;
+        Character character = null;
+        foreach (Character c in team)
+        {
+            if (c.characterID != myCharacter.characterID)
+            {
+                float distance = Vector3.Distance(c.transform.position, myCharacter.transform.position);
+                if (distanceMin > distance && !c.isGoldKeeper)
+                {
+                    character = c;
+                    distanceMin = distance;
+                }
+            }
+        }
+        return character;
+    }
+    public Character GetNearest(int teamID, bool hasControl, Vector3 pos)
     {
         List<Character> team;
         if (teamID == 1)
