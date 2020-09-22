@@ -32,12 +32,14 @@ public class DialoguesManager : MonoBehaviour
             character = Game.Instance.charactersManager.team2[Random.Range(0, Game.Instance.charactersManager.team2.Count)];
 
         string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper);
-        Events.SetDialogue(character, text);
+
+        if(text != "")
+            Events.SetDialogue(character, text);
 
         int referiRandom = Random.Range(0, 10);
-        if (referiRandom < 4)
+        if (referiRandom < 2)
             SetReferi("random");
-        else if (referiRandom < 10)
+        else if (referiRandom < 5)
         {
             SetReferi("full");
             Game.Instance.charactersManager.referi.actions.Action();

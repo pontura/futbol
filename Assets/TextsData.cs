@@ -43,7 +43,7 @@ public class TextsData : MonoBehaviour
     }
     public string GetRandomReferiDialogue(string dialogueType)
     {
-        CharactersData characterData = data.referis[referiID];
+        CharactersData characterData = data.referis[referiID-1];
         foreach (CharactersData d in data.referis)
         {
             if (d.id == referiID)
@@ -58,14 +58,12 @@ public class TextsData : MonoBehaviour
     }
     string GetText(string dialogueType, CharactersData characterData, bool isPlayer)
     {
-        List<string> arr;
+        List<string> arr = new List<string>();
         switch (dialogueType)
         {
             case "random":
-                if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.random.Count > 0 || !isPlayer)
+                if (characterData.dialogs.random.Count > 0 || !isPlayer)
                     arr = characterData.dialogs.random;
-                else
-                    arr = data.dialogs.random;
                 break;
             case "goal":
                 if (UnityEngine.Random.Range(0, 10) < 4 && characterData.dialogs.goal.Count > 0 || !isPlayer)
@@ -87,7 +85,7 @@ public class TextsData : MonoBehaviour
                 break;
         }
         if (arr == null || arr.Count == 0)
-            return "AMOR";
+            return null;
         return arr[UnityEngine.Random.Range(0, arr.Count)];
     }
     public CharactersData GetCharactersData(int characterID, bool isGoalKeeper = false)
