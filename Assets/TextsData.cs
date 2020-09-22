@@ -35,12 +35,14 @@ public class TextsData : MonoBehaviour
     void Awake()
     {
         TextAsset targetFile = Resources.Load<TextAsset>("texts");
-        data = JsonUtility.FromJson<TextData>(targetFile.text);
+        data = JsonUtility.FromJson<TextData>(targetFile.text);        
+    }
+    private void Start()
+    {
         referiID = Data.Instance.charactersData.referiId;
     }
     public string GetRandomReferiDialogue(string dialogueType)
     {
-        int referiID = 1;
         CharactersData characterData = data.referis[referiID];
         foreach (CharactersData d in data.referis)
         {
