@@ -14,7 +14,6 @@ public class Data : MonoBehaviour
     private float time_ViewingMap = 7.5f;
     public Settings settings;
     public TextsData textsData;
-    public CharactersData charactersData;
 
     public static Data Instance
     {

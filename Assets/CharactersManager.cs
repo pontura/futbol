@@ -38,21 +38,21 @@ public class CharactersManager : MonoBehaviour
     {
         ball = Game.Instance.ball;
         //AddCharacter(2);
-        referi.InitReferi(this, Resources.Load<GameObject>("referis/" + Data.Instance.charactersData.referiId) as GameObject);
+        referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1].asset);
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
         int id = 0;
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(1, this, Data.Instance.charactersData.GetCharacter(1, id));
+            character.Init(1, this, CharactersData.Instance.GetCharacter(1, id));
             id++;
         }
         id = 0;
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(2, this, Data.Instance.charactersData.GetCharacter(2, id));
+            character.Init(2, this, CharactersData.Instance.GetCharacter(2, id));
             id++;
         }
         Loop();

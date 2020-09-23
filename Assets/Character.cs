@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
+    [HideInInspector] public CharactersData.CharacterData dataSources;
     public int id; //for player Input;
     public int characterID; //for data;
     Collider[] colliders;
@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public Ball ball;
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
-    [HideInInspector] public TextsData.CharactersData data;    
+    [HideInInspector] public TextsData.CharacterData data;    
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCatcher;
@@ -37,19 +37,27 @@ public class Character : MonoBehaviour
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
-        if (isGoldKeeper)
-            speed = Data.Instance.settings.goalKeeperSpeed;
-        else
-            speed = Data.Instance.settings.speed;
-        this.characterID = int.Parse (asset_to_instantiate.name); //con el nombre sacamos el id:
-        data = Data.Instance.textsData.GetCharactersData(characterID, isGoldKeeper);
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
+
+        this.characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
+        data = Data.Instance.textsData.GetCharactersData(characterID, isGoldKeeper);
+        if (isGoldKeeper)
+        {
+            dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
+            speed = Data.Instance.settings.goalKeeperSpeed;
+        }   else
+        {
+            dataSources = CharactersData.Instance.all[data.id - 1];
+            speed = Data.Instance.settings.speed;
+        }
+        
         GameObject asset = Instantiate(asset_to_instantiate);
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
         asset.transform.localScale = Vector3.one;
         actions.Init(asset, teamID);
+        
     }
 
     void Loop()

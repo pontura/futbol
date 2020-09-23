@@ -33,7 +33,7 @@ public class SelectorScreen : MonoBehaviour
     List<Sprite> all;
     void Start()
     {
-        Data.Instance.charactersData.Init();
+        CharactersData.Instance.Init();
         Events.OnButtonPressed += OnButtonPressed;
       
         character1 = characters1_container.GetComponentsInChildren<Ruleta>();
@@ -103,7 +103,7 @@ public class SelectorScreen : MonoBehaviour
     void SetCharacter(int teamID, bool isGoalKeeper)
     {
         Ruleta ruleta;
-        List<Sprite> all = Data.Instance.charactersData.GetAvailablePlayers(teamID, isGoalKeeper);
+        List<Sprite> all = CharactersData.Instance.GetAvailablePlayers(teamID, isGoalKeeper);
         if (teamID == 1)
         {
             if (team1_characterID >= 5)
@@ -135,18 +135,18 @@ public class SelectorScreen : MonoBehaviour
         team1_characterID++;
         if (team1_characterID >= 5)
         {
-            characterID = Data.Instance.charactersData.availablesTeam1_goalkeepers[id];
+            characterID = CharactersData.Instance.availablesTeam1_goalkeepers[id];
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
 
-            Data.Instance.charactersData.AddCharacterToTeam(1, characterID);
+            CharactersData.Instance.AddCharacterToTeam(1, characterID);
             TeamReady();
         }
         else
         {
-            characterID = Data.Instance.charactersData.availablesTeam1[id];
+            characterID = CharactersData.Instance.availablesTeam1[id];
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
-            Data.Instance.charactersData.AddCharacterToTeam(1, characterID);
+            CharactersData.Instance.AddCharacterToTeam(1, characterID);
             if(team1_characterID == 4)
                 SetCharacter(1, true);
             else
@@ -160,18 +160,18 @@ public class SelectorScreen : MonoBehaviour
         team2_characterID++;
         if (team2_characterID >= 5)
         {
-            characterID = Data.Instance.charactersData.availablesTeam2_goalkeepers[id];
+            characterID = CharactersData.Instance.availablesTeam2_goalkeepers[id];
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
 
-            Data.Instance.charactersData.AddCharacterToTeam(2, characterID);
+            CharactersData.Instance.AddCharacterToTeam(2, characterID);
             TeamReady();
         }
         else
         {
-            characterID = Data.Instance.charactersData.availablesTeam2[id];
+            characterID = CharactersData.Instance.availablesTeam2[id];
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
-            Data.Instance.charactersData.AddCharacterToTeam(2, characterID);
+            CharactersData.Instance.AddCharacterToTeam(2, characterID);
             if (team2_characterID == 4)
                 SetCharacter(2, true);
             else
@@ -196,14 +196,14 @@ public class SelectorScreen : MonoBehaviour
     }
     void SetReferi()
     {
-        List<Sprite> all = Data.Instance.charactersData.GetReferies();
+        List<Sprite> all = CharactersData.Instance.GetReferies();
         referiRuleta.Init(all);
         referiRuleta.SetOn(OnReferiDone);
     }
     void OnReferiDone(int id)
     {
-        Data.Instance.charactersData.referiId = Data.Instance.charactersData.availableReferis[id];
-        referiName.text = Data.Instance.textsData.GetReferisData(Data.Instance.charactersData.referiId).avatarName;
+        CharactersData.Instance.referiId = CharactersData.Instance.availableReferis[id];
+        referiName.text = Data.Instance.textsData.GetReferisData(CharactersData.Instance.referiId).avatarName;
         AllLoaded();
     }
     void AllLoaded()

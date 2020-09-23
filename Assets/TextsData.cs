@@ -12,12 +12,12 @@ public class TextsData : MonoBehaviour
     public class TextData
     {
         public DialoguesData dialogs;
-        public CharactersData[] characters;
-        public CharactersData[] goalkeepers;
-        public CharactersData[] referis;
+        public CharacterData[] characters;
+        public CharacterData[] goalkeepers;
+        public CharacterData[] referis;
     }
     [Serializable]
-    public class CharactersData
+    public class CharacterData
     {
         public int id;
         public string avatarName;
@@ -39,12 +39,12 @@ public class TextsData : MonoBehaviour
     }
     private void Start()
     {
-        referiID = Data.Instance.charactersData.referiId;
+        referiID = CharactersData.Instance.referiId;
     }
     public string GetRandomReferiDialogue(string dialogueType)
     {
-        CharactersData characterData = data.referis[referiID-1];
-        foreach (CharactersData d in data.referis)
+        CharacterData characterData = data.referis[referiID-1];
+        foreach (CharacterData d in data.referis)
         {
             if (d.id == referiID)
                 characterData = d;
@@ -53,10 +53,10 @@ public class TextsData : MonoBehaviour
     }
     public string GetRandomDialogue(string dialogueType, int characterID, bool isGoalKeeper = false)
     {
-        CharactersData characterData = GetCharactersData(characterID, isGoalKeeper);
+        CharacterData characterData = GetCharactersData(characterID, isGoalKeeper);
         return GetText(dialogueType, characterData, true);
     }
-    string GetText(string dialogueType, CharactersData characterData, bool isPlayer)
+    string GetText(string dialogueType, CharacterData characterData, bool isPlayer)
     {
         List<string> arr = new List<string>();
         switch (dialogueType)
@@ -88,26 +88,26 @@ public class TextsData : MonoBehaviour
             return null;
         return arr[UnityEngine.Random.Range(0, arr.Count)];
     }
-    public CharactersData GetCharactersData(int characterID, bool isGoalKeeper = false)
+    public CharacterData GetCharactersData(int characterID, bool isGoalKeeper = false)
     {
         if (isGoalKeeper)
         {
-            foreach (CharactersData data in data.goalkeepers)
+            foreach (CharacterData data in data.goalkeepers)
             {
                 if (data.id == characterID)
                     return data;
             }
         }
-        foreach (CharactersData data in data.characters)
+        foreach (CharacterData data in data.characters)
         {
             if (data.id == characterID)
                 return data;
         }
         return null;
     }
-    public CharactersData GetReferisData(int characterID)
+    public CharacterData GetReferisData(int characterID)
     {
-        foreach (CharactersData data in data.referis)
+        foreach (CharacterData data in data.referis)
         {
             if (data.id == characterID)
                 return data;
