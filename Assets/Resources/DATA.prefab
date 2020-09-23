@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 114000013950545636}
   - component: {fileID: 999694241}
   - component: {fileID: 864794640}
-  - component: {fileID: 4719560070244982194}
   - component: {fileID: 968984449}
   m_Layer: 0
   m_Name: DATA
@@ -52,7 +51,6 @@ MonoBehaviour:
   newScene: 
   settings: {fileID: 999694241}
   textsData: {fileID: 864794640}
-  charactersData: {fileID: 4719560070244982194}
 --- !u!114 &999694241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,52 +171,6 @@ MonoBehaviour:
     characters: []
     goalkeepers: []
     referis: []
---- !u!114 &4719560070244982194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013221123710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccd4348226c00549953a23c9e91abe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  all:
-  - {fileID: 8221468473453606760, guid: 2b553adb2ac15884480dee18c28d85db, type: 3}
-  - {fileID: 8281527998283743665, guid: a8f7a7cd833471a4a9ddb857ac64cb67, type: 3}
-  - {fileID: 4367421719257010718, guid: 90fe52d1f82ab9245899bc87a7a45606, type: 3}
-  - {fileID: 226667898465156278, guid: a4b299ff3821a4544bd7fa78f28c3dcf, type: 3}
-  - {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
-  - {fileID: 1833487088215971624, guid: c861c01bd1b69cb449090a5311f5763e, type: 3}
-  - {fileID: 2674879857765329069, guid: 2604c087dee734d41bf6d2b880ce7f41, type: 3}
-  - {fileID: 3410515606220679625, guid: 5c4bc449a31f4a94ba9d2d4bec518359, type: 3}
-  - {fileID: 3177298910664495984, guid: c406f0c4c212f9f4f90d63b456cb812c, type: 3}
-  - {fileID: 6901122285471923383, guid: 91c6614d5900efd45985683b6cf566c3, type: 3}
-  - {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
-  - {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
-  - {fileID: 3999471607175928656, guid: 3ad5ff0df79dd0d44b35368df34be83c, type: 3}
-  - {fileID: 1263429078001311856, guid: c0a3b0f1c2eb08946b2a4a2730886122, type: 3}
-  - {fileID: 1365646517792584576, guid: ad1d0f9f9ad6a7c42aaebfd62bbf6742, type: 3}
-  - {fileID: 5992651691167853353, guid: d3c3ab18ec4dbc84eb36bb89478e495f, type: 3}
-  all_goalkeepers:
-  - {fileID: 2674879857765329069, guid: 5397d9487defc874f81b7d2dba4da044, type: 3}
-  - {fileID: 5923188954979375151, guid: 62655e5696aa93544a9a801a8f7f9763, type: 3}
-  - {fileID: 516929744901427017, guid: 43860d50acd98a441b46b6d08fae8f44, type: 3}
-  - {fileID: 516929744901427017, guid: 8161faa947cf67f46b8dc1717281d022, type: 3}
-  all_referis: []
-  thumbs: []
-  thumbs_goalkeepers: []
-  thumbs_referis: []
-  team1: 0100000005000000060000000700000003000000
-  team2: 0a0000000c0000000b0000000900000004000000
-  availablesTeam1: 04000000
-  availablesTeam2: 
-  availablesTeam1_goalkeepers: 
-  availablesTeam2_goalkeepers: 
-  availableReferis: 
-  referiId: 2
 --- !u!114 &968984449
 MonoBehaviour:
   m_ObjectHideFlags: 0

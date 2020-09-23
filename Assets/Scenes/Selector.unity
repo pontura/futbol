@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: itemsHeight
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1247458795, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -698,6 +702,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 247780871}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -966,6 +978,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374032377}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -1353,6 +1373,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657007837}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -1711,6 +1739,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2053346123}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -2005,6 +2041,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1307786342}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -2248,6 +2292,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2130611698}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -3889,6 +3941,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 80745070}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -4287,6 +4347,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1294495592}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -4505,7 +4573,8 @@ PrefabInstance:
       propertyPath: all_goalkeepers.Array.size
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4719560070244982194, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
 --- !u!1001 &1550712563
 PrefabInstance:
@@ -4514,6 +4583,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1194753742}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -4844,6 +4921,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1192334679}
     m_Modifications:
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1972112436, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_ShowMaskGraphic
       value: 0
@@ -5885,6 +5970,10 @@ PrefabInstance:
     - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: itemsHeight
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171285944, guid: 6dae15890635803418cbb2b214c59553, type: 3}
+      propertyPath: teamID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1247458795, guid: 6dae15890635803418cbb2b214c59553, type: 3}
       propertyPath: m_LocalScale.y

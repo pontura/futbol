@@ -17,6 +17,14 @@ public class Ruleta : MonoBehaviour {
     public int itemsHeight;
     public Color[] colors;
 
+    public int teamID;
+    public types type;
+    public enum types
+    {
+        TEAM,
+        PLAYER
+    }
+
     public float totalHeight;
 
     [Serializable]
@@ -38,7 +46,6 @@ public class Ruleta : MonoBehaviour {
     System.Action<int> OnDone;
 
     public void Init (List<Sprite> all) {
-        print("__________________________________" + all.Count);
         tapa.SetActive(true);
         items.Clear();
 
@@ -77,17 +84,25 @@ public class Ruleta : MonoBehaviour {
         if (state == states.ROLLING) Rolling();
         else if (state == states.REPOSITION) Repositionate();
     }
-   
+    float lastY = 0;
     void Rolling()
     {
-
         speed -= Time.deltaTime + acceleration;
         float newY = container.transform.localPosition.y + speed;
-
+        lastY += speed;
         if (speed <= 0)
         {
+            if(type == types.TEAM)
+                Events.PlaySound("common", "slotMachine_club_" + teamID, false);
+            else
+                Events.PlaySound("common", "slotMachine_player_" + teamID, false);
             CalculateItem();
             state = states.REPOSITION;            
+        }
+        if(lastY > itemsHeight)
+        {
+            lastY = 0;
+            Events.PlaySound("common", "slotMachine_click_" + teamID, false);
         }
         if (container.localPosition.y > (totalHeight))
             ResetPosition();

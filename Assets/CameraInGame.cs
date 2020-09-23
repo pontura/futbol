@@ -28,7 +28,7 @@ public class CameraInGame : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        pos.x = target.position.x * 15 / 20;
+        pos.x = target.position.x * 0.8f;
         if (Game.Instance.state == Game.states.PLAYING)
             pos.y = initial_y_position;
         else if (pos.y < camera_tribuna_y)

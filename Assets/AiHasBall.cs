@@ -43,7 +43,7 @@ public class AiHasBall : MonoBehaviour
                 otherPos.x += offset;
             
             ai.character.ballCatcher.LookAt(otherPos);
-            ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10,20)/10);
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10,30)/10);
             Reset();
         }           
 
