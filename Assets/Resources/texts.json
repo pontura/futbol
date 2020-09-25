@@ -183,7 +183,7 @@
 			"id": 12,
 			"avatarName": "Mirta Manujín",
 			"dialogs": {
-				"random": [ "UNA CANCHA HECHA DE CAPITANES DEL ESPACIO", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS", "FUTBOL DECONSTRUIDO O SOCCER ART", "¿QUIÉN VA GANANDO ESTE HAPPENING?", "ESTE VIDEOJUEGO ES ARTE", "¿PARA DÓNDE PATEAMOS?", "QUE LINDO ES COMPARTIR ARTE" ],
+				"random": [ "UNA CANCHA HECHA DE CAPITANES DEL ESPACIO", "ESTA PERFORMANCE ES ÚNICA E IRREPETIBLE", "FUTBOL PLÁSTICO", "ESTO YA LO VI EN EL MOMA", "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANCÉS", "FUTBOL DECONSTRUIDO O SOCCER ART", "¿QUIÉN VA GANANDO ESTE HAPPENING?", "ESTE VIDEOJUEGO ES ARTE", "¿PARA DÓNDE PATEAMOS?", "QUE LINDO ES COMPARTIR ARTE", "NUEVO FÚTBOL EFÍMERO LATINOAMERICANO" ],
 				"goal":  [ "¡ARTE!", "¿GANAMOS?", "¿GOL NUESTRO?" ],
 				"full":  [ "¡...!", "PARA GANAR HAY QUE PERDER" ]
 			}
@@ -237,18 +237,45 @@
 			"id": 18,
 			"avatarName": "Turbo Grrrl",
 			"dialogs": {
-				"random": [ "ME TENDRÍA QUE HABER TOMADO MEDIA BIRRA MÁS" ],
+				"random": [ "ME TENDRÍA QUE HABER TOMADO UNA BIRRA MÁS", "ALTA RESACA, PERO TODO OK", "FOREVER AGAINST RACISM", "UOOOOO! I GOT ERECTION!", "DISCULPE, ¿TIENE UN MINUTO PARA HABLAR DE TURBONEGRO?", "DEATH PUNK OR DEATH", "TURBOJUGEND PATERNAL PRESENTE" ],
 				"goal":  [ "HOT FOR NIETZCHE!" ],
-				"full":  [ "¿QUÉ?" ]
+				"full":  [ "ALL MY FRIENDS ARE DEAD" ]
 			}
 		},
 		{
 			"id": 19,
 			"avatarName": "Betsy Beige",
 			"dialogs": {
-				"random": [ "WHIP, BETSY! WHIP!" ],
+				"random": [ "WHIP, BETSY! WHIP!", "ODIO USAR ROPA", "¡DE RODILLAS, FOBAL STARS!", "CHAS CHAS", "¿QUIÉN SE PORTÓ MAL?"   ],
 				"goal":  [ "GOOOAL!!" ],
 				"full":  [ "BORING" ]
+			}
+		},
+		{
+			"id": 20,
+			"avatarName": "El Pesto",
+			"dialogs": {
+				"random": [ "¡¡NO SALDRÁS VIVA DE ESTA CANCHA!!", "¡RATAS INMUNDAS!"  ],
+				"goal":  [ "¡¡GOLAZ ZZZZZ ZZOOO!!" ],
+				"full":  [ "¡¡¡AAAAAA RRRRRRR GGGGHHH!!!" ]
+			}
+		},
+		{
+			"id": 21,
+			"avatarName": "Cobra",
+			"dialogs": {
+				"random": [ "TE ODIO", "NO MÁS ANILLOS, IMBÉCIL", "ME SEPARÉ LA SEMANA PASADA", "TODAVÍA ESTOY SENSIBLE", "¿Y SI TE PONGO ANILLOS EN LAS BOL8S?", "UN DOLOR DE CUELLO...", "TREMENDO TINCHO RESULTÓ", "CON EL ÚLTIMO ANILLO DIJE BASTA", "SIEMPRE SOÑÉ CON SER UNA FOBAL STAR" ],
+				"goal":  [ "¡¡¡¡!!!!" ],
+				"full":  [ "...LA TÍPICA..." ]
+			}
+		},
+		{
+			"id": 22,
+			"avatarName": "Caniggia Ice",
+			"dialogs": {
+				"random": [ "ACÁ, RE P7J4", "SÓLO LOS MÁS P8J3 ESTÁN ACÁ", "MIRÁ QUE BUENA ES MI VIDA", "¿TE GUSTARÍA SER YO?", "TENGO MÁS FOLLOWERS QUE NEURONAS, MAMI" ],
+				"goal":  [ "¡CHUPENLA, BARATS!" ],
+				"full":  [ "WTF??!!" ]
 			}
 		}
 	]

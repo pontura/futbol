@@ -2016,7 +2016,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.92e-43, y: 6.36e-43, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 0, y: 7.191e-42, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5558,7 +5558,7 @@ PrefabInstance:
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: all.Array.size
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
@@ -5593,6 +5593,42 @@ PrefabInstance:
       propertyPath: all.Array.data[18].thumb
       value: 
       objectReference: {fileID: 21300000, guid: 5565ad52951c2654a8f8fcca3bcea644,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[19].asset
+      value: 
+      objectReference: {fileID: 3999471607175928656, guid: 8ae30d5fee45f9e479c021990e4385db,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[19].thumb
+      value: 
+      objectReference: {fileID: 21300000, guid: d99d0fa5debe7d14cb928f4c34e7761a,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[20].asset
+      value: 
+      objectReference: {fileID: 6901122285471923383, guid: ee8772c9120b9ce49aa62459b10fe179,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[20].thumb
+      value: 
+      objectReference: {fileID: 21300000, guid: 08a65e8afbcfe6246b73f04abcdac6ca,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[21].asset
+      value: 
+      objectReference: {fileID: 3999471607175928656, guid: f4de54aa840ff624b9b87aa834b5199e,
+        type: 3}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: all.Array.data[21].thumb
+      value: 
+      objectReference: {fileID: 21300000, guid: b37577ab6544e7b469e19b6617128207,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}
