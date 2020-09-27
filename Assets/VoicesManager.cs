@@ -17,7 +17,13 @@ public class VoicesManager : MonoBehaviour
     }
     void CharacterCatchBall(Character character)
     {
-        audioSource.clip = character.dataSources.audio_names[0];
-        audioSource.Play();
+        if (character.dataSources.audio_names != null && character.dataSources.audio_names.Length > 0)
+        {
+            audioSource.clip = character.dataSources.audio_names[0];
+            audioSource.Play();
+        } else
+        {
+            Debug.Log("No grabaron audio para el nombre de: " + character.characterID);
+        }
     }
 }
