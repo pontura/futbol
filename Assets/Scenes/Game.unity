@@ -5493,6 +5493,7 @@ MonoBehaviour:
     asset: {fileID: 0}
     thumb: {fileID: 0}
     audio_names: []
+    audio_goal: []
   id: 0
   characterID: 0
   speed: 0

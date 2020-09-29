@@ -285,7 +285,7 @@ public class CharactersManager : MonoBehaviour
         to.actions.Reset();
         from.actions.Reset();
     }
-    public void OnGoal(int teamID)
+    public void OnGoal(int teamID, Character c)
     {
         List<Character> team_win;
         List<Character> team_lose;

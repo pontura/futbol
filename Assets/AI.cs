@@ -48,7 +48,7 @@ public class AI : MonoBehaviour
         else if (aiPosition.enabled)
             aiPosition.UpdatedByAI();
     }
-    void OnGoal(int teamID)
+    void OnGoal(int teamID, Character character)
     {
         ResetAll();
     }

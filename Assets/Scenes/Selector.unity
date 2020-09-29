@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5556,108 +5556,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.size
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[17].audio_names.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all_goalkeepers.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all_goalkeepers.Array.data[4].audio_names.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[17].asset
-      value: 
-      objectReference: {fileID: 5992651691167853353, guid: 077acc5e5085fda4998ea1a53df2f10b,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[17].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: 4df588340bedaea489ae9e594111c01c,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[17].audio_names.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0c68805b7df56b94e94247e787e571a5, type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[18].asset
-      value: 
-      objectReference: {fileID: 6901122285471923383, guid: b580db2abe75b25459909b17bba89c7c,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[18].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: 5565ad52951c2654a8f8fcca3bcea644,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[19].asset
-      value: 
-      objectReference: {fileID: 3999471607175928656, guid: 8ae30d5fee45f9e479c021990e4385db,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[19].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: d99d0fa5debe7d14cb928f4c34e7761a,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[20].asset
-      value: 
-      objectReference: {fileID: 6901122285471923383, guid: ee8772c9120b9ce49aa62459b10fe179,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[20].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: 08a65e8afbcfe6246b73f04abcdac6ca,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[21].asset
-      value: 
-      objectReference: {fileID: 3999471607175928656, guid: f4de54aa840ff624b9b87aa834b5199e,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all.Array.data[21].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: b37577ab6544e7b469e19b6617128207,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all_goalkeepers.Array.data[4].asset
-      value: 
-      objectReference: {fileID: 516929744901427017, guid: acd44e85a825ac24e87fd6b557642467,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all_goalkeepers.Array.data[4].thumb
-      value: 
-      objectReference: {fileID: 21300000, guid: b1b75e5258acae340a728d9b4b50bd0b,
-        type: 3}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: all_goalkeepers.Array.data[4].audio_names.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: b0b03970d99823c40936efb0bee928cf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}
 --- !u!1 &1875138344

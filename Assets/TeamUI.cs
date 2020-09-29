@@ -23,7 +23,7 @@ public class TeamUI : MonoBehaviour
     {
         Events.OnGoal -= OnGoal;
     }
-    void OnGoal(int _teamID)
+    void OnGoal(int _teamID, Character character)
     {
         if (teamID == _teamID)
         {

@@ -31,7 +31,7 @@ public class GoalMoment : MonoBehaviour
         else
             winners = charactersManager.team2;
 
-        Events.OnGoal(teamID);
+        Events.OnGoal(teamID, character);
         Game.Instance.cameraInGame.OnGoal(character_made_goal);
         Events.PlaySound("crowd", "crowd_gol", true);
 

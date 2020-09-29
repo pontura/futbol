@@ -23,12 +23,22 @@ public class VoicesManager : MonoBehaviour
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.KickToGoal += KickToGoal;
         Events.OnBallKicked += OnBallKicked;
+        Events.OnGoal += OnGoal;
     }
     void OnDestroy()
     {
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.KickToGoal -= KickToGoal;
-        Events.OnBallKicked -= OnBallKicked;
+        Events.OnGoal -= OnGoal;
+    }
+    void OnGoal(int teamID, Character character)
+    {
+        Reset();
+        StopAllCoroutines();
+        if (character.dataSources.audio_goal.Length > 0)
+        {            
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(character.dataSources.audio_goal) });
+        }
     }
     private void Reset()
     {
@@ -79,7 +89,7 @@ public class VoicesManager : MonoBehaviour
             {
                 sigueID++;
 
-                AudioClip characterName = character.dataSources.audio_names[0];
+                AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
                 if (sigueID == 1)
                     PlayAudios(new AudioClip[] { GetRandomAudioClip(sigue), characterName });
                 else
@@ -99,7 +109,7 @@ public class VoicesManager : MonoBehaviour
         {
             StopAllCoroutines();
             int rand = UnityEngine.Random.Range(0, 10);
-            AudioClip characterName = character.dataSources.audio_names[0];
+            AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
             if(character.isGoldKeeper)
             {                
                 if (rand > 2)
