@@ -233,9 +233,9 @@ public class CharactersManager : MonoBehaviour
             {
                 case 1:
                     float timeCatched = ball.GetDurationOfBeingCatch();
-                    
-                    if(timeCatched<0.25f)
-                        character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+
+                    if (timeCatched < 0.25f)
+                        Events.KickToGoal();
                     else
                         character.Kick(CharacterActions.kickTypes.HARD);
                     

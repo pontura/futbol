@@ -215,7 +215,7 @@ public class Ball : MonoBehaviour
         }
         rb.velocity = Vector3.zero;
         rb.AddForce(dir);
-        Events.OnBallKicked();
+        Events.OnBallKicked(kickType, forceForce);
     }
     public float GetDurationOfBeingCatch()
     {
