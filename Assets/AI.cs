@@ -52,7 +52,7 @@ public class AI : MonoBehaviour
     {
         ResetAll();
     }
-    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce)
+    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
     {
         state = states.NONE;
     }

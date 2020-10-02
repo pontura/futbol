@@ -19,7 +19,7 @@ public class BallFX : MonoBehaviour
     {
         Events.OnBallKicked -= OnBallKicked;
     }   
-    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce)
+    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
     {
         value += rate;
         emissionModule.rateOverTime = value;

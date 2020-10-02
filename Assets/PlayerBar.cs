@@ -30,7 +30,7 @@ public class PlayerBar : MonoBehaviour
         transform.position = Game.Instance.cameraInGame.cam.WorldToScreenPoint(character.transform.position) + offset;        
     }
    
-    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce)
+    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
     {
         character = null;
         Invoke("Reset", 1);

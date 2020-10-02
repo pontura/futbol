@@ -14,6 +14,7 @@ public class Data : MonoBehaviour
     private float time_ViewingMap = 7.5f;
     public Settings settings;
     public TextsData textsData;
+    public bool isMobile;
 
     public static Data Instance
     {
@@ -37,6 +38,14 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+
+#if UNITY_EDITOR
+        isMobile = false;
+#elif  UNITY_ANDROID
+        isMobile = true;
+#endif
+
+        isMobile = true;
 
         DontDestroyOnLoad(this);
     }

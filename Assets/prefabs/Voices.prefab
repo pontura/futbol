@@ -79,6 +79,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58ad6d70f63775d41a2b74f98eec8f2e, type: 3}
   arquero_espera:
   - {fileID: 8300000, guid: 088a4f34613b10345b5ed7d411375fd7, type: 3}
+  arquero_hands:
+  - {fileID: 8300000, guid: 4081834c409410c43843b8dabfc0be17, type: 3}
+  - {fileID: 8300000, guid: 27ed253377c3ee540b4cd436a01e221a, type: 3}
+  arquero_saca:
+  - {fileID: 8300000, guid: 755bb06b33ce80143a86ce7033569d0b, type: 3}
 --- !u!82 &4823537679716861331
 AudioSource:
   m_ObjectHideFlags: 0

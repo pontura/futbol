@@ -28,7 +28,8 @@ public class CharacterActions : MonoBehaviour
         BALOON,
         HEAD,
         CHILENA,
-        KICK_TO_GOAL
+        KICK_TO_GOAL,
+        DESPEJE_GOALKEEPER
     }
     public void Init(GameObject go, int teamID)
     {
@@ -79,6 +80,15 @@ public class CharacterActions : MonoBehaviour
         this.state = states.RUN;
         anim.Play("run");
     }
+    public void GoalKeeperHands()
+    {
+        this.state = states.SPECIAL_ACTION;
+        if (Random.Range(0, 10) < 5)
+        {
+            anim.Play("jump");
+            Invoke("ResetSpecial", 1.5f);
+        }
+    }
     public void GoalKeeperJump()
     {
         if (state == states.SPECIAL_ACTION)
@@ -104,8 +114,8 @@ public class CharacterActions : MonoBehaviour
         anim.Play("goal");
     }
     public void Kick(kickTypes kickType)
-    {       
-        if (state == states.KICK)
+    {
+        if (state == states.SPECIAL_ACTION || state == states.KICK)
             return;
         
         CancelInvoke();
@@ -139,7 +149,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Dash()
     {
-        if (state == states.KICK || state == states.DASH)
+        if (state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         Events.PlaySound("common", "dash", false);
         CancelInvoke();

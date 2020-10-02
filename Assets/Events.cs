@@ -8,10 +8,11 @@ public static class Events
     public static System.Action<string> GotoTo = delegate { };
     public static System.Action<string> GotoBackTo = delegate { };
     public static System.Action Back = delegate { };
+    public static System.Action<int, int> OnButtonClick = delegate { };
 
     public static System.Action<Character> CharacterCatchBall = delegate { };
     public static System.Action<Character> SetCharacterNewDefender = delegate { };
-    public static System.Action<CharacterActions.kickTypes, float> OnBallKicked = delegate { };
+    public static System.Action<CharacterActions.kickTypes, float, Character> OnBallKicked = delegate { };
     public static System.Action<int, Character> OnGoal = delegate { };
     public static System.Action<Character, string> SetDialogue = delegate { };
     public static System.Action<int, InputManagerUI.buttonTypes> OnButtonPressed = delegate { };

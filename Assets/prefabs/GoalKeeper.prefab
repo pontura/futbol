@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 3412157949364424465}
   - component: {fileID: 3801628201286537026}
   - component: {fileID: 1894946110}
+  - component: {fileID: 2182933038487937707}
   m_Layer: 9
   m_Name: GoalKeeper
   m_TagString: Player
@@ -180,6 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895fc40b8e476d24ba8f949db30eebac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataSources:
+    asset: {fileID: 0}
+    thumb: {fileID: 0}
+    audio_names: []
+    audio_goal: []
   id: 0
   characterID: 0
   speed: 0
@@ -233,6 +239,7 @@ MonoBehaviour:
   ball: {fileID: 0}
   aiPosition: {fileID: 0}
   aiGotoBall: {fileID: 0}
+  aiHasBall: {fileID: 0}
 --- !u!114 &3412157949364424465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +284,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfab8e28aa104e4aab34da0651441de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &2182933038487937707
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793851902414820856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!1 &7793851902471329285
 GameObject:
   m_ObjectHideFlags: 0

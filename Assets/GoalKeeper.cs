@@ -28,4 +28,15 @@ public class GoalKeeper : Character
 
         transform.Translate(Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            Ball ball = collision.gameObject.GetComponent<Ball>();
+            if (ball.character == this)
+                return;
+            actions.GoalKeeperHands();
+            ball.OnSetApplyForce(Vector3.up*Random.Range(400,900), this);
+        }
+    }
 }

@@ -35,7 +35,7 @@ public class SelectorScreen : MonoBehaviour
     {
         CharactersData.Instance.Init();
         Events.OnButtonPressed += OnButtonPressed;
-      
+
         character1 = characters1_container.GetComponentsInChildren<Ruleta>();
         character2 = characters2_container.GetComponentsInChildren<Ruleta>();
 
@@ -45,6 +45,10 @@ public class SelectorScreen : MonoBehaviour
         all = new List<Sprite>();
         foreach (Settings.TeamSettings data in Data.Instance.settings.teamSettings) all.Add(data.escudo);
 
+        if (Data.Instance.isMobile)
+        {
+            Invoke("ButtonClicked", 1);
+        }
     }
     private void Init()
     {

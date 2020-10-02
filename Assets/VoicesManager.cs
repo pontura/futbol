@@ -17,6 +17,9 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] pase;
     public AudioClip[] cabeza;
     public AudioClip[] arquero_espera;
+    public AudioClip[] arquero_hands;
+    public AudioClip[] arquero_saca;
+
     Character character;
     void Start()
     {
@@ -45,19 +48,32 @@ public class VoicesManager : MonoBehaviour
         sigueID = 0;
         CancelInvoke();
     }
-    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce)
+    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
     {
         Reset();
         switch (kickType)
         {
+            case CharacterActions.kickTypes.DESPEJE_GOALKEEPER:
+                PlayAudios(new AudioClip[] { GetRandomAudioClip(arquero_hands) });
+                break;
             case CharacterActions.kickTypes.CHILENA:
                 PlayAudios(new AudioClip[] { GetRandomAudioClip(chilena) });
                 break;
             case CharacterActions.kickTypes.HARD:
-                PlayAudios(new AudioClip[] { GetRandomAudioClip(le_pega_al_arco) });
+                if (character != null && character.isGoldKeeper)
+                {
+                    AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
+                    PlayAudios(new AudioClip[] { characterName, GetRandomAudioClip(arquero_saca) });
+                }else
+                    PlayAudios(new AudioClip[] { GetRandomAudioClip(le_pega_al_arco) });
                 break;
             case CharacterActions.kickTypes.BALOON:
-                PlayAudios(new AudioClip[] { GetRandomAudioClip(globito) });
+                if (character != null && character.isGoldKeeper)
+                {
+                    AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
+                    PlayAudios(new AudioClip[] { characterName, GetRandomAudioClip(arquero_saca) });
+                } else
+                    PlayAudios(new AudioClip[] { GetRandomAudioClip(globito) });
                 break;
             case CharacterActions.kickTypes.SOFT:
                 PlayAudios(new AudioClip[] { GetRandomAudioClip(pase) });
@@ -103,8 +119,13 @@ public class VoicesManager : MonoBehaviour
     void CharacterCatchBall(Character character)
     {
         Reset();
-        Invoke("SaySigue", 2);
-       this.character = character;
+        this.character = character;
+        
+        if (character.isGoldKeeper)
+            Invoke("SaySigue", 3);
+        else
+            Invoke("SaySigue", 2);
+
         if (character.dataSources.audio_names != null && character.dataSources.audio_names.Length > 0)
         {
             StopAllCoroutines();
