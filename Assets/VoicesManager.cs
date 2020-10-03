@@ -9,7 +9,7 @@ public class VoicesManager : MonoBehaviour
     public AudioSource audioSourceComentarios;
 
     public AudioClip[] comentario_gol;
-    
+    public AudioClip[] comentario_gol_en_contra;
     public AudioClip[] laDomina;
     public AudioClip[] sigue;
     public AudioClip[] sigue2;
@@ -66,12 +66,20 @@ public class VoicesManager : MonoBehaviour
         }
         else
         {
-            PlayAudios(new AudioClip[] { GetRandomAudioClip(gol_en_contra), GetRandomAudioClip(character.dataSources.audio_names) });
+            PlayAudios(new AudioClip[] {
+                GetRandomAudioClip(gol_en_contra),
+                GetRandomAudioClip(character.dataSources.audio_names),
+                GetRandomAudioClip(pide_comentario)
+            }, SayComentarioGoalEnContra);
         }
     }
     void SayComentarioGoal()
     {
         PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+    }
+    void SayComentarioGoalEnContra()
+    {
+        PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(comentario_gol_en_contra) }, SayGoalEnd);
     }
     void SayGoalEnd()
     {

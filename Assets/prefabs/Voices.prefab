@@ -50,6 +50,9 @@ MonoBehaviour:
   comentario_gol:
   - {fileID: 8300000, guid: 6c410916b63507b42b599c892fad03c7, type: 3}
   - {fileID: 8300000, guid: 16ecbb18f0582e24ea26154af73cb135, type: 3}
+  - {fileID: 8300000, guid: beddcbf35b290044f808e127f60911f0, type: 3}
+  comentario_gol_en_contra:
+  - {fileID: 8300000, guid: ad4d66e98cb750047974ef9a365b67e1, type: 3}
   laDomina:
   - {fileID: 8300000, guid: 18352f6e620868140a680cee7fb9a5c9, type: 3}
   - {fileID: 8300000, guid: 0f75023f107052e44b903301202fc4c7, type: 3}
@@ -98,6 +101,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9d74a6190a1ca3a46b12fb9de13451ec, type: 3}
   responde_comentario_gol:
   - {fileID: 8300000, guid: 725ba8e0d779cb14e80f5e43c569890b, type: 3}
+  - {fileID: 8300000, guid: 28c0df06bb7adba468db42905c328ce6, type: 3}
+  - {fileID: 8300000, guid: 62589fa2159373d49ae376b4a1565043, type: 3}
 --- !u!82 &4823537679716861331
 AudioSource:
   m_ObjectHideFlags: 0
@@ -110,14 +115,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.513
-  m_Pitch: 1.47
+  m_Volume: 0.874
+  m_Pitch: 1.37
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 218
+  DopplerLevel: 1.75
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -206,13 +211,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.513
-  m_Pitch: 0.3
+  m_Volume: 0.718
+  m_Pitch: 1.36
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 153
+  Priority: 219
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
