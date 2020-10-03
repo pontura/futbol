@@ -6,6 +6,10 @@ using System;
 public class VoicesManager : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioSource audioSourceComentarios;
+
+    public AudioClip[] comentario_gol;
+    
     public AudioClip[] laDomina;
     public AudioClip[] sigue;
     public AudioClip[] sigue2;
@@ -19,8 +23,12 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] arquero_espera;
     public AudioClip[] arquero_hands;
     public AudioClip[] arquero_saca;
-
+    public AudioClip[] gol_generico;
+    public AudioClip[] gol_en_contra;
+    public AudioClip[] pide_comentario;
+    public AudioClip[] responde_comentario_gol;   
     Character character;
+
     void Start()
     {
         Events.CharacterCatchBall += CharacterCatchBall;
@@ -38,10 +46,38 @@ public class VoicesManager : MonoBehaviour
     {
         Reset();
         StopAllCoroutines();
-        if (character.dataSources.audio_goal.Length > 0)
-        {            
-            PlayAudios(new AudioClip[] { GetRandomAudioClip(character.dataSources.audio_goal) });
+        if (teamID == character.teamID)
+        {
+            if (character.dataSources.audio_goal.Length > 0)
+            {
+                PlayAudios(new AudioClip[] {
+                    GetRandomAudioClip(character.dataSources.audio_goal),
+                    GetRandomAudioClip(pide_comentario)
+                }, SayComentarioGoal);
+            }
+            else
+            {
+                PlayAudios(new AudioClip[] {
+                    GetRandomAudioClip(gol_generico),
+                    GetRandomAudioClip(character.dataSources.audio_names),
+                    GetRandomAudioClip(pide_comentario)                    
+                }, SayComentarioGoal);                
+            }
         }
+        else
+        {
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(gol_en_contra), GetRandomAudioClip(character.dataSources.audio_names) });
+        }
+    }
+    void SayComentarioGoal()
+    {
+        PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+    }
+    void SayGoalEnd()
+    {
+        PlayAudios(new AudioClip[] {
+                    GetRandomAudioClip(responde_comentario_gol)
+                }, Events.OnContinueGame);
     }
     private void Reset()
     {
@@ -154,18 +190,30 @@ public class VoicesManager : MonoBehaviour
     {
        return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
     }
-    void PlayAudios(AudioClip[] audioClips)
+    void PlayAudios(AudioClip[] audioClips, System.Action OnDone = null)
     {
-        StartCoroutine( WaitForSound(audioClips) );
+        StartCoroutine( WaitForSound(audioClips, OnDone, audioSource) );
     }
-    public IEnumerator WaitForSound(AudioClip[] audioClips)
+    void PlayAudiosComentarista(AudioClip[] audioClips, System.Action OnDone = null)
     {
+        StartCoroutine(WaitForSound(audioClips, OnDone, audioSourceComentarios));
+    }
+    public IEnumerator WaitForSound(AudioClip[] audioClips, System.Action OnDone, AudioSource aSource)
+    {
+        
         foreach (AudioClip audioClip in audioClips)
         {
-            yield return new WaitUntil(() => audioSource.isPlaying == false);
-            audioSource.clip = audioClip;
-            audioSource.Play();
+            
+            aSource.clip = audioClip;
+            aSource.Play();
+            yield return new WaitUntil(() => aSource.isPlaying == false);
         }
-
+        if(OnDone != null)
+        {
+            Debug.Log("OnDone " + OnDone);
+            OnDone();
+        }
+            
     }
+    
 }

@@ -17,14 +17,16 @@ public class GoalMoment : MonoBehaviour
 
     void Start()
     {
+        Events.OnContinueGame += OnContinueGame;
         charactersManager = Game.Instance.charactersManager;
+    }
+    void OnDestroy()
+    {
+        Events.OnContinueGame -= OnContinueGame;
     }
     public IEnumerator Init(int teamID, Character character)
     {
-        if (character.teamID == teamID)
-            character_made_goal = character;
-        else
-            character_made_goal = SetGoalMadeCharacter(teamID);
+        character_made_goal = character;
 
         if (teamID == 1)
             winners = charactersManager.team1;
@@ -32,15 +34,25 @@ public class GoalMoment : MonoBehaviour
             winners = charactersManager.team2;
 
         Events.OnGoal(teamID, character);
-        Game.Instance.cameraInGame.OnGoal(character_made_goal);
+        Game.Instance.cameraInGame.OnGoal(character);
         Events.PlaySound("crowd", "crowd_gol", true);
 
         yield return new WaitForSeconds(0.2f);
-        state = states.GOING_TO_TARGET;
-        character_made_goal.actions.Goal();
-        yield return new WaitForSeconds(6);
+        state = states.GOING_TO_TARGET;        
+
+        if (character.teamID == teamID)
+            character_made_goal.actions.Goal();
+
+        yield return new WaitForSeconds(3);
+        Events.ChangeVolume("croud", 0.25f);
         state = states.IDLE;
         Events.PlaySound("crowd", "crowd_quiet", true);
+        
+        yield return new WaitForSeconds(4);
+        Events.ChangeVolume("croud", 0.5f);
+    }
+    void OnContinueGame()
+    {
         Game.Instance.ball.Reset();
         Game.Instance.charactersManager.ResetAll();
         Game.Instance.cameraInGame.SetTargetTo(Game.Instance.ball.transform);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4823537679716861330}
   - component: {fileID: 4823537679716861329}
   - component: {fileID: 4823537679716861331}
+  - component: {fileID: 2043899916154453873}
   m_Layer: 0
   m_Name: Voices
   m_TagString: Untagged
@@ -45,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4823537679716861331}
+  audioSourceComentarios: {fileID: 2043899916154453873}
+  comentario_gol:
+  - {fileID: 8300000, guid: 6c410916b63507b42b599c892fad03c7, type: 3}
+  - {fileID: 8300000, guid: 16ecbb18f0582e24ea26154af73cb135, type: 3}
   laDomina:
   - {fileID: 8300000, guid: 18352f6e620868140a680cee7fb9a5c9, type: 3}
   - {fileID: 8300000, guid: 0f75023f107052e44b903301202fc4c7, type: 3}
@@ -84,6 +89,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 27ed253377c3ee540b4cd436a01e221a, type: 3}
   arquero_saca:
   - {fileID: 8300000, guid: 755bb06b33ce80143a86ce7033569d0b, type: 3}
+  gol_generico:
+  - {fileID: 8300000, guid: b11bce9a228b60c49a3f9002d66d26b9, type: 3}
+  gol_en_contra:
+  - {fileID: 8300000, guid: 2c0c12893a8b0784799baa4a9e9374f0, type: 3}
+  - {fileID: 8300000, guid: 66d371efc2f79a24fb851165e4813c45, type: 3}
+  pide_comentario:
+  - {fileID: 8300000, guid: 9d74a6190a1ca3a46b12fb9de13451ec, type: 3}
+  responde_comentario_gol:
+  - {fileID: 8300000, guid: 725ba8e0d779cb14e80f5e43c569890b, type: 3}
 --- !u!82 &4823537679716861331
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97,12 +111,108 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.513
-  m_Pitch: 1.2
+  m_Pitch: 1.47
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &2043899916154453873
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823537679716861328}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.513
+  m_Pitch: 0.3
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 153
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

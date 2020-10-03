@@ -16,13 +16,26 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         Events.PlaySound += PlaySound;
+        Events.ChangeVolume += ChangeVolume;
         foreach (AudioSourceManager m in all)
         {
             m.audioSource = gameObject.AddComponent<AudioSource>();
             m.audioSource.volume = m.volume;
         }
     }
-
+    private void OnDestroy()
+    {
+        Events.ChangeVolume -= ChangeVolume;
+        Events.PlaySound -= PlaySound;
+    }
+    void ChangeVolume(string sourceName, float volume)
+    {
+        foreach (AudioSourceManager m in all)
+        {
+            if (m.sourceName == sourceName)
+                m.audioSource.volume = volume;
+        }
+    }
     void PlaySound(string sourceName, string audioName, bool loop)
     {
         foreach(AudioSourceManager m in all)

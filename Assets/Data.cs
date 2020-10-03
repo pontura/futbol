@@ -45,8 +45,6 @@ public class Data : MonoBehaviour
         isMobile = true;
 #endif
 
-        isMobile = true;
-
         DontDestroyOnLoad(this);
     }
 }
