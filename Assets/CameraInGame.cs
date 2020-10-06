@@ -29,7 +29,7 @@ public class CameraInGame : MonoBehaviour
     {
         Vector3 pos = transform.position;
         pos.x = target.position.x * 0.8f;
-        if (Game.Instance.state == Game.states.PLAYING)
+        if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING)
             pos.y = initial_y_position;
         else if (pos.y < camera_tribuna_y)
             pos.y += Time.deltaTime * speed_to_tribuna;

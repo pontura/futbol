@@ -34,7 +34,7 @@ public class CharactersManager : MonoBehaviour
         Events.OnGoal -= OnGoal;
         Events.KickToGoal -= KickToGoal;
     }
-    private void Start()
+    public void Init(int totalPlayersActive)
     {
         ball = Game.Instance.ball;
         //AddCharacter(2);
@@ -57,7 +57,8 @@ public class CharactersManager : MonoBehaviour
         }
         Loop();
 
-        AddCharacter(1);
+        if(totalPlayersActive>0)
+            AddCharacter(1);
        //AddCharacter(2);
     }
     public void ResetAll()

@@ -17,12 +17,12 @@ public class GoalMoment : MonoBehaviour
 
     void Start()
     {
-        Events.OnContinueGame += OnContinueGame;
+        Events.OnRestartGame += OnRestartGame;
         charactersManager = Game.Instance.charactersManager;
     }
     void OnDestroy()
     {
-        Events.OnContinueGame -= OnContinueGame;
+        Events.OnRestartGame -= OnRestartGame;
     }
     public IEnumerator Init(int teamID, Character character)
     {
@@ -51,12 +51,12 @@ public class GoalMoment : MonoBehaviour
         yield return new WaitForSeconds(4);
         Events.ChangeVolume("croud", 0.5f);
     }
-    void OnContinueGame()
+    void OnRestartGame()
     {
         Game.Instance.ball.Reset();
         Game.Instance.charactersManager.ResetAll();
         Game.Instance.cameraInGame.SetTargetTo(Game.Instance.ball.transform);
-        Events.OnGameStatusChanged(Game.states.PLAYING);
+        StartCoroutine( Game.Instance.OnWaitToStart() );
         winners = null;
     }
     void Update()

@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public states state;
     public enum states
     {
+        WAITING,
         PLAYING,
         GOAL
     }
@@ -33,10 +34,21 @@ public class Game : MonoBehaviour
         Events.OnGameStatusChanged += OnGameStatusChanged;
         cameraInGame.SetTargetTo(ball.transform);
         Events.PlaySound("crowd", "crowd_quiet", true);
+        charactersManager.Init(1);
+        StartCoroutine( OnWaitToStart() );        
     }
     private void OnDestroy()
     {
         Events.OnGameStatusChanged -= OnGameStatusChanged;
+    }
+    public IEnumerator OnWaitToStart()
+    {
+        state = states.WAITING;
+        yield return new WaitForSeconds(0.6f);
+        VoicesManager.Instance.SayResults();
+        yield return new WaitForSeconds(2);
+        state = states.PLAYING;
+        Events.OnGameStatusChanged(Game.states.PLAYING);
     }
     public void Goal(int teamID, Character character)
     {

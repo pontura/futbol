@@ -14,6 +14,7 @@ public static class Events
     public static System.Action<Character> SetCharacterNewDefender = delegate { };
     public static System.Action<CharacterActions.kickTypes, float, Character> OnBallKicked = delegate { };
     public static System.Action<int, Character> OnGoal = delegate { };
+    public static System.Action<int, Character> OnIntroSound = delegate { };
     public static System.Action<Character, string> SetDialogue = delegate { };
     public static System.Action<int, InputManagerUI.buttonTypes> OnButtonPressed = delegate { };
 
@@ -21,7 +22,7 @@ public static class Events
 
     public static System.Action<string, string, bool> PlaySound = delegate { };
     public static System.Action<string, float> ChangeVolume = delegate { };
-    public static System.Action OnContinueGame = delegate { };
+    public static System.Action OnRestartGame = delegate { };
     
 }
    

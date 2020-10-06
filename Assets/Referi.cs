@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Referi : Character
 {
+    Vector3 initialPos;
+
     public override void Start()
     {
+        initialPos = transform.position;
         base.Start();
         Events.OnGameStatusChanged += OnGameStatusChanged;
-        actions.Pita();
+        Events.OnRestartGame += OnRestartGame;
     }
     public void OnDestroy()
     {
+        Events.OnRestartGame -= OnRestartGame;
         Events.OnGameStatusChanged -= OnGameStatusChanged;
+    }
+    void OnRestartGame()
+    {
+        transform.position = initialPos;
+        actions.Idle();
     }
     void OnGameStatusChanged(Game.states state)
     {
@@ -21,6 +30,7 @@ public class Referi : Character
         case Game.states.GOAL:
             actions.Pita();break;
         case Game.states.PLAYING:
+            
             actions.Pita(); break;
         }
     }
@@ -35,6 +45,8 @@ public class Referi : Character
         actions.Init(asset, 0);
         Invoke("ChangeZ", Random.Range(4, 10));
         ball = Game.Instance.ball;
+        data = Data.Instance.textsData.GetReferisData(CharactersData.Instance.referiId);
+        dataSources = CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1];
     }
     public override void SetPosition(int _x, int _y)
     {

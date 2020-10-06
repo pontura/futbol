@@ -21,10 +21,12 @@ public class AI : MonoBehaviour
     {
         ball = Game.Instance.ball;
         character = GetComponent<Character>();
+
         Events.OnGoal += OnGoal;
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
         Events.SetCharacterNewDefender += SetCharacterNewDefender;
+
         aiPosition = GetComponent<AIPosition>();
         aiGotoBall = GetComponent<AiGotoBall>();
         aiHasBall = GetComponent<AiHasBall>();
@@ -32,13 +34,14 @@ public class AI : MonoBehaviour
     }
     private void OnDestroy()
     {
+        Events.OnGoal -= OnGoal;
         Events.CharacterCatchBall -= CharacterCatchBall;
         Events.OnBallKicked -= OnBallKicked;
         Events.SetCharacterNewDefender -= SetCharacterNewDefender;
     }
     private void Update()
     {
-       
+        if (Game.Instance.state != Game.states.PLAYING) return;
         if (character.isBeingControlled)
             return;
         if (aiHasBall != null && aiHasBall.enabled)

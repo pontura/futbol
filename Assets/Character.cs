@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public Ball ball;
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
-    [HideInInspector] public TextsData.CharacterData data;    
+    public TextsData.CharacterData data;    
     [HideInInspector] public CharacterActions actions;
     [HideInInspector] public CharacterSignal characterSignal;
     [HideInInspector] public BallCatcher ballCatcher;

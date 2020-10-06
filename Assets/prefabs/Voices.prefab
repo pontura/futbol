@@ -47,6 +47,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4823537679716861331}
   audioSourceComentarios: {fileID: 2043899916154453873}
+  nums:
+  - {fileID: 8300000, guid: 55b90945279007e419d14173cfe631c3, type: 3}
+  - {fileID: 8300000, guid: d16ea3e54f5f5a84eadf551f40165dce, type: 3}
+  - {fileID: 8300000, guid: 35fdc49cc5f09f444bce40805e291789, type: 3}
+  - {fileID: 8300000, guid: 58e951152aaafc64ebf689b39c01886f, type: 3}
+  - {fileID: 8300000, guid: 5724a731931477a4f9451273cf632907, type: 3}
+  - {fileID: 8300000, guid: 138b1ded90b9e6242b402b2f620123c3, type: 3}
+  - {fileID: 8300000, guid: 1f8c9d76f52403e45b037666033757bd, type: 3}
+  - {fileID: 8300000, guid: fb78f093ea7ba4f4da26a7fa9bcc0006, type: 3}
+  - {fileID: 8300000, guid: 9e2ecfdd01a8fc644ac5a07d612fd374, type: 3}
+  - {fileID: 8300000, guid: 19e9b50d37c1ca641926b93bdaee527e, type: 3}
+  - {fileID: 8300000, guid: b0fe5fc346c07c74b9a0ddf5d537f28e, type: 3}
+  a: {fileID: 8300000, guid: ae10f4688f7268b418fe35b807396969, type: 3}
+  intro_salen:
+  - {fileID: 8300000, guid: 653624cf5bbbf0d4dbc8eb4a252707f5, type: 3}
+  intro_sale_referi:
+  - {fileID: 8300000, guid: 438dd4bd6c3c07d40887dcea82747cd7, type: 3}
+  game_start:
+  - {fileID: 8300000, guid: ae763ce700408c64a963a6ae372afa43, type: 3}
   comentario_gol:
   - {fileID: 8300000, guid: 6c410916b63507b42b599c892fad03c7, type: 3}
   - {fileID: 8300000, guid: 16ecbb18f0582e24ea26154af73cb135, type: 3}

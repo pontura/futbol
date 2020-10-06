@@ -8,6 +8,14 @@ public class VoicesManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource audioSourceComentarios;
 
+    
+    public AudioClip[] nums;
+    public AudioClip a;
+
+    public AudioClip[] intro_salen;
+    public AudioClip[] intro_sale_referi;
+
+    public AudioClip[] game_start;
     public AudioClip[] comentario_gol;
     public AudioClip[] comentario_gol_en_contra;
     public AudioClip[] laDomina;
@@ -29,18 +37,64 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] responde_comentario_gol;   
     Character character;
 
+    static VoicesManager mInstance = null;
+    public static VoicesManager Instance
+    {
+        get
+        {
+            return mInstance;
+        }
+    }
+    void Awake()
+    {
+        if (!mInstance)
+        {
+            mInstance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+            Destroy(this);
+    }
     void Start()
     {
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.KickToGoal += KickToGoal;
         Events.OnBallKicked += OnBallKicked;
         Events.OnGoal += OnGoal;
+        Events.OnIntroSound += OnIntroSound;  
     }
     void OnDestroy()
     {
-        Events.CharacterCatchBall += CharacterCatchBall;
+        Events.CharacterCatchBall -= CharacterCatchBall;
+        Events.OnBallKicked -= OnBallKicked;
         Events.KickToGoal -= KickToGoal;
         Events.OnGoal -= OnGoal;
+        Events.OnIntroSound -= OnIntroSound;
+    }
+    public void SayResults()
+    {
+        Vector2 score = UIMain.Instance.GetScore();
+        if (score == Vector2.zero)
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(game_start) });
+        else if (score.x < 11 && score.y < 11)
+        {
+            AudioClip score1 = nums[(int)score.x];
+            AudioClip score2 = nums[(int)score.y];
+            PlayAudios(new AudioClip[] { score1, a, score2 }, null);
+        }
+    }
+    void OnIntroSound(int id, Character character)
+    {
+        AudioClip nameClip = null;
+        if(character != null)
+            nameClip = GetRandomAudioClip(character.dataSources.audio_names);
+        if (id == 1)
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(intro_salen) });
+        else if (id == 2)
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(intro_sale_referi), nameClip });
+        else
+            PlayAudios(new AudioClip[] { nameClip });
+
     }
     void OnGoal(int teamID, Character character)
     {
@@ -85,7 +139,7 @@ public class VoicesManager : MonoBehaviour
     {
         PlayAudios(new AudioClip[] {
                     GetRandomAudioClip(responde_comentario_gol)
-                }, Events.OnContinueGame);
+                }, Events.OnRestartGame);
     }
     private void Reset()
     {

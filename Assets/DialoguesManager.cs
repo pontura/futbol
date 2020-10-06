@@ -11,8 +11,11 @@ public class DialoguesManager : MonoBehaviour
     void Start()
     {
         Events.SetDialogue += SetDialogue;
-        Invoke("LoopRandomDialogues", 5);
-        Invoke("InitReferi", 0.5f);
+        if (Data.Instance.newScene == "Game")
+        {
+            Invoke("LoopRandomDialogues", 5);
+            Invoke("InitReferi", 0.5f);
+        }
     }
     private void InitReferi()
     {

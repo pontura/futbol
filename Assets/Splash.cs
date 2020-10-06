@@ -6,18 +6,10 @@ public class Splash : MonoBehaviour
 {
     void Start()
     {
-        Events.OnButtonClick += OnButtonClick;
-    }
-    void OnDestroy()
-    {
-        Events.OnButtonClick -= OnButtonClick;
-    }
-    void OnButtonClick(int buttonID, int playerID)
-    {
-        GotoGame();
+        Invoke("GotoGame", 3);
     }
     public void GotoGame()
     {
-        Data.Instance.LoadLevel("Selector");
+        Data.Instance.LoadLevel("1_MainMenu");
     }
 }

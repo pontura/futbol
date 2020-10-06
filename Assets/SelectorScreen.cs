@@ -196,7 +196,7 @@ public class SelectorScreen : MonoBehaviour
     }
     void Go()
     {
-        Data.Instance.LoadLevel("Game");
+        Data.Instance.LoadLevel("GameIntro");
     }
     void SetReferi()
     {

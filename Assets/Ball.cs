@@ -15,9 +15,18 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        Events.OnRestartGame += OnRestartGame;
         limits = Data.Instance.settings.limits;
         container = transform.parent;
         this.rb = GetComponent<Rigidbody>();
+        Reset();
+    }
+    private void OnDestroy()
+    {
+        Events.OnRestartGame -= OnRestartGame;
+    }
+    void OnRestartGame()
+    {
         Reset();
     }
     public void KickIfOnGoal()
@@ -26,8 +35,7 @@ public class Ball : MonoBehaviour
             Kick(CharacterActions.kickTypes.HARD);
     }
     public void Reset()
-    {
-     
+    {     
         rb.velocity = Vector3.zero;
         transform.position = new Vector3(0, 3, 0);
         FreeBall();
@@ -157,7 +165,6 @@ public class Ball : MonoBehaviour
     }
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
-        print("Kick " + forceForce);
         float force = 1;
         if (kickType == CharacterActions.kickTypes.HARD && uIForce.GetForce() > 0.6f)
             kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
