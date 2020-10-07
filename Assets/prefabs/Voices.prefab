@@ -64,6 +64,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 653624cf5bbbf0d4dbc8eb4a252707f5, type: 3}
   intro_sale_referi:
   - {fileID: 8300000, guid: 438dd4bd6c3c07d40887dcea82747cd7, type: 3}
+  penalty:
+  - {fileID: 8300000, guid: a4ac9ec61efbdec4a9488e57b25ed0cf, type: 3}
+  penalty_ataja:
+  - {fileID: 8300000, guid: 3323a2a20f8b4664c8e0db59037a9516, type: 3}
+  penalty_ataja_comenta:
+  - {fileID: 8300000, guid: 32e4d7d65dbc2354c9f7dc2e69d45c97, type: 3}
   game_start:
   - {fileID: 8300000, guid: ae763ce700408c64a963a6ae372afa43, type: 3}
   comentario_gol:

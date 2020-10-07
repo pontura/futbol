@@ -95,16 +95,24 @@ public class CharacterActions : MonoBehaviour
             return;
         this.state = states.SPECIAL_ACTION;
         if(Random.Range(0,10)<5)
+            GoalKeeperJumpType(1);
+        else
+            GoalKeeperJumpType(2);
+    }
+    public void GoalKeeperJumpType(int id, bool resetJump = true)
+    {
+        if (id == 0)
         {
-            anim.Play("jump2");
-            Invoke("ResetSpecial", 1.5f);
+            anim.Play("jump");
+            if(resetJump)
+                Invoke("ResetSpecial", 1.1f);
         }
         else
         {
-            anim.Play("jump");
-            Invoke("ResetSpecial", 1.1f);
+            anim.Play("jump2");
+            if (resetJump)
+                Invoke("ResetSpecial", 1.5f);
         }
-        
     }
     public void Goal()
     {

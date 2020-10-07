@@ -61,6 +61,26 @@ public class CharactersManager : MonoBehaviour
             AddCharacter(1);
        //AddCharacter(2);
     }
+    public void InitPenalty(int totalPlayersActive)
+    {
+        ball = Game.Instance.ball;
+        //AddCharacter(2);
+        referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId - 1].asset);
+        limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
+        limits.x -= 1;
+
+        Character character = containerTeam1.GetComponentInChildren<Character>();        
+        team1.Add(character);
+        character.Init(1, this, CharactersData.Instance.GetCharacter(1, Random.Range(0,3)));
+
+        character = containerTeam2.GetComponentInChildren<Character>();
+        team2.Add(character);
+        character.Init(2, this, CharactersData.Instance.GetCharacter(2, 4));
+
+        if (totalPlayersActive > 0)
+            AddCharacter(1);
+        //AddCharacter(2);
+    }
     public void ResetAll()
     {
         foreach (Character c in team1)

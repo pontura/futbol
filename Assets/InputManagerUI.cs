@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class InputManagerUI : MonoBehaviour
 {
+    public float horizontalAxis_team_1;
+    public float horizontalAxis_team_2;
+
+    public float verticalAxis_team_1;
+    public float verticalAxis_team_2;
+
+
     public enum buttonTypes
     {
         BUTTON_1,
@@ -17,11 +24,18 @@ public class InputManagerUI : MonoBehaviour
         //if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
         //if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
 
-        for (int id = 1; id < 4; id++)
+        for (int id = 1; id < 3; id++)
         {
-            //float _x = Input.GetAxis("Horizontal" + id);
-            //float _y = Input.GetAxis("Vertical" + id);
-            //charactersManager.SetPosition(id, _x, _y);
+            if (id == 1)
+            {
+                horizontalAxis_team_1 = Input.GetAxis("Horizontal" + id);
+                verticalAxis_team_1 = Input.GetAxis("Vertical" + id);
+            }
+            else
+            {
+                horizontalAxis_team_2 = Input.GetAxis("Horizontal" + id);
+                verticalAxis_team_2 = Input.GetAxis("Vertical" + id);
+            }
 
             if (Input.GetButtonDown("Button1_" + id))
                 Events.OnButtonPressed(id, buttonTypes.BUTTON_1);

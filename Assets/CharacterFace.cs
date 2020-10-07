@@ -25,8 +25,9 @@ public class CharacterFace : MonoBehaviour
         if (state == Game.states.PLAYING)
             Idle();
     }
-    void OnGoal(int teamID, Character character)
+    void OnGoal(int teamID, Character ch)
     {
+        print(teamID + " _ " + character.teamID + character.data.avatarName);
         if (character.teamID == teamID)
             Idle();
         else

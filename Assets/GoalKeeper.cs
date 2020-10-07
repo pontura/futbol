@@ -30,7 +30,8 @@ public class GoalKeeper : Character
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ball")
+        if (Game.Instance.state != Game.states.PLAYING) return;
+        if (collision.gameObject.tag == "Ball")
         {
             Ball ball = collision.gameObject.GetComponent<Ball>();
             if (ball.character == this)

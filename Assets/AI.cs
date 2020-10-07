@@ -75,8 +75,8 @@ public class AI : MonoBehaviour
         }
     }
     public virtual void CharacterCatchBall(Character _character)
-    {        
-
+    {
+        if (Game.Instance.state != Game.states.PLAYING) return;
         if (character.teamID == _character.teamID)
             state = states.ATTACKING;
         else

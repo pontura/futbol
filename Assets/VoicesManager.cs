@@ -15,6 +15,10 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] intro_salen;
     public AudioClip[] intro_sale_referi;
 
+    public AudioClip[] penalty;
+    public AudioClip[] penalty_ataja;
+    public AudioClip[] penalty_ataja_comenta;
+
     public AudioClip[] game_start;
     public AudioClip[] comentario_gol;
     public AudioClip[] comentario_gol_en_contra;
@@ -61,7 +65,8 @@ public class VoicesManager : MonoBehaviour
         Events.KickToGoal += KickToGoal;
         Events.OnBallKicked += OnBallKicked;
         Events.OnGoal += OnGoal;
-        Events.OnIntroSound += OnIntroSound;  
+        Events.OnIntroSound += OnIntroSound;
+        Events.OnPenalty += OnPenalty;
     }
     void OnDestroy()
     {
@@ -70,6 +75,7 @@ public class VoicesManager : MonoBehaviour
         Events.KickToGoal -= KickToGoal;
         Events.OnGoal -= OnGoal;
         Events.OnIntroSound -= OnIntroSound;
+        Events.OnPenalty -= OnPenalty;
     }
     public void SayResults()
     {
@@ -100,21 +106,28 @@ public class VoicesManager : MonoBehaviour
     {
         Reset();
         StopAllCoroutines();
+        if(Game.Instance.state == Game.states.PENALTY && teamID == 2)
+        { 
+            PlayAudios(new AudioClip[] {
+                GetRandomAudioClip(penalty_ataja),
+                GetRandomAudioClip(character.dataSources.audio_names),
+                GetRandomAudioClip(penalty_ataja_comenta),
+            }, SayComentarioGoal);
+            return;
+        }
         if (teamID == character.teamID)
         {
             if (character.dataSources.audio_goal.Length > 0)
             {
                 PlayAudios(new AudioClip[] {
-                    GetRandomAudioClip(character.dataSources.audio_goal),
-                    GetRandomAudioClip(pide_comentario)
+                    GetRandomAudioClip(character.dataSources.audio_goal)
                 }, SayComentarioGoal);
             }
             else
             {
                 PlayAudios(new AudioClip[] {
                     GetRandomAudioClip(gol_generico),
-                    GetRandomAudioClip(character.dataSources.audio_names),
-                    GetRandomAudioClip(pide_comentario)                    
+                    GetRandomAudioClip(character.dataSources.audio_names)  
                 }, SayComentarioGoal);                
             }
         }
@@ -122,14 +135,17 @@ public class VoicesManager : MonoBehaviour
         {
             PlayAudios(new AudioClip[] {
                 GetRandomAudioClip(gol_en_contra),
-                GetRandomAudioClip(character.dataSources.audio_names),
-                GetRandomAudioClip(pide_comentario)
+                GetRandomAudioClip(character.dataSources.audio_names)
             }, SayComentarioGoalEnContra);
         }
     }
     void SayComentarioGoal()
     {
-        PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+        if (Game.Instance.state == Game.states.PENALTY)
+        {
+            Events.OnRestartGame();
+        } else
+        PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario),  GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
     }
     void SayComentarioGoalEnContra()
     {
@@ -138,8 +154,8 @@ public class VoicesManager : MonoBehaviour
     void SayGoalEnd()
     {
         PlayAudios(new AudioClip[] {
-                    GetRandomAudioClip(responde_comentario_gol)
-                }, Events.OnRestartGame);
+                GetRandomAudioClip(responde_comentario_gol)
+            }, Events.OnRestartGame);
     }
     private void Reset()
     {
@@ -274,8 +290,16 @@ public class VoicesManager : MonoBehaviour
         {
             Debug.Log("OnDone " + OnDone);
             OnDone();
-        }
-            
+        }            
     }
-    
+    void OnPenalty(Character character)
+    {
+        AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
+        PlayAudios(new AudioClip[] { GetRandomAudioClip(penalty), characterName }, OnPenalContinue);
+    }
+    void OnPenalContinue()
+    {
+        Data.Instance.LoadLevel("Penalty");
+    }
+
 }

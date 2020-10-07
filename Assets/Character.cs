@@ -76,6 +76,14 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
+        if (actions.state == CharacterActions.states.DASH 
+            && _ball.character != null 
+            && (transform.localPosition.x >13 && teamID == 1 || transform.localPosition.x < -13 && teamID == 2)
+            )
+        {
+            Events.OnPenalty(this);
+            return;
+        }
         actions.Reset();
         speed = Data.Instance.settings.speedWithBall;
         this.ball = _ball;
@@ -133,7 +141,8 @@ public class Character : MonoBehaviour
     public void OnGoal(bool win)
     {
         actions.Idle();
-        ai.ResetAll();
+        if(ai.enabled)
+            ai.ResetAll();
     }
     public void SetCollidersOff()
     {

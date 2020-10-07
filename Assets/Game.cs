@@ -14,7 +14,8 @@ public class Game : MonoBehaviour
     {
         WAITING,
         PLAYING,
-        GOAL
+        GOAL,
+        PENALTY
     }
 
     public static Game Instance
@@ -28,18 +29,25 @@ public class Game : MonoBehaviour
     {
         if (!mInstance)
             mInstance = this;
+        Events.OnGameStatusChanged += OnGameStatusChanged;
+        Events.OnPenalty += OnPenalty;
     }
     private void Start()
     {
-        Events.OnGameStatusChanged += OnGameStatusChanged;
         cameraInGame.SetTargetTo(ball.transform);
         Events.PlaySound("crowd", "crowd_quiet", true);
-        charactersManager.Init(1);
-        StartCoroutine( OnWaitToStart() );        
+        if (state == states.PENALTY)
+            charactersManager.InitPenalty(1);
+        else
+        {
+            charactersManager.Init(1);
+            StartCoroutine(OnWaitToStart());
+        }
     }
     private void OnDestroy()
     {
         Events.OnGameStatusChanged -= OnGameStatusChanged;
+        Events.OnPenalty -= OnPenalty;
     }
     public IEnumerator OnWaitToStart()
     {
@@ -78,5 +86,10 @@ public class Game : MonoBehaviour
     void OnGameStatusChanged(states state)
     {
         this.state = state;
+    }
+    void OnPenalty(Character ch)
+    {
+        state = states.PENALTY;
+        Time.timeScale = 0;
     }
 }
