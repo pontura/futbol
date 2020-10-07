@@ -106,7 +106,7 @@ public class VoicesManager : MonoBehaviour
     {
         Reset();
         StopAllCoroutines();
-        if(Game.Instance.state == Game.states.PENALTY && teamID == 2)
+        if(Game.Instance.state == Game.states.PENALTY && teamID == Data.Instance.matchData.penaltyGoalKeeperTeamID)
         { 
             PlayAudios(new AudioClip[] {
                 GetRandomAudioClip(penalty_ataja),

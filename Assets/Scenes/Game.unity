@@ -3983,7 +3983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerField: {fileID: 1813587398}
-  secs: 0
 --- !u!1 &1609308987
 GameObject:
   m_ObjectHideFlags: 0

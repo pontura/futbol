@@ -89,6 +89,7 @@ public class Game : MonoBehaviour
     }
     void OnPenalty(Character ch)
     {
+        Data.Instance.matchData.penaltyGoalKeeperTeamID = ch.teamID;
         state = states.PENALTY;
         Time.timeScale = 0;
     }

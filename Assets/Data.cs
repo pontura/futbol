@@ -15,6 +15,7 @@ public class Data : MonoBehaviour
     public Settings settings;
     public TextsData textsData;
     public bool isMobile;
+    [HideInInspector] public MatchData matchData;
 
     public static Data Instance
     {
@@ -44,7 +45,7 @@ public class Data : MonoBehaviour
 #elif  UNITY_ANDROID
         isMobile = true;
 #endif
-
+        matchData = GetComponent<MatchData>();
         DontDestroyOnLoad(this);
     }
 }

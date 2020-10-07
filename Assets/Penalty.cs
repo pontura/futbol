@@ -16,10 +16,10 @@ public class Penalty : MonoBehaviour
     public Character character;
     public Character goalKeeper;
     float goalkeeperSpeed = 2;
-    float goalKeeperDirection;
-    float characterDirection;
+    Vector2 goalKeeperDirection;
+    Vector2 characterDirection;
     public Animation ballAnim;
-
+    public CharactersManager charactersManager;
 
     void Start()
     {
@@ -48,10 +48,10 @@ public class Penalty : MonoBehaviour
     {
         if (state == states.IDLE)
         {
-            if (playerID == 1)
-            {
+            if (playerID == 1 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)            
                 StartCoroutine(Kick());
-            }
+            else if (playerID == 2 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 1)
+                StartCoroutine(Kick());
         }
     }
     void Update()
@@ -63,33 +63,43 @@ public class Penalty : MonoBehaviour
             return;
 
         Vector3 pos = goalKeeper.transform.localPosition;
-        goalKeeperDirection = inputManager.horizontalAxis_team_2;
-        characterDirection = inputManager.horizontalAxis_team_1;
-        pos.x += goalkeeperSpeed * Time.deltaTime * goalKeeperDirection;
+
+        if (Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)
+        {
+            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_2, (float)inputManager.verticalAxis_team_2);
+            characterDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
+        }
+        else
+        {
+            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
+            characterDirection = new Vector2((float)inputManager.horizontalAxis_team_2, (float)inputManager.verticalAxis_team_2);
+        }
+
+        pos.x += goalkeeperSpeed * Time.deltaTime * goalKeeperDirection.x;
         pos.z += (goalkeeperSpeed/2) * Time.deltaTime * inputManager.verticalAxis_team_2;
         if (pos.z < 8.7f) pos.z = 8.7f; else if (pos.z > 9.6f) pos.z = 9.6f;
         if (pos.x < -2.2f) pos.x = -2.2f; else if (pos.x > 2.2f) pos.x = 2.2f;
         goalKeeper.transform.localPosition = pos;
 
-        if (goalKeeperDirection != 0 || inputManager.verticalAxis_team_2 != 0)
+        if (goalKeeperDirection.x != 0 || inputManager.verticalAxis_team_2 != 0)
         {
             goalKeeper.actions.Run();
-            if (goalKeeperDirection > 0)         goalKeeper.actions.LookTo(1);
-            else if (goalKeeperDirection < 0)    goalKeeper.actions.LookTo(-1);
+            if (goalKeeperDirection.x > 0)         goalKeeper.actions.LookTo(1);
+            else if (goalKeeperDirection.x < 0)    goalKeeper.actions.LookTo(-1);
         }
         else
             goalKeeper.actions.Idle();
 
-        ballAimer.transform.localEulerAngles = new Vector3(0, characterDirection * 24, 0);
-        ballAnim.transform.localEulerAngles = new Vector3(0, characterDirection * 24, 0);
+        ballAimer.transform.localEulerAngles = new Vector3(0, characterDirection.x * 24, 0);
+        ballAnim.transform.localEulerAngles = new Vector3(0, characterDirection.x * 24, 0);
     }
     IEnumerator Kick()
     {
         state = states.SHOOT;
         character.actions.Kick(CharacterActions.kickTypes.HARD);
-        goalKeeper.actions.GoalKeeperJumpType((int)goalKeeperDirection, false);
+        goalKeeper.actions.GoalKeeperJumpType((int)goalKeeperDirection.x, false);
 
-        if (characterDirection == goalKeeperDirection)
+        if (characterDirection.x == goalKeeperDirection.x)
             ataja = true;
 
         if(ataja)
@@ -99,10 +109,15 @@ public class Penalty : MonoBehaviour
         
         yield return new WaitForSeconds(0.1f);
         Events.PlaySound("crowd", "crowd_gol", true);
+
         if (ataja)
-            Events.OnGoal(2, goalKeeper);
+            Events.OnGoal(charactersManager.teamID_2, goalKeeper);
         else
-            Events.OnGoal(1, character);
+        {
+            Data.Instance.matchData.OnGoal(charactersManager.teamID_1);
+            Events.OnGoal(charactersManager.teamID_1, character);
+        }
+
         yield return new WaitForSeconds(0.4f);
         if (ataja)
             goalKeeper.actions.Goal();
@@ -112,10 +127,10 @@ public class Penalty : MonoBehaviour
     }
     void UpdateGoalKeeperPos()
     {
-        if (goalKeeperDirection == 0)
+        if (goalKeeperDirection.x == 0)
             return;
         Vector3 dest = goalKeeper.transform.localPosition;
-        dest.x = 2 * goalKeeperDirection;
+        dest.x = 2 * goalKeeperDirection.x;
         goalKeeper.transform.localPosition = Vector3.Lerp(goalKeeper.transform.localPosition, dest, 10*Time.deltaTime);
     }
 }

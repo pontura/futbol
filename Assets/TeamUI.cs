@@ -8,7 +8,6 @@ public class TeamUI : MonoBehaviour
     public Image escudo;
     public Text scoreField;
     public Text teamNameField;
-    public int score;
     public int teamID;
 
     void Start()
@@ -25,14 +24,15 @@ public class TeamUI : MonoBehaviour
     }
     void OnGoal(int _teamID, Character character)
     {
-        if (teamID == _teamID)
-        {
-            score++;
-            SetField();
-        }
+        SetField();
     }
     void SetField()
     {
+        int score = 0;
+        if (teamID == 1)
+            score = (int)Data.Instance.matchData.score.x;
+        else
+            score = (int)Data.Instance.matchData.score.y;
         scoreField.text = "0" + score.ToString();
     }
 }

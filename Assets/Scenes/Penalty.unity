@@ -1057,6 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304a3384460b90244a491ae747a56f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamID_1: 0
+  teamID_2: 0
   rotationOffset: 10
   referi: {fileID: 3160418783750167796}
   boardFloor: {fileID: 413866836}
@@ -1134,6 +1136,7 @@ MonoBehaviour:
   character: {fileID: 2120862097}
   goalKeeper: {fileID: 2059647159}
   ballAnim: {fileID: 1633951608}
+  charactersManager: {fileID: 483686595}
 --- !u!1 &531874868
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3392,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1515485348, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: penaltyGoalKeeperTeamID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -3489,7 +3496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerField: {fileID: 1813587398}
-  secs: 0
 --- !u!1 &1609308987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,7 +3680,6 @@ MonoBehaviour:
   escudo: {fileID: 2137185225}
   scoreField: {fileID: 239358790}
   teamNameField: {fileID: 1273684123}
-  score: 0
   teamID: 1
 --- !u!1 &1686311923
 GameObject:
@@ -4131,7 +4136,6 @@ MonoBehaviour:
   escudo: {fileID: 881415382}
   scoreField: {fileID: 741117449}
   teamNameField: {fileID: 1086203433}
-  score: 0
   teamID: 2
 --- !u!1 &1962203703
 GameObject:

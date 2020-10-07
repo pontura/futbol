@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharactersManager : MonoBehaviour
 {
+    [HideInInspector] public int teamID_1;
+    [HideInInspector] public int teamID_2;
     public float rotationOffset = 10;
     public Referi referi;
     public GameObject boardFloor;
@@ -36,6 +38,8 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
+        teamID_1 = 1;
+        teamID_2 = 2;
         ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1].asset);
@@ -45,14 +49,14 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(1, this, CharactersData.Instance.GetCharacter(1, id));
+            character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, id));
             id++;
         }
         id = 0;
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(2, this, CharactersData.Instance.GetCharacter(2, id));
+            character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id));
             id++;
         }
         Loop();
@@ -63,6 +67,14 @@ public class CharactersManager : MonoBehaviour
     }
     public void InitPenalty(int totalPlayersActive)
     {
+        teamID_1 = 1;
+        teamID_2 = 2;
+        if (Data.Instance.matchData.penaltyGoalKeeperTeamID == 1)
+        {
+            teamID_1 = 2;
+            teamID_2 = 1;
+        }
+        
         ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId - 1].asset);
@@ -71,11 +83,11 @@ public class CharactersManager : MonoBehaviour
 
         Character character = containerTeam1.GetComponentInChildren<Character>();        
         team1.Add(character);
-        character.Init(1, this, CharactersData.Instance.GetCharacter(1, Random.Range(0,3)));
+        character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(0,3)));
 
         character = containerTeam2.GetComponentInChildren<Character>();
         team2.Add(character);
-        character.Init(2, this, CharactersData.Instance.GetCharacter(2, 4));
+        character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, 4));
 
         if (totalPlayersActive > 0)
             AddCharacter(1);

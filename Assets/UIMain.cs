@@ -23,6 +23,6 @@ public class UIMain : MonoBehaviour
     }
     public Vector3 GetScore()
     {
-        return new Vector2(team1.score, team2.score);
+        return new Vector2(Data.Instance.matchData.score.x, Data.Instance.matchData.score.y);
     }
 }
