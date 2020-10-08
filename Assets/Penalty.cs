@@ -60,10 +60,15 @@ public class Penalty : MonoBehaviour
     {
         if (state == states.IDLE)
         {
-            if (playerID == 1 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)            
+            if ((playerID == 1 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)
+                || (playerID == 2 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 1))
+            {
+                if (Data.Instance.matchData.totalPlayers == 1)
+                    AutomaticGoalKeeperReaction();
+
                 StartCoroutine(Kick());
-            else if (playerID == 2 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 1)
-                StartCoroutine(Kick());
+                
+            }
         }
     }
     void Update()
@@ -171,5 +176,15 @@ public class Penalty : MonoBehaviour
             dir = 1;
         Aim(dir);
         StartCoroutine(Kick());
+    }
+    void AutomaticGoalKeeperReaction()
+    {
+        float dir = 0;
+        float rand = Random.Range(0, 100);
+        if (rand < 33)
+            dir = -1;
+        else if (rand < 66)
+            dir = 1;
+        goalKeeperDirection.x = dir;
     }
 }
