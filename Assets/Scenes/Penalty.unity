@@ -3394,7 +3394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1515485348, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: penaltyGoalKeeperTeamID
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
@@ -6643,6 +6643,11 @@ PrefabInstance:
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: team1.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: referiId
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

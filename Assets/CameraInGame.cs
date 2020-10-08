@@ -31,8 +31,8 @@ public class CameraInGame : MonoBehaviour
         pos.x = target.position.x * 0.8f;
         if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING)
             pos.y = initial_y_position;
-        else if (pos.y < camera_tribuna_y)
-            pos.y += Time.deltaTime * speed_to_tribuna;
+        //else if (pos.y < camera_tribuna_y)
+        //    pos.y += Time.deltaTime * speed_to_tribuna;
         transform.position = Vector3.Lerp(transform.position, pos, speed);
         transform.localEulerAngles = new Vector3(20, target.position.x * 15 / 20, target.position.x * 5 / 20);
     }
