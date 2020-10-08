@@ -66,6 +66,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 438dd4bd6c3c07d40887dcea82747cd7, type: 3}
   penalty:
   - {fileID: 8300000, guid: a4ac9ec61efbdec4a9488e57b25ed0cf, type: 3}
+  penalty_lo_patea:
+  - {fileID: 8300000, guid: d1ca2046cfa7b324bb0556fb382cbe53, type: 3}
   penalty_ataja:
   - {fileID: 8300000, guid: 3323a2a20f8b4664c8e0db59037a9516, type: 3}
   penalty_ataja_comenta:

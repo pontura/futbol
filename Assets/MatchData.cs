@@ -7,9 +7,11 @@ public class MatchData : MonoBehaviour
     public int secs;
     public Vector2 score;
     public int penaltyGoalKeeperTeamID;
+    public int totalPlayers;
 
     void Start()
     {
+        totalPlayers = 1;
         secs = Data.Instance.settings.totalTime;
         Loop();
     }

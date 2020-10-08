@@ -8,6 +8,7 @@ public class Penalty : MonoBehaviour
     states state;
     enum states
     {
+        WAITING,
         IDLE,
         SHOOT
     }
@@ -30,6 +31,17 @@ public class Penalty : MonoBehaviour
         Events.OnButtonPressed += OnButtonPressed;
         Events.OnRestartGame += OnRestartGame;
         goalKeeper.isGoldKeeper = false;
+        
+    }
+    public void PenaltyPita()
+    {
+        if (Data.Instance.matchData.totalPlayers == 1 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 1)
+        {
+            //atajas y te patea la compu
+            Invoke("KickAutomatic", Random.Range(1.8f, 3.5f));
+        }
+        state = states.IDLE;
+        charactersManager.referi.actions.Pita();
     }
     void OnDestroy()
     {
@@ -56,8 +68,14 @@ public class Penalty : MonoBehaviour
     }
     void Update()
     {
+        if (state == states.WAITING)
+            return;
+
         if (state == states.SHOOT)
+        {
             UpdateGoalKeeperPos();
+            return;
+        }
 
         if (state != states.IDLE)
             return;
@@ -68,7 +86,7 @@ public class Penalty : MonoBehaviour
         {
             goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_2, (float)inputManager.verticalAxis_team_2);
             characterDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
-        }
+        } 
         else
         {
             goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
@@ -78,26 +96,36 @@ public class Penalty : MonoBehaviour
         pos.x += goalkeeperSpeed * Time.deltaTime * goalKeeperDirection.x;
         pos.z += (goalkeeperSpeed/2) * Time.deltaTime * inputManager.verticalAxis_team_2;
         if (pos.z < 8.7f) pos.z = 8.7f; else if (pos.z > 9.6f) pos.z = 9.6f;
-        if (pos.x < -2.2f) pos.x = -2.2f; else if (pos.x > 2.2f) pos.x = 2.2f;
-        goalKeeper.transform.localPosition = pos;
+        float _x_max = 0.2f;
+        if (pos.x < -_x_max) pos.x = -_x_max; else if (pos.x > _x_max) pos.x = _x_max;
+       // goalKeeper.transform.localPosition = pos;
 
         if (goalKeeperDirection.x != 0 || inputManager.verticalAxis_team_2 != 0)
         {
-            goalKeeper.actions.Run();
-            if (goalKeeperDirection.x > 0)         goalKeeper.actions.LookTo(1);
-            else if (goalKeeperDirection.x < 0)    goalKeeper.actions.LookTo(-1);
+            //goalKeeper.actions.Run();
+            //if (goalKeeperDirection.x > 0)         goalKeeper.actions.LookTo(1);
+            //else if (goalKeeperDirection.x < 0)    goalKeeper.actions.LookTo(-1);
         }
         else
             goalKeeper.actions.Idle();
 
-        ballAimer.transform.localEulerAngles = new Vector3(0, characterDirection.x * 24, 0);
-        ballAnim.transform.localEulerAngles = new Vector3(0, characterDirection.x * 24, 0);
+        Aim(characterDirection.x);
+    }
+    void Aim(float dir)
+    {
+        characterDirection.x = dir;
+        ballAimer.transform.localEulerAngles = new Vector3(0, dir * 24, 0);
+        ballAnim.transform.localEulerAngles = new Vector3(0, dir * 24, 0);
     }
     IEnumerator Kick()
     {
+        if (goalKeeperDirection.x > 0)         goalKeeper.actions.LookTo(1);
+        else if (goalKeeperDirection.x < 0)    goalKeeper.actions.LookTo(-1);
         state = states.SHOOT;
         character.actions.Kick(CharacterActions.kickTypes.HARD);
         goalKeeper.actions.GoalKeeperJumpType((int)goalKeeperDirection.x, false);
+
+        print(characterDirection.x + " " + goalKeeperDirection.x);
 
         if (characterDirection.x == goalKeeperDirection.x)
             ataja = true;
@@ -132,5 +160,16 @@ public class Penalty : MonoBehaviour
         Vector3 dest = goalKeeper.transform.localPosition;
         dest.x = 2 * goalKeeperDirection.x;
         goalKeeper.transform.localPosition = Vector3.Lerp(goalKeeper.transform.localPosition, dest, 10*Time.deltaTime);
+    }
+    void KickAutomatic()
+    {
+        float dir = 0;
+        float rand = Random.Range(0, 100);
+        if (rand < 33)
+            dir = -1;
+        else if (rand < 66)
+            dir = 1;
+        Aim(dir);
+        StartCoroutine(Kick());
     }
 }

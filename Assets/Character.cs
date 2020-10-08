@@ -140,7 +140,9 @@ public class Character : MonoBehaviour
     }
     public void OnGoal(bool win)
     {
-        actions.Idle();
+        if(Game.Instance.state != Game.states.PENALTY)
+            actions.Idle();
+
         if(ai.enabled)
             ai.ResetAll();
     }

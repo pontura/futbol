@@ -24,7 +24,7 @@ public static class Events
     public static System.Action<string, float> ChangeVolume = delegate { };
     public static System.Action OnRestartGame = delegate { };
     public static System.Action<Character> OnPenalty = delegate { };
-    
+    public static System.Action<Character, System.Action> OnPenaltyWaitingToKick = delegate { };
 
 }
    

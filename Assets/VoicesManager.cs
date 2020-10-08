@@ -16,6 +16,7 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] intro_sale_referi;
 
     public AudioClip[] penalty;
+    public AudioClip[] penalty_lo_patea;
     public AudioClip[] penalty_ataja;
     public AudioClip[] penalty_ataja_comenta;
 
@@ -67,6 +68,7 @@ public class VoicesManager : MonoBehaviour
         Events.OnGoal += OnGoal;
         Events.OnIntroSound += OnIntroSound;
         Events.OnPenalty += OnPenalty;
+        Events.OnPenaltyWaitingToKick += OnPenaltyWaitingToKick;
     }
     void OnDestroy()
     {
@@ -76,6 +78,14 @@ public class VoicesManager : MonoBehaviour
         Events.OnGoal -= OnGoal;
         Events.OnIntroSound -= OnIntroSound;
         Events.OnPenalty -= OnPenalty;
+        Events.OnPenaltyWaitingToKick -= OnPenaltyWaitingToKick;
+    }
+    void OnPenaltyWaitingToKick(Character character,System.Action OnDone)
+    {
+        PlayAudios(new AudioClip[] {
+            GetRandomAudioClip(penalty_lo_patea),
+            GetRandomAudioClip(character.dataSources.audio_names) }, OnDone
+        );
     }
     public void SayResults()
     {

@@ -81,9 +81,12 @@ public class CharactersManager : MonoBehaviour
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
 
-        Character character = containerTeam1.GetComponentInChildren<Character>();        
+        Character character = containerTeam1.GetComponentInChildren<Character>();
         team1.Add(character);
         character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(0,3)));
+        character.actions.LookTo(-1); //mira a la izquierda siempre:
+        Events.OnPenaltyWaitingToKick(character, GetComponent<Penalty>().PenaltyPita);
+
 
         character = containerTeam2.GetComponentInChildren<Character>();
         team2.Add(character);
@@ -92,6 +95,8 @@ public class CharactersManager : MonoBehaviour
         if (totalPlayersActive > 0)
             AddCharacter(1);
         //AddCharacter(2);
+
+        
     }
     public void ResetAll()
     {
