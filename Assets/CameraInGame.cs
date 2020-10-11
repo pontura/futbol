@@ -8,7 +8,7 @@ public class CameraInGame : MonoBehaviour
     float initial_y_position;
     float speed_to_tribuna = 20;
     public float camera_tribuna_y;
-    public Transform target;
+    Transform target;
     public Vector3 offset;
     public float offset_lookAt;
     float speed = 0.035f;
@@ -23,6 +23,7 @@ public class CameraInGame : MonoBehaviour
     }
     public void SetTargetTo(Transform t)
     {
+        print("__SetTargetTo : " + t.name);
         target = t;
     }
     void Update()
@@ -30,9 +31,9 @@ public class CameraInGame : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x = target.position.x * 0.8f;
         if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING)
-            pos.y = initial_y_position;
-        //else if (pos.y < camera_tribuna_y)
-        //    pos.y += Time.deltaTime * speed_to_tribuna;
+          pos.y = initial_y_position;
+        else if (pos.y < camera_tribuna_y)
+            pos.y += Time.deltaTime * speed_to_tribuna;
         transform.position = Vector3.Lerp(transform.position, pos, speed);
         transform.localEulerAngles = new Vector3(20, target.position.x * 15 / 20, target.position.x * 5 / 20);
     }

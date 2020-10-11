@@ -62,8 +62,8 @@ public class Character : MonoBehaviour
 
     void Loop()
     {
-        if (Game.Instance.state == Game.states.PLAYING)
-        {
+        //if (Game.Instance.state == Game.states.PLAYING)
+        //{
             Vector3 dest = Game.Instance.cameraInGame.transform.localEulerAngles;
             if (transform.localScale.x < 0)
             {
@@ -71,7 +71,7 @@ public class Character : MonoBehaviour
                 dest.z *= -1;
             }
             characterContainer.localEulerAngles = dest;
-        }
+       // }
         Invoke("Loop", 0.1f);
     }
     public void OnCatch(Ball _ball)

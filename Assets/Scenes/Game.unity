@@ -2877,8 +2877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  camera_tribuna_y: 8.26
-  target: {fileID: 170217519}
+  camera_tribuna_y: 7
   offset: {x: 0, y: 1.95, z: 0}
   offset_lookAt: 0.95
 --- !u!1 &967144072
