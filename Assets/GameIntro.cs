@@ -31,8 +31,11 @@ public class GameIntro : MonoBehaviour
 
         Events.OnIntroSound(2, charactersManager.referi);
         charactersManager.referi.gameObject.SetActive(true);
+        
 
         yield return new WaitForSeconds(2);
+        Events.SetDialogue(charactersManager.referi, Data.Instance.textsData.GetRandomReferiDialogue("random"));
+
         float vol = 0.5f;
         Events.ChangeVolume("croud", vol);
         Events.PlaySound("crowd", "crowd_gol", true);
@@ -54,10 +57,11 @@ public class GameIntro : MonoBehaviour
     IEnumerator SetCharacterOn(Character character)
     {
         character.gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(1.6f);
         Events.OnIntroSound(0, character);
-        yield return new WaitForSeconds(Random.Range(0.7f, 2.5f));
-        if(Random.Range(0,10)>3)
-            Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper));
+        // if(Random.Range(0,10)>3)
+        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper));
     }
     void Update()
     {

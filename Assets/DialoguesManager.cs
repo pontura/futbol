@@ -40,9 +40,9 @@ public class DialoguesManager : MonoBehaviour
             Events.SetDialogue(character, text);
 
         int referiRandom = Random.Range(0, 10);
-        if (referiRandom < 2)
+        if (referiRandom < 3)
             SetReferi("random");
-        else if (referiRandom < 5)
+        else if (referiRandom < 4)
         {
             SetReferi("full");
             Game.Instance.charactersManager.referi.actions.Action();

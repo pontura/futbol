@@ -39,10 +39,10 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-
+        isMobile = false;
 #if UNITY_EDITOR
         isMobile = false;
-#elif  UNITY_ANDROID
+#elif  UNITY_ANDROID || UNITY_IOS
         isMobile = true;
 #endif
         matchData = GetComponent<MatchData>();

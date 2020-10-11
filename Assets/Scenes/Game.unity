@@ -1305,6 +1305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304a3384460b90244a491ae747a56f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamID_1: 0
+  teamID_2: 0
   rotationOffset: 10
   referi: {fileID: 3160418783750167796}
   boardFloor: {fileID: 413866836}
@@ -3931,6 +3933,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: newScene
+      value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: lastScene
+      value: Game
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
 --- !u!1 &1564226207
@@ -4124,7 +4136,6 @@ MonoBehaviour:
   escudo: {fileID: 2137185225}
   scoreField: {fileID: 239358790}
   teamNameField: {fileID: 1273684123}
-  score: 0
   teamID: 1
 --- !u!1 &1644024819
 GameObject:
@@ -4823,7 +4834,6 @@ MonoBehaviour:
   escudo: {fileID: 881415382}
   scoreField: {fileID: 741117449}
   teamNameField: {fileID: 1086203433}
-  score: 0
   teamID: 2
 --- !u!1001 &1901443433
 PrefabInstance:
@@ -6551,6 +6561,11 @@ PrefabInstance:
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: team1.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: referiId
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
