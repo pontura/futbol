@@ -56,7 +56,7 @@ public class GoalMoment : MonoBehaviour
     {
         Game.Instance.ball.Reset();
         Game.Instance.charactersManager.ResetAll();
-        Game.Instance.cameraInGame.SetTargetTo(Game.Instance.ball.transform);
+        
         StartCoroutine( Game.Instance.OnWaitToStart() );
         winners = null;
     }
@@ -93,12 +93,5 @@ public class GoalMoment : MonoBehaviour
                 character.actions.Goal();
             }
         }
-    }
-    Character SetGoalMadeCharacter(int teamID)
-    {
-        if (teamID == 1)
-            return charactersManager.team1[Random.Range(0, charactersManager.team1.Count-2)];
-        else
-            return charactersManager.team2[Random.Range(0, charactersManager.team2.Count - 2)];
     }
 }
