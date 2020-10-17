@@ -130,6 +130,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 725ba8e0d779cb14e80f5e43c569890b, type: 3}
   - {fileID: 8300000, guid: 28c0df06bb7adba468db42905c328ce6, type: 3}
   - {fileID: 8300000, guid: 62589fa2159373d49ae376b4a1565043, type: 3}
+  gameOver_pita:
+  - {fileID: 8300000, guid: 25c6e49d0cdae934c831bead65196a6f, type: 3}
+  - {fileID: 8300000, guid: fd7fb757b0fb4a741b02b41185249939, type: 3}
+  - {fileID: 8300000, guid: f370ebe7d5b92d14b8f6efcf400b1ae0, type: 3}
+  gameOver_alegria:
+  - {fileID: 8300000, guid: ab323cfbc91093f4bb6ab7ccf1becb18, type: 3}
 --- !u!82 &4823537679716861331
 AudioSource:
   m_ObjectHideFlags: 0

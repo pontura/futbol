@@ -46,7 +46,11 @@ public class Ball : MonoBehaviour
             return;
 
         Vector3 velocity = rb.velocity;
-        if (transform.position.y < 2.9f && transform.position.z < 4.5f && transform.position.z > -4.5f)
+        if (transform.position.y >10.25f)
+        {
+            velocity.y = 0;
+            rb.velocity = velocity;
+        } else if (transform.position.y < 3.1f && transform.position.z < 4.5f && transform.position.z > -4.5f)
         {
             if (transform.position.x <= (-limits.x / 2) + 0.25f)
                 Game.Instance.Goal(1, characterThatKicked);
@@ -118,12 +122,14 @@ public class Ball : MonoBehaviour
                       (character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
                     || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5))
             {
+                characterThatKicked = character;
                 character.SetCollidersOff();
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);
                 AimGoal(character);
                 Kick(CharacterActions.kickTypes.CHILENA);               
             }
             else {
+                characterThatKicked = character;
                 character.SetCollidersOff();
                 transform.eulerAngles = character.ballCatcher.container.transform.eulerAngles;
                 character.actions.Kick(CharacterActions.kickTypes.HEAD);

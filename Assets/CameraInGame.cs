@@ -14,10 +14,11 @@ public class CameraInGame : MonoBehaviour
     public float offset_lookAt;
     float speed = 0.035f;
     bool filmingPlayer;
-    float filming_y;
+    public float filming_y;
 
     public float originalSize = 5;
     public float zoomSize = 2;
+    public float offsetShootingPlayer_z = 2.5f;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class CameraInGame : MonoBehaviour
     }
     public void Reset()
     {
+        print("RESET");
         if (anim != null)
             anim.enabled = false;
         ResetShootingPlayer();
@@ -54,7 +56,7 @@ public class CameraInGame : MonoBehaviour
         pos.x = target.position.x * 0.8f;
         if (filmingPlayer)
             pos.y = filming_y;
-        else if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING)
+        else if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING || Game.Instance.state == Game.states.GAMEOVER)
             pos.y = initial_y_position;
         else if (pos.y < camera_tribuna_y)
             pos.y += Time.deltaTime * speed_to_tribuna;
@@ -86,6 +88,6 @@ public class CameraInGame : MonoBehaviour
     {
         cam.orthographicSize = zoomSize;
         filmingPlayer = true;
-        filming_y = initial_y_position + character.transform.position.z / 2.5f;
+        filming_y = initial_y_position + character.transform.position.z / offsetShootingPlayer_z;
     }
 }

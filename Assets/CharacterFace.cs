@@ -27,7 +27,6 @@ public class CharacterFace : MonoBehaviour
     }
     void OnGoal(int teamID, Character ch)
     {
-        print(teamID + " _ " + character.teamID + character.data.avatarName);
         if (character.teamID == teamID)
             Idle();
         else

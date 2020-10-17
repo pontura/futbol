@@ -15,7 +15,8 @@ public class Game : MonoBehaviour
         WAITING,
         PLAYING,
         GOAL,
-        PENALTY
+        PENALTY,
+        GAMEOVER
     }
 
     public static Game Instance

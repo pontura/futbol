@@ -26,7 +26,11 @@ public class MatchData : MonoBehaviour
     {
         if (Game.Instance != null && Game.Instance.state == Game.states.PLAYING)
             secs--;
-        Invoke("Loop", 1);
+        if(secs <= 0)
+        {
+            Data.Instance.LoadLevel("GameOver");
+        } else
+            Invoke("Loop", 1);
     }
 
 }

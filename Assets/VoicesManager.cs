@@ -39,7 +39,9 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] gol_generico;
     public AudioClip[] gol_en_contra;
     public AudioClip[] pide_comentario;
-    public AudioClip[] responde_comentario_gol;   
+    public AudioClip[] responde_comentario_gol;
+    public AudioClip[] gameOver_pita;
+    public AudioClip[] gameOver_alegria;
     Character character;
 
     static VoicesManager mInstance = null;
@@ -58,10 +60,11 @@ public class VoicesManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         else
+        {
             Destroy(this);
-    }
-    void Start()
-    {
+            return;
+        }
+
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.KickToGoal += KickToGoal;
         Events.OnBallKicked += OnBallKicked;
@@ -69,6 +72,8 @@ public class VoicesManager : MonoBehaviour
         Events.OnIntroSound += OnIntroSound;
         Events.OnPenalty += OnPenalty;
         Events.OnPenaltyWaitingToKick += OnPenaltyWaitingToKick;
+        Events.OnOutroSound += OnOutroSound;
+        Events.OnGameOverVoiceHappy += OnGameOverVoiceHappy;
     }
     void OnDestroy()
     {
@@ -79,6 +84,23 @@ public class VoicesManager : MonoBehaviour
         Events.OnIntroSound -= OnIntroSound;
         Events.OnPenalty -= OnPenalty;
         Events.OnPenaltyWaitingToKick -= OnPenaltyWaitingToKick;
+        Events.OnOutroSound -= OnOutroSound;
+        Events.OnGameOverVoiceHappy -= OnGameOverVoiceHappy;
+    }
+    void OnGameOverVoiceHappy(Character character, System.Action OnDone)
+    {
+        PlayAudios(new AudioClip[] {
+            GetRandomAudioClip(gameOver_alegria),
+            GetRandomAudioClip(character.dataSources.audio_names) }, OnDone
+        );
+    }
+    void OnOutroSound(System.Action OnDone, int id)
+    {
+        PlayAudios(new AudioClip[] 
+        {
+            gameOver_pita[id]
+        }, OnDone
+      );
     }
     void OnPenaltyWaitingToKick(Character character,System.Action OnDone)
     {
