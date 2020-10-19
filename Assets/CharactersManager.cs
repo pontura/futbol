@@ -124,7 +124,7 @@ public class CharactersManager : MonoBehaviour
         AI.states state = character.ai.state;
         if (state != AI.states.ATTACKING)
         {
-            SwapIfNeeded(character.teamID);
+            //SwapIfNeeded(character.teamID);
             CheckForNewDefender(character.teamID);
         }
     }
