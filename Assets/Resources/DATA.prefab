@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b930e79caea734f821d118633cad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 240
+  totalTime: 60
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
     name: Sportivo Punga
@@ -211,3 +211,4 @@ MonoBehaviour:
   secs: 0
   score: {x: 0, y: 0}
   penaltyGoalKeeperTeamID: 1
+  totalPlayers: 0

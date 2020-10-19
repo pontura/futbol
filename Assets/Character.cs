@@ -76,13 +76,14 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
-        if (actions.state == CharacterActions.states.DASH 
-            && _ball.character != null 
-            && (transform.localPosition.x >13 && teamID == 1 || transform.localPosition.x < -13 && teamID == 2)
-            )
+        if (actions.state == CharacterActions.states.DASH  && _ball.character != null)
         {
-            Events.OnPenalty(this);
-            return;
+            _ball.character.actions.Kicked();
+            if ((transform.localPosition.x > 13 && teamID == 1) || (transform.localPosition.x < -13 && teamID == 2))
+            {
+                Invoke("PenaltyDelayed", 0.15f);
+                return;
+            }
         }
         actions.Reset();
         speed = Data.Instance.settings.speedWithBall;
@@ -91,6 +92,10 @@ public class Character : MonoBehaviour
         charactersManager.CharacterCatchBall(this);
         Events.PlaySound("common", "ballSnap", false); 
         Events.CharacterCatchBall(this);
+    }
+    void PenaltyDelayed()
+    {
+        Events.OnPenalty(this);
     }
     public virtual void SetPosition(int _x, int _y)
     {

@@ -31,7 +31,7 @@ public class GameIntro : MonoBehaviour
 
         Events.OnIntroSound(2, charactersManager.referi);
         charactersManager.referi.gameObject.SetActive(true);
-        
+        charactersManager.referi.actions.EnterCancha();
 
         yield return new WaitForSeconds(2);
         Events.SetDialogue(charactersManager.referi, Data.Instance.textsData.GetRandomReferiDialogue("random"));
@@ -57,8 +57,9 @@ public class GameIntro : MonoBehaviour
     IEnumerator SetCharacterOn(Character character)
     {
         character.gameObject.SetActive(true);
-        
+        character.actions.Run();
         yield return new WaitForSeconds(1.6f);
+        character.actions.EnterCancha();
         Events.OnIntroSound(0, character);
         // if(Random.Range(0,10)>3)
         Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper));
@@ -79,6 +80,6 @@ public class GameIntro : MonoBehaviour
         Vector3 pos = ch.transform.localPosition;
         pos.z -= speed * Time.deltaTime;
         ch.transform.localPosition = pos;
-        ch.actions.Run();
+        
     }
 }

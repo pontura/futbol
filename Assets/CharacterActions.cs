@@ -19,7 +19,8 @@ public class CharacterActions : MonoBehaviour
         DASH,
         ACTION_DONE,
         SPECIAL_ACTION,
-        GOAL
+        GOAL,
+        KICKED
     }
     public enum kickTypes
     {
@@ -50,7 +51,7 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Idle()
     {
-        if (state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
+        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
             return;
         this.state = states.IDLE;
         anim.Play("idle");
@@ -75,10 +76,14 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Run()
     {
-        if (state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         anim.Play("run");
+    }
+    public virtual void EnterCancha()
+    {
+        anim.Play("enter");
     }
     public void GoalKeeperHands()
     {
@@ -116,14 +121,14 @@ public class CharacterActions : MonoBehaviour
     }
     public void Goal()
     {
-        if (state == states.GOAL)
+        if (state == states.KICKED || state == states.GOAL)
             return;
         this.state = states.GOAL;
         anim.Play("goal");
     }
     public void Kick(kickTypes kickType)
     {
-        if (state == states.SPECIAL_ACTION || state == states.KICK)
+        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
             return;
         
         CancelInvoke();
@@ -157,7 +162,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Dash()
     {
-        if (state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         Events.PlaySound("common", "dash", false);
         CancelInvoke();
@@ -173,6 +178,12 @@ public class CharacterActions : MonoBehaviour
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
     }
+    public void Kicked()
+    {
+        state = states.KICKED;
+        anim.Play("kicked");
+        Invoke("ResetSpecial", 0.5f);
+    }
     public void Pita()
     {
         anim.Play("start");
@@ -180,8 +191,8 @@ public class CharacterActions : MonoBehaviour
         Events.PlaySound("common", "pito", false);
     }
     public void Action()
-    {       
-        if (state == states.SPECIAL_ACTION)
+    {
+        if (state == states.KICKED || state == states.SPECIAL_ACTION)
             return;
         CancelInvoke();
         state = states.SPECIAL_ACTION;
