@@ -87,7 +87,7 @@ public class Ruleta : MonoBehaviour {
     float lastY = 0;
     void Rolling()
     {
-        speed -= Time.deltaTime + acceleration;
+        speed -= acceleration;
         float newY = container.transform.localPosition.y + speed;
         lastY += speed;
         if (speed <= 0)
@@ -107,7 +107,7 @@ public class Ruleta : MonoBehaviour {
         if (container.localPosition.y > (totalHeight))
             ResetPosition();
         else
-            container.localPosition = new Vector3(0, newY, 0);
+            container.localPosition = new Vector3(0, newY + (5*Time.deltaTime), 0);
     }
     private void CalculateItem()
     {

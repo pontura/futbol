@@ -8,11 +8,13 @@ public class PlayerBar : MonoBehaviour
     public Text playerName;
     Character character;
     public Vector3 offset;
+    public GameObject progressBar;
 
     void Awake()
     {
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
+        Events.OnGoal += OnGoal;
     }
     private void Start()
     {
@@ -22,6 +24,11 @@ public class PlayerBar : MonoBehaviour
     {
         Events.CharacterCatchBall -= CharacterCatchBall;
         Events.OnBallKicked -= OnBallKicked;
+        Events.OnGoal -= OnGoal;
+    }
+    void OnGoal(int id, Character ch)
+    {
+        gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -36,8 +43,13 @@ public class PlayerBar : MonoBehaviour
         Invoke("Reset", 1);
     }
     void CharacterCatchBall(Character character)
-    {
+    {     
         gameObject.SetActive(true);
+        if (!character.isBeingControlled)
+            progressBar.SetActive(false);
+        else
+            progressBar.SetActive(true);
+
         this.character = character;
         CancelInvoke();
         playerName.text = character.data.avatarName.ToUpper();

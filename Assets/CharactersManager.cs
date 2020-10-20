@@ -311,6 +311,7 @@ public class CharactersManager : MonoBehaviour
     {
         if (to == null) return;
         if (from == null) return;
+
         int teamID = from.teamID;
         to.id = from.id;        
         signals.ChangeSignal(from, to);
@@ -322,6 +323,7 @@ public class CharactersManager : MonoBehaviour
         to.SetControlled(true);
         to.actions.Reset();
         from.actions.Reset();
+        Events.SwapCharacter(to);
     }
     public void OnGoal(int teamID, Character c)
     {
