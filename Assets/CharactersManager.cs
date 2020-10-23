@@ -312,6 +312,8 @@ public class CharactersManager : MonoBehaviour
         if (to == null) return;
         if (from == null) return;
 
+        Events.PlaySound("common", "swapPlayer", false);
+
         int teamID = from.teamID;
         to.id = from.id;        
         signals.ChangeSignal(from, to);

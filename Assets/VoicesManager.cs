@@ -176,8 +176,16 @@ public class VoicesManager : MonoBehaviour
         if (Game.Instance.state == Game.states.PENALTY)
         {
             Events.OnRestartGame();
-        } else
-        PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario),  GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+        }
+        else
+        {
+            Invoke("GoalDelayed", 3);
+           // PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+        }
+    }
+    void GoalDelayed()
+    {
+        Events.OnRestartGame();
     }
     void SayComentarioGoalEnContra()
     {
