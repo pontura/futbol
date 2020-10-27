@@ -34,7 +34,7 @@ public class SelectorScreen : MonoBehaviour
     void Start()
     {
         CharactersData.Instance.Init();
-        Events.OnButtonPressed += OnButtonPressed;
+        Events.OnButtonClick += OnButtonClick;
 
         character1 = characters1_container.GetComponentsInChildren<Ruleta>();
         character2 = characters2_container.GetComponentsInChildren<Ruleta>();
@@ -59,7 +59,7 @@ public class SelectorScreen : MonoBehaviour
     }
     void OnDestroy()
     {
-        Events.OnButtonPressed -= OnButtonPressed;
+        Events.OnButtonClick -= OnButtonClick;
     }
     public void ButtonClicked()
     {
@@ -71,7 +71,7 @@ public class SelectorScreen : MonoBehaviour
             state = states.TEAM;
         }
     }
-    void OnButtonPressed(int playerID, InputManagerUI.buttonTypes type)
+    void OnButtonClick(int playerID, int id)
     {
         ButtonClicked();
     }

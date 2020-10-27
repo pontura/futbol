@@ -19,33 +19,50 @@ public class InputManagerUI : MonoBehaviour
     }
     void Update()
     {
-        //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
-        //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
-        //if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
-        //if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
-
-        for (int id = 1; id < 3; id++)
+        if (Data.Instance.isMobile)
         {
-            if (id == 1)
+
+            //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
+            //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
+            //if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
+            //if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
+
+            for (int id = 1; id < 3; id++)
             {
-                horizontalAxis_team_1 = Input.GetAxis("Horizontal" + id);
-                verticalAxis_team_1 = Input.GetAxis("Vertical" + id);
+                if (id == 1)
+                {
+                    horizontalAxis_team_1 = Input.GetAxis("Horizontal" + id);
+                    verticalAxis_team_1 = Input.GetAxis("Vertical" + id);
+                }
+                else
+                {
+                    horizontalAxis_team_2 = Input.GetAxis("Horizontal" + id);
+                    verticalAxis_team_2 = Input.GetAxis("Vertical" + id);
+                }
+
+                if (Input.GetButtonDown("Button1_" + id))
+                    Events.OnButtonPressed(id, buttonTypes.BUTTON_1);
+
+                else if (Input.GetButtonDown("Button2_" + id))
+                    Events.OnButtonPressed(id, buttonTypes.BUTTON_2);
+
+                else if (Input.GetButtonDown("Button3_" + id))
+                    Events.OnButtonPressed(id, buttonTypes.BUTTON_3);
+
             }
-            else
-            {
-                horizontalAxis_team_2 = Input.GetAxis("Horizontal" + id);
-                verticalAxis_team_2 = Input.GetAxis("Vertical" + id);
-            }
-
-            if (Input.GetButtonDown("Button1_" + id))
-                Events.OnButtonPressed(id, buttonTypes.BUTTON_1);
-
-            else if (Input.GetButtonDown("Button2_" + id))
-                Events.OnButtonPressed(id, buttonTypes.BUTTON_2);
-
-            else if (Input.GetButtonDown("Button3_" + id))
-                Events.OnButtonPressed(id, buttonTypes.BUTTON_3);
-
+        }
+        else
+        {
+            int id = 0;
+            //for (id = 0; id < 3; id++)
+            //{
+                if (InputManager.instance.GetButtonDown(id, InputAction.action1))
+                    Events.OnButtonClick(0,1);
+            if (InputManager.instance.GetButtonDown(id, InputAction.action2))
+                    Events.OnButtonClick(0, 2);
+            if (InputManager.instance.GetButtonDown(id, InputAction.action3))
+                    Events.OnButtonClick(0, 3);
+            // }
         }
 
 
