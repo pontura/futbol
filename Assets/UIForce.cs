@@ -15,10 +15,16 @@ public class UIForce : MonoBehaviour
     private void Awake()
     {
         Events.OnGameStatusChanged += OnGameStatusChanged;
+        Events.PlayerProgressBarSetState += PlayerProgressBarSetState;
     }
     private void OnDestroy()
     {
         Events.OnGameStatusChanged -= OnGameStatusChanged;
+        Events.PlayerProgressBarSetState -= PlayerProgressBarSetState;
+    }
+    void PlayerProgressBarSetState(bool isOn)
+    {
+        gameObject.SetActive(isOn);
     }
     void OnGameStatusChanged(Game.states state)
     {
@@ -26,12 +32,19 @@ public class UIForce : MonoBehaviour
             isOn = true;
         else
             isOn = false;
+        Reset();
+    }
+    private void Reset()
+    {
+        dir = 1;
+        speed = Data.Instance.settings.forceBarSpeed;
     }
     void Start()
     {
+        PlayerProgressBarSetState(false);
+        value = 0.5f;
         isOn = true;
-        dir = 1;
-        speed = Data.Instance.settings.forceBarSpeed;
+        Reset();
         Loop();
     }
     public float GetForce()

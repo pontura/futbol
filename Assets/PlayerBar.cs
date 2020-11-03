@@ -45,10 +45,10 @@ public class PlayerBar : MonoBehaviour
     void CharacterCatchBall(Character character)
     {     
         gameObject.SetActive(true);
-        if (!character.isBeingControlled)
-            progressBar.SetActive(false);
-        else
-            progressBar.SetActive(true);
+        //if (!character.isBeingControlled)
+        //    progressBar.SetActive(false);
+        //else
+        //    progressBar.SetActive(true);
 
         this.character = character;
         CancelInvoke();

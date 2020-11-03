@@ -265,8 +265,18 @@ public class CharactersManager : MonoBehaviour
                     // case 3: KickAllTheOthers(characterID); break;
             }
         }
-        else if (character.ai.state == AI.states.ATTACKING)
+        else if (ball.character == character)
         {
+            Events.PlayerProgressBarSetState(true);
+        }
+    }   
+    public void ButtonUp(int buttonID, int id)
+    {
+       
+        Character character = GetPlayer(id);
+        if (character.ai.state == AI.states.ATTACKING)
+        {
+            Events.PlayerProgressBarSetState(false);
             switch (buttonID)
             {
                 case 1:
@@ -276,29 +286,20 @@ public class CharactersManager : MonoBehaviour
                         Events.KickToGoal();
                     else
                         character.Kick(CharacterActions.kickTypes.HARD);
-                    
+
                     break;
                 case 2:
-                    Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward*4);
+                    Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
 
-                    if(ball.character != characterNear)
+                    if (ball.character != characterNear)
                         character.ballCatcher.LookAt(characterNear.transform.position);
 
-                    character.Kick(CharacterActions.kickTypes.SOFT); 
+                    character.Kick(CharacterActions.kickTypes.SOFT);
                     break;
                 case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
         }
-        //else if (character.ai.state == AI.states.DEFENDING || character.ai.state == AI.states.NONE)
-        //{
-        //    switch (buttonID)
-        //    {
-        //        case 1: character.Dash(); break;
-        //        case 2: Swap(id); break;
-        //       // case 3: KickAllTheOthers(characterID); break;
-        //    }
-        //}
-    }   
+    }
     public void Swap(int characterID)
     {
         int teamID = GetTeamByPlayer(characterID);

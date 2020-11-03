@@ -41,12 +41,21 @@ public class InputManagerGame : MonoBehaviour
             if (_y > 0) _y = 1; else if (_y < 0) _y = -1;
             if (charactersManager != null)
                 charactersManager.SetPosition(1, _x, _y);
+
             if(InputManager.instance.GetButtonDown(0, InputAction.action1))
-                ButtonPressed(1, 1);
+                GetButtonDown(1, 1);
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
+                GetButtonDown(1, 1);
             if (InputManager.instance.GetButtonDown(0, InputAction.action2))
-                ButtonPressed(2, 1);
+                GetButtonDown(2, 1);
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
+                GetButtonUp(1, 1);
             if (InputManager.instance.GetButtonDown(0, InputAction.action3))
-                ButtonPressed(3, 1);
+                GetButtonUp(3, 1);
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
+                GetButtonUp(1, 1);
+
+
 
             // if (Input.GetKeyDown(KeyCode.Alpha1)) Events.KickToGoal();
 
@@ -77,17 +86,33 @@ public class InputManagerGame : MonoBehaviour
     }
     public void OnMobileButtonPressed(int id)
     {
-        if (id == 1)
-            ButtonPressed(1, 1);
-        else if (id == 2)
-            ButtonPressed(2, 1);
-        else
-            ButtonPressed(3, 1);
+            if (id == 1)
+                GetButtonDown(1, 1);
+            else if (id == 2)
+                GetButtonDown(2, 1);
+            else
+                GetButtonDown(3, 1);
     }
-    void ButtonPressed(int buttonID, int playerID)
+    public void OnMobileButtonUp(int id, bool isDown)
+    {
+        if (id == 1)
+            GetButtonUp(1, 1);
+        else if (id == 2)
+            GetButtonUp(2, 1);
+        else
+            GetButtonUp(3, 1);
+    }
+    void GetButtonDown(int buttonID, int playerID)
     {
         if (charactersManager != null)
             charactersManager.ButtonPressed(buttonID, playerID);
+        else
+            Events.OnButtonClick(buttonID, playerID);
+    }
+    void GetButtonUp(int buttonID, int playerID)
+    {
+        if (charactersManager != null)
+            charactersManager.ButtonUp(buttonID, playerID);
         else
             Events.OnButtonClick(buttonID, playerID);
     }

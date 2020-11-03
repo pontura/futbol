@@ -73,7 +73,8 @@ MonoBehaviour:
     thumb: {fileID: 21300000, guid: 26aef86bf9b18554581f2d8590cf0242, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d959fd2542fa729478d50bac5006c69d, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: 14906ae2109fd804299f6eaa7905905c, type: 3}
   - asset: {fileID: 764954301413768090, guid: 094e3f845331d4942b2563de1e86a64d, type: 3}
     thumb: {fileID: 21300000, guid: 7e7559a09ca320c4dac1d36f0802b056, type: 3}
     audio_names:
@@ -96,7 +97,8 @@ MonoBehaviour:
     thumb: {fileID: 21300000, guid: d49bc416d0fb0f343bcd6c500b8d304c, type: 3}
     audio_names:
     - {fileID: 8300000, guid: b3c986915da9d1d46866d7883f7c2cd7, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: db5e39a6fe5a9c148a89ddac13838e73, type: 3}
   - asset: {fileID: 3177298910664495984, guid: c406f0c4c212f9f4f90d63b456cb812c, type: 3}
     thumb: {fileID: 21300000, guid: a3e438ddfb730a34682ca367759f328e, type: 3}
     audio_names:
@@ -106,14 +108,16 @@ MonoBehaviour:
     thumb: {fileID: 21300000, guid: 4c709aa58db3634489ef5d800c9f8926, type: 3}
     audio_names:
     - {fileID: 8300000, guid: 70dd8d1bc643c1145983f01b9fe9e5a0, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: 11dbfe30f76f34949878b41ba92859e9, type: 3}
   - asset: {fileID: 1342537867061025332, guid: 7d5403cbf87965a4381976fc7658ca9d, type: 3}
     thumb: {fileID: 21300000, guid: 38a4ec2d4835c9442b7491d91a545c4b, type: 3}
     audio_names:
     - {fileID: 8300000, guid: c73710a1d756be44aa287fcc4f76a219, type: 3}
     - {fileID: 8300000, guid: ed1283c27af3df44282c9c2c774238c1, type: 3}
     - {fileID: 8300000, guid: b7df9a0680a51ec4193a07b8b69b5b1c, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: 69ac6d011717e7346a2afb5cbe056281, type: 3}
   - asset: {fileID: 7572831978036739007, guid: e08ecba363602d4458e2fabe368163b8, type: 3}
     thumb: {fileID: 21300000, guid: 437d02f9f8d60664490ab86d098d60a3, type: 3}
     audio_names:
@@ -126,7 +130,8 @@ MonoBehaviour:
     audio_names:
     - {fileID: 8300000, guid: 2714b027e3c6df34d9c49e8fb16e6038, type: 3}
     - {fileID: 8300000, guid: 2e03c3f27e483c242936ac00d5a08504, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: 50f8b7451d6c9cd44ab166233dbb8957, type: 3}
   - asset: {fileID: 1263429078001311856, guid: c0a3b0f1c2eb08946b2a4a2730886122, type: 3}
     thumb: {fileID: 21300000, guid: 7c05351e075c56c44b32296d996cf848, type: 3}
     audio_names:
@@ -141,6 +146,7 @@ MonoBehaviour:
     thumb: {fileID: 21300000, guid: a0aa49a6ac802b74dad71c934d9676d3, type: 3}
     audio_names:
     - {fileID: 8300000, guid: adb81798ca7b6104899410b51ca09db1, type: 3}
+    - {fileID: 8300000, guid: 8cb7018672feb6a4b9fd4f300a620487, type: 3}
     audio_goal: []
   - asset: {fileID: 8221468473453606760, guid: 51f0bdc01d1c7cd4880c31f91596266b, type: 3}
     thumb: {fileID: 21300000, guid: 139e3b6c64b605841a5f1b98cb71b786, type: 3}
@@ -190,12 +196,14 @@ MonoBehaviour:
     thumb: {fileID: 21300000, guid: dd8e60b3ddf329d4689b83ab9ffd25e6, type: 3}
     audio_names:
     - {fileID: 8300000, guid: e3b611ddcadb0db4ba5a0f92ae9ad733, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: c7084194400f6b741a6db4eb016aec04, type: 3}
   - asset: {fileID: 516929744901427017, guid: 8161faa947cf67f46b8dc1717281d022, type: 3}
     thumb: {fileID: 21300000, guid: aceb7d3efd39cbc4a8e772124c6711d6, type: 3}
     audio_names:
     - {fileID: 8300000, guid: b0b03970d99823c40936efb0bee928cf, type: 3}
-    audio_goal: []
+    audio_goal:
+    - {fileID: 8300000, guid: 6f3d81e7cd0c02840a41918a3b7d0ea7, type: 3}
   - asset: {fileID: 516929744901427017, guid: acd44e85a825ac24e87fd6b557642467, type: 3}
     thumb: {fileID: 21300000, guid: b1b75e5258acae340a728d9b4b50bd0b, type: 3}
     audio_names:
@@ -212,11 +220,11 @@ MonoBehaviour:
     audio_names:
     - {fileID: 8300000, guid: e20dcd11e979eba4d97ef4ffd9c167d4, type: 3}
     audio_goal: []
-  team1: 0c00000005000000060000000700000003000000
+  team1: 0c00000001000000060000000700000003000000
   team2: 02000000160000000b0000000900000004000000
   availablesTeam1: 04000000
   availablesTeam2: 
   availablesTeam1_goalkeepers: 
   availablesTeam2_goalkeepers: 
   availableReferis: 
-  referiId: 2
+  referiId: 1
