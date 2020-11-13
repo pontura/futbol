@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 1159750959}
-  offset: {x: 0, y: 235, z: 0}
+  offset: {x: 0, y: 100, z: 0}
   progressBar: {fileID: 1520201106}
 --- !u!1 &235862825
 GameObject:
@@ -2017,12 +2017,12 @@ GameObject:
   - component: {fileID: 643932160}
   - component: {fileID: 643932162}
   m_Layer: 0
-  m_Name: Rewired Input Manager
+  m_Name: Rewired Input Manager_APAGAR!!!
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &643932160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8075,6 +8075,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[4]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team2.Array.data[0]
+      value: 23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}

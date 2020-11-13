@@ -16,11 +16,17 @@ public class UIForce : MonoBehaviour
     {
         Events.OnGameStatusChanged += OnGameStatusChanged;
         Events.PlayerProgressBarSetState += PlayerProgressBarSetState;
+        Events.CharacterCatchBall += CharacterCatchBall;
     }
     private void OnDestroy()
     {
         Events.OnGameStatusChanged -= OnGameStatusChanged;
         Events.PlayerProgressBarSetState -= PlayerProgressBarSetState;
+        Events.CharacterCatchBall -= CharacterCatchBall;
+    }
+    void CharacterCatchBall(Character ch)
+    {
+        Reset();
     }
     void PlayerProgressBarSetState(bool isOn)
     {
@@ -39,9 +45,8 @@ public class UIForce : MonoBehaviour
         dir = 1;
         speed = Data.Instance.settings.forceBarSpeed;
     }
-    void Start()
+    void OnEnable()
     {
-        PlayerProgressBarSetState(false);
         value = 0.5f;
         isOn = true;
         Reset();

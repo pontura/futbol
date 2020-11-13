@@ -45,15 +45,15 @@ public class InputManagerGame : MonoBehaviour
             if(InputManager.instance.GetButtonDown(0, InputAction.action1))
                 GetButtonDown(1, 1);
             else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
-                GetButtonDown(1, 1);
-            if (InputManager.instance.GetButtonDown(0, InputAction.action2))
+                GetButtonUp(1, 1);
+            else if(InputManager.instance.GetButtonDown(0, InputAction.action2))
                 GetButtonDown(2, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
-                GetButtonUp(1, 1);
-            if (InputManager.instance.GetButtonDown(0, InputAction.action3))
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action2))
+                GetButtonUp(2, 1);
+            else if(InputManager.instance.GetButtonDown(0, InputAction.action3))
+                GetButtonDown(3, 1);
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action3))
                 GetButtonUp(3, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
-                GetButtonUp(1, 1);
 
 
 
