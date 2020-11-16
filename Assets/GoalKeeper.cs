@@ -37,7 +37,7 @@ public class GoalKeeper : Character
             if (ball.character == this)
                 return;
             actions.GoalKeeperHands();
-            ball.OnSetApplyForce(Vector3.up*Random.Range(400,900), this);
+            ball.OnSetApplyForce(new Vector3(Random.Range(100, 300), Random.Range(400,900),0), this);
         }
     }
 }

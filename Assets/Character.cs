@@ -106,9 +106,15 @@ public class Character : MonoBehaviour
         actions.Kick(kickType);
         if (ball != null && ball.GetCharacter() == this)
         {
+            if (ball.character.isGoldKeeper)
+                Invoke("AutomaticChangePlayer", 0.1f);
             ball.Kick(kickType, forceForce);
-            ballCatcher.LoseBall();
+            ballCatcher.LoseBall();            
         }
+    }
+    void AutomaticChangePlayer()
+    {
+        charactersManager.Swap(id);
     }
     public void Dash()
     {

@@ -140,6 +140,8 @@ public class CharactersManager : MonoBehaviour
     void CheckForNewDefender(int teamID)
     {
         Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
+        if (ball.character != null && ball.character.isGoldKeeper)
+            return;
         if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
             return;
         Events.SetCharacterNewDefender(nearestToDefend);
