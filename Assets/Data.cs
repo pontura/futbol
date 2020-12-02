@@ -16,6 +16,7 @@ public class Data : MonoBehaviour
     public TextsData textsData;
     public bool isMobile;
     [HideInInspector] public MatchData matchData;
+    public GameObject[] init_on_start;
 
     public static Data Instance
     {
@@ -47,5 +48,10 @@ public class Data : MonoBehaviour
 #endif
         matchData = GetComponent<MatchData>();
         DontDestroyOnLoad(this);
+    }
+    private void Start()
+    {
+        foreach (GameObject go in init_on_start)
+            Instantiate(go);
     }
 }

@@ -10,8 +10,8 @@ public class GameIntro : MonoBehaviour
     void Start()
     {
         Events.ChangeVolume("croud", 0.25f);
-        
-        
+       
+
         charactersManager.Init(0);
         charactersManager.referi.gameObject.SetActive(false);
         foreach (Character ch in charactersManager.team1)
@@ -20,6 +20,17 @@ public class GameIntro : MonoBehaviour
             ch.gameObject.SetActive(false);
 
         StartCoroutine(Init());
+
+        Events.OnButtonClick += OnButtonClick;
+    }
+    private void OnDestroy()
+    {
+        Events.OnButtonClick -= OnButtonClick;
+    }
+    void OnButtonClick(int a, int b)
+    {
+        StopAllCoroutines();
+        Data.Instance.LoadLevel("Game");
     }
     IEnumerator Init()
     {

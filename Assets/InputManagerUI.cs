@@ -53,16 +53,24 @@ public class InputManagerUI : MonoBehaviour
         }
         else
         {
-            int id = 0;
-            //for (id = 0; id < 3; id++)
-            //{
-                if (InputManager.instance.GetButtonDown(id, InputAction.action1))
-                    Events.OnButtonClick(0,1);
-            if (InputManager.instance.GetButtonDown(id, InputAction.action2))
-                    Events.OnButtonClick(0, 2);
-            if (InputManager.instance.GetButtonDown(id, InputAction.action3))
-                    Events.OnButtonClick(0, 3);
-            // }
+            //int id = 0;
+            ////for (id = 0; id < 3; id++)
+            ////{
+            //    if (InputManager.instance.GetButtonDown(id, InputAction.action1))
+            //        Events.OnButtonClick(0,1);
+            //if (InputManager.instance.GetButtonDown(id, InputAction.action2))
+            //        Events.OnButtonClick(0, 2);
+            //if (InputManager.instance.GetButtonDown(id, InputAction.action3))
+            //        Events.OnButtonClick(0, 3);
+            //// }
+            ///
+
+            if (InputManager.instance.GetButtonDown(0, InputAction.action1))
+                Events.OnButtonClick(0, 1);
+            else if (InputManager.instance.GetButtonUp(0, InputAction.action2))
+                Events.OnButtonClick(0, 2);
+            else if (InputManager.instance.GetButtonDown(0, InputAction.action3))
+                Events.OnButtonClick(0, 3);
         }
 
 

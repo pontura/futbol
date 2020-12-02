@@ -557,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 1159750959}
   offset: {x: 0, y: 235, z: 0}
+  progressBar: {fileID: 0}
 --- !u!1 &235862825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1255,7 @@ GameObject:
   - component: {fileID: 483686595}
   - component: {fileID: 483686596}
   - component: {fileID: 483686597}
+  - component: {fileID: 483686599}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1297,6 +1299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304a3384460b90244a491ae747a56f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamID_1: 0
+  teamID_2: 0
   rotationOffset: 10
   referi: {fileID: 3160418783750167796}
   boardFloor: {fileID: 413866836}
@@ -1357,6 +1361,22 @@ MonoBehaviour:
   cameraInGame: {fileID: 963194229}
   ball: {fileID: 952271336}
   state: 0
+--- !u!114 &483686599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483686593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ff695a72d39ca4b814c1b1e918ba3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalAxis_team_1: 0
+  horizontalAxis_team_2: 0
+  verticalAxis_team_1: 0
+  verticalAxis_team_2: 0
 --- !u!1 &531874868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,9 +2844,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   camera_tribuna_y: 8.26
-  target: {fileID: 4935239685860100}
   offset: {x: 0, y: 1.95, z: 0}
   offset_lookAt: 0.95
+  filming_y: 0
+  originalSize: 5
+  zoomSize: 2
+  offsetShootingPlayer_z: 2.5
 --- !u!111 &963194230
 Animation:
   m_ObjectHideFlags: 0
@@ -3947,7 +3970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerField: {fileID: 1813587398}
-  secs: 0
 --- !u!1 &1609308987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4089,7 +4111,6 @@ MonoBehaviour:
   escudo: {fileID: 2137185225}
   scoreField: {fileID: 239358790}
   teamNameField: {fileID: 1273684123}
-  score: 0
   teamID: 1
 --- !u!1 &1644024819
 GameObject:
@@ -4773,7 +4794,6 @@ MonoBehaviour:
   escudo: {fileID: 881415382}
   scoreField: {fileID: 741117449}
   teamNameField: {fileID: 1086203433}
-  score: 0
   teamID: 2
 --- !u!1001 &1901443433
 PrefabInstance:
