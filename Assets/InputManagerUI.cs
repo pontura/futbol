@@ -53,24 +53,20 @@ public class InputManagerUI : MonoBehaviour
         }
         else
         {
-            //int id = 0;
-            ////for (id = 0; id < 3; id++)
-            ////{
-            //    if (InputManager.instance.GetButtonDown(id, InputAction.action1))
-            //        Events.OnButtonClick(0,1);
-            //if (InputManager.instance.GetButtonDown(id, InputAction.action2))
-            //        Events.OnButtonClick(0, 2);
-            //if (InputManager.instance.GetButtonDown(id, InputAction.action3))
-            //        Events.OnButtonClick(0, 3);
-            //// }
-            ///
-
-            if (InputManager.instance.GetButtonDown(0, InputAction.action1))
-                Events.OnButtonClick(0, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action2))
-                Events.OnButtonClick(0, 2);
-            else if (InputManager.instance.GetButtonDown(0, InputAction.action3))
-                Events.OnButtonClick(0, 3);
+            int id = 0;
+            for (id = 0; id < 3; id++)
+            {
+                if (InputManager.instance.GetButtonUp(id, InputAction.action1))
+                    Events.OnButtonClick(id+1,1);
+                if (InputManager.instance.GetButtonUp(id, InputAction.action2))
+                    Events.OnButtonClick(id + 1, 2);
+                if (InputManager.instance.GetButtonUp(id, InputAction.action3))
+                    Events.OnButtonClick(id + 1, 3);
+            }
+            horizontalAxis_team_1 = InputManager.instance.GetAxis(0, InputAction.horizontal);
+            horizontalAxis_team_2 = InputManager.instance.GetAxis(1, InputAction.horizontal);
+            verticalAxis_team_1 = InputManager.instance.GetAxis(0, InputAction.vertical);
+            verticalAxis_team_2 = InputManager.instance.GetAxis(1, InputAction.vertical);
         }
 
 

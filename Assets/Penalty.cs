@@ -29,6 +29,7 @@ public class Penalty : MonoBehaviour
         
 
         Events.OnButtonPressed += OnButtonPressed;
+        Events.OnButtonClick += OnButtonClick;
         Events.OnRestartGame += OnRestartGame;
         goalKeeper.isGoldKeeper = false;
         
@@ -47,6 +48,7 @@ public class Penalty : MonoBehaviour
     {
         Events.OnButtonPressed -= OnButtonPressed;
         Events.OnRestartGame -= OnRestartGame;
+        Events.OnButtonClick -= OnButtonClick;
     }
     void OnRestartGame()
     {
@@ -55,6 +57,10 @@ public class Penalty : MonoBehaviour
     void GotoGame()
     {
         Data.Instance.LoadLevel("Game");
+    }
+    void OnButtonClick(int playerID, int a)
+    {
+        OnButtonPressed(playerID, InputManagerUI.buttonTypes.BUTTON_1);
     }
     void OnButtonPressed(int playerID, InputManagerUI.buttonTypes type)
     {

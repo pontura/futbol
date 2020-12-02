@@ -5671,6 +5671,7 @@ MonoBehaviour:
   isBeingControlled: 0
   ai: {fileID: 0}
   isGoldKeeper: 0
+  scaleFactor: 0
 --- !u!136 &3160418783750167806
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6692,6 +6693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: team2.Array.data[0]
       value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[0]
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}

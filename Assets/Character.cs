@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public bool isGoldKeeper;
+    [HideInInspector] public float scaleFactor;
 
     void Awake()
     {
@@ -31,12 +32,13 @@ public class Character : MonoBehaviour
         ai = GetComponent<AI>();
     }
     public virtual void Start()
-    {
+    {        
         colliders = GetComponents<Collider>();
         Loop();
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
+        scaleFactor = Data.Instance.settings.gameplay.scaleFactor;
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
 
@@ -55,7 +57,7 @@ public class Character : MonoBehaviour
         GameObject asset = Instantiate(asset_to_instantiate);
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
-        asset.transform.localScale = Vector3.one;
+        asset.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         actions.Init(asset, teamID);
         
     }

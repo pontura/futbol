@@ -39,7 +39,7 @@ public class CharacterActions : MonoBehaviour
         if (teamID == 1) lookTo = -1;
         else lookTo = 1;
         Vector3 scale = transform.localScale;
-        scale.x *= lookTo;
+        scale.x *= (float)lookTo;
         transform.localScale = scale;
     }
     public void LookAtBall()

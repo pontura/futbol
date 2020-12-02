@@ -1,28 +1,30 @@
 {
-	"speed" :				5, 
-	"speedWithBall" :		4,	
+	"scaleFactor" :			0.7, 
+	"speed" :				4, 
+	"speedRun" :			5, 
+	"speedWithBall" :		3,	
 	"speedDash" :			10,	
 
-	"goalKeeperSpeed" :		2,	
-	"referiSpeed" :			2,
+	"goalKeeperSpeed" :		1.7,	
+	"referiSpeed" :			1.2,
 	
 	"dialoguesDuration":	4,
 	"timeToSwapCharactersAutomatically" : 0.7,
 	"forceBarSpeed" :		3,
 	
-	"kickHard" :			800,
+	"kickHard" :			700,
 	"kickHardAngle" :		280,
 	
-	"kickSoft" :			500,
+	"kickSoft" :			400,
 	"kickSoftAngle" :		110,
 	
-	"kickBaloon" :			250,
+	"kickBaloon" :			200,
 	"kickBaloonAngle" :		450,
 	
-	"kickHead" :			300,
+	"kickHead" :			250,
 	"kickHeadAngle" :		130,
 	
-	"kickChilena" :			800,
+	"kickChilena" :			700,
 	"kickChilenaAngle":		45	
 	
 } 

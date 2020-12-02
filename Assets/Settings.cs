@@ -26,6 +26,7 @@ public class Settings : MonoBehaviour
     public class GamePlay
     {
         public Vector2 limits = new Vector2(40, 20);
+        public float scaleFactor;
         public float speed;
         public float goalKeeperSpeed;
         public float referiSpeed;
