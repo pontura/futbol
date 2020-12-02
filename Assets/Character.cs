@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
         }
         if(ballCatcher != null)
             ballCatcher.SetRotation(_x, _y);
-        transform.Translate(Vector3.right * _x * speed*Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
     public void SetSignal(CharacterSignal signal)
     {
