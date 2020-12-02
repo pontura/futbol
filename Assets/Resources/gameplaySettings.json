@@ -4,6 +4,7 @@
 	"speedRun" :			5, 
 	"speedWithBall" :		3,	
 	"speedDash" :			10,	
+	"gk_CatchOnAir":		50,
 
 	"goalKeeperSpeed" :		1.7,	
 	"referiSpeed" :			1.2,

@@ -33,6 +33,7 @@ public class GoalMoment : MonoBehaviour
         else
             winners = charactersManager.team2;
 
+        Events.ChangeVolume("croud", 1);
         Data.Instance.matchData.OnGoal(teamID);
         Events.OnGoal(teamID, character);
         Game.Instance.cameraInGame.OnGoal(character);
@@ -43,13 +44,10 @@ public class GoalMoment : MonoBehaviour
 
         if (character.teamID == teamID)
             character_made_goal.actions.Goal();
-
-        yield return new WaitForSeconds(3);
-        Events.ChangeVolume("croud", 0.25f);
+        yield return new WaitForSeconds(3);        
         state = states.IDLE;
-        Events.PlaySound("crowd", "crowd_quiet", true);
-        
         yield return new WaitForSeconds(4);
+        Events.PlaySound("crowd", "crowd_quiet", true);
         Events.ChangeVolume("croud", 0.5f);
     }
     void OnRestartGame()

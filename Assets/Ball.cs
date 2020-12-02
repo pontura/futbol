@@ -12,7 +12,6 @@ public class Ball : MonoBehaviour
     Vector3 limits;
     float timeCatched;
 
-
     void Start()
     {
         Events.OnRestartGame += OnRestartGame;
@@ -50,7 +49,7 @@ public class Ball : MonoBehaviour
         {
             velocity.y = 0;
             rb.velocity = velocity;
-        } else if (transform.position.y < 3.1f && transform.position.z < 4.5f && transform.position.z > -4.5f)
+        } else if (transform.position.y < 3.3f && transform.position.z < 4.5f && transform.position.z > -4.5f)
         {
             if (transform.position.x <= (-limits.x / 2) + 0.25f)
                 Game.Instance.Goal(1, characterThatKicked);
@@ -58,8 +57,12 @@ public class Ball : MonoBehaviour
                 Game.Instance.Goal(2, characterThatKicked);
         }
         else
-        if (transform.position.x >= limits.x / 2 && rb.velocity.x > 0 || transform.position.x <= -limits.x / 2 && rb.velocity.x < 0)
+        if (transform.position.x > limits.x / 2  || transform.position.x < -limits.x / 2)
         {
+            float new_x = limits.x / 2;
+            if (transform.position.x < 0)   new_x  *= -1;
+            transform.position = new Vector3(new_x, transform.position.y, transform.position.z);
+
             Events.PlaySound("dogs", "wallFront_" + Random.Range(1,3), false);
             velocity.x *= -1;
         }
@@ -70,10 +73,7 @@ public class Ball : MonoBehaviour
             velocity.z *= -1;
         }
         rb.velocity = velocity;
-        Vector3 pos = transform.position;
-        if (transform.position.y < 0)
-            pos.y = 1;
-        transform.position = pos;
+        if (transform.position.y < 0) transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
     public void SetPlayer(Character _character)
     {
@@ -82,6 +82,18 @@ public class Ball : MonoBehaviour
     public Character GetCharacter()
     {
         return character;
+    }
+    void CharacterCatchBall(Character character)
+    {
+        timeCatched = Time.time;
+        characterThatKicked = character;
+        character.OnCatch(this);
+
+        if (this.character != null)
+            this.character.ballCatcher.LoseBall();
+
+        this.character = character;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -105,30 +117,27 @@ public class Ball : MonoBehaviour
             Character character = collision.gameObject.GetComponent<Character>();
 
             if (transform.localPosition.y < 0.9f && character != this.character)//character.ballCatcher.state == BallCatcher.states.IDLE)
+                CharacterCatchBall(character);
+            else if (character.isGoldKeeper)
             {
-                timeCatched = Time.time;
-                characterThatKicked = character;
-                character.OnCatch(this);
-                if(this.character != null)
-                    this.character.ballCatcher.LoseBall();
-                this.character = character;
-                rb.constraints = RigidbodyConstraints.FreezeAll;
-            }
-            else if(character.isGoldKeeper)
-            {
-                character.actions.GoalKeeperJump();
-            }
-            else if (transform.localPosition.y >1.5f &&
-                      (character.teamID == 1 && transform.position.x < - limits.x / 5 
+                int rand = Random.Range(0, 100);
+                if(rand < Data.Instance.settings.gameplay.gk_CatchOnAir)
+                    CharacterCatchBall(character);
+                else
+                    character.actions.GoalKeeperJump();
+            }                
+            else if (transform.localPosition.y > 1.5f &&
+                      (character.teamID == 1 && transform.position.x < -limits.x / 5
                     || character.teamID == 2 && transform.position.x > limits.x / 5))
             {
                 characterThatKicked = character;
                 character.SetCollidersOff();
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);
                 AimGoal(character);
-                Kick(CharacterActions.kickTypes.CHILENA);               
+                Kick(CharacterActions.kickTypes.CHILENA);
             }
-            else {
+            else
+            {
                 characterThatKicked = character;
                 character.SetCollidersOff();
                 transform.eulerAngles = character.ballCatcher.container.transform.eulerAngles;

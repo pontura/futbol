@@ -36,6 +36,7 @@ public class Settings : MonoBehaviour
         public float dialoguesDuration;
         public float timeToSwapCharactersAutomatically = 0.7f;        
         public float forceBarSpeed;
+        public int gk_CatchOnAir;
 
         public float kickHard;
         public float kickHardAngle;
