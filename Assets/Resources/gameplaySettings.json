@@ -1,0 +1,28 @@
+{
+	"speed" :				5, 
+	"speedWithBall" :		4,	
+	"speedDash" :			10,	
+
+	"goalKeeperSpeed" :		2,	
+	"referiSpeed" :			2,
+	
+	"dialoguesDuration":	4,
+	"timeToSwapCharactersAutomatically" : 0.7,
+	"forceBarSpeed" :		3,
+	
+	"kickHard" :			800,
+	"kickHardAngle" :		280,
+	
+	"kickSoft" :			500,
+	"kickSoftAngle" :		110,
+	
+	"kickBaloon" :			250,
+	"kickBaloonAngle" :		450,
+	
+	"kickHead" :			300,
+	"kickHeadAngle" :		130,
+	
+	"kickChilena" :			800,
+	"kickChilenaAngle":		45	
+	
+} 

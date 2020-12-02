@@ -37,7 +37,7 @@ public class Referi : Character
     public void InitReferi(CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
         this.charactersManager = charactersManager;
-        speed = Data.Instance.settings.referiSpeed;
+        speed = Data.Instance.settings.gameplay.referiSpeed;
         GameObject asset = Instantiate(asset_to_instantiate);
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;

@@ -117,7 +117,7 @@ public class CharactersManager : MonoBehaviour
     {
         CheckStateByTeam(team1[0]);
         CheckStateByTeam(team2[0]);
-        Invoke("Loop", Data.Instance.settings.timeToSwapCharactersAutomatically);
+        Invoke("Loop", Data.Instance.settings.gameplay.timeToSwapCharactersAutomatically);
     }
     void CheckStateByTeam(Character character)
     {

@@ -45,11 +45,11 @@ public class Character : MonoBehaviour
         if (isGoldKeeper)
         {
             dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
-            speed = Data.Instance.settings.goalKeeperSpeed;
+            speed = Data.Instance.settings.gameplay.goalKeeperSpeed;
         }   else
         {
             dataSources = CharactersData.Instance.all[data.id - 1];
-            speed = Data.Instance.settings.speed;
+            speed = Data.Instance.settings.gameplay.speed;
         }
         
         GameObject asset = Instantiate(asset_to_instantiate);
@@ -86,7 +86,7 @@ public class Character : MonoBehaviour
             }
         }
         actions.Reset();
-        speed = Data.Instance.settings.speedWithBall;
+        speed = Data.Instance.settings.gameplay.speedWithBall;
         this.ball = _ball;
         ballCatcher.Catch(ball);
         charactersManager.CharacterCatchBall(this);
@@ -122,7 +122,7 @@ public class Character : MonoBehaviour
     }
     public void ChangeSpeedTo(float value)
     {
-        speed = Data.Instance.settings.speed + value;
+        speed = Data.Instance.settings.gameplay.speed + value;
     }
     public virtual void MoveTo(int _x, int _y)
     {

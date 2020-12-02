@@ -44,7 +44,7 @@ public class UIForce : MonoBehaviour
     private void Reset()
     {
         dir = 1;
-        speed = Data.Instance.settings.forceBarSpeed;
+        speed = Data.Instance.settings.gameplay.forceBarSpeed;
         CancelInvoke();
     }
     void OnEnable()

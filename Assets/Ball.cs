@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         Events.OnRestartGame += OnRestartGame;
-        limits = Data.Instance.settings.limits;
+        limits = Data.Instance.settings.gameplay.limits;
         container = transform.parent;
         this.rb = GetComponent<Rigidbody>();
         Reset();
@@ -119,8 +119,8 @@ public class Ball : MonoBehaviour
                 character.actions.GoalKeeperJump();
             }
             else if (transform.localPosition.y >1.5f &&
-                      (character.teamID == 1 && transform.position.x < -Data.Instance.settings.limits.x / 5 
-                    || character.teamID == 2 && transform.position.x >  Data.Instance.settings.limits.x / 5))
+                      (character.teamID == 1 && transform.position.x < - limits.x / 5 
+                    || character.teamID == 2 && transform.position.x > limits.x / 5))
             {
                 characterThatKicked = character;
                 character.SetCollidersOff();
@@ -197,33 +197,33 @@ public class Ball : MonoBehaviour
         {
             case CharacterActions.kickTypes.HARD:
                 Events.PlaySound("common", "kick3", false);
-                dir *= Data.Instance.settings.kickHard* force;
-                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickHard* force;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.SOFT:
                 Events.PlaySound("common", "kick2", false);
-                dir *= Data.Instance.settings.kickSoft * force;
-                dir += Vector3.up * Data.Instance.settings.kickSoftAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickSoft * force;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
                 Events.PlaySound("common", "kick1", false);
-                dir *= Data.Instance.settings.kickBaloon * force;
-                dir += Vector3.up * Data.Instance.settings.kickBaloonAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickBaloon * force;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
                 Events.PlaySound("common", "kick1", false);
-                dir *= Data.Instance.settings.kickHead * force;
-                dir += Vector3.up * Data.Instance.settings.kickHeadAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickHead * force;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
                 Events.PlaySound("common", "kick3", false);
-                dir *= Data.Instance.settings.kickChilena * force;
-                dir += Vector3.up * Data.Instance.settings.kickChilenaAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickChilena * force;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 Events.PlaySound("common", "kick3", false);
-                dir *= Data.Instance.settings.kickHard * 1.5f;
-                dir += Vector3.up * Data.Instance.settings.kickHardAngle * force;
+                dir *= Data.Instance.settings.gameplay.kickHard * 1.5f;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickHardAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;

@@ -168,7 +168,7 @@ public class CharacterActions : MonoBehaviour
         CancelInvoke();
         this.state = states.DASH;
         anim.Play("dash");
-        character.ChangeSpeedTo(Data.Instance.settings.speedDash);
+        character.ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
 
         Invoke("Reset", 0.25f);
     }
@@ -187,7 +187,7 @@ public class CharacterActions : MonoBehaviour
     public void Pita()
     {
         anim.Play("start");
-        print("pito");
+
         Events.PlaySound("common", "pito", false);
     }
     public void Action()

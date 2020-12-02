@@ -55,9 +55,9 @@ public class AIPosition : MonoBehaviour
         {
             gotoPosition = originalPosition;
             if(ai.character.teamID == 1)
-                gotoPosition.x = originalPosition.x - (Data.Instance.settings.limits.x / 2) + ((float)Random.Range(0,30)/10);
+                gotoPosition.x = originalPosition.x - (Data.Instance.settings.gameplay.limits.x / 2) + ((float)Random.Range(0,30)/10);
             else
-                gotoPosition.x = originalPosition.x + (Data.Instance.settings.limits.x / 2) - ((float)Random.Range(0, 30)/10);
+                gotoPosition.x = originalPosition.x + (Data.Instance.settings.gameplay.limits.x / 2) - ((float)Random.Range(0, 30)/10);
 
             gotoPosition.z += ((float)Random.Range(-30, 30) / 10);
             SetLimits();
@@ -73,9 +73,9 @@ public class AIPosition : MonoBehaviour
     }
     void SetLimits()
     {
-        if (Mathf.Abs(gotoPosition.z) > Data.Instance.settings.limits.y / 2)
+        if (Mathf.Abs(gotoPosition.z) > Data.Instance.settings.gameplay.limits.y / 2)
             gotoPosition.z = originalPosition.z;
-        if (Mathf.Abs(gotoPosition.x) > Data.Instance.settings.limits.x / 2)
+        if (Mathf.Abs(gotoPosition.x) > Data.Instance.settings.gameplay.limits.x / 2)
             gotoPosition.x = originalPosition.x;
     }
     float GetRandomBetween(int a, int b)

@@ -20,35 +20,37 @@ public class Settings : MonoBehaviour
         public Color clothColorD;
     }
     public Vector2 selectedTeams;
+    public GamePlay gameplay;
 
-    public float timeToSwapCharactersAutomatically = 0.7f;
+    [Serializable]
+    public class GamePlay
+    {
+        public Vector2 limits = new Vector2(40, 20);
+        public float speed;
+        public float goalKeeperSpeed;
+        public float referiSpeed;
+        public float speedWithBall;
+        public float speedDash;
+        public Vector2 dialoguesTimeToAppear = new Vector2(2, 4);
+        public float dialoguesDuration;
+        public float timeToSwapCharactersAutomatically = 0.7f;        
+        public float forceBarSpeed;
 
-    public Vector2 limits = new Vector2(40, 20);
-    public float forceBarSpeed;
+        public float kickHard;
+        public float kickHardAngle;
 
-    public float kickHard;
-    public float kickHardAngle;
+        public float kickSoft;
+        public float kickSoftAngle;
 
-    public float kickSoft;
-    public float kickSoftAngle;
+        public float kickBaloon;
+        public float kickBaloonAngle;
 
-    public float kickBaloon;
-    public float kickBaloonAngle;
+        public float kickHead;
+        public float kickHeadAngle;
 
-    public float kickHead;
-    public float kickHeadAngle;
-
-    public float kickChilena;
-    public float kickChilenaAngle;
-
-    public float speed;
-    public float goalKeeperSpeed;
-    public float referiSpeed;
-    public float speedWithBall;
-    public float speedDash;
-
-    public Vector2 dialoguesTimeToAppear;
-    public float dialoguesDuration;
+        public float kickChilena;
+        public float kickChilenaAngle;      
+    }   
 
     public TeamSettings GetTeamSettings(int teamID)
     {
@@ -58,4 +60,9 @@ public class Settings : MonoBehaviour
             return teamSettings[(int)Data.Instance.settings.selectedTeams.y];
     }
 
+    void Awake()
+    {
+        TextAsset targetFile = Resources.Load<TextAsset>("gameplaySettings");
+        gameplay = JsonUtility.FromJson<GamePlay>(targetFile.text);
+    }
 }
