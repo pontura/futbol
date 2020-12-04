@@ -5,6 +5,7 @@ using System;
 
 public class Settings : MonoBehaviour
 {
+    public int totalPlayers = 1;
     public int totalTime;
     public TeamSettings[] teamSettings;
     [Serializable]

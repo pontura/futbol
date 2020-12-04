@@ -93,7 +93,7 @@ public class Character : MonoBehaviour
                 _ball.character.actions.StartCoroutine( _ball.character.actions.Freeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall) );
             }
         }
-        actions.Reset();
+       // actions.Reset();
         speed = Data.Instance.settings.gameplay.speedWithBall;
         ballCatcher.Catch(Game.Instance.ball);
         charactersManager.CharacterCatchBall(this);

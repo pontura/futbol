@@ -37,6 +37,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
+
         totalPlayers = CharactersData.Instance.team1.Count;
         teamID_1 = 1;
         teamID_2 = 2;
@@ -61,12 +62,9 @@ public class CharactersManager : MonoBehaviour
         }
         Loop();
 
-        if (totalPlayersActive > 0)
-        {
-            AddCharacter(1);
-            AddCharacter(2);
-        }
-        //AddCharacter(2);
+        for (int a = 0; a < totalPlayersActive; a++)
+            AddCharacter(a+1);
+
     }
     public void InitPenalty(int totalPlayersActive)
     {

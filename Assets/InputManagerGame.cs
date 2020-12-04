@@ -6,7 +6,6 @@ using LeoLuz.PlugAndPlayJoystick;
 public class InputManagerGame : MonoBehaviour
 {
     public CharactersManager charactersManager;
-   
     public GameObject joystickAsset;
     public AnalogicKnob analogicKnob;
     float input_x_sensibilitty;
@@ -47,7 +46,7 @@ public class InputManagerGame : MonoBehaviour
         }
         else
         {
-            for (int a = 0; a < 2; a++)
+            for (int a = 0; a < Data.Instance.settings.totalPlayers; a++)
             {
                 float _x = InputManager.instance.GetAxis(a, InputAction.horizontal) * input_x_sensibilitty;
                 float _y = InputManager.instance.GetAxis(a, InputAction.vertical);

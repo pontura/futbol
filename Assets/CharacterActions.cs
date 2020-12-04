@@ -33,8 +33,11 @@ public class CharacterActions : MonoBehaviour
         KICK_TO_GOAL,
         DESPEJE_GOALKEEPER
     }
+    Ball ball;
     public void Init(GameObject go, int teamID)
     {
+        if(Game.Instance != null)
+            ball = Game.Instance.ball;
         character = GetComponent<Character>();
         anim = go.GetComponent<Animator>();
         if (teamID == 1) lookTo = -1;
@@ -45,17 +48,23 @@ public class CharacterActions : MonoBehaviour
     }
     public void LookAtBall()
     {
-        if (Game.Instance.ball.transform.position.x > transform.position.x)
+        if (ball.transform.position.x > transform.position.x)
             LookTo(1);
         else
             LookTo(-1);
     }
     public virtual void Idle()
     {
-        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
+        if (state == states.IDLE)
+        {
+            PlayAnim("idle");
             return;
+        } else if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
+            return;
+        StopAllCoroutines();
+        CancelInvoke();
         this.state = states.IDLE;
-        anim.Play("idle");
+        PlayAnim("idle");
         LookAtBall();
     }
     int lookTo;
@@ -80,26 +89,30 @@ public class CharacterActions : MonoBehaviour
     public virtual void SuperRun()
     {
         runFast = true;
-        anim.Play("runBoost");
+        PlayAnim("runBoost");
     }
     public virtual void Run()
     {
         runFast = false;
-        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        if (state == states.RUN || state == states.ACTION_DONE)
+        {
+            PlayAnim("run");
+            return;
+        } else if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
-        anim.Play("run");
+        PlayAnim("run");
     }
     public virtual void EnterCancha()
     {
-        anim.Play("enter");
+        PlayAnim("enter");
     }
     public void GoalKeeperHands()
     {
         this.state = states.SPECIAL_ACTION;
         if (Random.Range(0, 10) < 5)
         {
-            anim.Play("jump");
+            PlayAnim("jump");
             Invoke("ResetSpecial", 1.5f);
         }
     }
@@ -117,13 +130,13 @@ public class CharacterActions : MonoBehaviour
     {
         if (id == 0)
         {
-            anim.Play("jump");
+            PlayAnim("jump");
             if(resetJump)
                 Invoke("ResetSpecial", 1.1f);
         }
         else
         {
-            anim.Play("jump2");
+            PlayAnim("jump2");
             if (resetJump)
                 Invoke("ResetSpecial", 1.5f);
         }
@@ -133,7 +146,7 @@ public class CharacterActions : MonoBehaviour
         if (state == states.KICKED || state == states.GOAL)
             return;
         this.state = states.GOAL;
-        anim.Play("goal");
+        PlayAnim("goal");
     }
     public void Kick(kickTypes kickType)
     {
@@ -149,22 +162,22 @@ public class CharacterActions : MonoBehaviour
                 LookTo(1);
             else
                 LookTo(-1);
-            anim.Play("chilena");
+            PlayAnim("chilena");
             Invoke("Reset", 0.75f);
         }
         else if (kickType == kickTypes.HEAD)
         {
-            anim.Play("head");
+            PlayAnim("head");
             Invoke("Reset", 0.5f);
         }
         else
         {
             if (kickType == kickTypes.BALOON)
-                anim.Play("kick");
+                PlayAnim("kick");
             else if (kickType == kickTypes.HARD)
-                anim.Play("kick_power");
+                PlayAnim("kick_power");
             else if (kickType == kickTypes.SOFT)
-                anim.Play("kick_soft");
+                PlayAnim("kick_soft");
             Invoke("Reset", 0.35f);
         }
 
@@ -177,15 +190,17 @@ public class CharacterActions : MonoBehaviour
         CancelInvoke();
         StopAllCoroutines();
         this.state = states.DASH;
-        anim.Play("dash");
+        PlayAnim("dash");
         character.ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
         StartCoroutine( DashC(0.25f) );
     }
     IEnumerator DashC(float duration)
     {
         yield return new WaitForSeconds(duration);
-        if(Game.Instance.ball.character != character)
+        if (ball.character != character)
             StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_dash));
+        else
+            Idle();
     }
     public IEnumerator Freeze(float delay, float duration)
     {
@@ -207,11 +222,11 @@ public class CharacterActions : MonoBehaviour
     {
         CancelInvoke();
         StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall));
-        anim.Play("kicked");
+        PlayAnim("kicked");
     }
     public void Pita()
     {
-        anim.Play("start");
+        PlayAnim("start");
 
         Events.PlaySound("common", "pito", false);
     }
@@ -221,12 +236,22 @@ public class CharacterActions : MonoBehaviour
             return;
         CancelInvoke();
         state = states.SPECIAL_ACTION;
-        anim.Play("action");
+        PlayAnim("action");
         Invoke("ResetSpecial", 2f);
     }
     void ResetSpecial()
     {
         state = states.ACTION_DONE;
         Idle();
+    }
+    string lastAnimPlayed;
+    void PlayAnim(string animName)
+    {
+        if (lastAnimPlayed == animName)
+            return;
+        //if (character.isBeingControlled)
+        //    print("animName " + animName);
+        lastAnimPlayed = animName;
+        anim.Play(animName);
     }
 }

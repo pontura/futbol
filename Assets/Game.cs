@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
             charactersManager.InitPenalty(1);
         else
         {
-            charactersManager.Init(2);
+            charactersManager.Init(Data.Instance.settings.totalPlayers);
             StartCoroutine(OnWaitToStart());
         }
     }
