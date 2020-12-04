@@ -175,11 +175,17 @@ public class CharacterActions : MonoBehaviour
             return;
         Events.PlaySound("common", "dash", false);
         CancelInvoke();
+        StopAllCoroutines();
         this.state = states.DASH;
         anim.Play("dash");
         character.ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
-        float timeToReset = 0;
-        StartCoroutine( Freeze(0.25f, timeToReset) );
+        StartCoroutine( DashC(0.25f) );
+    }
+    IEnumerator DashC(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if(Game.Instance.ball.character != character)
+            StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_dash));
     }
     public IEnumerator Freeze(float delay, float duration)
     {
