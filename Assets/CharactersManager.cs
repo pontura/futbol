@@ -16,8 +16,7 @@ public class CharactersManager : MonoBehaviour
     public bool player3;
     public bool player4;
 
-    public int totalPlayers = 0;
-    int totalCharatersInTeam = 6;
+    int totalPlayers = 0;
     public GameObject containerTeam1, containerTeam2;
     public List<Character> team1;
     public List<Character> team2;
@@ -38,6 +37,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
+        totalPlayers = CharactersData.Instance.team1.Count;
         teamID_1 = 1;
         teamID_2 = 2;
         ball = Game.Instance.ball;
@@ -49,14 +49,14 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, id));
+            character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, id, character.GetComponent<GoalKeeper>() != null));
             id++;
         }
         id = 0;
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id));
+            character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id, character.GetComponent<GoalKeeper>() != null));
             id++;
         }
         Loop();
@@ -84,16 +84,17 @@ public class CharactersManager : MonoBehaviour
         limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
         limits.x -= 1;
 
+        //patea:
         Character character = containerTeam1.GetComponentInChildren<Character>();
         team1.Add(character);
-        character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(0,3)));
+        character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(0, CharactersData.Instance.team2.Count-2), false));
         character.actions.LookTo(-1); //mira a la izquierda siempre:
         Events.OnPenaltyWaitingToKick(character, GetComponent<Penalty>().PenaltyPita);
 
-
+        //ataja:
         character = containerTeam2.GetComponentInChildren<Character>();
         team2.Add(character);
-        character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, 4));
+        character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, CharactersData.Instance.team2.Count-1, true));
 
         if (totalPlayersActive > 0)
         {
@@ -143,7 +144,7 @@ public class CharactersManager : MonoBehaviour
     void CheckForNewDefender(int teamID)
     {
         Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
-        if (ball.character != null && ball.character.isGoldKeeper)
+        if (ball.character != null && ball.character.isGoalKeeper)
             return;
         if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
             return;
@@ -168,7 +169,6 @@ public class CharactersManager : MonoBehaviour
         Character character = GetNextCharacterByTeam(teamID);
         character.id = id;
         playingCharacters.Add(character);
-        totalPlayers++;
         signals.Add(character);
         character.SetControlled(true);
     }
@@ -192,7 +192,7 @@ public class CharactersManager : MonoBehaviour
             if (c.characterID != myCharacter.characterID)
             {
                 float distance = Vector3.Distance(c.transform.position, myCharacter.transform.position);
-                if (distanceMin > distance && !c.isGoldKeeper)
+                if (distanceMin > distance && !c.isGoalKeeper)
                 {
                     character = c;
                     distanceMin = distance;
@@ -212,7 +212,7 @@ public class CharactersManager : MonoBehaviour
         foreach (Character c in team)
         {
             float distance = Vector3.Distance(c.transform.position, pos);
-            if (distanceMin > distance && !c.isGoldKeeper)
+            if (distanceMin > distance && !c.isGoalKeeper)
             {
                 if (hasControl)
                 {
@@ -237,11 +237,11 @@ public class CharactersManager : MonoBehaviour
         {
             case 1:
                 team_1_id++;
-                if (team_1_id > totalCharatersInTeam) team_1_id = 1;
+                if (team_1_id > totalPlayers) team_1_id = 1;
                 return team1[team_1_id - 1];
             case 2:
                 team_2_id++;
-                if (team_2_id > totalCharatersInTeam) team_2_id = 1;
+                if (team_2_id > totalPlayers) team_2_id = 1;
                 return team2[team_2_id - 1];
         }
         return null;    

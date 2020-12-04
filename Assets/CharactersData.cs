@@ -100,10 +100,10 @@ public class CharactersData : MonoBehaviour
             availablesTeam2.Remove(id);
         }
     }
-    public GameObject GetCharacter(int teamID, int id)
+    public GameObject GetCharacter(int teamID, int id, bool isGoalKeeper)
     {
         if (teamID == 1)
-            if (id < 4)
+            if (!isGoalKeeper)
             {
                 return all[team1[id] - 1].asset;
             }
@@ -112,7 +112,7 @@ public class CharactersData : MonoBehaviour
                 return all_goalkeepers[team1[id] - 1].asset;
             }
         else
-             if (id < 4)
+             if (!isGoalKeeper)
             {
                 return all[team2[id] - 1].asset;
             }

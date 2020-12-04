@@ -61,7 +61,7 @@ public class CharacterActions : MonoBehaviour
     int lookTo;
     public virtual void LookTo(int v )
     {
-        if (character.isGoldKeeper)
+        if (character.isGoalKeeper)
             return;
         if (lookTo != v)
         {

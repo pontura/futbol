@@ -1319,7 +1319,6 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 0
-  totalPlayers: 0
   containerTeam1: {fileID: 251931617}
   containerTeam2: {fileID: 636111528}
   team1: []
@@ -5841,7 +5840,7 @@ MonoBehaviour:
   ballCatcher: {fileID: 0}
   isBeingControlled: 0
   ai: {fileID: 0}
-  isGoldKeeper: 0
+  isGoalKeeper: 0
   scaleFactor: 0
 --- !u!136 &3160418783750167806
 CapsuleCollider:
@@ -6857,43 +6856,183 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
-      propertyPath: team1.Array.size
+      propertyPath: availablesTeam1.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
-      propertyPath: team2.Array.size
+      propertyPath: availablesTeam2.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1_goalkeepers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2_goalkeepers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availableReferis.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[1]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[3]
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: team1.Array.data[4]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: team2.Array.data[0]
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: team1.Array.data[0]
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: team1.Array.data[5]
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
-      propertyPath: team2.Array.data[5]
-      value: 4
+      propertyPath: team2.Array.data[0]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team2.Array.data[1]
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team2.Array.data[2]
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team2.Array.data[3]
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: team2.Array.data[4]
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[1]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[3]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[4]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1.Array.data[5]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[0]
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[2]
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[3]
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[4]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2.Array.data[5]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1_goalkeepers.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1_goalkeepers.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam1_goalkeepers.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2_goalkeepers.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2_goalkeepers.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availablesTeam2_goalkeepers.Array.data[2]
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availableReferis.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: availableReferis.Array.data[1]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}

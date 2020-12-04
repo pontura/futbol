@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameIntro : MonoBehaviour
 {
     public float speed = 2;
+    int totalCharacters;
 
     public CharactersManager charactersManager;
     void Start()
     {
+        totalCharacters = CharactersData.Instance.team1.Count;
         Events.ChangeVolume("croud", 0.25f);
        
 
@@ -51,7 +53,7 @@ public class GameIntro : MonoBehaviour
         Events.ChangeVolume("croud", vol);
         Events.PlaySound("crowd", "crowd_gol", true);
         Character character;
-        for (int id = 0; id<5; id++)
+        for (int id = 0; id< totalCharacters; id++)
         {
             character = charactersManager.team1[id];
             StartCoroutine(SetCharacterOn(character));
@@ -73,7 +75,7 @@ public class GameIntro : MonoBehaviour
         character.actions.EnterCancha();
         Events.OnIntroSound(0, character);
         // if(Random.Range(0,10)>3)
-        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoldKeeper));
+        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoalKeeper));
     }
     void Update()
     {

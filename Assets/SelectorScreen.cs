@@ -16,13 +16,13 @@ public class SelectorScreen : MonoBehaviour
     public Text referiName;
 
     Ruleta[] character1;
-    Ruleta[] character2;
-
-    
+    Ruleta[] character2;    
 
     public Text[] character1_texts;
     public Text[] character2_texts;
     public int teamsDone;
+    int totalPlayers;
+
     public enum states
     {
         IDLE,
@@ -41,6 +41,8 @@ public class SelectorScreen : MonoBehaviour
 
         character1_texts = characters1_container.GetComponentsInChildren<Text>();
         character2_texts = characters2_container.GetComponentsInChildren<Text>();
+
+        totalPlayers = character1_texts.Length;
 
         all = new List<Sprite>();
         foreach (Settings.TeamSettings data in Data.Instance.settings.teamSettings) all.Add(data.escudo);
@@ -110,7 +112,7 @@ public class SelectorScreen : MonoBehaviour
         List<Sprite> all = CharactersData.Instance.GetAvailablePlayers(teamID, isGoalKeeper);
         if (teamID == 1)
         {
-            if (team1_characterID >= 5)
+            if (team1_characterID >= totalPlayers)
             {
                 TeamReady();
                 return;
@@ -122,7 +124,7 @@ public class SelectorScreen : MonoBehaviour
         }
         else
         {
-            if (team2_characterID >= 5)
+            if (team2_characterID >= totalPlayers)
             {
                 TeamReady();
                 return;
@@ -137,7 +139,7 @@ public class SelectorScreen : MonoBehaviour
     {
         int characterID;
         team1_characterID++;
-        if (team1_characterID >= 5)
+        if (team1_characterID >= totalPlayers)
         {
             characterID = CharactersData.Instance.availablesTeam1_goalkeepers[id];
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
@@ -151,7 +153,7 @@ public class SelectorScreen : MonoBehaviour
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
             CharactersData.Instance.AddCharacterToTeam(1, characterID);
-            if(team1_characterID == 4)
+            if(team1_characterID == totalPlayers-1)
                 SetCharacter(1, true);
             else
                 SetCharacter(1, false);
@@ -162,7 +164,7 @@ public class SelectorScreen : MonoBehaviour
     {
         int characterID;
         team2_characterID++;
-        if (team2_characterID >= 5)
+        if (team2_characterID >= totalPlayers)
         {
             characterID = CharactersData.Instance.availablesTeam2_goalkeepers[id];
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
@@ -176,7 +178,7 @@ public class SelectorScreen : MonoBehaviour
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
             CharactersData.Instance.AddCharacterToTeam(2, characterID);
-            if (team2_characterID == 4)
+            if (team2_characterID == totalPlayers - 1)
                 SetCharacter(2, true);
             else
                 SetCharacter(2, false);

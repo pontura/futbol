@@ -19,13 +19,13 @@ public class Character : MonoBehaviour
     [HideInInspector] public BallCatcher ballCatcher;
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
-    [HideInInspector] public bool isGoldKeeper;
+    [HideInInspector] public bool isGoalKeeper;
     [HideInInspector] public float scaleFactor;
 
     void Awake()
     {
         if (GetComponent<GoalKeeper>())
-            isGoldKeeper = true;
+            isGoalKeeper = true;
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
@@ -42,8 +42,8 @@ public class Character : MonoBehaviour
         this.teamID = _temaID;
 
         this.characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
-        data = Data.Instance.textsData.GetCharactersData(characterID, isGoldKeeper);
-        if (isGoldKeeper)
+        data = Data.Instance.textsData.GetCharactersData(characterID, isGoalKeeper);
+        if (isGoalKeeper)
         {
             dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
             speed = Data.Instance.settings.gameplay.goalKeeperSpeed;
@@ -114,7 +114,7 @@ public class Character : MonoBehaviour
         actions.Kick(kickType);
         if (Game.Instance.ball.GetCharacter() == this)
         {
-            if (Game.Instance.ball.character.isGoldKeeper)
+            if (Game.Instance.ball.character.isGoalKeeper)
                 Invoke("AutomaticChangePlayer", 0.1f);
             Game.Instance.ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();            
