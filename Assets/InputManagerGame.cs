@@ -55,8 +55,7 @@ public class InputManagerGame : MonoBehaviour
 
                 if (charactersManager != null)
                     charactersManager.SetPosition(a+1, _x, _y);
-            }
-          
+            }        
 
             for (int a = 0; a < 2; a++)
             {
@@ -73,34 +72,6 @@ public class InputManagerGame : MonoBehaviour
                 else if (InputManager.instance.GetButtonUp(a, InputAction.action3))
                     GetButtonUp(3, a + 1);
             }
-
-
-
-            // if (Input.GetKeyDown(KeyCode.Alpha1)) Events.KickToGoal();
-
-            // //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
-            // //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
-            //// if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
-            //// if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
-
-            // for (int id = 1; id < charactersManager.totalPlayers + 1; id++)
-            // {
-            //     float _x = Input.GetAxis("Horizontal" + id);
-            //     float _y = Input.GetAxis("Vertical" + id);
-
-            //     if (charactersManager != null)
-            //         charactersManager.SetPosition(id, _x, _y);
-
-            //     if (Input.GetButtonDown("Button1_" + id))
-            //         ButtonPressed(1, id);
-
-            //     else if (Input.GetButtonDown("Button2_" + id))
-            //         ButtonPressed(2, id);
-
-            //     else if (Input.GetButtonDown("Button3_" + id))
-            //         ButtonPressed(3, id);
-
-            // }
         }
     }
     public void OnMobileButtonPressed(int id)
@@ -128,7 +99,15 @@ public class InputManagerGame : MonoBehaviour
         if (playerID == 1)
             lastButtonDown_p1 = buttonID;
         else
+        {
+            if(Data.Instance.settings.totalPlayers == 1)
+            {
+                AddPlayer();
+                return;
+            }
             lastButtonDown_p2 = buttonID;
+        }
+            
 
         if (charactersManager != null)
             charactersManager.ButtonPressed(buttonID, playerID);
@@ -144,5 +123,10 @@ public class InputManagerGame : MonoBehaviour
             charactersManager.ButtonUp(buttonID, playerID);
         else
             Events.OnButtonClick(buttonID, playerID);
+    }
+    void AddPlayer()
+    {
+        Data.Instance.settings.totalPlayers++;
+        Game.Instance.charactersManager.AddCharacter(2);
     }
 }
