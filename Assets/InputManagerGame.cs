@@ -9,6 +9,7 @@ public class InputManagerGame : MonoBehaviour
    
     public GameObject joystickAsset;
     public AnalogicKnob analogicKnob;
+    float input_x_sensibilitty;
 
     private void Start()
     {
@@ -16,8 +17,19 @@ public class InputManagerGame : MonoBehaviour
             joystickAsset.SetActive(true);
         else
             joystickAsset.SetActive(false);
-    }
+        input_x_sensibilitty = Data.Instance.settings.gameplay.input_x_sensibilitty;
 
+        Events.CharacterCatchBall += CharacterCatchBall;
+    }
+    private void OnDestroy()
+    {
+        Events.CharacterCatchBall -= CharacterCatchBall;
+    }
+    void CharacterCatchBall(Character ch)
+    {
+        lastButtonDown_p1 = 0;
+        lastButtonDown_p2 = 0;
+    }
     void Update()
     {
         if (Game.Instance.state != Game.states.PLAYING)
@@ -35,25 +47,33 @@ public class InputManagerGame : MonoBehaviour
         }
         else
         {
-            float _x = InputManager.instance.GetAxis(0, InputAction.horizontal);
-            float _y = InputManager.instance.GetAxis(0, InputAction.vertical);
-            if (_x > 0) _x = 1; else if (_x < 0) _x = -1;
-            if (_y > 0) _y = 1; else if (_y < 0) _y = -1;
-            if (charactersManager != null)
-                charactersManager.SetPosition(1, _x, _y);
+            for (int a = 0; a < 2; a++)
+            {
+                float _x = InputManager.instance.GetAxis(a, InputAction.horizontal) * input_x_sensibilitty;
+                float _y = InputManager.instance.GetAxis(a, InputAction.vertical);
+                if (_x > 1) _x = 1;
+                else if (_x < -1) _x = -1;
 
-            if(InputManager.instance.GetButtonDown(0, InputAction.action1))
-                GetButtonDown(1, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action1))
-                GetButtonUp(1, 1);
-            else if(InputManager.instance.GetButtonDown(0, InputAction.action2))
-                GetButtonDown(2, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action2))
-                GetButtonUp(2, 1);
-            else if(InputManager.instance.GetButtonDown(0, InputAction.action3))
-                GetButtonDown(3, 1);
-            else if (InputManager.instance.GetButtonUp(0, InputAction.action3))
-                GetButtonUp(3, 1);
+                if (charactersManager != null)
+                    charactersManager.SetPosition(a+1, _x, _y);
+            }
+          
+
+            for (int a = 0; a < 2; a++)
+            {
+                if (InputManager.instance.GetButtonDown(a, InputAction.action1))
+                    GetButtonDown(1, a+1);
+                else if (InputManager.instance.GetButtonUp(a, InputAction.action1))
+                    GetButtonUp(1, a + 1);
+                else if (InputManager.instance.GetButtonDown(a, InputAction.action2))
+                    GetButtonDown(2, a + 1);
+                else if (InputManager.instance.GetButtonUp(a, InputAction.action2))
+                    GetButtonUp(2, a + 1);
+                else if (InputManager.instance.GetButtonDown(a, InputAction.action3))
+                    GetButtonDown(3, a + 1);
+                else if (InputManager.instance.GetButtonUp(a, InputAction.action3))
+                    GetButtonUp(3, a + 1);
+            }
 
 
 
@@ -102,8 +122,15 @@ public class InputManagerGame : MonoBehaviour
         else
             GetButtonUp(3, 1);
     }
+    int lastButtonDown_p1;
+    int lastButtonDown_p2;
     void GetButtonDown(int buttonID, int playerID)
     {
+        if (playerID == 1)
+            lastButtonDown_p1 = buttonID;
+        else
+            lastButtonDown_p2 = buttonID;
+
         if (charactersManager != null)
             charactersManager.ButtonPressed(buttonID, playerID);
         else
@@ -111,6 +138,9 @@ public class InputManagerGame : MonoBehaviour
     }
     void GetButtonUp(int buttonID, int playerID)
     {
+        if (playerID == 1 && lastButtonDown_p1 != buttonID
+            || playerID == 2 && lastButtonDown_p2 != buttonID)
+            return;
         if (charactersManager != null)
             charactersManager.ButtonUp(buttonID, playerID);
         else

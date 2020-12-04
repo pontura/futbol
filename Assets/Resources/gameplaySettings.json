@@ -1,12 +1,17 @@
 {
 	"scaleFactor" :			0.7, 
-	"speed" :				4, 
-	"speedRun" :			5, 
-	"speedWithBall" :		3,	
-	"speedDash" :			10,	
-	"gk_CatchOnAir":		50,
-
-	"goalKeeperSpeed" :		1.7,	
+	"speed" :				2, 
+	"speedRun" :			6.33, 
+	"speedRunWithBall" :	4.5,
+	"speedRunFade" :		3, 
+	"speedWithBall" :		1.33,
+	"speedDash" :			7,	
+	"gk_CatchOnAir":		66,
+	"input_x_sensibilitty":	4,
+	"freeze_dash":			0.45,
+	"freeze_by_loseBall":	0.5,
+	"freeze_by_dashBall":	1,
+	"goalKeeperSpeed" :		1,	
 	"referiSpeed" :			1.2,
 	
 	"dialoguesDuration":	4,
@@ -16,8 +21,8 @@
 	"kickHard" :			700,
 	"kickHardAngle" :		280,
 	
-	"kickSoft" :			400,
-	"kickSoftAngle" :		110,
+	"kickSoft" :			600,
+	"kickSoftAngle" :		100,
 	
 	"kickBaloon" :			200,
 	"kickBaloonAngle" :		450,

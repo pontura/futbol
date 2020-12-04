@@ -42,7 +42,7 @@ public class Game : MonoBehaviour
             charactersManager.InitPenalty(1);
         else
         {
-            charactersManager.Init(1);
+            charactersManager.Init(2);
             StartCoroutine(OnWaitToStart());
         }
     }

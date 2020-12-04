@@ -17,6 +17,7 @@ public class UIForce : MonoBehaviour
         Events.OnGameStatusChanged += OnGameStatusChanged;
         Events.PlayerProgressBarSetState += PlayerProgressBarSetState;
         Events.CharacterCatchBall += CharacterCatchBall;
+
         PlayerProgressBarSetState(false);
     }
     private void OnDestroy()
@@ -31,6 +32,7 @@ public class UIForce : MonoBehaviour
     }
     void PlayerProgressBarSetState(bool isOn)
     {
+        Reset();
         gameObject.SetActive(isOn);
     }
     void OnGameStatusChanged(Game.states state)
@@ -43,9 +45,11 @@ public class UIForce : MonoBehaviour
     }
     private void Reset()
     {
+        
         dir = 1;
         speed = Data.Instance.settings.gameplay.forceBarSpeed;
         CancelInvoke();
+        bar.fillAmount = value;
     }
     void OnEnable()
     {

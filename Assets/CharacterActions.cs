@@ -20,7 +20,8 @@ public class CharacterActions : MonoBehaviour
         ACTION_DONE,
         SPECIAL_ACTION,
         GOAL,
-        KICKED
+        KICKED,
+        FREEZE
     }
     public enum kickTypes
     {
@@ -74,9 +75,17 @@ public class CharacterActions : MonoBehaviour
     {
 
     }
+    public bool IsRuningFast()   { return runFast;   }
+    bool runFast;
+    public virtual void SuperRun()
+    {
+        runFast = true;
+        anim.Play("runBoost");
+    }
     public virtual void Run()
     {
-        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        runFast = false;
+        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         anim.Play("run");
@@ -128,7 +137,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Kick(kickTypes kickType)
     {
-        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
+        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
             return;
         
         CancelInvoke();
@@ -162,27 +171,37 @@ public class CharacterActions : MonoBehaviour
     }
     public void Dash()
     {
-        if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         Events.PlaySound("common", "dash", false);
         CancelInvoke();
         this.state = states.DASH;
         anim.Play("dash");
         character.ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
-
-        Invoke("Reset", 0.25f);
+        float timeToReset = 0;
+        StartCoroutine( Freeze(0.25f, timeToReset) );
+    }
+    public IEnumerator Freeze(float delay, float duration)
+    {
+        if (delay > 0)
+            yield return new WaitForSeconds(delay);        
+        state = states.FREEZE;
+        character.Freeze();
+        if(duration>0)
+            yield return new WaitForSeconds(duration);
+        Reset();
     }
     public void Reset()
     {
-        CancelInvoke();
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
+        Idle();
     }
     public void Kicked()
     {
-        state = states.KICKED;
+        CancelInvoke();
+        StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall));
         anim.Play("kicked");
-        Invoke("ResetSpecial", 0.5f);
     }
     public void Pita()
     {

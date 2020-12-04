@@ -17,7 +17,7 @@ public class CharactersManager : MonoBehaviour
     public bool player4;
 
     public int totalPlayers = 0;
-    int totalCharatersInTeam = 5;
+    int totalCharatersInTeam = 6;
     public GameObject containerTeam1, containerTeam2;
     public List<Character> team1;
     public List<Character> team2;
@@ -61,9 +61,12 @@ public class CharactersManager : MonoBehaviour
         }
         Loop();
 
-        if(totalPlayersActive>0)
+        if (totalPlayersActive > 0)
+        {
             AddCharacter(1);
-       //AddCharacter(2);
+            AddCharacter(2);
+        }
+        //AddCharacter(2);
     }
     public void InitPenalty(int totalPlayersActive)
     {
@@ -93,9 +96,9 @@ public class CharactersManager : MonoBehaviour
         character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, 4));
 
         if (totalPlayersActive > 0)
+        {
             AddCharacter(1);
-        //AddCharacter(2);
-
+        }
         
     }
     public void ResetAll()
@@ -248,7 +251,7 @@ public class CharactersManager : MonoBehaviour
         Character character = GetPlayer(playerID);
         if (character.transform.position.x >= limits.x && _x>0 || character.transform.position.x <= -limits.x && _x < 0) _x = 0;
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
-        character.SetPosition((int)_x, (int)_y);
+        character.SetPosition(_x, _y);
         Vector3 rot = character.characterContainer.transform.localEulerAngles;
         rot.y += transform.position.x * rotationOffset;
         character.characterContainer.transform.localEulerAngles = rot;
@@ -258,7 +261,14 @@ public class CharactersManager : MonoBehaviour
     {
        // print("buttonID " + buttonID);
         Character character = GetPlayer(id);
-        if(ball.character == null || ball.character != character)
+
+        if (buttonID == 3)
+        {
+            character.SuperRun();
+            return;
+        }           
+
+        if (ball.character == null || ball.character != character)
         {
             switch (buttonID)
             {
@@ -269,7 +279,7 @@ public class CharactersManager : MonoBehaviour
         }
         else if (ball.character == character)
         {
-            Events.PlayerProgressBarSetState(true);
+           Events.PlayerProgressBarSetState(true);
         }
     }   
     public void ButtonUp(int buttonID, int id)
@@ -291,16 +301,28 @@ public class CharactersManager : MonoBehaviour
 
                     break;
                 case 2:
-                    Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
+                    //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
+                    Character characterNear = GetNearestTo(character, character.teamID);
 
                     if (ball.character != characterNear)
+                    {
+                        print("a: " + characterNear.data.avatarName);
                         character.ballCatcher.LookAt(characterNear.transform.position);
-
-                    character.Kick(CharacterActions.kickTypes.SOFT);
+                        SwapTo(character, characterNear);
+                    }
+                    CheckPase(character);
                     break;
-                case 3: character.Kick(CharacterActions.kickTypes.BALOON); break;
+                case 3: return;// character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
         }
+    }
+    void CheckPase(Character character)
+    {
+        float uiForceValue = ball.uIForce.GetForce();
+        if (uiForceValue > 0.5f)
+            character.Kick(CharacterActions.kickTypes.BALOON);
+        else
+            character.Kick(CharacterActions.kickTypes.SOFT);
     }
     public void Swap(int characterID)
     {

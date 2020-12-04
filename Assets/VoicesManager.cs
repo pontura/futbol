@@ -179,8 +179,8 @@ public class VoicesManager : MonoBehaviour
         }
         else
         {
-            Invoke("GoalDelayed", 3);
-           // PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+            //Invoke("GoalDelayed", 3);
+            PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
         }
     }
     void GoalDelayed()
@@ -328,7 +328,7 @@ public class VoicesManager : MonoBehaviour
         }
         if(OnDone != null)
         {
-            Debug.Log("OnDone " + OnDone);
+
             OnDone();
         }            
     }

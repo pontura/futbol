@@ -26,8 +26,14 @@ public class Settings : MonoBehaviour
     public class GamePlay
     {
         public Vector2 limits = new Vector2(40, 20);
+        public float input_x_sensibilitty;
         public float scaleFactor;
         public float speed;
+        public float speedRun;
+        public float speedRunWithBall;
+        public float freeze_by_loseBall;
+        public float freeze_by_dashBall;
+        public float freeze_dash;
         public float goalKeeperSpeed;
         public float referiSpeed;
         public float speedWithBall;
@@ -37,6 +43,7 @@ public class Settings : MonoBehaviour
         public float timeToSwapCharactersAutomatically = 0.7f;        
         public float forceBarSpeed;
         public int gk_CatchOnAir;
+        public float speedRunFade;
 
         public float kickHard;
         public float kickHardAngle;

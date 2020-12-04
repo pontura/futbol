@@ -20,9 +20,19 @@ public class AiGotoBall : MonoBehaviour
     {
         dest = ai.ball.transform.position;
         float distToBall =  Vector3.Distance(transform.position, dest);
-        if (distToBall<3 && Random.Range(0,10)<5)
+        if (distToBall > 20)
+        {
+            ai.character.SuperRun();
+        }       
+        else if (distToBall<4 && Random.Range(0,10)<7)
         {
             ai.character.Dash();
+        }
+        else if (
+            ai.character.teamID == 1 && ai.character.transform.position.x > dest.x
+           || ai.character.teamID == 2 && ai.character.transform.position.x < dest.x)
+        {
+            ai.character.SuperRun();
         }
         Invoke("Loop", 0.85f);
     }

@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     public float speed;
     public Transform characterContainer;
 
-    [HideInInspector] public Ball ball;
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
     public TextsData.CharacterData data;    
@@ -78,19 +77,25 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
-        if (actions.state == CharacterActions.states.DASH  && _ball.character != null)
+        if (_ball.character != null)
         {
-            _ball.character.actions.Kicked();
-            if ((transform.localPosition.x > 13 && teamID == 1) || (transform.localPosition.x < -13 && teamID == 2))
+            if (actions.state == CharacterActions.states.DASH)
             {
-                Invoke("PenaltyDelayed", 0.15f);
-                return;
+                _ball.character.actions.Kicked();
+                if ((transform.localPosition.x > 13 && teamID == 1) || (transform.localPosition.x < -13 && teamID == 2))
+                {
+                    Invoke("PenaltyDelayed", 0.15f);
+                    return;
+                }
+            }
+            else
+            {
+                _ball.character.actions.StartCoroutine( _ball.character.actions.Freeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall) );
             }
         }
         actions.Reset();
         speed = Data.Instance.settings.gameplay.speedWithBall;
-        this.ball = _ball;
-        ballCatcher.Catch(ball);
+        ballCatcher.Catch(Game.Instance.ball);
         charactersManager.CharacterCatchBall(this);
         Events.PlaySound("common", "ballSnap", false); 
         Events.CharacterCatchBall(this);
@@ -99,18 +104,19 @@ public class Character : MonoBehaviour
     {
         Events.OnPenalty(this);
     }
-    public virtual void SetPosition(int _x, int _y)
+    public virtual void SetPosition(float _x, float _y)
     {
         MoveTo(_x, _y);            
     }
+
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
         actions.Kick(kickType);
-        if (ball != null && ball.GetCharacter() == this)
+        if (Game.Instance.ball.GetCharacter() == this)
         {
-            if (ball.character.isGoldKeeper)
+            if (Game.Instance.ball.character.isGoldKeeper)
                 Invoke("AutomaticChangePlayer", 0.1f);
-            ball.Kick(kickType, forceForce);
+            Game.Instance.ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();            
         }
     }
@@ -124,20 +130,33 @@ public class Character : MonoBehaviour
     }
     public void ChangeSpeedTo(float value)
     {
-        speed = Data.Instance.settings.gameplay.speed + value;
+        if(Game.Instance.ball.character == this)
+            speed = Data.Instance.settings.gameplay.speedWithBall + value;
+        else
+            speed = Data.Instance.settings.gameplay.speed + value;
     }
-    public virtual void MoveTo(int _x, int _y)
+    public void Freeze()
     {
+        speed = 0;
+    }
+    public virtual void MoveTo(float _x, float _y)
+    {
+        if (actions.state == CharacterActions.states.FREEZE)
+            return;
         if (_x == 0 && _y == 0)
             actions.Idle();
         else
         {
             if(_x != 0)
-                actions.LookTo(_x);
+            {
+                if(_x<1) actions.LookTo(-1);
+                else actions.LookTo(1);
+            }
+                
             actions.Run();
         }
         if(ballCatcher != null)
-            ballCatcher.SetRotation(_x, _y);
+            ballCatcher.SetRotation((int)_x, (int)_y);
         transform.Translate(Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
     }
     public void SetSignal(CharacterSignal signal)
@@ -169,5 +188,41 @@ public class Character : MonoBehaviour
     {
         foreach (Collider c in colliders)
             c.enabled = true;
+    }
+    public void SuperRun()
+    {
+        if (actions.IsRuningFast())
+            return;
+        StopAllCoroutines();
+        StartCoroutine(RunSpeedDesacelerate());
+    }
+    IEnumerator RunSpeedDesacelerate()
+    {           
+
+        actions.SuperRun();
+
+        float minSpeed;
+
+        if(Game.Instance.ball.character == this)
+        {
+            speed = Data.Instance.settings.gameplay.speedRunWithBall;
+            minSpeed = Data.Instance.settings.gameplay.speedWithBall;
+        }
+        else
+        {
+            speed = Data.Instance.settings.gameplay.speedRun;
+            minSpeed = Data.Instance.settings.gameplay.speed;
+        }
+            
+       
+
+        while (speed > minSpeed)
+        {
+            speed -= Data.Instance.settings.gameplay.speedRunFade * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        actions.Run();
+        speed = minSpeed;
     }
 }

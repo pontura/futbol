@@ -45,13 +45,12 @@ public class Referi : Character
         asset.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         actions.Init(asset, 0);
         Invoke("ChangeZ", Random.Range(4, 10));
-        ball = Game.Instance.ball;
         data = Data.Instance.textsData.GetReferisData(CharactersData.Instance.referiId);
         dataSources = CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1];
     }
-    public override void SetPosition(int _x, int _y)
+    public override void SetPosition(float _x, float _y)
     {
-       // MoveTo(_x, _y);
+       //MoveTo(_x, _y);
     }
     int destZ;
     void ChangeZ()
@@ -73,7 +72,7 @@ public class Referi : Character
 
             int _z = 0;
             int _x = 0;
-            if (Mathf.Abs(transform.position.x - ball.transform.position.x) < 2)
+            if (Mathf.Abs(transform.position.x - Game.Instance.ball.transform.position.x) < 2)
             {
                 actions.Idle();
                 timer = 0;
@@ -84,9 +83,9 @@ public class Referi : Character
                     _z = 1;
                 else
                     _z = -1;
-                if (Mathf.Abs(transform.position.x - ball.transform.position.x) > 1)
+                if (Mathf.Abs(transform.position.x - Game.Instance.ball.transform.position.x) > 1)
                 {
-                    if (transform.position.x < ball.transform.position.x)
+                    if (transform.position.x < Game.Instance.ball.transform.position.x)
                         _x = 1;
                     else
                         _x = -1;

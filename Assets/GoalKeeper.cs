@@ -6,7 +6,7 @@ public class GoalKeeper : Character
 {
     public Vector2 area_limits;
 
-    public override void MoveTo(int _x, int _y)
+    public override void MoveTo(float _x, float _y)
     {
         if (teamID == 1)
         {
