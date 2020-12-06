@@ -214,7 +214,7 @@ public class VoicesManager : MonoBehaviour
                 PlayAudios(new AudioClip[] { GetRandomAudioClip(chilena) });
                 break;
             case CharacterActions.kickTypes.HARD:
-                if (character != null && character.isGoalKeeper)
+                if (character != null && character.type == Character.types.GOALKEEPER)
                 {
                     AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
                     PlayAudios(new AudioClip[] { characterName, GetRandomAudioClip(arquero_saca) });
@@ -222,7 +222,7 @@ public class VoicesManager : MonoBehaviour
                     PlayAudios(new AudioClip[] { GetRandomAudioClip(le_pega_al_arco) });
                 break;
             case CharacterActions.kickTypes.BALOON:
-                if (character != null && character.isGoalKeeper)
+                if (character != null && character.type == Character.types.GOALKEEPER)
                 {
                     AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
                     PlayAudios(new AudioClip[] { characterName, GetRandomAudioClip(arquero_saca) });
@@ -251,7 +251,7 @@ public class VoicesManager : MonoBehaviour
     {
         if (character != null)
         {
-            if (character.isGoalKeeper)
+            if (character.type == Character.types.GOALKEEPER)
             {
                 PlayAudios(new AudioClip[] { GetRandomAudioClip(arquero_espera) });
             }
@@ -275,7 +275,7 @@ public class VoicesManager : MonoBehaviour
         Reset();
         this.character = character;
         
-        if (character.isGoalKeeper)
+        if (character.type == Character.types.GOALKEEPER)
             Invoke("SaySigue", 3);
         else
             Invoke("SaySigue", 2);
@@ -285,7 +285,7 @@ public class VoicesManager : MonoBehaviour
             StopAllCoroutines();
             int rand = UnityEngine.Random.Range(0, 10);
             AudioClip characterName = GetRandomAudioClip(character.dataSources.audio_names);
-            if(character.isGoalKeeper)
+            if(character.type == Character.types.GOALKEEPER)
             {                
                 if (rand > 2)
                     PlayAudios(new AudioClip[] {  GetRandomAudioClip(ataja),   characterName  });

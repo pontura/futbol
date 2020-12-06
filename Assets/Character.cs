@@ -10,7 +10,16 @@ public class Character : MonoBehaviour
     Collider[] colliders;
     public float speed;
     public Transform characterContainer;
-
+    public types type;
+    public enum types
+    {
+        DEFENSOR_UP,
+        DEFENSOR_DOWN,
+        CENTRAL,
+        DELANTERO_UP,
+        DELANTERO_DOWN,
+        GOALKEEPER
+    }
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
     public TextsData.CharacterData data;    
@@ -19,13 +28,12 @@ public class Character : MonoBehaviour
     [HideInInspector] public BallCatcher ballCatcher;
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
-    [HideInInspector] public bool isGoalKeeper;
     [HideInInspector] public float scaleFactor;
 
     void Awake()
     {
         if (GetComponent<GoalKeeper>())
-            isGoalKeeper = true;
+            type = types.GOALKEEPER;
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
@@ -42,8 +50,8 @@ public class Character : MonoBehaviour
         this.teamID = _temaID;
 
         this.characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
-        data = Data.Instance.textsData.GetCharactersData(characterID, isGoalKeeper);
-        if (isGoalKeeper)
+        data = Data.Instance.textsData.GetCharactersData(characterID, type == Character.types.GOALKEEPER);
+        if (type == Character.types.GOALKEEPER)
         {
             dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
             speed = Data.Instance.settings.gameplay.goalKeeperSpeed;
@@ -114,7 +122,7 @@ public class Character : MonoBehaviour
         actions.Kick(kickType);
         if (Game.Instance.ball.GetCharacter() == this)
         {
-            if (Game.Instance.ball.character.isGoalKeeper)
+            if (Game.Instance.ball.character.type == Character.types.GOALKEEPER)
                 Invoke("AutomaticChangePlayer", 0.1f);
             Game.Instance.ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();            
@@ -197,10 +205,8 @@ public class Character : MonoBehaviour
         StartCoroutine(RunSpeedDesacelerate());
     }
     IEnumerator RunSpeedDesacelerate()
-    {           
-
+    {     
         actions.SuperRun();
-
         float minSpeed;
 
         if(Game.Instance.ball.character == this)
@@ -212,9 +218,7 @@ public class Character : MonoBehaviour
         {
             speed = Data.Instance.settings.gameplay.speedRun;
             minSpeed = Data.Instance.settings.gameplay.speed;
-        }
-            
-       
+        }   
 
         while (speed > minSpeed)
         {

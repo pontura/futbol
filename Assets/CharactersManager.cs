@@ -50,14 +50,14 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
         {
             team1.Add(character);
-            character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, id, character.GetComponent<GoalKeeper>() != null));
+            character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, id, character.type == Character.types.GOALKEEPER));
             id++;
         }
         id = 0;
         foreach (Character character in containerTeam2.GetComponentsInChildren<Character>())
         {
             team2.Add(character);
-            character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id, character.GetComponent<GoalKeeper>() != null));
+            character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id, character.type == Character.types.GOALKEEPER));
             id++;
         }
         Loop();
@@ -142,7 +142,7 @@ public class CharactersManager : MonoBehaviour
     void CheckForNewDefender(int teamID)
     {
         Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
-        if (ball.character != null && ball.character.isGoalKeeper)
+        if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
         if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
             return;
@@ -190,7 +190,7 @@ public class CharactersManager : MonoBehaviour
             if (c.characterID != myCharacter.characterID)
             {
                 float distance = Vector3.Distance(c.transform.position, myCharacter.transform.position);
-                if (distanceMin > distance && !c.isGoalKeeper)
+                if (distanceMin > distance && c.type != Character.types.GOALKEEPER)
                 {
                     character = c;
                     distanceMin = distance;
@@ -210,7 +210,7 @@ public class CharactersManager : MonoBehaviour
         foreach (Character c in team)
         {
             float distance = Vector3.Distance(c.transform.position, pos);
-            if (distanceMin > distance && !c.isGoalKeeper)
+            if (distanceMin > distance && c.type != Character.types.GOALKEEPER)
             {
                 if (hasControl)
                 {

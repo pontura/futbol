@@ -100,7 +100,7 @@ public class Ball : MonoBehaviour
       
         if (Game.Instance.state != Game.states.PLAYING)
             return;
-        if (character != null && character.isGoalKeeper)
+        if (character != null && character.type == Character.types.GOALKEEPER)
             return;
 
         if (collision.gameObject.tag == "Goal")
@@ -118,7 +118,7 @@ public class Ball : MonoBehaviour
 
             if (transform.localPosition.y < 0.9f && character != this.character)//character.ballCatcher.state == BallCatcher.states.IDLE)
                 CharacterCatchBall(character);
-            else if (character.isGoalKeeper)
+            else if (character.type == Character.types.GOALKEEPER)
             {
                 int rand = Random.Range(0, 100);
                 if(rand < Data.Instance.settings.gameplay.gk_CatchOnAir)

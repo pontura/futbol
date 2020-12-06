@@ -5,6 +5,7 @@ using UnityEngine;
 public class AI : MonoBehaviour
 {
     public Character character;
+    public Character characterWithBall;
     public states state;
     public Ball ball;
     public AIPosition aiPosition;
@@ -74,15 +75,16 @@ public class AI : MonoBehaviour
             aiGotoBall.Reset();
         }
     }
-    public virtual void CharacterCatchBall(Character _character)
+    public virtual void CharacterCatchBall(Character characterWithBall)
     {
         if (Game.Instance.state != Game.states.PLAYING) return;
-        if (character.teamID == _character.teamID)
+        this.characterWithBall = characterWithBall;
+        if (character.teamID == characterWithBall.teamID)
             state = states.ATTACKING;
         else
             state = states.DEFENDING;
 
-        if (_character.characterID == character.characterID)
+        if (characterWithBall.characterID == character.characterID)
         {
             if (aiHasBall != null)
             {

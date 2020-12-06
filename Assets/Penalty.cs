@@ -31,7 +31,7 @@ public class Penalty : MonoBehaviour
         Events.OnButtonPressed += OnButtonPressed;
         Events.OnButtonClick += OnButtonClick;
         Events.OnRestartGame += OnRestartGame;
-        goalKeeper.isGoalKeeper = false;
+       // goalKeeper.isGoalKeeper = false;
         
     }
     public void PenaltyPita()

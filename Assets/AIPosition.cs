@@ -5,9 +5,11 @@ using UnityEngine;
 public class AIPosition : MonoBehaviour
 {
     public Vector3 originalPosition;
-    Vector3 gotoPosition;
-    public AI ai;
+    public Vector3 gotoPosition;
+    [HideInInspector] public AI ai;
     public states state;
+    public bool isHelper; // lo sigue al qeu tiene la pelota
+
     public enum states
     {
         GOING,
@@ -23,8 +25,7 @@ public class AIPosition : MonoBehaviour
         //enabled = false;
     }
     public virtual void UpdatedByAI()
-    {      
-       
+    {  
         int _h, _v = 0;
         if (Vector3.Distance(transform.position, gotoPosition) > 0.5f)
         {
@@ -45,23 +46,46 @@ public class AIPosition : MonoBehaviour
         }
     }
     public virtual void SetActive()
-    {
+    {        
         CancelInvoke();
         this.enabled = true;
         state = states.GOING;
         if (ai.state == AI.states.DEFENDING)
             gotoPosition = originalPosition;
         else
-        {
-            gotoPosition = originalPosition;
-            if(ai.character.teamID == 1)
-                gotoPosition.x = originalPosition.x - (Data.Instance.settings.gameplay.limits.x / 2) + ((float)Random.Range(0,30)/10);
-            else
-                gotoPosition.x = originalPosition.x + (Data.Instance.settings.gameplay.limits.x / 2) - ((float)Random.Range(0, 30)/10);
+            SetAttackPosition();
+    }
+    void SetAttackPosition()
+    {       
+        CheckHelper();
+        if (isHelper)
+            UpdateAttackPositionHelper();
+        else
+            UpdateAttackPosition();        
+    }
+    void UpdateAttackPositionHelper()
+    {
+        Invoke("UpdateAttackPositionHelper", 1);
+        Vector3 characterWithBallPos = ai.characterWithBall.transform.position;
+        float offset = GetOffsetToHelper();
+        if (ai.character.teamID == 1)
+            offset *= -1;
 
-            gotoPosition.z += ((float)Random.Range(-30, 30) / 10);
-            SetLimits();
-        }
+        gotoPosition.x = characterWithBallPos.x - offset;
+
+        gotoPosition.z = originalPosition.z + ((float)Random.Range(-20, 20) / 10);
+        SetLimits();
+    }
+    void UpdateAttackPosition()
+    {
+        Invoke("UpdateAttackPosition", 1);
+        gotoPosition = originalPosition;
+        float goto_x = Mathf.Abs(originalPosition.x) - (Data.Instance.settings.gameplay.limits.x / 2) + ((float)Random.Range(0, 30) / 10);
+        if (ai.character.teamID == 2)
+            goto_x *= -1;
+        gotoPosition.x = Mathf.Lerp(goto_x, ai.ball.transform.position.x, 0.5f);
+        gotoPosition.z += ((float)Random.Range(-30, 30) / 10);
+        SetLimits();
     }
     void StopWaiting()
     {
@@ -85,5 +109,49 @@ public class AIPosition : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = originalPosition;
+    }
+    void CheckHelper()
+    {
+        isHelper = false;
+        if (ai.characterWithBall == null)
+            return;
+
+        print("CheckHelper to: " + ai.characterWithBall.type + " teamID: " + ai.characterWithBall.teamID);
+        if (ai.characterWithBall.teamID == ai.character.teamID)
+        {
+            switch(ai.characterWithBall.type)
+            {
+                case Character.types.CENTRAL: break;
+                case Character.types.GOALKEEPER:
+                    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
+                case Character.types.DEFENSOR_DOWN:
+                    if(ai.character.type == Character.types.DEFENSOR_UP) isHelper = true; break;
+                case Character.types.DEFENSOR_UP:
+                    if (ai.character.type == Character.types.DEFENSOR_DOWN) isHelper = true; break;
+                case Character.types.DELANTERO_DOWN:
+                    if (ai.character.type == Character.types.DELANTERO_UP) isHelper = true; break;
+                case Character.types.DELANTERO_UP:
+                    if (ai.character.type == Character.types.DELANTERO_DOWN) isHelper = true; break;
+            }
+        }
+    }
+    float GetOffsetToHelper()
+    {
+        if (ai.characterWithBall == null)
+            return 0;
+        switch (ai.characterWithBall.type)
+        {
+            case Character.types.CENTRAL: return 0;
+            case Character.types.GOALKEEPER:
+                return Random.Range(3, 6);
+            case Character.types.DEFENSOR_DOWN:
+                return Random.Range(0, 2);
+            case Character.types.DEFENSOR_UP:
+                return Random.Range(0, 2);
+            case Character.types.DELANTERO_DOWN:
+                return Random.Range(-1, 1);
+            default:
+                return Random.Range(-1, 1);
+        }
     }
 }

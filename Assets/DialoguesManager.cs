@@ -34,7 +34,7 @@ public class DialoguesManager : MonoBehaviour
         else
             character = Game.Instance.charactersManager.team2[Random.Range(0, Game.Instance.charactersManager.team2.Count)];
 
-        string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.isGoalKeeper);
+        string text = Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.type == Character.types.GOALKEEPER);
 
         if(text != "")
             Events.SetDialogue(character, text);

@@ -70,7 +70,7 @@ public class CharacterActions : MonoBehaviour
     int lookTo;
     public virtual void LookTo(int v )
     {
-        if (character.isGoalKeeper)
+        if (character.type == Character.types.GOALKEEPER)
             return;
         if (lookTo != v)
         {
