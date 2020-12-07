@@ -1700,6 +1700,7 @@ MonoBehaviour:
     thumb: {fileID: 0}
     audio_names: []
     audio_goal: []
+    comments_goal: []
   id: 0
   characterID: 0
   speed: 0
@@ -21053,11 +21054,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
-        type: 3}
-      propertyPath: team1.Array.data[1]
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}
