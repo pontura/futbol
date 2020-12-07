@@ -66,6 +66,9 @@ public class AIPosition : MonoBehaviour
     void UpdateAttackPositionHelper()
     {
         Invoke("UpdateAttackPositionHelper", 1);
+        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
+            ai.character.SuperRun();
+
         Vector3 characterWithBallPos = ai.characterWithBall.transform.position;
         float offset = GetOffsetToHelper();
         if (ai.character.teamID == 1)
@@ -79,6 +82,8 @@ public class AIPosition : MonoBehaviour
     void UpdateAttackPosition()
     {
         Invoke("UpdateAttackPosition", 1);
+        if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_UP)
+            ai.character.SuperRun();
         gotoPosition = originalPosition;
         float goto_x = Mathf.Abs(originalPosition.x) - (Data.Instance.settings.gameplay.limits.x / 2) + ((float)Random.Range(0, 30) / 10);
         if (ai.character.teamID == 2)

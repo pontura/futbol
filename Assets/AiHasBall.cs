@@ -31,23 +31,11 @@ public class AiHasBall : MonoBehaviour
     }
     void Loop()
     {
-        if (!ai.character.isBeingControlled && characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
-        {
-            characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
-
-            Vector3 otherPos = characterToPass.transform.position;
-            float offset = 3;
-            if (ai.character.teamID == 1)
-                otherPos.x -= offset;
-            else if (ai.character.teamID == 2)
-                otherPos.x += offset;
-            
-            ai.character.ballCatcher.LookAt(otherPos);
-            ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10,30)/10);
-            Reset();
-        }           
-
         Invoke("Loop", 0.75f);
+
+        if (!ai.character.isBeingControlled && characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
+            GiveBall();
+        
         int rand = Random.Range(0, 100);
         if (rand < 30)
             _z = 1;
@@ -55,6 +43,9 @@ public class AiHasBall : MonoBehaviour
             _z = -1;
         else
             _z = 0;
+
+        if(rand<70)
+            ai.character.SuperRun();
     }
     public void Reset()
     {
@@ -88,5 +79,20 @@ public class AiHasBall : MonoBehaviour
             return;
         ai.character.MoveTo(_x, _z);
         timer += Time.deltaTime;
+    }
+    void GiveBall()
+    {
+        characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
+
+        Vector3 otherPos = characterToPass.transform.position;
+        float offset = 3;
+        if (ai.character.teamID == 1)
+            otherPos.x -= offset;
+        else if (ai.character.teamID == 2)
+            otherPos.x += offset;
+
+        ai.character.ballCatcher.LookAt(otherPos);
+        ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10, 30) / 10);
+        Reset();
     }
 }

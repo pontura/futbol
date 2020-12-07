@@ -982,6 +982,11 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -1065,6 +1070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -1561,6 +1571,11 @@ PrefabInstance:
       propertyPath: type
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
 --- !u!1 &602626167
@@ -1760,6 +1775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -2775,6 +2795,11 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -2859,6 +2884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -3849,6 +3879,11 @@ PrefabInstance:
       propertyPath: type
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -4781,6 +4816,11 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -5082,6 +5122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
@@ -5395,6 +5440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: type
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
