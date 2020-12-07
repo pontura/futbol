@@ -39,10 +39,23 @@ public class Ball : MonoBehaviour
         transform.position = new Vector3(0, 3, 0);
         FreeBall();
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(GetForwardPosition(4), 0.5f);
+        Gizmos.color = Color.red;
+    }
+#endif
+
+    public Vector3 GetForwardPosition(float value)
+    {
+        return transform.position + transform.forward * value;
+    }
     private void Update()
     {
         if (Game.Instance.state != Game.states.PLAYING)
-            return;
+            return;     
 
         Vector3 velocity = rb.velocity;
         if (transform.position.y >10.25f)

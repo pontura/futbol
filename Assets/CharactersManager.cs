@@ -247,6 +247,8 @@ public class CharactersManager : MonoBehaviour
     public void SetPosition(int playerID, float _x, float _y)
     {
         Character character = GetPlayer(playerID);
+        if (character == null)
+            return;
         if (character.transform.position.x >= limits.x && _x>0 || character.transform.position.x <= -limits.x && _x < 0) _x = 0;
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition(_x, _y);
@@ -289,6 +291,7 @@ public class CharactersManager : MonoBehaviour
             Events.PlayerProgressBarSetState(false);
             switch (buttonID)
             {
+                //arco
                 case 1:
                     float timeCatched = ball.GetDurationOfBeingCatch();
 
@@ -298,9 +301,13 @@ public class CharactersManager : MonoBehaviour
                         character.Kick(CharacterActions.kickTypes.HARD);
 
                     break;
+                //pasa:
                 case 2:
                     //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
-                    Character characterNear = GetNearestTo(character, character.teamID);
+
+
+                    Character characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(4));
+                    //Character characterNear = GetNearestTo(character, character.teamID);
 
                     if (ball.character != characterNear)
                     {

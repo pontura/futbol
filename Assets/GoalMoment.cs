@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GoalMoment : MonoBehaviour
 {
-    states state;
+    public states state;
     public enum states
     {
         IDLE,
-        GOING_TO_TARGET,
-        WAITING
+        GOING_TO_TARGET
     }
     Character character_made_goal;
     CharactersManager charactersManager;
@@ -46,6 +45,10 @@ public class GoalMoment : MonoBehaviour
             character_made_goal.actions.Goal();
         yield return new WaitForSeconds(3);        
         state = states.IDLE;
+        yield return new WaitForSeconds(0.1f);
+        foreach (Character ch in winners)
+            ch.actions.Goal();
+
         yield return new WaitForSeconds(4);
         Events.PlaySound("crowd", "crowd_quiet", true);
         Events.ChangeVolume("croud", 0.5f);
@@ -85,11 +88,8 @@ public class GoalMoment : MonoBehaviour
                 if (pos.z < targetPos.z) _z = 1;
                 else if (pos.z > targetPos.z) _z = -1;
                 character.MoveTo(_x, _z);
-            }
-            else if(character.actions.state != CharacterActions.states.GOAL)
-            {
+            } else
                 character.actions.Goal();
-            }
         }
     }
 }

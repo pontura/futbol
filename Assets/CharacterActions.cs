@@ -88,13 +88,15 @@ public class CharacterActions : MonoBehaviour
     bool runFast;
     public virtual void SuperRun()
     {
+        if (state == states.GOAL)
+            return;
         runFast = true;
         PlayAnim("runBoost");
     }
     public virtual void Run()
     {
         runFast = false;
-        if (state == states.RUN || state == states.ACTION_DONE)
+        if (state == states.GOAL || state == states.RUN || state == states.ACTION_DONE)
         {
             PlayAnim("run");
             return;
@@ -143,14 +145,20 @@ public class CharacterActions : MonoBehaviour
     }
     public void Goal()
     {
-        if (state == states.KICKED || state == states.GOAL)
+        if (state == states.GOAL)
+        {
+            PlayAnim("goal");
             return;
+        }
+            
+        StopAllCoroutines();
+        CancelInvoke();
         this.state = states.GOAL;
-        PlayAnim("goal");
+        
     }
     public void Kick(kickTypes kickType)
     {
-        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
+        if (state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
             return;
         
         CancelInvoke();
@@ -184,7 +192,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Dash()
     {
-        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+        if (state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         Events.PlaySound("common", "dash", false);
         CancelInvoke();
@@ -214,6 +222,8 @@ public class CharacterActions : MonoBehaviour
     }
     public void Reset()
     {
+        if (state == states.GOAL)
+            return;
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
         Idle();
@@ -227,7 +237,6 @@ public class CharacterActions : MonoBehaviour
     public void Pita()
     {
         PlayAnim("start");
-
         Events.PlaySound("common", "pito", false);
     }
     public void Action()

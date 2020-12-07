@@ -149,7 +149,7 @@ public class Character : MonoBehaviour
     }
     public virtual void MoveTo(float _x, float _y)
     {
-        if (actions.state == CharacterActions.states.FREEZE)
+        if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
         if (_x == 0 && _y == 0)
             actions.Idle();
@@ -163,9 +163,11 @@ public class Character : MonoBehaviour
                 
             actions.Run();
         }
-        if(ballCatcher != null)
-            ballCatcher.SetRotation((int)_x, (int)_y);
-        transform.Translate(Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime);
+        Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
+        if (ballCatcher != null)
+            ballCatcher.RotateTo(forwardVector);
+           // ballCatcher.SetRotation((int)_x, (int)_y);
+        transform.Translate(forwardVector);
     }
     public void SetSignal(CharacterSignal signal)
     {

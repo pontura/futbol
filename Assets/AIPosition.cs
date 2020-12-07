@@ -121,7 +121,6 @@ public class AIPosition : MonoBehaviour
         if (ai.characterWithBall == null)
             return;
 
-        print("CheckHelper to: " + ai.characterWithBall.type + " teamID: " + ai.characterWithBall.teamID);
         if (ai.characterWithBall.teamID == ai.character.teamID)
         {
             switch(ai.characterWithBall.type)
