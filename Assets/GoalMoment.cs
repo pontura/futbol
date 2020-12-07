@@ -43,13 +43,15 @@ public class GoalMoment : MonoBehaviour
 
         if (character.teamID == teamID)
             character_made_goal.actions.Goal();
-        yield return new WaitForSeconds(3);        
+
+        yield return new WaitForSeconds(4);        
         state = states.IDLE;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
+
         foreach (Character ch in winners)
             ch.actions.Goal();
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         Events.PlaySound("crowd", "crowd_quiet", true);
         Events.ChangeVolume("croud", 0.5f);
     }

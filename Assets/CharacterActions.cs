@@ -88,15 +88,15 @@ public class CharacterActions : MonoBehaviour
     bool runFast;
     public virtual void SuperRun()
     {
-        if (state == states.GOAL)
-            return;
         runFast = true;
         PlayAnim("runBoost");
     }
     public virtual void Run()
     {
         runFast = false;
-        if (state == states.GOAL || state == states.RUN || state == states.ACTION_DONE)
+        if (state == states.GOAL)
+            return;
+        if (state == states.RUN || state == states.ACTION_DONE)
         {
             PlayAnim("run");
             return;
@@ -149,12 +149,9 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("goal");
             return;
-        }
-            
-        StopAllCoroutines();
-        CancelInvoke();
+        }            
         this.state = states.GOAL;
-        
+        PlayAnim("goal");
     }
     public void Kick(kickTypes kickType)
     {
@@ -222,8 +219,6 @@ public class CharacterActions : MonoBehaviour
     }
     public void Reset()
     {
-        if (state == states.GOAL)
-            return;
         character.ChangeSpeedTo(0);
         state = states.ACTION_DONE;
         Idle();
@@ -237,6 +232,7 @@ public class CharacterActions : MonoBehaviour
     public void Pita()
     {
         PlayAnim("start");
+
         Events.PlaySound("common", "pito", false);
     }
     public void Action()

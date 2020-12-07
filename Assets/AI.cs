@@ -115,11 +115,14 @@ public class AI : MonoBehaviour
     public void ResetAll()
     {
         aiGotoBall.Reset();
+        aiPosition.Reset();
+
         aiPosition.enabled = false;
         aiGotoBall.enabled = false;
 
         if (aiHasBall != null)
         {
+            aiHasBall.Reset();
             aiHasBall.enabled = false;
         }
     }

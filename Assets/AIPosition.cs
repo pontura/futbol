@@ -24,6 +24,10 @@ public class AIPosition : MonoBehaviour
         originalPosition = transform.position;
         //enabled = false;
     }
+    public void Reset()
+    {
+        CancelInvoke();
+    }
     public virtual void UpdatedByAI()
     {  
         int _h, _v = 0;
