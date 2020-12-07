@@ -17,6 +17,7 @@ public class CharactersData : MonoBehaviour
         public Sprite thumb;
         public AudioClip[] audio_names;
         public AudioClip[] audio_goal;
+        public AudioClip[] comments_goal;
     }
     public List<CharacterData> all;
     public List<CharacterData> all_goalkeepers;

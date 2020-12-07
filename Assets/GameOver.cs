@@ -50,7 +50,7 @@ public class GameOver : MonoBehaviour
     }
     void Done()
     {
-        Invoke("OnDone", 11);       
+        Invoke("OnDone", 6);       
     }
     void OnDone()
     {

@@ -180,7 +180,11 @@ public class VoicesManager : MonoBehaviour
         else
         {
             //Invoke("GoalDelayed", 3);
-            PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), GetRandomAudioClip(comentario_gol) }, SayGoalEnd);
+            AudioClip comentario_goal;
+            comentario_goal = GetRandomAudioClip(character.dataSources.comments_goal);
+            if(comentario_goal == null)
+                comentario_goal = GetRandomAudioClip(comentario_gol);
+            PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), comentario_goal }, SayGoalEnd);
         }
     }
     void GoalDelayed()
@@ -189,6 +193,10 @@ public class VoicesManager : MonoBehaviour
     }
     void SayComentarioGoalEnContra()
     {
+        AudioClip comentario_goal;
+        comentario_goal = GetRandomAudioClip(character.dataSources.comments_goal);
+        if (comentario_goal == null)
+            comentario_goal = GetRandomAudioClip(comentario_gol_en_contra);
         PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(comentario_gol_en_contra) }, SayGoalEnd);
     }
     void SayGoalEnd()
@@ -306,6 +314,8 @@ public class VoicesManager : MonoBehaviour
     }
     AudioClip GetRandomAudioClip(AudioClip[] audioClips)
     {
+        if (audioClips.Length == 0 )
+            return null;
        return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
     }
     void PlayAudios(AudioClip[] audioClips, System.Action OnDone = null)
