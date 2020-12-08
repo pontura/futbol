@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc28a2d305a9f8a449ecfb623fef7662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &531874868
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,6 +5908,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   character: {fileID: 3160418783750167796}
   state: 0
+  lastAnimPlayed: 
 --- !u!54 &3160418783750167795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6781,6 +6783,71 @@ PrefabInstance:
       propertyPath: m_Name
       value: Voices
       objectReference: {fileID: 0}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08394be740045674ab2f55abe2fa7a59, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 195c59c97fd9bda4eb2bbbf344f3d79b, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 29ee32fb39b25564d84ea0277dabd023, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: d2d238a9017f76c4f897a3ee466daab0, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5edd58af4829034bac05ce2354b8400, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4dc4f0692ef54824095f2588159c72dd, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 82e3c17afd918dd42b6f2062edac36e6, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: e166105d0e2574e4fa7cd8bd8fec59db, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b69c127676b2a6459760a9ec3590d31, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: da1bbf61f2a6c454c8d3f7e97ecedf5b, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e063414db4c2ff438381449731ea80e, type: 3}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: responde_comentario_gol.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 54ccbc86e7c7dd242abf850adb2421e3, type: 3}
     - target: {fileID: 4823537679716861330, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
       propertyPath: m_LocalPosition.x

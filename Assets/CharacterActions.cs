@@ -249,7 +249,7 @@ public class CharacterActions : MonoBehaviour
         state = states.ACTION_DONE;
         Idle();
     }
-    string lastAnimPlayed;
+    public string lastAnimPlayed;
     void PlayAnim(string animName)
     {
         if (lastAnimPlayed == animName)
