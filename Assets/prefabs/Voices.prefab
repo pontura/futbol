@@ -80,6 +80,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dcd9c58aa3cb19f4f98e8241ba25c003, type: 3}
   - {fileID: 8300000, guid: 0177db93ed3feeb47bb43bb42d642471, type: 3}
   - {fileID: 8300000, guid: 87eb43e39375a2c4aafd88593915c1ec, type: 3}
+  - {fileID: 8300000, guid: 298bb564357aa9a4788c2938b71fe536, type: 3}
+  - {fileID: 8300000, guid: 5ea69947bf8d151478eb1c30824de9fe, type: 3}
+  - {fileID: 8300000, guid: 1f30bae2ff956e94bbf44788bf81601d, type: 3}
+  - {fileID: 8300000, guid: 6d116d3aef5c09042837b1de70c1c06c, type: 3}
+  - {fileID: 8300000, guid: a47cce6ada8cc8e4f83bdb064c12941d, type: 3}
+  - {fileID: 8300000, guid: 2ba8afb19e544a941be6f8a224e9d348, type: 3}
+  - {fileID: 8300000, guid: 16f877c6c88402542be98ae04bec5b12, type: 3}
+  - {fileID: 8300000, guid: 928a04192b147944580a05d5fb0e53f3, type: 3}
+  - {fileID: 8300000, guid: 0b8ec6d009b944b49b4315d0141f6970, type: 3}
   comentario_gol_en_contra:
   - {fileID: 8300000, guid: 87eb43e39375a2c4aafd88593915c1ec, type: 3}
   laDomina:
@@ -132,6 +141,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 725ba8e0d779cb14e80f5e43c569890b, type: 3}
   - {fileID: 8300000, guid: 28c0df06bb7adba468db42905c328ce6, type: 3}
   - {fileID: 8300000, guid: 62589fa2159373d49ae376b4a1565043, type: 3}
+  - {fileID: 8300000, guid: 08394be740045674ab2f55abe2fa7a59, type: 3}
+  - {fileID: 8300000, guid: 195c59c97fd9bda4eb2bbbf344f3d79b, type: 3}
+  - {fileID: 8300000, guid: 29ee32fb39b25564d84ea0277dabd023, type: 3}
+  - {fileID: 8300000, guid: d2d238a9017f76c4f897a3ee466daab0, type: 3}
+  - {fileID: 8300000, guid: c5edd58af4829034bac05ce2354b8400, type: 3}
+  - {fileID: 8300000, guid: 4dc4f0692ef54824095f2588159c72dd, type: 3}
+  - {fileID: 8300000, guid: 82e3c17afd918dd42b6f2062edac36e6, type: 3}
+  - {fileID: 8300000, guid: e166105d0e2574e4fa7cd8bd8fec59db, type: 3}
+  - {fileID: 8300000, guid: 5b69c127676b2a6459760a9ec3590d31, type: 3}
+  - {fileID: 8300000, guid: da1bbf61f2a6c454c8d3f7e97ecedf5b, type: 3}
+  - {fileID: 8300000, guid: 7e063414db4c2ff438381449731ea80e, type: 3}
+  - {fileID: 8300000, guid: 54ccbc86e7c7dd242abf850adb2421e3, type: 3}
   gameOver_pita:
   - {fileID: 8300000, guid: 25c6e49d0cdae934c831bead65196a6f, type: 3}
   - {fileID: 8300000, guid: fd7fb757b0fb4a741b02b41185249939, type: 3}
