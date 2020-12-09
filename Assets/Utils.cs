@@ -21,7 +21,19 @@
              texts[id] = value1;
          }
      }
-	public static class CoroutineUtil
+    public static void Shuffle(AudioClip[] arr)
+    {
+        if (arr.Length < 2) return;
+        for (int a = 0; a < 100; a++)
+        {
+            int id = Random.Range(1, arr.Length);
+            AudioClip value1 = arr[0];
+            AudioClip value2 = arr[id];
+            arr[0] = value2;
+            arr[id] = value1;
+        }
+    }
+    public static class CoroutineUtil
 	{
 		public static IEnumerator WaitForRealSeconds(float time)
 		{

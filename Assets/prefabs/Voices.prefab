@@ -91,6 +91,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0b8ec6d009b944b49b4315d0141f6970, type: 3}
   comentario_gol_en_contra:
   - {fileID: 8300000, guid: 87eb43e39375a2c4aafd88593915c1ec, type: 3}
+  - {fileID: 8300000, guid: a5b5fc9b145f14d49a5d21a80d5d635c, type: 3}
+  - {fileID: 8300000, guid: bbff4a79d5d5b60439f4aff917b06edd, type: 3}
+  - {fileID: 8300000, guid: dcd9c58aa3cb19f4f98e8241ba25c003, type: 3}
+  - {fileID: 8300000, guid: 0177db93ed3feeb47bb43bb42d642471, type: 3}
+  - {fileID: 8300000, guid: 298bb564357aa9a4788c2938b71fe536, type: 3}
   laDomina:
   - {fileID: 8300000, guid: 18352f6e620868140a680cee7fb9a5c9, type: 3}
   - {fileID: 8300000, guid: 0f75023f107052e44b903301202fc4c7, type: 3}

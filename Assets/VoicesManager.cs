@@ -45,6 +45,9 @@ public class VoicesManager : MonoBehaviour
     Character character;
 
     static VoicesManager mInstance = null;
+
+    Dictionary<string, int> usedTracks;
+
     public static VoicesManager Instance
     {
         get
@@ -64,7 +67,7 @@ public class VoicesManager : MonoBehaviour
             Destroy(this);
             return;
         }
-
+        usedTracks = new Dictionary<string, int>();
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.KickToGoal += KickToGoal;
         Events.OnBallKicked += OnBallKicked;
@@ -312,11 +315,41 @@ public class VoicesManager : MonoBehaviour
             Debug.Log("No grabaron audio para el nombre de: " + character.characterID);
         }
     }
+
     AudioClip GetRandomAudioClip(AudioClip[] audioClips)
     {
-        if (audioClips.Length == 0 )
+        if (audioClips.Length == 0)
             return null;
-       return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+
+        string keyValue = audioClips[0].name.ToString();
+        int id = GetValueFor(keyValue, audioClips);
+        
+       // Debug.Log(id + "____________keyValue " + keyValue + " Dic length:_ " + usedTracks.Count + " id_ " + id);
+        return audioClips[id];
+    }
+    int GetValueFor(string keyValue, AudioClip[] audioClips)
+    {
+        foreach (KeyValuePair<string, int> utrack in usedTracks)
+        {
+            if (utrack.Key == keyValue)
+            {
+                int value = utrack.Value;
+              //  print(keyValue + "  value: " + value + " length: " + audioClips.Length + "    audioClips.Length: " + audioClips.Length);
+                value++;
+                if (value >= audioClips.Length)
+                    value = 0;
+                usedTracks[keyValue] = value;
+                return value;
+            }
+        }
+        if (audioClips.Length > 1)
+        {
+           // print("::::::::::::::::::::::::::::::::::: shuffle " + keyValue);
+            Utils.Shuffle(audioClips);
+        }
+        keyValue = audioClips[0].name.ToString();
+        usedTracks.Add(keyValue, 0);
+        return 0;
     }
     void PlayAudios(AudioClip[] audioClips, System.Action OnDone = null)
     {

@@ -44,7 +44,8 @@ public class BallCatcher : MonoBehaviour
         container.transform.LookAt(targetPos);
     }
     public void RotateTo(Vector3 targetPos)
-    {        
+    {
+        if (targetPos == Vector3.zero) return;
         container.transform.forward = targetPos;
     }
 }
