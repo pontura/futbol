@@ -31,7 +31,8 @@ public class CharacterActions : MonoBehaviour
         HEAD,
         CHILENA,
         KICK_TO_GOAL,
-        DESPEJE_GOALKEEPER
+        DESPEJE_GOALKEEPER,
+        CENTRO
     }
     Ball ball;
     public void Init(GameObject go, int teamID)

@@ -124,6 +124,11 @@ MonoBehaviour:
   pase:
   - {fileID: 8300000, guid: 37fe2fad1bbea3c48a91109657f5fb1f, type: 3}
   - {fileID: 8300000, guid: e1e3750e6ee57e8499831f05c05a3da8, type: 3}
+  centro:
+  - {fileID: 8300000, guid: 5780cfc2815ef724fb05ddd4ae802f58, type: 3}
+  - {fileID: 8300000, guid: af418e8fb849d224a8ad614cd6223f86, type: 3}
+  - {fileID: 8300000, guid: 72d1b70b47a26024a8797a55f2be4865, type: 3}
+  - {fileID: 8300000, guid: a3620bdf8288eee42b2db315c12ed5c9, type: 3}
   cabeza:
   - {fileID: 8300000, guid: ab6100ceaa4eb874586e986f293acded, type: 3}
   - {fileID: 8300000, guid: e49f1c840cc93cf4f99da0030828e17b, type: 3}

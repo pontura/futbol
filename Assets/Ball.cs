@@ -129,7 +129,7 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            if (transform.localPosition.y < 0.9f && character != this.character)//character.ballCatcher.state == BallCatcher.states.IDLE)
+            if (transform.localPosition.y < 0.9f && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
                 CharacterCatchBall(character);
             else if (character.type == Character.types.GOALKEEPER)
             {
@@ -246,6 +246,11 @@ public class Ball : MonoBehaviour
                 Events.PlaySound("common", "kick3", false);
                 dir *= Data.Instance.settings.gameplay.kickHard * 1.5f;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickHardAngle * force;
+                break;
+            case CharacterActions.kickTypes.CENTRO:
+                Events.PlaySound("common", "kick3", false);
+                dir *= Data.Instance.settings.gameplay.kickCentro * 1.5f;
+                dir += Vector3.up * Data.Instance.settings.gameplay.kickCentroAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;

@@ -32,6 +32,7 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] volea;
     public AudioClip[] globito;
     public AudioClip[] pase;
+    public AudioClip[] centro;
     public AudioClip[] cabeza;
     public AudioClip[] arquero_espera;
     public AudioClip[] arquero_hands;
@@ -248,6 +249,9 @@ public class VoicesManager : MonoBehaviour
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 PlayAudios(new AudioClip[] { GetRandomAudioClip(le_pega_al_arco) });
+                break;
+            case CharacterActions.kickTypes.CENTRO:
+                PlayAudios(new AudioClip[] { GetRandomAudioClip(centro) });
                 break;
         }
     }

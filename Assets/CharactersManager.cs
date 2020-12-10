@@ -317,16 +317,14 @@ public class CharactersManager : MonoBehaviour
                     {
                       
                         Vector3 centroPos = character.transform.position;
-                        centroPos.x *= 0.9f;
-                        centroPos.z *= -0.5f;
+                        centroPos.x *= 0.85f;
+                        centroPos.z *= -0.8f;
                         Debug.Log("______Centro check" + centroPos);
                         characterNear = GetNearest(character.teamID, false, centroPos);
                         character.ballCatcher.LookAt(centroPos);
-
+                        character.Kick(CharacterActions.kickTypes.CENTRO);
                         if (ball.character != characterNear)
-                            SwapTo(character, characterNear); 
-                        
-                        character.Kick(CharacterActions.kickTypes.BALOON);
+                            SwapTo(character, characterNear);
                         return;
                     }
                     //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);

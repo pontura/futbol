@@ -28,13 +28,16 @@
 	"kickSoft" :			600,
 	"kickSoftAngle" :		100,
 	
-	"kickBaloon" :			270,
-	"kickBaloonAngle" :		370,
+	"kickBaloon" :			220,
+	"kickBaloonAngle" :		400,
 	
 	"kickHead" :			250,
 	"kickHeadAngle" :		130,
 	
 	"kickChilena" :			700,
-	"kickChilenaAngle":		45	
+	"kickChilenaAngle":		45,
+
+	"kickCentro":			315,
+	"kickCentroAngle":		285	
 	
 } 
