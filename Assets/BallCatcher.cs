@@ -7,6 +7,8 @@ public class BallCatcher : MonoBehaviour
     public Transform container;
     Ball ball;
     public states state;
+    Character character;
+
     public enum states
     {
         IDLE,
@@ -15,6 +17,7 @@ public class BallCatcher : MonoBehaviour
     }
     private void Start()
     {
+        character = GetComponent<Character>();
         container.gameObject.SetActive(false);
     }
     public void Catch(Ball _ball)
@@ -29,6 +32,7 @@ public class BallCatcher : MonoBehaviour
     }
     public void LoseBall()
     {
+        character.SetCollidersOff();
         container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
