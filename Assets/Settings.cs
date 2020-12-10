@@ -67,6 +67,7 @@ public class Settings : MonoBehaviour
 
         public float kickCentro;
         public float kickCentroAngle;
+
     }   
 
     public TeamSettings GetTeamSettings(int teamID)

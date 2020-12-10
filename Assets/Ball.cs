@@ -212,6 +212,11 @@ public class Ball : MonoBehaviour
             force = AddForceToKick();
 
         FreeBall();
+
+        //El arquero saca por abajo:
+        if (character != null && (character.type == Character.types.GOALKEEPER && kickType == CharacterActions.kickTypes.SOFT))
+            transform.localPosition = new Vector3(transform.localPosition.x, -0.17f, transform.localPosition.z);
+
         character = null;
         Vector3 dir = transform.forward;
        

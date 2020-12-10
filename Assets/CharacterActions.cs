@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class CharacterActions : MonoBehaviour
 {
-    public Animator anim;
-    public Character character;
-    
+    [HideInInspector] protected Animator anim;
+    [HideInInspector] protected Character character;    
 
-    public states state;
-    
+    public states state;    
 
     public enum states
     {

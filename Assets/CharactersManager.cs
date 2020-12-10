@@ -318,7 +318,7 @@ public class CharactersManager : MonoBehaviour
                       
                         Vector3 centroPos = character.transform.position;
                         centroPos.x *= 0.85f;
-                        centroPos.z *= -0.8f;
+                        centroPos.z *= -0.85f;
                         Debug.Log("______Centro check" + centroPos);
                         characterNear = GetNearest(character.teamID, false, centroPos);
                         character.ballCatcher.LookAt(centroPos);

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AI : MonoBehaviour
 {
-    public Character character;
-    public Character characterWithBall;
+    [HideInInspector] public Character character;
+    [HideInInspector] public Character characterWithBall;
     public states state;
-    public Ball ball;
-    public AIPosition aiPosition;
-    public AiGotoBall aiGotoBall;
-    public AiHasBall aiHasBall;
+    [HideInInspector] public Ball ball;
+    [HideInInspector] public AIPosition aiPosition;
+    [HideInInspector] public AiGotoBall aiGotoBall;
+    [HideInInspector] public AiHasBall aiHasBall;
 
     public enum states
     {
