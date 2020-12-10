@@ -36,6 +36,8 @@ public class Settings : MonoBehaviour
         public float freeze_by_dashBall;
         public float freeze_dash;
         public float goalKeeperSpeed;
+        public float gkSpeed_sale_x;
+        public float gkSpeed_sale_z;
         public float referiSpeed;
         public float speedWithBall;
         public float speedDash;
@@ -45,6 +47,8 @@ public class Settings : MonoBehaviour
         public float forceBarSpeed;
         public int gk_CatchOnAir;
         public float speedRunFade;
+        public float distanceToForceCentro;
+        public float startingUIForceBar;
 
         public float kickHard;
         public float kickHardAngle;

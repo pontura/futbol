@@ -12,7 +12,11 @@
 	"freeze_by_loseBall":	0.6,
 	"freeze_by_dashBall":	1.5,
 	"goalKeeperSpeed" :		1.2,	
+	"gkSpeed_sale_z" :		5,	
+	"gkSpeed_sale_x" :		2,	
 	"referiSpeed" :			1.2,
+	"distanceToForceCentro":0.65, 
+	"startingUIForceBar":	0.45,
 	
 	"dialoguesDuration":	4,
 	"timeToSwapCharactersAutomatically" : 0.7,
@@ -24,8 +28,8 @@
 	"kickSoft" :			600,
 	"kickSoftAngle" :		100,
 	
-	"kickBaloon" :			200,
-	"kickBaloonAngle" :		450,
+	"kickBaloon" :			270,
+	"kickBaloonAngle" :		370,
 	
 	"kickHead" :			250,
 	"kickHeadAngle" :		130,

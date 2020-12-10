@@ -72,19 +72,28 @@ public class AiPositionGoalKeeper : AIPosition
     {
         goalKeeper.actions.Run();
         Vector3 pos = transform.position;
-        pos.x = Mathf.Lerp(pos.x, ai.ball.transform.position.x, 0.025f);
-        pos.z = Mathf.Lerp(pos.z, ai.ball.transform.position.z, 0.1f);
+        pos.x = Mathf.Lerp(pos.x, ai.ball.transform.position.x, Data.Instance.settings.gameplay.gkSpeed_sale_x * Time.deltaTime);
+        pos.z = Mathf.Lerp(pos.z, ai.ball.transform.position.z, Data.Instance.settings.gameplay.gkSpeed_sale_z * Time.deltaTime);
         transform.position = pos;
     }
     void UpdateY()
     {
         Vector3 ballPos = ai.ball.transform.position;
-        if (ballPos.x > 0 && ai.character.teamID == 1 || ballPos.x < 0 && ai.character.teamID == 2)
+        int teamID = ai.character.teamID;
+        if (ballPos.x > 0 && teamID == 1 || ballPos.x < 0 && teamID == 2)
         {
+            float _x = 0;
+            float _z = 0;
+
+            if (teamID == 1 && transform.position.x < goalKeeper.area_limits.x)         _x = 1;            
+            else if(teamID == 2 && transform.position.x > -goalKeeper.area_limits.x)    _x = -1;
+            
+
             if ((int)transform.position.z < (int)ballPos.z)
-                goalKeeper.MoveTo(0, 1);
-            else if ((int)transform.position.z > (int)ballPos.z)
-                goalKeeper.MoveTo(0, -1);
+                _z = 1;  else if ((int)transform.position.z > (int)ballPos.z)  _z = -1;
+
+            if(_x!=0 || _z != 0)
+                goalKeeper.MoveTo(_x, _z);
             else
                 goalKeeper.actions.Idle();
         }

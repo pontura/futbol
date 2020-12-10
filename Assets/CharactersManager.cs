@@ -24,6 +24,7 @@ public class CharactersManager : MonoBehaviour
     int team_1_id = 0;
     int team_2_id = 0;
     public CharactersSignals signals;
+    Settings.GamePlay gameplaySettings;
 
     private void Awake()
     {
@@ -37,7 +38,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
-
+        gameplaySettings = Data.Instance.settings.gameplay;
         totalPlayers = CharactersData.Instance.team1.Count;
         teamID_1 = 1;
         teamID_2 = 2;
@@ -119,7 +120,7 @@ public class CharactersManager : MonoBehaviour
     {
         CheckStateByTeam(team1[0]);
         CheckStateByTeam(team2[0]);
-        Invoke("Loop", Data.Instance.settings.gameplay.timeToSwapCharactersAutomatically);
+        Invoke("Loop", gameplaySettings.timeToSwapCharactersAutomatically);
     }
     void CheckStateByTeam(Character character)
     {
@@ -303,27 +304,50 @@ public class CharactersManager : MonoBehaviour
                     break;
                 //pasa:
                 case 2:
+                    Character characterNear;
+                    float uiForceValue = ball.uIForce.GetForce();
+                    float distanceToForceCentro = (gameplaySettings.limits.x/2) * gameplaySettings.distanceToForceCentro;
+                    print("ESTA EN " + character.transform.position + " di: "+ distanceToForceCentro);
+
+                    if (
+                        Mathf.Abs(character.transform.position.z) > 7.5f &&
+                        (character.teamID == 1 && character.transform.position.x < -distanceToForceCentro
+                        ||
+                        character.teamID == 2 && character.transform.position.x > distanceToForceCentro))
+                    {
+                      
+                        Vector3 centroPos = character.transform.position;
+                        centroPos.x *= 0.9f;
+                        centroPos.z *= -0.5f;
+                        Debug.Log("______Centro check" + centroPos);
+                        characterNear = GetNearest(character.teamID, false, centroPos);
+                        character.ballCatcher.LookAt(centroPos);
+
+                        if (ball.character != characterNear)
+                            SwapTo(character, characterNear); 
+                        
+                        character.Kick(CharacterActions.kickTypes.BALOON);
+                        return;
+                    }
                     //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
-
-
-                    Character characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(4));
+                    characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(4));
                     //Character characterNear = GetNearestTo(character, character.teamID);
-
+                  
                     if (ball.character != characterNear)
                     {
-                        print("a: " + characterNear.data.avatarName);
+                        Debug.Log("pase a: " + characterNear.data.avatarName);
                         character.ballCatcher.LookAt(characterNear.transform.position);
                         SwapTo(character, characterNear);
                     }
-                    CheckPase(character);
+                    CheckPase(character, uiForceValue);
                     break;
                 case 3: return;// character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
         }
     }
-    void CheckPase(Character character)
+    void CheckPase(Character character, float uiForceValue)
     {
-        float uiForceValue = ball.uIForce.GetForce();
+        Debug.Log("pase uiForceValue: " + uiForceValue);
         if (uiForceValue > 0.5f)
             character.Kick(CharacterActions.kickTypes.BALOON);
         else
