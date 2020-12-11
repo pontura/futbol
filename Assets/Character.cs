@@ -192,12 +192,23 @@ public class Character : MonoBehaviour
     {
         foreach (Collider c in colliders)
             c.enabled = false;
-        Invoke("ResetColliders", 0.2f); 
+        Invoke("ResetColliders", 0.3f); 
+    }
+    Vector3 collidersOriginalPos = Vector3.zero;
+    public void MoveCollidersTo(Vector3 pos)
+    {
+        if (colliders.Length == 0) return;
+        colliders[0].GetComponent<CapsuleCollider>().center = collidersOriginalPos + pos;
     }
     void ResetColliders()
     {
         foreach (Collider c in colliders)
             c.enabled = true;
+    }
+    public void Jump()
+    {
+        if(type != types.GOALKEEPER)
+            actions.Jump();
     }
     public void SuperRun()
     {

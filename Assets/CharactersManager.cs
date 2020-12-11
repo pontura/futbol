@@ -265,7 +265,10 @@ public class CharactersManager : MonoBehaviour
 
         if (buttonID == 3)
         {
-            character.SuperRun();
+            if (character.actions.state == CharacterActions.states.IDLE)
+                character.Jump();
+            else
+                character.SuperRun();
             return;
         }           
 

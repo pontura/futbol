@@ -19,7 +19,8 @@ public class CharacterActions : MonoBehaviour
         SPECIAL_ACTION,
         GOAL,
         KICKED,
-        FREEZE
+        FREEZE,
+        JUMP
     }
     public enum kickTypes
     {
@@ -58,7 +59,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
             return;
-        } else if (state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
+        } else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
             return;
         StopAllCoroutines();
         CancelInvoke();
@@ -99,7 +100,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("run");
             return;
-        } else if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        } else if (state == states.JUMP || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         PlayAnim("run");
@@ -117,6 +118,15 @@ public class CharacterActions : MonoBehaviour
             Invoke("ResetSpecial", 1.5f);
         }
     }
+    public void Jump()
+    {
+        if (state == states.JUMP)
+            return;
+        this.state = states.JUMP;
+        PlayAnim("jump");
+        Invoke("ResetSpecial", 0.5f);
+        character.MoveCollidersTo(new Vector3(0, 1, 0));
+    }
     public void GoalKeeperJump()
     {
         if (state == states.SPECIAL_ACTION)
@@ -126,7 +136,7 @@ public class CharacterActions : MonoBehaviour
             GoalKeeperJumpType(1);
         else
             GoalKeeperJumpType(2);
-    }
+    }  
     public void GoalKeeperJumpType(int id, bool resetJump = true)
     {
         if (id == 0)
@@ -245,8 +255,11 @@ public class CharacterActions : MonoBehaviour
     }
     void ResetSpecial()
     {
+        if(state == states.JUMP)
+            character.MoveCollidersTo(Vector3.zero);
         state = states.ACTION_DONE;
         Idle();
+        
     }
     public string lastAnimPlayed;
     void PlayAnim(string animName)

@@ -145,7 +145,10 @@ public class Ball : MonoBehaviour
             {
                 characterThatKicked = character;
                 character.SetCollidersOff();
-                character.actions.Kick(CharacterActions.kickTypes.CHILENA);
+
+                if(character.actions.state != CharacterActions.states.JUMP)
+                    character.actions.Kick(CharacterActions.kickTypes.CHILENA);
+
                 AimGoal(character);
                 Kick(CharacterActions.kickTypes.CHILENA);
             }
@@ -154,7 +157,10 @@ public class Ball : MonoBehaviour
                 characterThatKicked = character;
                 character.SetCollidersOff();
                 transform.eulerAngles = character.ballCatcher.container.transform.eulerAngles;
-                character.actions.Kick(CharacterActions.kickTypes.HEAD);
+
+                if (character.actions.state != CharacterActions.states.JUMP)
+                    character.actions.Kick(CharacterActions.kickTypes.HEAD);
+
                 Kick(CharacterActions.kickTypes.HEAD);
             }
         }
