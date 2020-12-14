@@ -74,7 +74,7 @@ public class AI : MonoBehaviour
     {
         if (character.teamID != _character.teamID)
             return;
-        if (_character.characterID == character.characterID)
+        if (_character.data.id == character.data.id)
         {
             ResetAll();
             aiGotoBall.SetActive();
@@ -94,7 +94,7 @@ public class AI : MonoBehaviour
         else
             state = states.DEFENDING;
 
-        if (characterWithBall.characterID == character.characterID)
+        if (characterWithBall.data.id == character.data.id)
         {
             if (aiHasBall != null)
             {

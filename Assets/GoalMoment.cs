@@ -70,7 +70,7 @@ public class GoalMoment : MonoBehaviour
         foreach (Character character in winners)
         {
             Vector3 targetPos;
-            if (character.characterID == character_made_goal.characterID)
+            if (character.data.id == character_made_goal.data.id)
                 targetPos = new Vector3(character.transform.position.x, 0, 10);
             else
             {

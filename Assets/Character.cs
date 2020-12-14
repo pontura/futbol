@@ -6,7 +6,6 @@ public class Character : MonoBehaviour
 {
     [HideInInspector] public CharactersData.CharacterData dataSources;
     public int id; //for player Input;
-    public int characterID; //for data;
     Collider[] colliders;
     public float speed;
     public Transform characterContainer;
@@ -49,7 +48,7 @@ public class Character : MonoBehaviour
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
 
-        this.characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
+        int characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
         data = Data.Instance.textsData.GetCharactersData(characterID, type == Character.types.GOALKEEPER);
         if (type == Character.types.GOALKEEPER)
         {

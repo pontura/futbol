@@ -316,7 +316,7 @@ public class VoicesManager : MonoBehaviour
 
         } else
         {
-            Debug.Log("No grabaron audio para el nombre de: " + character.characterID);
+            Debug.Log("No grabaron audio para el nombre de: " + character.data.id);
         }
     }
 

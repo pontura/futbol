@@ -6,7 +6,6 @@ using System;
 public class TextsData : MonoBehaviour
 {
     public TextData data;
-    int referiID;
 
     [Serializable]
     public class TextData
@@ -37,16 +36,12 @@ public class TextsData : MonoBehaviour
         TextAsset targetFile = Resources.Load<TextAsset>("texts");
         data = JsonUtility.FromJson<TextData>(targetFile.text);        
     }
-    private void Start()
-    {
-        referiID = CharactersData.Instance.referiId;
-    }
     public string GetRandomReferiDialogue(string dialogueType)
     {
-        CharacterData characterData = data.referis[referiID-1];
+        CharacterData characterData = data.referis[CharactersData.Instance.referiId - 1];
         foreach (CharacterData d in data.referis)
         {
-            if (d.id == referiID)
+            if (d.id == CharactersData.Instance.referiId)
                 characterData = d;
         }
         return GetText(dialogueType, characterData, false);

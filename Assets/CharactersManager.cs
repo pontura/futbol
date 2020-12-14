@@ -188,7 +188,7 @@ public class CharactersManager : MonoBehaviour
         Character character = null;
         foreach (Character c in team)
         {
-            if (c.characterID != myCharacter.characterID)
+            if (c.data.id != myCharacter.data.id)
             {
                 float distance = Vector3.Distance(c.transform.position, myCharacter.transform.position);
                 if (distanceMin > distance && c.type != Character.types.GOALKEEPER)

@@ -80,7 +80,7 @@ public class Game : MonoBehaviour
         }
         
         foreach (Character ch in winner)
-            Events.SetDialogue(ch, Data.Instance.textsData.GetRandomDialogue("goal", ch.characterID, ch.type == Character.types.GOALKEEPER));
+            Events.SetDialogue(ch, Data.Instance.textsData.GetRandomDialogue("goal", ch.data.id, ch.type == Character.types.GOALKEEPER));
 
 
         ball.KickIfOnGoal();

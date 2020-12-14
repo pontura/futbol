@@ -75,7 +75,7 @@ public class GameIntro : MonoBehaviour
         character.actions.EnterCancha();
         Events.OnIntroSound(0, character);
         // if(Random.Range(0,10)>3)
-        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.characterID, character.type == Character.types.GOALKEEPER));
+        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("random", character.data.id, character.type == Character.types.GOALKEEPER));
     }
     void Update()
     {
