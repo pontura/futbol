@@ -8,6 +8,7 @@ public class Ruleta : MonoBehaviour {
     public GameObject tapa;
     public float spacing;
     float InitialSpeed;
+    public int speed;
     public float acceleration;
     public int selectedID;
 
@@ -41,7 +42,7 @@ public class Ruleta : MonoBehaviour {
         REPOSITION,
         FINISH
     }
-    public float speed;
+    float mySpeed = 5;
     float repositionTo;
     System.Action<int> OnDone;
 
@@ -76,7 +77,7 @@ public class Ruleta : MonoBehaviour {
         tapa.SetActive(false);
         this.OnDone = OnDone;
         InitialSpeed = UnityEngine.Random.Range(5, 20);
-        speed = InitialSpeed;
+        mySpeed = InitialSpeed;
         state = states.ROLLING;
     }
     void Update()
@@ -87,10 +88,10 @@ public class Ruleta : MonoBehaviour {
     float lastY = 0;
     void Rolling()
     {
-        speed -= acceleration;
-        float newY = container.transform.localPosition.y + speed;
-        lastY += speed;
-        if (speed <= 0)
+        mySpeed -= acceleration;
+        float newY = container.transform.localPosition.y + mySpeed;
+        lastY += mySpeed;
+        if (mySpeed <= 0)
         {
             if(type == types.TEAM)
                 Events.PlaySound("common", "slotMachine_club_" + teamID, false);
@@ -107,7 +108,7 @@ public class Ruleta : MonoBehaviour {
         if (container.localPosition.y > (totalHeight))
             ResetPosition();
         else
-            container.localPosition = new Vector3(0, newY + (5*Time.deltaTime), 0);
+            container.localPosition = new Vector3(0, newY + (Time.deltaTime * speed) , 0);
     }
     private void CalculateItem()
     {
@@ -124,18 +125,18 @@ public class Ruleta : MonoBehaviour {
     }
     void RepositionateUp()
     {
-        speed += Time.deltaTime + acceleration;
-        float newY = container.transform.localPosition.y - speed;
-        container.transform.localPosition = new Vector3(0, newY, 0);
+        mySpeed += Time.deltaTime + acceleration;
+        float newY = container.transform.localPosition.y - mySpeed;
+        container.transform.localPosition = new Vector3(0, newY + (Time.deltaTime * speed), 0);
 
         if (container.transform.localPosition.y <= repositionTo) Ready();
 
     }
     void RepositionateDown()
     {
-        speed += Time.deltaTime + acceleration;
-        float newY = container.transform.localPosition.y + speed;
-        container.transform.localPosition = new Vector3(0, newY, 0);
+        mySpeed += Time.deltaTime + acceleration;
+        float newY = container.transform.localPosition.y + mySpeed;
+        container.transform.localPosition = new Vector3(0, newY + (Time.deltaTime * speed), 0);
 
         if (container.transform.localPosition.y >= repositionTo) Ready();
 
