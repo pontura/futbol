@@ -52,42 +52,6 @@ public class Ball : MonoBehaviour
     {
         return transform.position + transform.forward * value;
     }
-    private void Update()
-    {
-        if (Game.Instance.state != Game.states.PLAYING)
-            return;     
-
-        Vector3 velocity = rb.velocity;
-        if (transform.position.y >10.25f)
-        {
-            velocity.y = 0;
-            rb.velocity = velocity;
-        } else if (transform.position.y < 3.3f && transform.position.z < 4.5f && transform.position.z > -4.5f)
-        {
-            if (transform.position.x <= (-limits.x / 2) + 0.25f)
-                Game.Instance.Goal(1, characterThatKicked);
-            else if (transform.position.x >= (limits.x / 2) - 0.25f)
-                Game.Instance.Goal(2, characterThatKicked);
-        }
-        else
-        if (transform.position.x > limits.x / 2  || transform.position.x < -limits.x / 2)
-        {
-            float new_x = limits.x / 2;
-            if (transform.position.x < 0)   new_x  *= -1;
-            transform.position = new Vector3(new_x, transform.position.y, transform.position.z);
-
-            Events.PlaySound("dogs", "wallFront_" + Random.Range(1,3), false);
-            velocity.x *= -1;
-        }
-
-        else if (transform.position.z >= limits.y / 2 && rb.velocity.z > 0 || transform.position.z <= -limits.y / 2 && rb.velocity.z < 0)
-        {
-            Events.PlaySound("dogs", "wallBack_" + Random.Range(1, 6), false);
-            velocity.z *= -1;
-        }
-        rb.velocity = velocity;
-        if (transform.position.y < 0) transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-    }
     public void SetPlayer(Character _character)
     {
         this.character = _character;
@@ -108,24 +72,43 @@ public class Ball : MonoBehaviour
         this.character = character;
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-      
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
+        if (other.gameObject.tag == "Goal")
+        {
+            int teamID = 1;
+            if (transform.position.x > 0) teamID = 2;
+            Game.Instance.Goal(teamID, characterThatKicked);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {      
         if (Game.Instance.state != Game.states.PLAYING)
             return;
         if (character != null && character.type == Character.types.GOALKEEPER)
             return;
-
-        if (collision.gameObject.tag == "Goal")
+        if(collision.gameObject.tag == "GoalPalo")
         {
-            rb.velocity = Vector3.zero;
+            if (collision.gameObject.transform.position.y > 2.5f)
+                VoicesManager.Instance.SayPalo(0);
+            else
+                VoicesManager.Instance.SayPalo(1);
+        }
+        else if (collision.gameObject.tag == "lateral")
+        {
+            Events.PlaySound("dogs", "wallBack_" + Random.Range(1, 6), false);
+        } else if (collision.gameObject.tag == "Corner")
+        {
+            Events.PlaySound("dogs", "wallFront_" + Random.Range(1, 3), false);
         }
         else if (collision.gameObject.tag == "Referi")
         {
             Character character = collision.gameObject.GetComponent<Character>();
             character.actions.Kick(CharacterActions.kickTypes.HEAD);
         }
-         else   if (collision.gameObject.tag == "Player")
+         else if (collision.gameObject.tag == "Player")
         {
             Character character = collision.gameObject.GetComponent<Character>();
 

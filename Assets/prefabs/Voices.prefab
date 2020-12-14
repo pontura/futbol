@@ -47,6 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4823537679716861331}
   audioSourceComentarios: {fileID: 2043899916154453873}
+  travesanio:
+  - {fileID: 8300000, guid: 40a5717a24b41b84e959394fd067bad4, type: 3}
+  palo:
+  - {fileID: 8300000, guid: 52a5fef77b3a3fe41be8b1f95f0614bd, type: 3}
   nums:
   - {fileID: 8300000, guid: 55b90945279007e419d14173cfe631c3, type: 3}
   - {fileID: 8300000, guid: d16ea3e54f5f5a84eadf551f40165dce, type: 3}
@@ -277,8 +281,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.718
-  m_Pitch: 1.36
+  m_Volume: 1
+  m_Pitch: 1.4
   Loop: 0
   Mute: 0
   Spatialize: 0

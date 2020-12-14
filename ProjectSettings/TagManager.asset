@@ -8,6 +8,9 @@ TagManager:
   - GoalKeeper
   - Goal
   - Referi
+  - GoalPalo
+  - Corner
+  - lateral
   layers:
   - Default
   - TransparentFX
@@ -19,8 +22,8 @@ TagManager:
   - 
   - Character
   - GoalKeeper
-  - 
-  - 
+  - BallObstacle
+  - Ball
   - 
   - 
   - 

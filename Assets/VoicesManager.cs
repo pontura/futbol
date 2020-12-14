@@ -8,7 +8,9 @@ public class VoicesManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource audioSourceComentarios;
 
-    
+    public AudioClip[] travesanio;
+    public AudioClip[] palo;
+
     public AudioClip[] nums;
     public AudioClip a;
 
@@ -388,5 +390,11 @@ public class VoicesManager : MonoBehaviour
     {
         Data.Instance.LoadLevel("Penalty");
     }
-
+    public void SayPalo(int id)
+    {
+        if(id == 0)
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(travesanio) }, null);
+        else
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(palo) }, null);
+    }
 }

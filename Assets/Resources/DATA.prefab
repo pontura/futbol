@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b930e79caea734f821d118633cad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalPlayers: 1
   totalTime: 130
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
@@ -135,26 +136,42 @@ MonoBehaviour:
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   selectedTeams: {x: 1, y: 0}
-  timeToSwapCharactersAutomatically: 0.7
-  limits: {x: 40, y: 20}
-  forceBarSpeed: 3
-  kickHard: 800
-  kickHardAngle: 280
-  kickSoft: 500
-  kickSoftAngle: 110
-  kickBaloon: 250
-  kickBaloonAngle: 450
-  kickHead: 300
-  kickHeadAngle: 130
-  kickChilena: 800
-  kickChilenaAngle: 45
-  speed: 5
-  goalKeeperSpeed: 2
-  referiSpeed: 2
-  speedWithBall: 4
-  speedDash: 10
-  dialoguesTimeToAppear: {x: 2, y: 4}
-  dialoguesDuration: 4
+  gameplay:
+    limits: {x: 40, y: 20}
+    input_x_sensibilitty: 0
+    scaleFactor: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    goalKeeperSpeed: 0
+    gkSpeed_sale_x: 0
+    gkSpeed_sale_z: 0
+    referiSpeed: 0
+    speedWithBall: 0
+    speedDash: 0
+    dialoguesTimeToAppear: {x: 2, y: 4}
+    dialoguesDuration: 0
+    timeToSwapCharactersAutomatically: 0.7
+    forceBarSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    startingUIForceBar: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
 --- !u!114 &864794640
 MonoBehaviour:
   m_ObjectHideFlags: 0
