@@ -31,9 +31,12 @@ public class AiHasBall : MonoBehaviour
     }
     void Loop()
     {
+        if (ai.character.isBeingControlled)
+            return;
+
         Invoke("Loop", 0.75f);
 
-        if (!ai.character.isBeingControlled && characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
+        if (characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
             GiveBall();
         
         int rand = Random.Range(0, 100);

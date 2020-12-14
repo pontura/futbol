@@ -34,11 +34,15 @@ public class CharacterActions : MonoBehaviour
         CENTRO
     }
     Ball ball;
+    private void Awake()
+    {
+        character = GetComponent<Character>();
+    }
     public void Init(GameObject go, int teamID)
     {
         if(Game.Instance != null)
             ball = Game.Instance.ball;
-        character = GetComponent<Character>();
+        
         anim = go.GetComponent<Animator>();
         if (teamID == 1) lookTo = -1;
         else lookTo = 1;

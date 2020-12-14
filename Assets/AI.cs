@@ -22,7 +22,6 @@ public class AI : MonoBehaviour
     {
         ball = Game.Instance.ball;
         character = GetComponent<Character>();
-
         Events.OnGoal += OnGoal;
         Events.CharacterCatchBall += CharacterCatchBall;
         Events.OnBallKicked += OnBallKicked;
@@ -39,6 +38,17 @@ public class AI : MonoBehaviour
         Events.CharacterCatchBall -= CharacterCatchBall;
         Events.OnBallKicked -= OnBallKicked;
         Events.SetCharacterNewDefender -= SetCharacterNewDefender;
+    }
+    public void OnBallNear()
+    {
+        if (
+            character.actions.state != CharacterActions.states.IDLE &&
+            character.actions.state != CharacterActions.states.RUN
+           )
+            return;
+
+        ResetAll();
+        character.Jump();
     }
     private void Update()
     {
@@ -93,8 +103,6 @@ public class AI : MonoBehaviour
                 return;
             }
         }
-
-
         if (character.isBeingControlled)
             ResetAll();
         else
