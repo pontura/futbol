@@ -1,43 +1,55 @@
 {
-	"scaleFactor" :			0.7, 
-	"speed" :				3.5, 
-	"speedRun" :			6.33, 
-	"speedRunWithBall" :	4.5,
-	"speedRunFade" :		1.5, 
-	"speedWithBall" :		2,
-	"speedDash" :			7.5,	
-	"gk_CatchOnAir":		66,
-	"input_x_sensibilitty":	4,
-	"freeze_dash":			0.45,
-	"freeze_by_loseBall":	0.6,
-	"freeze_by_dashBall":	1.5,
-	"goalKeeperSpeed" :		1.2,	
-	"gkSpeed_sale_z" :		5,	
-	"gkSpeed_sale_x" :		2,	
-	"referiSpeed" :			1.2,
-	"distanceToForceCentro":0.65, 
-	"startingUIForceBar":	0.45,
-	
-	"dialoguesDuration":	4,
-	"timeToSwapCharactersAutomatically" : 0.7,
-	"forceBarSpeed" :		3,
-	
-	"kickHard" :			700,
-	"kickHardAngle" :		280,
-	
-	"kickSoft" :			600,
-	"kickSoftAngle" :		100,
-	
-	"kickBaloon" :			220,
-	"kickBaloonAngle" :		400,
-	
-	"kickHead" :			250,
-	"kickHeadAngle" :		130,
-	
-	"kickChilena" :			700,
-	"kickChilenaAngle":		45,
 
-	"kickCentro":			315,
-	"kickCentroAngle":		285	
-	
+	"scaleFactor": 0.66,
+
+
+	"speed": 3.5,
+	"speedRun": 6.5,
+	"speedRunFade": 1,
+	"speedWithBall": 2.5,
+	"speedRunWithBall": 4.5,
+
+
+	"speedDash": 8,
+
+
+	"gk_CatchOnAir": 66,
+	"goalKeeperSpeed": 1.2,
+	"gkSpeed_sale_z": 5,
+	"gkSpeed_sale_x": 2,
+
+
+
+	"freeze_dash": 0.5,
+	"freeze_by_loseBall": 0.7,
+	"freeze_by_dashBall": 1.5,
+
+	"referiSpeed": 1.2,
+	"distanceToForceCentro": 0.65,
+	"startingUIForceBar": 0.45,
+	"dialoguesDuration": 4,
+	"timeToSwapCharactersAutomatically": 0.7,
+	"forceBarSpeed": 3,
+	"input_x_sensibilitty": 4,
+
+
+
+	"kickHard": 700,
+	"kickHardAngle": 250,
+
+	"kickSoft": 600,
+	"kickSoftAngle": 100,
+
+	"kickBaloon": 220,
+	"kickBaloonAngle": 400,
+
+	"kickHead": 250,
+	"kickHeadAngle": 130,
+
+	"kickChilena": 700,
+	"kickChilenaAngle": 45,
+
+	"kickCentro": 315,
+	"kickCentroAngle": 285
+
 } 
