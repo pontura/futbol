@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 608365}
   - component: {fileID: 608368}
   - component: {fileID: 608367}
-  - component: {fileID: 608366}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -154,20 +153,6 @@ Transform:
   m_Father: {fileID: 555135507}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &608366
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608364}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &608367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14661,7 +14646,6 @@ GameObject:
   - component: {fileID: 124702616}
   - component: {fileID: 124702619}
   - component: {fileID: 124702618}
-  - component: {fileID: 124702617}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -14683,20 +14667,6 @@ Transform:
   m_Father: {fileID: 389629877}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &124702617
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124702615}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &124702618
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26771,7 +26741,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f10f798b706ccd4409405be956bc1cff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f10f798b706ccd4409405be956bc1cff,
         type: 3}
@@ -34171,7 +34141,6 @@ GameObject:
   - component: {fileID: 982049493}
   - component: {fileID: 982049496}
   - component: {fileID: 982049495}
-  - component: {fileID: 982049494}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -34193,20 +34162,6 @@ Transform:
   m_Father: {fileID: 81691609}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &982049494
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982049492}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &982049495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39103,7 +39058,6 @@ GameObject:
   - component: {fileID: 1022677274}
   - component: {fileID: 1022677277}
   - component: {fileID: 1022677276}
-  - component: {fileID: 1022677275}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -39125,20 +39079,6 @@ Transform:
   m_Father: {fileID: 1351360485}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1022677275
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022677273}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1022677276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40794,7 +40734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012892830758, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000012892830758, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -46268,7 +46208,7 @@ RectTransform:
   - {fileID: 1448335557}
   - {fileID: 3972124489413075136}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -49257,7 +49197,7 @@ PrefabInstance:
     - target: {fileID: 4823537679716861330, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4823537679716861330, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
@@ -49425,7 +49365,7 @@ PrefabInstance:
     - target: {fileID: 4978833693890832254, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4978833693890832254, guid: f057faebf3a99b54e9253ecaae07a6a0,
         type: 3}
