@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 9a3909c0982eea9458d18b78e480104d
+  - enabled: 1
+    path: Assets/Scenes/ControlRemapping.unity
+    guid: ca05ffe9a1b88594f83a136abd47215f
   m_configObjects: {}

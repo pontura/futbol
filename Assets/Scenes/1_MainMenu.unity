@@ -2016,6 +2016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3524207d81d729478df32d89f1ef0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlMapper_to_add: {fileID: 11452084, guid: 03b9a6db219d12e4f8ec2934e0c7e721,
+    type: 3}
 --- !u!114 &1748213158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,7 +2628,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1748213157}
-        m_MethodName: GotoGame
+        m_MethodName: Controls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
