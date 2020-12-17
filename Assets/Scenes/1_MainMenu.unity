@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2765,6 +2765,7 @@ GameObject:
   - component: {fileID: 6194736257740023318}
   - component: {fileID: 6194736257740023316}
   - component: {fileID: 6194736257740023317}
+  - component: {fileID: 6194736257740023320}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2772,6 +2773,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!111 &6194736257740023320
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6194736257740023319}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 4d3c2cdb4af7caa4584e00a101524cf6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 4d3c2cdb4af7caa4584e00a101524cf6, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!224 &6194736257973059328
 RectTransform:
   m_ObjectHideFlags: 0
