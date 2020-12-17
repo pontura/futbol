@@ -17,7 +17,8 @@ public class Character : MonoBehaviour
         CENTRAL,
         DELANTERO_UP,
         DELANTERO_DOWN,
-        GOALKEEPER
+        GOALKEEPER,
+        REFERI
     }
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
@@ -165,8 +166,11 @@ public class Character : MonoBehaviour
 
         Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
 
-        if (!isBeingControlled)
-            forwardVector.x *= 1.2f;
+        if (type != types.GOALKEEPER && type != types.REFERI && !isBeingControlled && ai.aiHasBall != enabled)
+        {
+            forwardVector.z *= 1.5f;
+            forwardVector.x *= 1.5f;
+        }
 
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);

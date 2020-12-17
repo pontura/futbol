@@ -48976,7 +48976,7 @@ MonoBehaviour:
   id: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
-  type: 0
+  type: 6
   charactersManager: {fileID: 0}
   teamID: 0
   data:
