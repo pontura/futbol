@@ -124,6 +124,8 @@ public class CharactersManager : MonoBehaviour
     }
     void CheckStateByTeam(Character character)
     {
+        if (Game.Instance.state != Game.states.PLAYING)
+            return;
         AI.states state = character.ai.state;
         if (state != AI.states.ATTACKING)
         {
@@ -140,13 +142,19 @@ public class CharactersManager : MonoBehaviour
         if (to != from && to.id != from.id)
             SwapTo(from, to);
     }
+    Character lastNearestToDefend;
     void CheckForNewDefender(int teamID)
     {
         Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
+        if (nearestToDefend == lastNearestToDefend)
+            return;
+
         if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
         if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
             return;
+        
+        lastNearestToDefend = nearestToDefend;
         Events.SetCharacterNewDefender(nearestToDefend);
     }
     public void CharacterCatchBall(Character character)
@@ -262,7 +270,7 @@ public class CharactersManager : MonoBehaviour
     {
        // print("buttonID " + buttonID);
         Character character = GetPlayer(id);
-
+        if (character == null) return;
         if (buttonID == 3)
         {
             if (character.actions.state == CharacterActions.states.IDLE)
@@ -310,7 +318,6 @@ public class CharactersManager : MonoBehaviour
                     Character characterNear;
                     float uiForceValue = ball.uIForce.GetForce();
                     float distanceToForceCentro = (gameplaySettings.limits.x/2) * gameplaySettings.distanceToForceCentro;
-                    print("ESTA EN " + character.transform.position + " di: "+ distanceToForceCentro);
 
                     if (
                         Mathf.Abs(character.transform.position.z) > 7.5f &&
@@ -322,7 +329,6 @@ public class CharactersManager : MonoBehaviour
                         Vector3 centroPos = character.transform.position;
                         centroPos.x *= 0.85f;
                         centroPos.z *= -0.85f;
-                        Debug.Log("______Centro check" + centroPos);
                         characterNear = GetNearest(character.teamID, false, centroPos);
                         character.ballCatcher.LookAt(centroPos);
                         character.Kick(CharacterActions.kickTypes.CENTRO);
@@ -336,7 +342,6 @@ public class CharactersManager : MonoBehaviour
                   
                     if (ball.character != characterNear)
                     {
-                        Debug.Log("pase a: " + characterNear.data.avatarName);
                         character.ballCatcher.LookAt(characterNear.transform.position);
                         SwapTo(character, characterNear);
                     }

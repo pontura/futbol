@@ -162,10 +162,14 @@ public class Character : MonoBehaviour
                 
             actions.Run();
         }
+
         Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
+
+        if (!isBeingControlled)
+            forwardVector.x *= 1.2f;
+
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);
-           // ballCatcher.SetRotation((int)_x, (int)_y);
         transform.Translate(forwardVector);
     }
     public void SetSignal(CharacterSignal signal)

@@ -16,10 +16,11 @@ public class BallNearController : MonoBehaviour
         if(other.tag == "Ball")
         {
             Ball ball = other.GetComponent<Ball>();
+
             if (ball.transform.position.y > 2.25f)
-            {
+                ai.OnBallNearOnAir();
+            else
                 ai.OnBallNear();
-            }
         }
     }
 }

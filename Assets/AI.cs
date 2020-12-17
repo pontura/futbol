@@ -39,7 +39,7 @@ public class AI : MonoBehaviour
         Events.OnBallKicked -= OnBallKicked;
         Events.SetCharacterNewDefender -= SetCharacterNewDefender;
     }
-    public void OnBallNear()
+    public void OnBallNearOnAir()
     {
         if (
             character.actions.state != CharacterActions.states.IDLE &&
@@ -49,6 +49,11 @@ public class AI : MonoBehaviour
 
         ResetAll();
         character.Jump();
+    }
+    public void OnBallNear()
+    {
+        if(state != states.ATTACKING)
+            GotoBall();
     }
     private void Update()
     {
@@ -68,22 +73,22 @@ public class AI : MonoBehaviour
     }
     void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
     {
+        if (character == null) return;
+
         state = states.NONE;
+        ResetAll();
     }
     void SetCharacterNewDefender(Character _character)
     {
         if (character.teamID != _character.teamID)
             return;
         if (_character.data.id == character.data.id)
-        {
-            ResetAll();
-            aiGotoBall.SetActive();
-        }
-        else if (aiGotoBall.enabled)
-        {
-            aiPosition.SetActive();
-            aiGotoBall.Reset();
-        }
+            GotoBall();
+    }
+    void GotoBall()
+    {
+        ResetAll();
+        aiGotoBall.SetActive();
     }
     public virtual void CharacterCatchBall(Character characterWithBall)
     {
@@ -108,7 +113,7 @@ public class AI : MonoBehaviour
         else
         {
             aiGotoBall.Reset();
-            if(aiHasBall != null) aiHasBall.Reset();
+            if (aiHasBall != null) aiHasBall.Reset();
             aiPosition.SetActive();
         }
     }
