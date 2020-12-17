@@ -179,6 +179,19 @@ public class Character : MonoBehaviour
     public void SetSignal(CharacterSignal signal)
     {
         characterSignal = signal;
+
+        if(signal == null)
+        {
+            Debug.LogError("no hay signal");
+            return;
+        }           
+        if (actions == null)
+        {
+            Debug.LogError("no hay signal");
+            return;
+        }
+        
+
         signal.transform.SetParent(actions.transform);
         signal.transform.localScale = Vector3.one;
         signal.transform.localPosition = Vector3.zero;        
