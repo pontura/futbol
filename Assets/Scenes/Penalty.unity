@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 1159750959}
   offset: {x: 0, y: 235, z: 0}
+  progressBar: {fileID: 0}
 --- !u!1 &235862825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1067,6 @@ MonoBehaviour:
   player2: 0
   player3: 0
   player4: 0
-  totalPlayers: 0
   containerTeam1: {fileID: 670529826}
   containerTeam2: {fileID: 2026666402}
   team1: []
@@ -2287,9 +2287,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   camera_tribuna_y: 8.26
-  target: {fileID: 170217519}
   offset: {x: 0, y: 1.95, z: 0}
   offset_lookAt: 0.95
+  filming_y: 0
+  originalSize: 5
+  zoomSize: 2
+  offsetShootingPlayer_z: 2.5
 --- !u!1 &1033923654
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,9 +5404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef2c7c4236293f44af1b1c9f4ee99ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  character: {fileID: 3160418783750167796}
   state: 0
+  lastAnimPlayed: 
 --- !u!54 &3160418783750167795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5437,11 +5439,11 @@ MonoBehaviour:
     thumb: {fileID: 0}
     audio_names: []
     audio_goal: []
+    comments_goal: []
   id: 0
-  characterID: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
-  ball: {fileID: 0}
+  type: 6
   charactersManager: {fileID: 0}
   teamID: 0
   data:
@@ -5457,7 +5459,7 @@ MonoBehaviour:
   ballCatcher: {fileID: 0}
   isBeingControlled: 0
   ai: {fileID: 0}
-  isGoldKeeper: 0
+  scaleFactor: 0
 --- !u!136 &3160418783750167806
 CapsuleCollider:
   m_ObjectHideFlags: 0

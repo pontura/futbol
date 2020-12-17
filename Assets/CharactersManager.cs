@@ -298,6 +298,11 @@ public class CharactersManager : MonoBehaviour
     {
        
         Character character = GetPlayer(id);
+        if(character == null)
+        {
+            Debug.Log("no hay usuario id: " + id);
+            return;
+        }
         if (character.ai.state == AI.states.ATTACKING)
         {
             Events.PlayerProgressBarSetState(false);
