@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [HideInInspector] public CharactersData.CharacterData dataSources;
-    public int id; //for player Input;
+    public int control_id; //for player Input;
     Collider[] colliders;
     public float speed;
     public Transform characterContainer;
@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
     }
     void AutomaticChangePlayer()
     {
-        charactersManager.Swap(id);
+        charactersManager.Swap(control_id);
     }
     public void Dash()
     {

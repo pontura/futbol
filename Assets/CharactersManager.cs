@@ -138,7 +138,7 @@ public class CharactersManager : MonoBehaviour
         Character from = GetNearest(teamID, true, ball.transform.position);
         if (to == null || from == null)
             return;
-        if (to != from && to.id != from.id)
+        if (to != from && to.control_id != from.control_id)
             SwapTo(from, to);
     }
     Character lastNearestToDefend;
@@ -174,7 +174,7 @@ public class CharactersManager : MonoBehaviour
         else if(id == 4) player4 = true;
 
         Character character = GetNextCharacterByTeam(teamID);
-        character.id = id;
+        character.control_id = id;
         playingCharacters.Add(character);
         signals.Add(character);
         character.SetControlled(true);
@@ -266,10 +266,10 @@ public class CharactersManager : MonoBehaviour
         character.characterContainer.transform.localEulerAngles = rot;
     }
 
-    public void ButtonPressed(int buttonID, int id)
+    public void ButtonPressed(int buttonID, int control_id)
     {
        // print("buttonID " + buttonID);
-        Character character = GetPlayer(id);
+        Character character = GetPlayer(control_id);
         if (character == null) return;
         if (buttonID == 3)
         {
@@ -285,7 +285,7 @@ public class CharactersManager : MonoBehaviour
             switch (buttonID)
             {
                 case 1: character.Dash(); break;
-                case 2: Swap(id); break;
+                case 2: Swap(control_id); break;
                     // case 3: KickAllTheOthers(characterID); break;
             }
         }
@@ -364,10 +364,10 @@ public class CharactersManager : MonoBehaviour
         else
             character.Kick(CharacterActions.kickTypes.SOFT);
     }
-    public void Swap(int characterID)
+    public void Swap(int control_id)
     {
-        int teamID = GetTeamByPlayer(characterID);
-        Character character = GetPlayer(characterID);       
+        int teamID = GetTeamByPlayer(control_id);
+        Character character = GetPlayer(control_id);       
         Character newCharacter = GetNearest(teamID, false, ball.transform.position);
         if (newCharacter != character)
             SwapTo(character, newCharacter);
@@ -376,14 +376,16 @@ public class CharactersManager : MonoBehaviour
     {
         if (to == null) return;
         if (from == null) return;
+        if (from.teamID != to.teamID) return;
+        if (from.control_id == to.control_id) return;
 
         Events.PlaySound("common", "swapPlayer", false);
 
         int teamID = from.teamID;
-        to.id = from.id;        
+        to.control_id = from.control_id;        
         signals.ChangeSignal(from, to);
 
-        from.id = 0;
+        from.control_id = 0;
         playingCharacters.Remove(from);
         playingCharacters.Add(to);
         from.SetControlled(false);
@@ -412,10 +414,10 @@ public class CharactersManager : MonoBehaviour
         foreach (Character character in team_lose)
             character.OnGoal(false);
     }
-    Character GetPlayer(int id)
+    Character GetPlayer(int control_id)
     {
         foreach (Character character in playingCharacters)
-            if (character.id == id)
+            if (character.control_id == control_id)
                 return character;
         return null;
     }
