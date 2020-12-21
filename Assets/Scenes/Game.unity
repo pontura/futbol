@@ -52039,6 +52039,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Voices
       objectReference: {fileID: 0}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: comentario_gol.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
+        type: 3}
+      propertyPath: comentario_gol.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 609da043b125eaa438e48c038bec563f, type: 3}
     - target: {fileID: 4823537679716861330, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
       propertyPath: m_LocalPosition.x

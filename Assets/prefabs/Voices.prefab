@@ -93,6 +93,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 16f877c6c88402542be98ae04bec5b12, type: 3}
   - {fileID: 8300000, guid: 928a04192b147944580a05d5fb0e53f3, type: 3}
   - {fileID: 8300000, guid: 0b8ec6d009b944b49b4315d0141f6970, type: 3}
+  - {fileID: 8300000, guid: 609da043b125eaa438e48c038bec563f, type: 3}
   comentario_gol_en_contra:
   - {fileID: 8300000, guid: 87eb43e39375a2c4aafd88593915c1ec, type: 3}
   - {fileID: 8300000, guid: a5b5fc9b145f14d49a5d21a80d5d635c, type: 3}
