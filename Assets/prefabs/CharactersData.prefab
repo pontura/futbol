@@ -233,8 +233,7 @@ MonoBehaviour:
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     - {fileID: 8300000, guid: e401384acb72ec042b2b28a266c9b33b, type: 3}
-    audio_goal:
-    - {fileID: 8300000, guid: 0ef6739abd495f442ac19391a497ad30, type: 3}
+    audio_goal: []
     comments_goal:
     - {fileID: 8300000, guid: 7d42bd37b1a544c459ef070dd43ab26c, type: 3}
     - {fileID: 8300000, guid: 2fb1ebc335bad4549abdffa592cd74d1, type: 3}
