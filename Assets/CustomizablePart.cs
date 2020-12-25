@@ -5,15 +5,20 @@ using UnityEngine;
 public class CustomizablePart : MonoBehaviour
 {
     bool setted;
+    public int teamID;
 
     void Start()
     {
         if (setted)
             return;
         Character character = GetComponentInParent<Character>();
+
+        if (character)
+            teamID = character.teamID;
+
         string[] arr = gameObject.name.Split("_"[0]);
         string colorName = arr[arr.Length - 1];
-        Settings.TeamSettings teamSettings = Data.Instance.settings.GetTeamSettings(character.teamID);
+        Settings.TeamSettings teamSettings = Data.Instance.settings.GetTeamSettings(teamID);
         switch (colorName)
         {
             case "A":  GetComponent<SpriteRenderer>().color = teamSettings.clothColorA; break;
