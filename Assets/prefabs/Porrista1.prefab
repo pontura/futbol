@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 5057669327062553371}
   - component: {fileID: 5057669327062553368}
   m_Layer: 0
-  m_Name: porra
+  m_Name: porra_color_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2589,7 +2589,7 @@ GameObject:
   - component: {fileID: 5057669327831028617}
   - component: {fileID: 5057669327831028622}
   m_Layer: 0
-  m_Name: porro
+  m_Name: porro_color_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
