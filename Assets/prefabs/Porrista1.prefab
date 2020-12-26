@@ -1541,6 +1541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5057669327062553371}
   - component: {fileID: 5057669327062553368}
+  - component: {fileID: 9082996890186741513}
   m_Layer: 0
   m_Name: porra_color_B
   m_TagString: Untagged
@@ -1612,6 +1613,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9082996890186741513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057669327062553370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60ce06b9eddb1c4da215d0d82f8581a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 1
 --- !u!1 &5057669327263431585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,6 +2602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5057669327831028617}
   - component: {fileID: 5057669327831028622}
+  - component: {fileID: 3535694721870549797}
   m_Layer: 0
   m_Name: porro_color_A
   m_TagString: Untagged
@@ -2659,6 +2674,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3535694721870549797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057669327831028616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60ce06b9eddb1c4da215d0d82f8581a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 1
 --- !u!1 &9200013642312757768
 GameObject:
   m_ObjectHideFlags: 0
