@@ -32,8 +32,6 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
-        if (GetComponent<GoalKeeper>())
-            type = types.GOALKEEPER;
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
         ai = GetComponent<AI>();
