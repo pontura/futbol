@@ -74,7 +74,7 @@ public class GoalMoment : MonoBehaviour
                 targetPos = new Vector3(character.transform.position.x, 0, 10);
             else
             {
-                targetPos = character_made_goal.transform.position - character.ai.aiPosition.originalPosition / 5;
+                targetPos = character_made_goal.transform.position - character.ai.originalPosition / 5;
             }
 
             if (Vector3.Distance(character.transform.position, targetPos) > 3)

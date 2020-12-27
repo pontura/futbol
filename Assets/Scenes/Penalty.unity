@@ -6310,7 +6310,7 @@ MonoBehaviour:
   ballAimer: {fileID: 424397256}
   inputManager: {fileID: 483686596}
   character: {fileID: 2120862097}
-  goalKeeper: {fileID: 2059647159}
+  goalKeeper: {fileID: 4932910988181984954}
   ballAnim: {fileID: 1633951608}
   charactersManager: {fileID: 483686595}
 --- !u!1 &507410489
@@ -24986,18 +24986,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2059647159 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4932910986811592799, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4932910988181984953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895fc40b8e476d24ba8f949db30eebac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2091835536
 GameObject:
   m_ObjectHideFlags: 0
@@ -27242,6 +27230,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d39ebfc5d487e4b942c629d55f2bb3, type: 3}
+--- !u!114 &4932910988181984954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 784170761190992003, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4932910988181984953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7aa7f3132659b4d88576cc54bbaf76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4978833694940382693
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -150,7 +150,7 @@ public class CharactersManager : MonoBehaviour
 
         if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
-        if (nearestToDefend.isBeingControlled || nearestToDefend.ai.aiGotoBall.enabled)
+        if (nearestToDefend.isBeingControlled || nearestToDefend.ai.currentState == nearestToDefend.ai.aiGotoBall)
             return;
         
         lastNearestToDefend = nearestToDefend;

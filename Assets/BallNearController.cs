@@ -19,6 +19,8 @@ public class BallNearController : MonoBehaviour
 
             if (ball.transform.position.y > 2.25f)
                 ai.OnBallNearOnAir();
+            else if(ai.character.type == Character.types.GOALKEEPER && ball.transform.position.y > 1f)
+                ai.OnBallNearOnAir();            
             else
                 ai.OnBallNear();
         }

@@ -66,7 +66,7 @@ public class Character : MonoBehaviour
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;
         asset.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         actions.Init(asset, teamID);
-        
+        ai.Init();
     }
 
     void Loop()
@@ -166,11 +166,11 @@ public class Character : MonoBehaviour
 
         Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
 
-        if (type != types.GOALKEEPER && type != types.REFERI && !isBeingControlled && ai.aiHasBall != enabled)
-        {
-            forwardVector.z *= 1.5f;
-            forwardVector.x *= 1.5f;
-        }
+        //if (type != types.GOALKEEPER && type != types.REFERI && !isBeingControlled)//&& ai.aiHasBall != enabled)
+        //{
+        //    forwardVector.z *= 1.5f;
+        //    forwardVector.x *= 1.5f;
+        //}
 
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);

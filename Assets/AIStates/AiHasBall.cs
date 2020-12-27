@@ -2,40 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiHasBall : MonoBehaviour
+public class AiHasBall : AIState
 {
-    AI ai;
     Vector3 dest;
     public Character characterToPass;
     float center_goto_goal_x = 15;
     int _z = 0;
-    public float timer;
 
-    private void Awake()
+    public override void Init(AI ai)
     {
-        ai = GetComponent<AI>();
-    }
-    private void Start()
-    {
-        Reset();
-    }
-    public void SetActive()
-    {
+        base.Init(ai);
+        color = Color.red;
         characterToPass = null;
         timer = Time.time;
+        dest = Vector3.zero;
         dest.x = center_goto_goal_x;
         if (ai.character.teamID == 1)
             dest.x *= -1;
-        enabled = true;
-        Invoke("Loop", 0.35f);
+    }
+    public override AIState UpdatedByAI()
+    {
+        timer += Time.deltaTime;
+        if (timer > 0.85f)
+            Loop();
+
+        if (characterToPass == null && Mathf.Abs(ai.transform.position.x - dest.x) < 1)
+            KickBall();
+        else
+        {
+            int _x = 0;
+
+            if (ai.transform.position.x < dest.x) _x = 1; else _x = -1;
+            if (Mathf.Abs(ai.transform.position.z - dest.z) > 3f)
+            {
+                if (ai.transform.position.z < dest.z) _z = 1; else _z = -1;
+            }
+            if (_x == 0 && _z == 0)
+                SetState(ai.aiIdle);
+            ai.character.MoveTo(_x, _z);
+        }
+        return State();
     }
     void Loop()
     {
-        if (ai.character.isBeingControlled)
-            return;
-
-        Invoke("Loop", 0.75f);
-
+        timer = 0;
         if (characterToPass == null && timer + 1 > Time.time && Random.Range(0,10)<4)
             IfNearGiveBall();
         
@@ -50,47 +60,24 @@ public class AiHasBall : MonoBehaviour
         if(rand<70)
             ai.character.SuperRun();
     }
-    public void Reset()
+    public override void OnReset()
     {
-        CancelInvoke();
-        enabled = false;
         characterToPass = null;
     }
     void KickBall()
     {
         ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+        SetState(ai.aiPosition);
     }
-    public virtual void UpdatedByAI()
-    {
-        if (ai.character.isBeingControlled)
-            return;
-        if (characterToPass == null && Mathf.Abs(transform.position.x - dest.x) < 1)
-        {
-            KickBall();
-            return;
-        }
-        int _x = 0;
-
-        if (transform.position.x < dest.x) _x = 1; else _x = -1;
-        if (Mathf.Abs(transform.position.z- dest.z) > 3f)
-        {
-            if (transform.position.z < dest.z) _z = 1; else _z = -1;
-        }
-        if (_x == 0 && _z == 0)
-            return;
-        if (ai == null || ai.character == null)
-            return;
-        ai.character.MoveTo(_x, _z);
-        timer += Time.deltaTime;
-    }
+    
     void IfNearGiveBall()
     {
         characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
         Vector3 otherPos = characterToPass.transform.position;
 
         //fuera de posicion de pase:
-        if (ai.character.teamID == 2 && otherPos.x < transform.position.x - 2
-            || ai.character.teamID == 1 && otherPos.x > transform.position.x + 2
+        if (ai.character.teamID == 2 && otherPos.x < ai.transform.position.x - 2
+            || ai.character.teamID == 1 && otherPos.x > ai.transform.position.x + 2
             )
         {
             characterToPass = null;
@@ -114,6 +101,6 @@ public class AiHasBall : MonoBehaviour
         else
             ai.character.Kick(CharacterActions.kickTypes.SOFT, (float)Random.Range(10, 30) / 10);
         
-        Reset();
+        SetState(ai.aiPosition);
     }
 }

@@ -3,8 +3,11 @@
  using System.Collections.Generic;
  
  public static class Utils {
- 
-     public static void RemoveAllChildsIn(Transform container)
+    public static float GetRandomFloatBetween(int a, int b)
+    {
+        return (float)Random.Range(a*10, b * 10) / 10;
+    }
+    public static void RemoveAllChildsIn(Transform container)
      {
          int num = container.transform.childCount;
          for (int i = 0; i < num; i++) UnityEngine.Object.DestroyImmediate(container.transform.GetChild(0).gameObject);

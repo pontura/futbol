@@ -143,7 +143,7 @@ public class CharacterActions : MonoBehaviour
     }  
     public void GoalKeeperJumpType(int id, bool resetJump = true)
     {
-        if (id == 0)
+        if (id == 0 || lastAnimPlayed == "jump2")
         {
             PlayAnim("jump");
             if(resetJump)

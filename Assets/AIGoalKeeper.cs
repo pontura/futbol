@@ -9,6 +9,6 @@ public class AIGoalKeeper : AI
         if (Game.Instance.state != Game.states.PLAYING) return;
         base.CharacterCatchBall(_character);
         if(_character == character)
-            GetComponent<AiPositionGoalKeeper>().CharacterCatchBall();
+            currentState.OnCharacterCatchBall(_character);
     }
 }
