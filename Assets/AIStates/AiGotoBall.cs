@@ -35,7 +35,7 @@ public class AiGotoBall : AIState
         if (character.data.id == ai.character.data.id)
             SetState(ai.aiHasBall);
         else
-            SetState(ai.aiPosition);
+            SetState(ai.aiIdle);
     }
     void CheckRunType()
     {

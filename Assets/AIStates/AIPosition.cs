@@ -46,6 +46,10 @@ public class AIPosition : AIState
         }
         return State();
     }
+    public override void GotoBall()
+    {
+        SetState(ai.aiGotoBall);
+    }
     public override void OnFollow(Transform target)
     {
         SetState(ai.aiGotoBall);
@@ -53,7 +57,7 @@ public class AIPosition : AIState
     public virtual void SetDestination()
     {
         timer = 0;
-        if (ai.state == AI.states.DEFENDING)
+        if (ai.ball.character != null && ai.ball.character.teamID != ai.character.teamID)
             GetDefendPosition();
         else if (isHelper)
             UpdateAttackPositionHelper();

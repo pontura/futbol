@@ -206,7 +206,7 @@ public class Ball : MonoBehaviour
         if (character != null && (character.type == Character.types.GOALKEEPER && kickType == CharacterActions.kickTypes.SOFT))
             transform.localPosition = new Vector3(transform.localPosition.x, -0.17f, transform.localPosition.z);
 
-        character = null;
+        
         Vector3 dir = transform.forward;
        
         switch (kickType)
@@ -250,6 +250,7 @@ public class Ball : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.AddForce(dir);
         Events.OnBallKicked(kickType, forceForce, character);
+        character = null;
     }
     public void OnSetApplyForce(Vector3 dir, Character character)
     {

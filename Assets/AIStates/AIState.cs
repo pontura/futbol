@@ -12,6 +12,7 @@ public class AIState
         this.ai = ai;
         state = this;
     }
+    public virtual void GotoBall() { }
     public virtual void SetActive() { }
     public virtual void OnReset() { state = this; }
     public virtual AIState UpdatedByAI() { return null; }

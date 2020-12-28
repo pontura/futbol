@@ -126,10 +126,7 @@ public class CharactersManager : MonoBehaviour
     {
         if (Game.Instance.state != Game.states.PLAYING)
             return;
-        AI.states state = character.ai.state;
-        if(ball.character == null)
-            CheckForNewDefender(character.teamID);
-        else if (state != AI.states.ATTACKING)
+        if(ball.character == null || ball.character.teamID != character.teamID)
             CheckForNewDefender(character.teamID);
     }
     void SwapIfNeeded(int teamID)
@@ -303,7 +300,8 @@ public class CharactersManager : MonoBehaviour
             Debug.Log("no hay usuario id: " + id);
             return;
         }
-        if (character.ai.state == AI.states.ATTACKING)
+        if(ball.character != null && ball.character.teamID == character.teamID)
+     //   if (character.ai.state == AI.states.ATTACKING)
         {
             Events.PlayerProgressBarSetState(false);
             switch (buttonID)

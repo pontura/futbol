@@ -88,7 +88,14 @@ public class Character : MonoBehaviour
             if (actions.state == CharacterActions.states.DASH)
             {
                 _ball.character.actions.Kicked();
-                if ((transform.localPosition.x > 13 && teamID == 1) || (transform.localPosition.x < -13 && teamID == 2))
+                Vector3 pos = transform.position;
+                if (
+                    (pos.x > 13 && teamID == 1) || (pos.x < -13 && teamID == 2)
+                    &&
+                     (pos.z < 8.5f && pos.z > -8.5f)
+                    &&
+                    (_ball.character.teamID != teamID)
+                    )
                 {
                     Invoke("PenaltyDelayed", 0.15f);
                     return;
@@ -210,7 +217,7 @@ public class Character : MonoBehaviour
     {
         foreach (Collider c in colliders)
             c.enabled = false;
-        Invoke("ResetColliders", 0.3f); 
+        Invoke("ResetColliders", 0.5f); 
     }
     Vector3 collidersOriginalPos = Vector3.zero;
     public void MoveCollidersTo(Vector3 pos)

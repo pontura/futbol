@@ -20,6 +20,10 @@ public class AIIdle : AIState
             SetState(ai.aiPosition);
         return State();
     }
+    public override void GotoBall()
+    {
+        SetState(ai.aiGotoBall);
+    }
     public override void OnCharacterCatchBall(Character character)
     {
         if (character.data.id == ai.character.data.id)

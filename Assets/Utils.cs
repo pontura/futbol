@@ -3,7 +3,7 @@
  using System.Collections.Generic;
  
  public static class Utils {
-    public static float GetRandomFloatBetween(int a, int b)
+    public static float GetRandomFloatBetween(float a, float b)
     {
         return (float)Random.Range(a*10, b * 10) / 10;
     }

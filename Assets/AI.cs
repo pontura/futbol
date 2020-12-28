@@ -6,7 +6,7 @@ public class AI : MonoBehaviour
 {
     [HideInInspector] public Character character;
     [HideInInspector] public Character characterWithBall;
-    public states state;
+   //    public states state;
     [HideInInspector] public Ball ball;
 
     [HideInInspector] public AIPosition aiPosition;
@@ -28,12 +28,12 @@ public class AI : MonoBehaviour
 
     float areaEnding_x;
 
-    public enum states
-    {
-        ATTACKING,
-        DEFENDING,
-        NONE
-    }
+    //public enum states
+    //{
+    //    ATTACKING,
+    //    DEFENDING,
+    //    NONE
+    //}
     public virtual void Init()
     {
         if (!Data.Instance.DEBUG)
@@ -118,8 +118,10 @@ public class AI : MonoBehaviour
     }
     public void OnBallNear()
     {
-        if (state != states.ATTACKING)
-            currentState.OnFollow(ball.transform);
+        if (ball.character != null && ball.character.teamID == character.teamID)
+            return;
+
+        currentState.OnFollow(ball.transform);
     }
     private void Update()
     {        
@@ -137,12 +139,18 @@ public class AI : MonoBehaviour
     {
         ResetAll();
     }
-    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)
+    void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character _character)
     {
-        if (character == null) return;
+       // if (character == null) return;
 
-        state = states.NONE;
-        ResetAll();
+       // ResetAll();
+
+        if (kickType == CharacterActions.kickTypes.CENTRO 
+            && _character.teamID != character.teamID
+            && (character.type == Character.types.DEFENSOR_DOWN || character.type == Character.types.DEFENSOR_UP)
+            )
+            currentState.GotoBall();
+        
     }
     void SetCharacterNewDefender(Character _character)
     {
@@ -154,10 +162,10 @@ public class AI : MonoBehaviour
     {
         if (Game.Instance.state != Game.states.PLAYING) return;
 
-        if (character.teamID == characterWithBall.teamID)
-            state = states.ATTACKING;
-        else
-            state = states.DEFENDING;
+        //if (character.teamID == characterWithBall.teamID)
+        //    state = states.ATTACKING;
+        //else
+        //    state = states.DEFENDING;
 
         this.characterWithBall = characterWithBall;
         currentState.OnCharacterCatchBall(characterWithBall);

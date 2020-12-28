@@ -42,21 +42,14 @@ public class AiHasBall : AIState
         if (timer == 0)
         {
             ai.character.SuperRun();
-            if (Mathf.Abs(ai.transform.position.z - dest.z) < 3)
-                _z = 0;
-            else if (Random.Range(0,10)<5)
-                _z = 1;
-            else
-                _z = -1;
+            if (Mathf.Abs(ai.transform.position.z - dest.z) < 3) _z = 0;
+            else if (Random.Range(0,10)<5)  _z = 1;
+            else  _z = -1;
         }
 
         int _x = 0;
-
         if (ai.transform.position.x < dest.x) _x = 1; else _x = -1;
-        //if (Mathf.Abs(ai.transform.position.z - dest.z) > 3f)
-        //{
-        //    if (ai.transform.position.z < dest.z) _z = 1; else _z = -1;
-        //}
+
         if (_x == 0 && _z == 0)
             KickBall();
         else
@@ -80,10 +73,7 @@ public class AiHasBall : AIState
         //fuera de posicion de pase:
         if (ai.character.teamID == 2 && otherPos.x < ai.transform.position.x - 2
             || ai.character.teamID == 1 && otherPos.x > ai.transform.position.x + 2
-            )
-        {
-            return;
-        }
+            )return;
 
         float offset = 3;
         if (ai.character.teamID == 1)
@@ -95,12 +85,10 @@ public class AiHasBall : AIState
         CharacterActions.kickTypes kickType;
 
         //tipos de pase
-        if (ai.character.teamID == 2 && otherPos.x > 9
-          || ai.character.teamID == 1 && otherPos.x < -9
-          )
-            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(1, 2));
+        if (ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
+            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.5f, 2));
         else
-            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(1,3));
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f,2));
 
         SetState(ai.aiIdle);
     }
