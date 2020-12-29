@@ -26462,40 +26462,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538886, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_Height
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1002136895, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
-    - {fileID: 8727723006063590905, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
-    - {fileID: 2028850181, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
 --- !u!1 &413866836
 GameObject:

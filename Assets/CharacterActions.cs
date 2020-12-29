@@ -100,7 +100,10 @@ public class CharacterActions : MonoBehaviour
         runFast = false;
         if (state == states.GOAL)
             return;
-        if (state == states.RUN || state == states.ACTION_DONE)
+        if (state == states.IDLE)
+        {
+        }
+        else if (state == states.ACTION_DONE)
         {
             PlayAnim("run");
             return;

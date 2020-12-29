@@ -5,9 +5,11 @@ public class AiHasBall : AIState
     Vector3 dest;
     float center_goto_goal_x = 12;
     int _z = 0;
+    Vector3 limits;
 
     public override void Init(AI ai)
     {
+        limits = Data.Instance.settings.gameplay.limits;
         base.Init(ai);
         color = Color.red;       
     }
@@ -24,6 +26,12 @@ public class AiHasBall : AIState
         dest.z = Utils.GetRandomFloatBetween(0, 5);
         if (ai.character.transform.position.z < 0)
             dest.z *= -1;
+
+        if (dest.z > limits.y / 2)
+            dest.z = limits.y;
+        else if (dest.z < -limits.y / 2)
+            dest.z = -limits.y;
+
     }
     public override AIState UpdatedByAI()
     {
@@ -60,7 +68,6 @@ public class AiHasBall : AIState
         ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
         SetState(ai.aiPosition);
     }
-    
     void CheckPase()
     {
         timer = 0;

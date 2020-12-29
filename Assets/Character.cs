@@ -29,6 +29,7 @@ public class Character : MonoBehaviour
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public float scaleFactor;
+    Vector3 limits;
 
     void Awake()
     {
@@ -37,7 +38,8 @@ public class Character : MonoBehaviour
         ai = GetComponent<AI>();
     }
     public virtual void Start()
-    {        
+    {
+        limits = Data.Instance.settings.gameplay.limits;
         colliders = GetComponents<Collider>();
         Loop();
     }
@@ -168,6 +170,10 @@ public class Character : MonoBehaviour
                 
             actions.Run();
         }
+        if (transform.position.z > limits.y / 2) _y = -1;
+        else if (transform.position.z < -limits.y / 2) _y = 1;
+        if (transform.position.x > limits.x / 2) _x = -1;
+        else if (transform.position.x < -limits.x / 2) _x = 1;
 
         Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
 
