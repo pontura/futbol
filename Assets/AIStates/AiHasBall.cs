@@ -66,7 +66,7 @@ public class AiHasBall : AIState
     void KickBall()
     {
         ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
-        SetState(ai.aiPosition);
+        SetState(ai.aiPositionAttacking);
     }
     void CheckPase()
     {

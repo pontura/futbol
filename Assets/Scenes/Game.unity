@@ -21357,7 +21357,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -26462,6 +26462,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
 --- !u!1 &413866836
@@ -27773,7 +27778,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -33013,7 +33018,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -34957,6 +34962,11 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134968, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_IsActive
@@ -35050,7 +35060,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -41806,6 +41816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
 --- !u!4 &1351360485 stripped
@@ -42335,6 +42350,11 @@ PrefabInstance:
     - target: {fileID: 4000012892830758, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+        type: 3}
+      propertyPath: DEBUG
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
@@ -48600,7 +48620,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -49095,7 +49115,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -49949,7 +49969,7 @@ PrefabInstance:
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Height
-      value: 2.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -50765,6 +50785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  runFast: 0
   lastAnimPlayed: 
 --- !u!54 &3160418783750167795
 Rigidbody:

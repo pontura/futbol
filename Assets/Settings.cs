@@ -50,6 +50,9 @@ public class Settings : MonoBehaviour
         public float distanceToForceCentro;
         public float startingUIForceBar;
 
+        public float defenseDelay;
+        public float attackDelay;
+
         public float kickHard;
         public float kickHardAngle;
 

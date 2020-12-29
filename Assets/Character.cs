@@ -141,7 +141,21 @@ public class Character : MonoBehaviour
     }
     public void Dash()
     {
+        if (actions.state == CharacterActions.states.DASH || actions.state == CharacterActions.states.FREEZE)
+            return;
+        StopAllCoroutines();        
+        StartCoroutine(DashC());
+    }
+    IEnumerator DashC()
+    {
         actions.Dash();
+        ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
+        yield return new WaitForSeconds(0.25f);
+        if (ai.ball.character != this)
+            StartCoroutine(actions.Freeze(0, Data.Instance.settings.gameplay.freeze_dash));
+        else
+            actions.EndDash();
+        ChangeSpeedTo(0);
     }
     public void ChangeSpeedTo(float value)
     {
@@ -166,8 +180,7 @@ public class Character : MonoBehaviour
             {
                 if(_x<1) actions.LookTo(-1);
                 else actions.LookTo(1);
-            }
-                
+            }                
             actions.Run();
         }
         if (transform.position.z > limits.y / 2) _y = -1;
@@ -175,13 +188,7 @@ public class Character : MonoBehaviour
         if (transform.position.x > limits.x / 2) _x = -1;
         else if (transform.position.x < -limits.x / 2) _x = 1;
 
-        Vector3 forwardVector = Vector3.right * _x * speed * Time.deltaTime + Vector3.forward * _y * speed * Time.deltaTime;
-
-        //if (type != types.GOALKEEPER && type != types.REFERI && !isBeingControlled)//&& ai.aiHasBall != enabled)
-        //{
-        //    forwardVector.z *= 1.5f;
-        //    forwardVector.x *= 1.5f;
-        //}
+        Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
 
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);
@@ -243,8 +250,6 @@ public class Character : MonoBehaviour
     }
     public void SuperRun()
     {
-        if (actions.IsRuningFast())
-            return;
         StopAllCoroutines();
         StartCoroutine(RunSpeedDesacelerate());
     }
@@ -272,5 +277,6 @@ public class Character : MonoBehaviour
 
         actions.Run();
         speed = minSpeed;
+        yield break;
     }
 }

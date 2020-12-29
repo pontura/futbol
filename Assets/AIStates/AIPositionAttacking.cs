@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 
-public class AIPosition : AIState
-{    
-    public Vector3 gotoPosition;  
+public class AIPositionAttacking : AIState
+{
+    public Vector3 gotoPosition;
     public bool isHelper; // lo sigue al qeu tiene la pelota
-    
+    float delay;
+
     public override void Init(AI ai)
     {
+        delay = Data.Instance.settings.gameplay.attackDelay;
         gotoPosition = ai.originalPosition;
         base.Init(ai);
-        color = Color.yellow;
+        color = Color.grey;
     }
     public override void SetActive()
     {
@@ -17,9 +19,17 @@ public class AIPosition : AIState
         timer = 0;
         SetDestination();
     }
+    public override void OnCharacterCatchBall(Character character)
+    {
+        isHelper = false;
+        if (character.data.id == ai.character.data.id)
+            SetState(ai.aiHasBall);
+        else if (character.teamID != ai.character.teamID)
+            SetState(ai.aiPositionDefending);
+    }
     public override AIState UpdatedByAI()
     {
-        if(timer >0.65f)
+        if (timer > delay)
             SetDestination();
 
         timer += Time.deltaTime;
@@ -38,7 +48,7 @@ public class AIPosition : AIState
 
             ai.character.SetPosition(_h, _v);
         }
-        else if(isHelper) //no para:
+        else if (isHelper) //no para:
         {
             SetDestination();
         }
@@ -59,33 +69,23 @@ public class AIPosition : AIState
     public virtual void SetDestination()
     {
         timer = 0;
-        if (ai.ball.character == null)
-            return;
-        else if(ai.ball.character.teamID != ai.character.teamID)
-            GetDefendPosition();
-        else if (isHelper)
+        if (isHelper)
             UpdateAttackPositionHelper();
         else
-            GetAttackPosition();
-
-        SetLimits();
+            UpdateAttackPosition();
     }
-    void GetDefendPosition()
-    {
-        gotoPosition = ai.originalPosition;
-        gotoPosition.x += Utils.GetRandomFloatBetween(-1, 1);
-        gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
-    }
-    void GetAttackPosition()
+    void UpdateAttackPosition()
     {
         CheckHelper();
-        if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN)
+        if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
         gotoPosition = ai.originalPosition;
-        float goto_x = Mathf.Abs(ai.originalPosition.x) - (Data.Instance.settings.gameplay.limits.x / 2) + Utils.GetRandomFloatBetween(0, 3);
-        if (ai.character.teamID == 2)
-            goto_x *= -1;
-        gotoPosition.x = Mathf.Lerp(goto_x, ai.ball.transform.position.x, 0.5f);
+        float resta = (Data.Instance.settings.gameplay.limits.x / 2.25f) + Utils.GetRandomFloatBetween(-2, 2);
+        if(ai.character.teamID == 1)
+            gotoPosition.x = ai.originalPosition.x - resta;
+        else
+            gotoPosition.x = ai.originalPosition.x + resta;
+        gotoPosition.x = Mathf.Lerp(gotoPosition.x, ai.ball.transform.position.x, 0.35f);
         gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
     }
     void UpdateAttackPositionHelper()
@@ -94,7 +94,7 @@ public class AIPosition : AIState
 
         if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
             ai.character.SuperRun();
-        else if (Mathf.Abs(ai.transform.position.x- characterWithBallPos.x)>5)
+        else if (Mathf.Abs(ai.transform.position.x - characterWithBallPos.x) > 5)
             ai.character.SuperRun();
 
         float offset = GetOffsetToHelper();
@@ -104,13 +104,6 @@ public class AIPosition : AIState
         gotoPosition.x = characterWithBallPos.x - offset;
         gotoPosition.z = ai.originalPosition.z + Utils.GetRandomFloatBetween(-2, 2);
     }
-    void SetLimits()
-    {
-        if (Mathf.Abs(gotoPosition.z) > Data.Instance.settings.gameplay.limits.y / 2)
-            gotoPosition.z = ai.originalPosition.z;
-        if (Mathf.Abs(gotoPosition.x) > Data.Instance.settings.gameplay.limits.x / 2)
-            gotoPosition.x = ai.originalPosition.x;
-    }
     void CheckHelper()
     {
         isHelper = false;
@@ -119,13 +112,13 @@ public class AIPosition : AIState
 
         if (ai.characterWithBall.teamID == ai.character.teamID)
         {
-            switch(ai.characterWithBall.type)
+            switch (ai.characterWithBall.type)
             {
                 case Character.types.CENTRAL: break;
-                case Character.types.GOALKEEPER:
-                    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
+                //case Character.types.GOALKEEPER:
+                //    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
                 case Character.types.DEFENSOR_DOWN:
-                    if(ai.character.type == Character.types.DEFENSOR_UP) isHelper = true; break;
+                    if (ai.character.type == Character.types.DEFENSOR_UP) isHelper = true; break;
                 case Character.types.DEFENSOR_UP:
                     if (ai.character.type == Character.types.DEFENSOR_DOWN) isHelper = true; break;
                 case Character.types.DELANTERO_DOWN:

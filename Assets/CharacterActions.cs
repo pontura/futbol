@@ -63,7 +63,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
             return;
-        } else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK)
+        } else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         StopAllCoroutines();
         CancelInvoke();
@@ -99,11 +99,7 @@ public class CharacterActions : MonoBehaviour
         if (state == states.IDLE)
         {
         }
-        else if (state == states.ACTION_DONE)
-        {
-            PlayAnim("run");
-            return;
-        } else if (state == states.JUMP || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        else if (state == states.JUMP || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         PlayAnim("run");
@@ -204,21 +200,10 @@ public class CharacterActions : MonoBehaviour
         if (state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
         Events.PlaySound("common", "dash", false);
-        CancelInvoke();
-        StopAllCoroutines();
+        CancelInvoke();        
         this.state = states.DASH;
         PlayAnim("dash");
-        character.ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
-        StartCoroutine( DashC(0.25f) );
-    }
-    IEnumerator DashC(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        if (ball.character != character)
-            StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_dash));
-        else
-            Idle();
-    }
+    }   
     public IEnumerator Freeze(float delay, float duration)
     {
         if (delay > 0)
@@ -227,6 +212,10 @@ public class CharacterActions : MonoBehaviour
         character.Freeze();
         if(duration>0)
             yield return new WaitForSeconds(duration);
+        EndDash();
+    }
+    public void EndDash()
+    {
         Reset();
     }
     public void Reset()
@@ -238,6 +227,7 @@ public class CharacterActions : MonoBehaviour
     public void Kicked()
     {
         CancelInvoke();
+        StopAllCoroutines();
         StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall));
         PlayAnim("kicked");
     }

@@ -50,6 +50,11 @@ public class AiGotoBall : AIState
         timer = 0;
         dest = ai.ball.transform.position;
         dest.x += offset;
+        if (ai.ball.character != null && ai.ball.character.type == Character.types.GOALKEEPER)
+        {
+            SetState(ai.aiPositionDefending);
+            return;
+        }
         if (ai.character.actions.state == CharacterActions.states.DASH || ai.character.actions.runFast)
             return;
         float distToBall = Vector3.Distance(ai.transform.position, dest);

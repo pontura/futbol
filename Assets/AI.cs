@@ -9,7 +9,8 @@ public class AI : MonoBehaviour
    //    public states state;
     [HideInInspector] public Ball ball;
 
-    [HideInInspector] public AIPosition aiPosition;
+    [HideInInspector] public AIPositionDefending aiPositionDefending;
+    [HideInInspector] public AIPositionAttacking aiPositionAttacking;
     [HideInInspector] public AiGotoBall aiGotoBall;
     [HideInInspector] public AiHasBall aiHasBall;
     [HideInInspector] public AIIdle aiIdle;
@@ -54,6 +55,7 @@ public class AI : MonoBehaviour
             SetGoalkeeperValues();
             aiIdleGK = new AiIdleGK();
             aiPositionGK = new AiPositionGK();
+           
             aiFlyingGK = new AIFlyingGK();
             aiAlertGK = new AiAlertGK();
             aiHasBallGK = new AIHasBallGK();
@@ -70,12 +72,14 @@ public class AI : MonoBehaviour
         else
         {
             aiIdle = new AIIdle();
-            aiPosition = new AIPosition();
+            aiPositionDefending = new AIPositionDefending();
+            aiPositionAttacking = new AIPositionAttacking();
             aiGotoBall = new AiGotoBall();
             aiHasBall = new AiHasBall();
 
             aiIdle.Init(this);
-            aiPosition.Init(this);
+            aiPositionDefending.Init(this);
+            aiPositionAttacking.Init(this);
             aiGotoBall.Init(this);
             aiHasBall.Init(this);
 
@@ -118,7 +122,7 @@ public class AI : MonoBehaviour
     }
     public void OnBallNear()
     {
-        if (ball.character != null && ball.character.teamID == character.teamID)
+        if (ball.character != null && ball.character.teamID == character.teamID && ball.character.type == Character.types.GOALKEEPER)
             return;
 
         currentState.OnFollow(ball.transform);
@@ -155,10 +159,11 @@ public class AI : MonoBehaviour
     void SetCharacterNewDefender(Character _character)
     {
         if (character.teamID != _character.teamID)  return;
+        if(ball.character != null && ball.character.type == Character.types.GOALKEEPER) return;
         if (_character.data.id == character.data.id)
             currentState.OnFollow(ball.transform);
     }
-    public virtual void CharacterCatchBall(Character characterWithBall)
+    public void CharacterCatchBall(Character characterWithBall)
     {
         if (Game.Instance.state != Game.states.PLAYING) return;
 
