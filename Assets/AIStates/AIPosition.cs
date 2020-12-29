@@ -15,23 +15,25 @@ public class AIPosition : AIState
     {
         isHelper = false;
         timer = 0;
+        SetDestination();
     }
     public override AIState UpdatedByAI()
     {
-        if(timer == 0 || timer >0.65f)
+        if(timer >0.65f)
             SetDestination();
 
         timer += Time.deltaTime;
 
         int _h, _v = 0;
-        if (Vector3.Distance(ai.transform.position, gotoPosition) > 0.5f)
+        Vector3 pos = ai.transform.position;
+        if (Vector3.Distance(pos, gotoPosition) > 0.5f)
         {
-            if (Mathf.Abs(ai.transform.position.x - gotoPosition.x) < 0.25f) _h = 0;
-            else if (ai.transform.position.x < gotoPosition.x) _h = 1;
+            if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
+            else if (pos.x < gotoPosition.x) _h = 1;
             else _h = -1;
 
-            if (Mathf.Abs(ai.transform.position.z - gotoPosition.z) < 0.25f) _v = 0;
-            else if (ai.transform.position.z < gotoPosition.z) _v = 1;
+            if (Mathf.Abs(pos.z - gotoPosition.z) < 0.25f) _v = 0;
+            else if (pos.z < gotoPosition.z) _v = 1;
             else _v = -1;
 
             ai.character.SetPosition(_h, _v);
@@ -57,7 +59,9 @@ public class AIPosition : AIState
     public virtual void SetDestination()
     {
         timer = 0;
-        if (ai.ball.character != null && ai.ball.character.teamID != ai.character.teamID)
+        if (ai.ball.character == null)
+            return;
+        else if(ai.ball.character.teamID != ai.character.teamID)
             GetDefendPosition();
         else if (isHelper)
             UpdateAttackPositionHelper();
@@ -69,7 +73,7 @@ public class AIPosition : AIState
     void GetDefendPosition()
     {
         gotoPosition = ai.originalPosition;
-        gotoPosition.x += Utils.GetRandomFloatBetween(-2, 2);
+        gotoPosition.x += Utils.GetRandomFloatBetween(-1, 1);
         gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
     }
     void GetAttackPosition()

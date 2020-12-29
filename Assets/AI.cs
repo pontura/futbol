@@ -173,7 +173,21 @@ public class AI : MonoBehaviour
     public void ResetPosition()
     {
         currentState.ResetAll();
-        transform.position = originalPosition;
+       
+        int sacaTeamID = Data.Instance.matchData.lastGoalBy;
+        if (sacaTeamID == 0) sacaTeamID = 1;
+        else if (sacaTeamID == 1) sacaTeamID = 2;
+        else if (sacaTeamID == 2) sacaTeamID = 1;
+        if (character.teamID == sacaTeamID && character.type == Character.types.CENTRAL)
+            SetInitialCharacterPosition(sacaTeamID);
+        else transform.position = originalPosition;
+    }
+    void SetInitialCharacterPosition(int sacaTeamID)
+    {
+        int _x = 1;
+        if (sacaTeamID == 2)
+            _x *= -1;
+        transform.position = new Vector3(_x, originalPosition.y, 0);
     }
     public void ResetAll()
     {

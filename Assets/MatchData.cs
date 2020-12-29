@@ -8,6 +8,7 @@ public class MatchData : MonoBehaviour
     public Vector2 score;
     public int penaltyGoalKeeperTeamID;
     public int totalPlayers;
+    public int lastGoalBy;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class MatchData : MonoBehaviour
             score.x++;
         else
             score.y++;
+        lastGoalBy = _teamID;
     }
     void Loop()
     {

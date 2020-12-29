@@ -66,6 +66,7 @@ public class CharactersManager : MonoBehaviour
         for (int a = 0; a < totalPlayersActive; a++)
             AddCharacter(a+1);
 
+        ResetAll();
     }
     public void InitPenalty(int totalPlayersActive)
     {
@@ -98,8 +99,7 @@ public class CharactersManager : MonoBehaviour
         if (totalPlayersActive > 0)
         {
             AddCharacter(1);
-        }
-        
+        }        
     }
     public void ResetAll()
     {

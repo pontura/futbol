@@ -11,7 +11,7 @@ public class AIIdle : AIState
     {
         base.SetActive();
         ai.character.actions.Idle();
-        
+        timer = 0;
     }
     public override AIState UpdatedByAI()
     {

@@ -84,12 +84,8 @@ public class CharacterActions : MonoBehaviour
             transform.localScale = scale;
         }
     }
-    void LookToAttack()
-    {
-
-    }
     public bool IsRuningFast()   { return runFast;   }
-    bool runFast;
+    public bool runFast;
     public virtual void SuperRun()
     {
         runFast = true;

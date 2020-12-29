@@ -3,6 +3,9 @@
 public class AiGotoBall : AIState
 {
     Vector3 dest;
+    float offset;
+    float timerToCalculate = 0.3f;
+
     public override void Init(AI ai)
     {
         base.Init(ai);
@@ -10,13 +13,18 @@ public class AiGotoBall : AIState
     }
     public override void SetActive()
     {
+        if (ai.character.teamID == 1)
+            offset = 0.25f;
+        else
+            offset = -0.25f;
         timer = 0;
+        SetDest();
     }
     public override AIState UpdatedByAI()
     {
         timer += Time.deltaTime;
-        if (timer > 0.85f)
-            CheckRunType();
+        if (timer > timerToCalculate)
+            SetDest();
         int _x = 0;
         int _z = 0;
         if (Mathf.Abs(ai.transform.position.x - dest.x) > 0.15f)
@@ -37,18 +45,21 @@ public class AiGotoBall : AIState
         else
             SetState(ai.aiIdle);
     }
-    void CheckRunType()
+    void SetDest()
     {
         timer = 0;
         dest = ai.ball.transform.position;
+        dest.x += offset;
+        if (ai.character.actions.state == CharacterActions.states.DASH || ai.character.actions.runFast)
+            return;
         float distToBall = Vector3.Distance(ai.transform.position, dest);
         if (distToBall > 20)
             ai.character.SuperRun();
-        else if (distToBall < 4 && Random.Range(0, 10) < 7)
+        else if (distToBall < 3.5f && Random.Range(0, 10) < 7)
             ai.character.Dash();
         else if (
-            ai.character.teamID == 1 && ai.character.transform.position.x > dest.x
-           || ai.character.teamID == 2 && ai.character.transform.position.x < dest.x)
+            ai.character.teamID == 2 && ai.character.transform.position.x > dest.x
+           || ai.character.teamID == 1 && ai.character.transform.position.x < dest.x)
             ai.character.SuperRun();
     }
 
