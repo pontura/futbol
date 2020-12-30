@@ -5,10 +5,11 @@ using UnityEngine;
 public class CharacterSignal : MonoBehaviour
 {
 
-    public SpriteRenderer sr;
+    public SpriteRenderer[] all;
 
     public void Init(Color color)
     {
-        sr.color = color;
+        foreach(SpriteRenderer sr in all)
+            sr.color = color;
     }
 }
