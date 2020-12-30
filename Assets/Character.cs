@@ -70,23 +70,26 @@ public class Character : MonoBehaviour
         actions.Init(asset, teamID);
         ai.Init();
 
-        float _limits_x = Data.Instance.settings.gameplay.limits.x / 2;
-        float _limits_y = Data.Instance.settings.gameplay.limits.y / 2;
-
-        limits_y = new Vector2(_limits_y, -_limits_y);
-        limits_x = new Vector2(-_limits_x, _limits_x);
+        SetLimits();
 
         if (type == types.GOALKEEPER)
         {
             limits_y /= 2;
 
             if (teamID == 1)
-                limits_x = new Vector2(_limits_x - 5, _limits_x);
+                limits_x = new Vector2(limits_x.y- 5, limits_x.y);
             else
-                limits_x = new Vector2(-_limits_x, -_limits_x + 5);
+                limits_x = new Vector2(limits_x.x, limits_x.x + 5);
         }
     }
+    public void SetLimits()
+    {
+        float _limits_x = Data.Instance.settings.gameplay.limits.x / 2;
+        float _limits_y = Data.Instance.settings.gameplay.limits.y / 2;
 
+        limits_y = new Vector2(_limits_y, -_limits_y);
+        limits_x = new Vector2(-_limits_x, _limits_x);
+    }
     void Loop()
     {
         //if (Game.Instance.state == Game.states.PLAYING)

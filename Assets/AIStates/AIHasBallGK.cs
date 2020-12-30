@@ -50,7 +50,7 @@ public class AIHasBallGK : AIState
     }
     void UpdateWalking()
     {
-        if (IsOutsideAreaInX(ai.character.transform.position.x) || timer>3)
+        if (IsOutsideAreaInX(ai.character.transform.position.x) || timer>1.5f)
         {
             ai.character.Kick(CharacterActions.kickTypes.BALOON);
             timer = 0;
