@@ -52,7 +52,7 @@ public class AIHasBallGK : AIState
     {
         if (IsOutsideAreaInX(ai.character.transform.position.x) || timer>1.5f)
         {
-            ai.character.Kick(CharacterActions.kickTypes.BALOON);
+            CheckSaque();
             timer = 0;
             state = states.KICKED;
         }
@@ -63,5 +63,27 @@ public class AIHasBallGK : AIState
         if (ai.character.teamID == 1 && ai.character.transform.position.x < (ai.originalPosition.x - areaLimits_x)) return true;
         if (ai.character.teamID == 2 && ai.character.transform.position.x > (ai.originalPosition.x + areaLimits_x)) return true;
         return false;
+    }
+    void CheckSaque()
+    {
+        int rand = Random.Range(0, 9);
+        if (rand < 3)
+        {
+            ai.character.Kick(CharacterActions.kickTypes.HARD);
+            return;
+        }
+
+        Character characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
+
+        if (characterToPass == null) return;
+        Vector3 otherPos = characterToPass.transform.position;
+
+        ai.character.ballCatcher.LookAt(otherPos);
+        CharacterActions.kickTypes kickType;
+
+        if (ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
+            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.5f, 2));
+        else
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f, 2));
     }
 }
