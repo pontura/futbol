@@ -46,10 +46,12 @@ public class Referi : Character
         Invoke("ChangeZ", Random.Range(4, 10));
         data = Data.Instance.textsData.GetReferisData(CharactersData.Instance.referiId);
         dataSources = CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1];
+
+        SetLimits();
     }
     public override void SetPosition(float _x, float _y)
     {
-       //MoveTo(_x, _y);
+       MoveTo(_x, _y);
     }
     int destZ;
     void ChangeZ()
