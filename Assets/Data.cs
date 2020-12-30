@@ -43,7 +43,9 @@ public class Data : MonoBehaviour
         isMobile = false;
 #if UNITY_EDITOR
         isMobile = false;
-#elif  UNITY_ANDROID || UNITY_IOS
+#elif UNITY_STANDALONE
+        DEBUG = false;
+#elif UNITY_ANDROID || UNITY_IOS
         isMobile = true;
 #endif
         matchData = GetComponent<MatchData>();

@@ -30,7 +30,6 @@ public class Referi : Character
         case Game.states.GOAL:
             actions.Pita();break;
         case Game.states.PLAYING:
-            
             actions.Pita(); break;
         }
     }

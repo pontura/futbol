@@ -29,7 +29,9 @@ public class Character : MonoBehaviour
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public float scaleFactor;
-    Vector3 limits;
+
+    Vector2 limits_y;
+    public Vector2 limits_x;
 
     void Awake()
     {
@@ -39,7 +41,7 @@ public class Character : MonoBehaviour
     }
     public virtual void Start()
     {
-        limits = Data.Instance.settings.gameplay.limits;
+       
         colliders = GetComponents<Collider>();
         Loop();
     }
@@ -67,6 +69,22 @@ public class Character : MonoBehaviour
         asset.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         actions.Init(asset, teamID);
         ai.Init();
+
+        float _limits_x = Data.Instance.settings.gameplay.limits.x / 2;
+        float _limits_y = Data.Instance.settings.gameplay.limits.y / 2;
+
+        limits_y = new Vector2(_limits_y, -_limits_y);
+        limits_x = new Vector2(-_limits_x, _limits_x);
+
+        if (type == types.GOALKEEPER)
+        {
+            limits_y /= 2;
+
+            if (teamID == 1)
+                limits_x = new Vector2(_limits_x - 5, _limits_x);
+            else
+                limits_x = new Vector2(-_limits_x, -_limits_x + 5);
+        }
     }
 
     void Loop()
@@ -106,6 +124,7 @@ public class Character : MonoBehaviour
             else
             {
                 _ball.character.actions.StartCoroutine( _ball.character.actions.Freeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall) );
+                _ball.character.actions.Cry();
             }
         }
        // actions.Reset();
@@ -183,15 +202,27 @@ public class Character : MonoBehaviour
             }                
             actions.Run();
         }
-        if (transform.position.z > limits.y / 2) _y = -1;
-        else if (transform.position.z < -limits.y / 2) _y = 1;
-        if (transform.position.x > limits.x / 2) _x = -1;
-        else if (transform.position.x < -limits.x / 2) _x = 1;
+
+        if (transform.position.z > limits_y.x ) _y = -1;
+        else if (transform.position.z < limits_y.y) _y = 1;
+
 
         Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
 
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);
+
+        Vector3 pos = transform.position;
+        if (transform.position.x > limits_x.y && _x>0)
+        {
+            pos.x = limits_x.y;
+            transform.position = pos;
+        }
+        else if (transform.position.x < limits_x.x && _x < 0)
+        {
+            pos.x = limits_x.x;
+            transform.position = pos;
+        }
         transform.Translate(forwardVector);
     }
     public void SetSignal(CharacterSignal signal)
@@ -250,6 +281,8 @@ public class Character : MonoBehaviour
     }
     public void SuperRun()
     {
+        if (actions.state == CharacterActions.states.DASH)
+            return;
         StopAllCoroutines();
         StartCoroutine(RunSpeedDesacelerate());
     }

@@ -137,7 +137,7 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   selectedTeams: {x: 1, y: 0}
   gameplay:
-    limits: {x: 40, y: 20}
+    limits: {x: 41, y: 20.5}
     input_x_sensibilitty: 0
     scaleFactor: 0
     speed: 0
@@ -160,6 +160,8 @@ MonoBehaviour:
     speedRunFade: 0
     distanceToForceCentro: 0
     startingUIForceBar: 0
+    defenseDelay: 0
+    attackDelay: 0
     kickHard: 0
     kickHardAngle: 0
     kickSoft: 0
@@ -215,6 +217,9 @@ MonoBehaviour:
   - sourceName: dogs
     audioSource: {fileID: 0}
     volume: 1
+  - sourceName: shouts
+    audioSource: {fileID: 0}
+    volume: 0.2
 --- !u!114 &1515485348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,3 +236,4 @@ MonoBehaviour:
   score: {x: 0, y: 0}
   penaltyGoalKeeperTeamID: 1
   totalPlayers: 0
+  lastGoalBy: 0

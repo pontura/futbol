@@ -98,6 +98,7 @@ public class CharacterActions : MonoBehaviour
             return;
         if (state == states.IDLE)
         {
+            PlayAnim("idle");
         }
         else if (state == states.JUMP || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
@@ -107,6 +108,7 @@ public class CharacterActions : MonoBehaviour
     public virtual void EnterCancha()
     {
         PlayAnim("enter");
+        state = states.SPECIAL_ACTION;
     }
     public void GoalKeeperHands()
     {
@@ -125,6 +127,15 @@ public class CharacterActions : MonoBehaviour
         PlayAnim("jump");
         Invoke("ResetSpecial", 0.5f);
         character.MoveCollidersTo(new Vector3(0, 1, 0));
+    }
+    public void Cry()
+    {
+        if (state == states.SPECIAL_ACTION)
+            return;
+        this.state = states.SPECIAL_ACTION;
+        PlayAnim("cry");
+        Events.PlaySound("shouts", "cry", false);
+        Invoke("ResetSpecial", 0.5f);
     }
     public void GoalKeeperJump()
     {
@@ -226,15 +237,16 @@ public class CharacterActions : MonoBehaviour
     }
     public void Kicked()
     {
+        state = states.SPECIAL_ACTION;
         CancelInvoke();
         StopAllCoroutines();
         StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall));
+        Events.PlaySound("shouts", "foul", false);
         PlayAnim("kicked");
     }
     public void Pita()
     {
         PlayAnim("start");
-
         Events.PlaySound("common", "pito", false);
     }
     public void Action()

@@ -45,6 +45,7 @@ public class Game : MonoBehaviour
             charactersManager.Init(Data.Instance.settings.totalPlayers);
             StartCoroutine(OnWaitToStart());
         }
+        Events.GameInit();
     }
     private void OnDestroy()
     {

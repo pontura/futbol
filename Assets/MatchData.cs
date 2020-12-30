@@ -14,6 +14,15 @@ public class MatchData : MonoBehaviour
     {
         totalPlayers = 1;
         secs = Data.Instance.settings.totalTime;
+        Events.GameInit += GameInit;
+    }
+    private void OnDestroy()
+    {
+        Events.GameInit -= GameInit;
+    }
+    void GameInit()
+    {
+        CancelInvoke();
         Loop();
     }
     public void OnGoal(int _teamID)
@@ -30,7 +39,9 @@ public class MatchData : MonoBehaviour
             secs--;
         if(secs <= 0)
         {
+            Events.GameOver();
             Data.Instance.LoadLevel("GameOver");
+            secs = Data.Instance.settings.totalTime;
         } else
             Invoke("Loop", 1);
     }

@@ -2,7 +2,7 @@
 
 public class AIHasBallGK : AIState
 {
-    float areaLimits_x = 5;
+    float areaLimits_x = 4;
     float direction;
     states state;
 
@@ -24,6 +24,15 @@ public class AIHasBallGK : AIState
         base.SetActive();
         timer = 0;
     }
+    public override void OnCharacterCatchBall(Character character)
+    {
+        if (character.data.id == ai.character.data.id)
+            SetState(ai.aiHasBallGK);
+        else if (character.teamID == ai.character.teamID)
+            SetState(ai.aiPositionGK);
+        else
+            SetState(ai.aiAlertGK);
+    }
     public override AIState UpdatedByAI()
     {
         timer += Time.deltaTime;
@@ -41,7 +50,7 @@ public class AIHasBallGK : AIState
     }
     void UpdateWalking()
     {
-        if (IsOutsideAreaInX(ai.character.transform.position.x))
+        if (IsOutsideAreaInX(ai.character.transform.position.x) || timer>3)
         {
             ai.character.Kick(CharacterActions.kickTypes.BALOON);
             timer = 0;
@@ -51,8 +60,8 @@ public class AIHasBallGK : AIState
     }
     bool IsOutsideAreaInX(float _x)
     {
-        if (ai.character.teamID == 1 && _x < (ai.originalPosition.x - areaLimits_x)) return true;
-        if (ai.character.teamID == 2 && _x > (ai.originalPosition.x + areaLimits_x)) return true;
+        if (ai.character.teamID == 1 && ai.character.transform.position.x < (ai.originalPosition.x - areaLimits_x)) return true;
+        if (ai.character.teamID == 2 && ai.character.transform.position.x > (ai.originalPosition.x + areaLimits_x)) return true;
         return false;
     }
 }

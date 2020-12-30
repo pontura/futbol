@@ -26,7 +26,7 @@ public class Settings : MonoBehaviour
     [Serializable]
     public class GamePlay
     {
-        public Vector2 limits = new Vector2(40, 20);
+        [HideInInspector] public Vector2 limits = new Vector2(40.5f, 20.5f);
         public float input_x_sensibilitty;
         public float scaleFactor;
         public float speed;

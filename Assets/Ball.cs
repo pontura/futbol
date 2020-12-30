@@ -91,6 +91,7 @@ public class Ball : MonoBehaviour
             return;
         if(collision.gameObject.tag == "GoalPalo")
         {
+            Events.PlaySound("shouts", "palo", false);
             if (collision.gameObject.transform.position.y > 2.5f)
                 VoicesManager.Instance.SayPalo(0);
             else

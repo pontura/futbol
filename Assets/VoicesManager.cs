@@ -185,7 +185,6 @@ public class VoicesManager : MonoBehaviour
         }
         else
         {
-            //Invoke("GoalDelayed", 3);
             AudioClip comentario_goal;
             comentario_goal = GetRandomAudioClip(character.dataSources.comments_goal);
             if(comentario_goal == null)

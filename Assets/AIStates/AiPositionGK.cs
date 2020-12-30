@@ -2,8 +2,8 @@
 
 public class AiPositionGK : AIState
 {
-    float areaLimits_x = 5;
-    float areaLimits_z = 5;
+    float areaLimits_x = 4;
+    float areaLimits_z = 4;
 
     public override void Init(AI ai)
     {

@@ -42351,11 +42351,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
-        type: 3}
-      propertyPath: DEBUG
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
 --- !u!1 &1539437594
@@ -50841,6 +50836,7 @@ MonoBehaviour:
   isBeingControlled: 0
   ai: {fileID: 0}
   scaleFactor: 0
+  limits_x: {x: 0, y: 0}
 --- !u!136 &3160418783750167806
 CapsuleCollider:
   m_ObjectHideFlags: 0
