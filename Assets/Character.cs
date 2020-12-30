@@ -120,7 +120,7 @@ public class Character : MonoBehaviour
                     (_ball.character.teamID != teamID)
                     )
                 {
-                    Invoke("PenaltyDelayed", 0.15f);
+                    Invoke("PenaltyDelayed", 0.24f);
                     return;
                 }
             }
