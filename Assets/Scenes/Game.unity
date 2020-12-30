@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -151,7 +151,7 @@ Transform:
   m_LocalScale: {x: 0.3558042, y: 0.3558042, z: 0.3558042}
   m_Children: []
   m_Father: {fileID: 555135507}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &608367
 MeshRenderer:
@@ -472,7 +472,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1351360485}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -84.374, y: 249.35599, z: -287.253}
 --- !u!199 &105739244
 ParticleSystemRenderer:
@@ -5226,7 +5226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 555135507}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -84.374, y: 249.35599, z: -287.253}
 --- !u!199 &106774474
 ParticleSystemRenderer:
@@ -9980,7 +9980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 389629877}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -84.374, y: 249.35599, z: -287.253}
 --- !u!199 &107278174
 ParticleSystemRenderer:
@@ -14827,7 +14827,7 @@ Transform:
   m_LocalScale: {x: 0.3558042, y: 0.3558042, z: 0.3558042}
   m_Children: []
   m_Father: {fileID: 389629877}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 103.827, z: 0}
 --- !u!23 &124702618
 MeshRenderer:
@@ -14947,7 +14947,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 81691609}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -84.374, y: 249.35599, z: -287.253}
 --- !u!199 &126727002
 ParticleSystemRenderer:
@@ -21457,7 +21457,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &367298845
@@ -21490,7 +21490,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 389629877}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -84.374, y: 176.56401, z: -287.253}
 --- !u!199 &367298847
 ParticleSystemRenderer:
@@ -26241,11 +26241,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 81691609}
-  - {fileID: 1351360485}
-  - {fileID: 555135507}
-  - {fileID: 389629877}
+  - {fileID: 389629878}
+  - {fileID: 515769711}
+  - {fileID: 518696215}
   - {fileID: 1539437596}
+  - {fileID: 555135508}
   - {fileID: 1261868490}
   m_Father: {fileID: 288714009}
   m_RootOrder: 6
@@ -26393,6 +26393,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f10f798b706ccd4409405be956bc1cff,
     type: 3}
+  m_PrefabInstance: {fileID: 389629876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &389629878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 389629876}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &408158115
@@ -27361,6 +27366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f10f798b706ccd4409405be956bc1cff, type: 3}
+--- !u!4 &515769711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 515769710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &518696214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27540,6 +27550,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f10f798b706ccd4409405be956bc1cff, type: 3}
+--- !u!4 &518696215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 518696214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519800010
 GameObject:
   m_ObjectHideFlags: 0
@@ -27873,7 +27888,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &552673959
@@ -27906,7 +27921,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 81691609}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -84.374, y: 176.56401, z: -287.253}
 --- !u!199 &552673961
 ParticleSystemRenderer:
@@ -32815,6 +32830,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 555135506}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &555135508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 555135506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &571104420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35395,7 +35415,7 @@ Transform:
   m_LocalScale: {x: 0.3558042, y: 0.3558042, z: 0.3558042}
   m_Children: []
   m_Father: {fileID: 81691609}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &982049495
 MeshRenderer:
@@ -35474,7 +35494,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1351360485}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -84.374, y: 176.56401, z: -287.253}
 --- !u!199 &999288374
 ParticleSystemRenderer:
@@ -40312,7 +40332,7 @@ Transform:
   m_LocalScale: {x: 0.3558042, y: 0.3558042, z: 0.3558042}
   m_Children: []
   m_Father: {fileID: 1351360485}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 128.106, z: 0}
 --- !u!23 &1022677276
 MeshRenderer:
@@ -40886,7 +40906,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1139123289
@@ -41489,7 +41509,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1267374532
@@ -42303,6 +42323,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: totalTime
+      value: 260
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -42417,7 +42441,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1539437596
@@ -42434,7 +42458,7 @@ Transform:
   - {fileID: 1127812688}
   - {fileID: 345051411}
   m_Father: {fileID: 382006715}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539508462
 GameObject:
@@ -42849,7 +42873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 555135507}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -84.374, y: 176.56401, z: -287.253}
 --- !u!199 &1603789851
 ParticleSystemRenderer:
@@ -49205,7 +49229,7 @@ SpriteRenderer:
   m_Size: {x: 55.602024, y: 11.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1912271623
