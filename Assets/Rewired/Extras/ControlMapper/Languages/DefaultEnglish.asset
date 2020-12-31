@@ -60,9 +60,9 @@ MonoBehaviour:
     toc\xE1 el bot\xF3n o esper\xE1 a que termine la cuenta."
   _inputBehaviorSettingsWindowTitle: Opciones de sensitividad
   _restoreDefaultsWindowTitle: Volver a foja cero
-  _restoreDefaultsWindowMessage_onePlayer: "Esto va a volver a todo como era durante
+  _restoreDefaultsWindowMessage_onePlayer: "Esto va a volver todo a como era durante
     el menemismo. \xBFEst\xE1s segure?"
-  _restoreDefaultsWindowMessage_multiPlayer: "Esto va a volver a todo como era durante
+  _restoreDefaultsWindowMessage_multiPlayer: "Esto va a volver todo a como era durante
     el menemismo. \xBFEst\xE1s segure?"
   _actionColumnLabel: Acciones
   _keyboardColumnLabel: Teclado
