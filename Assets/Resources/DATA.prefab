@@ -73,6 +73,7 @@ MonoBehaviour:
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
     name: Sportivo Punga
+    name_abr: SPU
     designID: 3
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 1, g: 0, b: 0, a: 1}
@@ -81,6 +82,7 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
   - escudo: {fileID: 21300000, guid: 94ed12af01bd5ec41817f6e420591726, type: 3}
     name: Bosta Juniors
+    name_abr: BSJ
     designID: 2
     color: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
     clothColorA: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
@@ -89,6 +91,7 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   - escudo: {fileID: 21300000, guid: fabf00887be20e84f8b55c073721d11c, type: 3}
     name: Silver Plate
+    name_abr: RIP
     designID: 1
     color: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorA: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
@@ -97,6 +100,7 @@ MonoBehaviour:
     clothColorD: {r: 1, g: 0, b: 0, a: 1}
   - escudo: {fileID: 21300000, guid: fc0f2e2a9334cad458433f9e0c2ad355, type: 3}
     name: "Atl\xE9tico San Jesus"
+    name_abr: ASJ
     designID: 0
     color: {r: 1, g: 1, b: 0, a: 1}
     clothColorA: {r: 1, g: 1, b: 0, a: 1}
@@ -105,6 +109,7 @@ MonoBehaviour:
     clothColorD: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
   - escudo: {fileID: 21300000, guid: 48d9c348e24fb0a47b4a0c04aa0df862, type: 3}
     name: Porcelana Futbol Club
+    name_abr: PFC
     designID: 3
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 0.18039216, g: 0.19215687, b: 0.57254905, a: 1}
@@ -113,6 +118,7 @@ MonoBehaviour:
     clothColorD: {r: 0.36862746, g: 0.6784314, b: 0.8784314, a: 1}
   - escudo: {fileID: 21300000, guid: 50b4ddccf8f7b7d4e9c59084c33fbe5c, type: 3}
     name: Madchester Rehab Farm
+    name_abr: MRF
     designID: 0
     color: {r: 1, g: 0, b: 0, a: 1}
     clothColorA: {r: 1, g: 0, b: 0, a: 1}
@@ -121,6 +127,7 @@ MonoBehaviour:
     clothColorD: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
   - escudo: {fileID: 21300000, guid: be50b7959d3852c4d819944012ff4644, type: 3}
     name: Real Lamadrid
+    name_abr: REA
     designID: 2
     color: {r: 0, g: 0.44313726, b: 0.7372549, a: 1}
     clothColorA: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
@@ -129,6 +136,7 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0.44313726, b: 0.7372549, a: 1}
   - escudo: {fileID: 21300000, guid: edb787081496582419317863c49c30b2, type: 3}
     name: Chicago Boys
+    name_abr: CHB
     designID: 0
     color: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorA: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}

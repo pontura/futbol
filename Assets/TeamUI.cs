@@ -14,7 +14,7 @@ public class TeamUI : MonoBehaviour
     {
         Events.OnGoal += OnGoal;
         Settings.TeamSettings settings = Data.Instance.settings.GetTeamSettings(teamID);
-        teamNameField.text = settings.name;
+        teamNameField.text = settings.name_abr;
         escudo.sprite = settings.escudo;
         SetField();
     }

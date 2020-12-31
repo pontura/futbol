@@ -248,7 +248,7 @@ MonoBehaviour:
     - _id: 0
       _name: Jump
       _type: 1
-      _descriptiveName: Jump
+      _descriptiveName: Patea / Dash
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
     - _id: 1
       _name: Attack
       _type: 1
-      _descriptiveName: Attack
+      _descriptiveName: Switch
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
     - _id: 2
       _name: SubAttack
       _type: 1
-      _descriptiveName: Sub Attack
+      _descriptiveName: Pase / Corre
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
       _behaviorId: 0

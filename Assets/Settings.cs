@@ -13,6 +13,7 @@ public class Settings : MonoBehaviour
     {
         public Sprite escudo;
         public string name;
+        public string name_abr;
         public int designID;
         public Color color;
         public Color clothColorA;
