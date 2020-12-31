@@ -8,9 +8,11 @@ public class MainMenu : MonoBehaviour
     public Rewired.UI.ControlMapper.ControlMapper controlMapper_to_add;
     Rewired.UI.ControlMapper.ControlMapper controlMapper;
     public Canvas controlMappingCanvas;
+    public GameObject credits;
 
     void Start()
     {
+        SetCredits(false);
         Events.PlaySound("crowd", "fulbo_music1", true);
         Events.OnButtonClick += OnButtonClick;
         controlMapper = Instantiate( controlMapper_to_add);
@@ -34,5 +36,9 @@ public class MainMenu : MonoBehaviour
     public void Controls()
     {
         controlMapper.Open();
+    }
+    public void SetCredits(bool isOn)
+    {
+        credits.SetActive(isOn);
     }
 }
