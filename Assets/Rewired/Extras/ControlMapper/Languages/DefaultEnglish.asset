@@ -3,78 +3,85 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e240f552ac8b850498d8b7473de529bd, type: 3}
   m_Name: DefaultEnglish
   m_EditorClassIdentifier: 
-  _yes: Yes
+  _yes: "S\xED"
   _no: No
-  _add: Add
-  _replace: Replace
-  _remove: Remove
-  _cancel: Cancel
-  _none: None
-  _okay: Okay
-  _done: Done
-  _default: Default
-  _assignControllerWindowTitle: Choose Controller
-  _assignControllerWindowMessage: Press any button or move an axis on the controller
-    you would like to use.
-  _controllerAssignmentConflictWindowTitle: Controller Assignment
-  _controllerAssignmentConflictWindowMessage: '{0} is already assigned to {1}. Do
-    you want to assign this controller to {2} instead?'
-  _elementAssignmentPrePollingWindowMessage: First center or zero all sticks and axes
-    and press any button or wait for the timer to finish.
-  _joystickElementAssignmentPollingWindowMessage: Now press a button or move an axis
-    to assign it to {0}.
-  _keyboardElementAssignmentPollingWindowMessage: Press a key to assign it to {0}.
-    Modifier keys may also be used. To assign a modifier key alone, hold it down for
-    1 second.
-  _mouseElementAssignmentPollingWindowMessage: Press a mouse button or move an axis
-    to assign it to {0}.
-  _elementAssignmentConflictWindowMessage: Assignment Conflict
-  _elementAlreadyInUseBlocked: '{0} is already in use cannot be replaced.'
-  _elementAlreadyInUseCanReplace: '{0} is already in use. Do you want to replace it?'
-  _elementAlreadyInUseCanReplace_conflictAllowed: '{0} is already in use. Do you want
-    to replace it? You may also choose to add the assignment anyway.'
-  _mouseAssignmentConflictWindowTitle: Mouse Assignment
-  _mouseAssignmentConflictWindowMessage: The mouse is already assigned to {0}. Do
-    you want to assign the mouse to {1} instead?
-  _calibrateControllerWindowTitle: Calibrate Controller
-  _calibrateAxisStep1WindowTitle: Calibrate Zero
-  _calibrateAxisStep1WindowMessage: Center or zero {0} and press any button or wait
-    for the timer to finish.
-  _calibrateAxisStep2WindowTitle: Calibrate Range
-  _calibrateAxisStep2WindowMessage: Move {0} through its entire range then press any
-    button or wait for the timer to finish.
-  _inputBehaviorSettingsWindowTitle: Sensitivity Settings
-  _restoreDefaultsWindowTitle: Restore Defaults
-  _restoreDefaultsWindowMessage_onePlayer: This will restore the default input configuration.
-    Are you sure you want to do this?
-  _restoreDefaultsWindowMessage_multiPlayer: This will restore the default input configuration
-    for all players. Are you sure you want to do this?
-  _actionColumnLabel: Actions
-  _keyboardColumnLabel: Keyboard
+  _add: Agregar
+  _replace: Reemplazar
+  _remove: Sacar
+  _swap: Cambiar
+  _cancel: Cancelar
+  _none: Nada
+  _okay: Ok
+  _done: Listo
+  _default: Defecto
+  _assignControllerWindowTitle: Elegir control
+  _assignControllerWindowMessage: "Toc\xE1 un bot\xF3n o mov\xE9 un eje en el control
+    que quieras usar"
+  _controllerAssignmentConflictWindowTitle: Control descontrolado
+  _controllerAssignmentConflictWindowMessage: "{0} ya est\xE1 asignado a {1}. Quer\xE9s
+    asignarlo a {2} mejor?"
+  _elementAssignmentPrePollingWindowMessage: "Primero centr\xE1 o pon\xE9 a cero
+    todos los palos y ejes y presion\xE1 cualquier bot\xF3n o esper\xE1 a que termine
+    el temporizador."
+  _joystickElementAssignmentPollingWindowMessage: "Ahora toc\xE1 un bot\xF3n o mov\xE9
+    un eje para asignarlo a {0}."
+  _joystickElementAssignmentPollingWindowMessage_fullAxisFieldOnly: "Mov\xE9 un eje
+    para asignarlo a {0}."
+  _keyboardElementAssignmentPollingWindowMessage: "Apret\xE1 una tecla para asignarla
+    a {0}. Tambi\xE9n se pueden utilizar teclas modificadoras. Para asignar solo
+    una tecla modificadora, mantenela presionada durante 1 segundo."
+  _mouseElementAssignmentPollingWindowMessage: "Toc\xE1 un bot\xF3n del mouse o mov\xE9
+    un eje para asignarlo a {0}."
+  _mouseElementAssignmentPollingWindowMessage_fullAxisFieldOnly: "Mov\xE9 un eje
+    para asignarlo a {0}."
+  _elementAssignmentConflictWindowMessage: Controles gedientos
+  _elementAlreadyInUseBlocked: "{0} est\xE1 en uso u no puede ser reemplazado."
+  _elementAlreadyInUseCanReplace: "{0} ya est\xE1 en uso. \xBFQuer\xE9s reemplazarlo?"
+  _elementAlreadyInUseCanReplace_conflictAllowed: "{0} ya est\xE1 en uso. \xBFQuer\xE9s
+    reemplazarlo? Tambi\xE9n pod\xE9s optar por agregar la tarea de todos modos."
+  _mouseAssignmentConflictWindowTitle: Mouse falopeado
+  _mouseAssignmentConflictWindowMessage: "El mouse ya est\xE1 asignado a {0}. Prefer\xEDs
+    asignarlo a {1} mejor?"
+  _calibrateControllerWindowTitle: Calibrar el control
+  _calibrateAxisStep1WindowTitle: "Cero de calibraci\xF3n"
+  _calibrateAxisStep1WindowMessage: "Centr\xE1 el cero {0} y toc\xE1 el bot\xF3n
+    o esper\xE1 a que termine la cuenta."
+  _calibrateAxisStep2WindowTitle: "Rango de calibraci\xF3n"
+  _calibrateAxisStep2WindowMessage: "Mov\xE9 {0} a lo largo de todo su rango y despu\xE9s
+    toc\xE1 el bot\xF3n o esper\xE1 a que termine la cuenta."
+  _inputBehaviorSettingsWindowTitle: Opciones de sensitividad
+  _restoreDefaultsWindowTitle: Volver a foja cero
+  _restoreDefaultsWindowMessage_onePlayer: "Esto va a volver a todo como era durante
+    el menemismo. \xBFEst\xE1s segure?"
+  _restoreDefaultsWindowMessage_multiPlayer: "Esto va a volver a todo como era durante
+    el menemismo. \xBFEst\xE1s segure?"
+  _actionColumnLabel: Acciones
+  _keyboardColumnLabel: Teclado
   _mouseColumnLabel: Mouse
-  _controllerColumnLabel: Controller
-  _removeControllerButtonLabel: Remove
-  _calibrateControllerButtonLabel: Calibrate
-  _assignControllerButtonLabel: Assign Controller
-  _inputBehaviorSettingsButtonLabel: Sensitivity
-  _doneButtonLabel: Done
-  _restoreDefaultsButtonLabel: Restore Defaults
-  _playersGroupLabel: 'Players:'
-  _controllerSettingsGroupLabel: 'Controller:'
-  _assignedControllersGroupLabel: 'Assigned Controllers:'
-  _settingsGroupLabel: 'Settings:'
-  _mapCategoriesGroupLabel: 'Categories:'
-  _calibrateWindow_deadZoneSliderLabel: 'Dead Zone:'
-  _calibrateWindow_zeroSliderLabel: 'Zero:'
-  _calibrateWindow_sensitivitySliderLabel: 'Sensitivity:'
-  _calibrateWindow_invertToggleLabel: Invert
-  _calibrateWindow_calibrateButtonLabel: Calibrate
+  _controllerColumnLabel: Control
+  _removeControllerButtonLabel: Sacar
+  _calibrateControllerButtonLabel: Calibrar
+  _assignControllerButtonLabel: Asignar control
+  _inputBehaviorSettingsButtonLabel: Sensitividad
+  _doneButtonLabel: Finishela
+  _restoreDefaultsButtonLabel: Foja cero
+  _playersGroupLabel: 'Jugadores:'
+  _controllerSettingsGroupLabel: 'Control:'
+  _assignedControllersGroupLabel: 'Controles asignados:'
+  _settingsGroupLabel: 'Preferencias:'
+  _mapCategoriesGroupLabel: "Categor\xEDas:"
+  _calibrateWindow_deadZoneSliderLabel: 'Zona muerta:'
+  _calibrateWindow_zeroSliderLabel: 'Cero:'
+  _calibrateWindow_sensitivitySliderLabel: 'Sensitividad:'
+  _calibrateWindow_invertToggleLabel: Invertir
+  _calibrateWindow_calibrateButtonLabel: Calibrar
   _customEntries: []
