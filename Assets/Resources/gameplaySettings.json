@@ -18,9 +18,9 @@
 	"gkSpeed_sale_z": 5,
 	"gkSpeed_sale_x": 3,
 
-	"freeze_dash": 0.6,
+	"freeze_dash": 0.5,
 	"freeze_by_loseBall": 0.3,
-	"freeze_by_dashBall": 1,
+	"freeze_by_dashBall": 0.75,
 
 	"referiSpeed": 1.2,
 	"distanceToForceCentro": 0.65,

@@ -13,7 +13,6 @@ public class Penalty : MonoBehaviour
         SHOOT
     }
     public GameObject ballAimer;
-    public InputManagerUI inputManager;
     public Character character;
     public Character goalKeeper;
     float goalkeeperSpeed = 2;
@@ -92,6 +91,8 @@ public class Penalty : MonoBehaviour
             return;
 
         Vector3 pos = goalKeeper.transform.localPosition;
+
+        InputManagerUI inputManager = Data.Instance.inputManagerUI;
 
         if (Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)
         {

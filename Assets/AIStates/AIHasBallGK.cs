@@ -82,8 +82,8 @@ public class AIHasBallGK : AIState
         CharacterActions.kickTypes kickType;
 
         if (ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
-            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.5f, 2));
+            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.75f, 2.5f));
         else
-            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f, 2));
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(1.5f, 3));
     }
 }

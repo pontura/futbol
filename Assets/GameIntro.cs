@@ -23,16 +23,17 @@ public class GameIntro : MonoBehaviour
 
         StartCoroutine(Init());
 
-        Events.OnButtonClick += OnButtonClick;
+        Events.OnSkipOn(OnSkip);
     }
-    private void OnDestroy()
+    void OnSkip()
     {
-        Events.OnButtonClick -= OnButtonClick;
+        Ready();
     }
-    void OnButtonClick(int a, int b)
+    void Ready()
     {
         StopAllCoroutines();
         Data.Instance.LoadLevel("Game");
+        Events.OnSkipOff();
     }
     IEnumerator Init()
     {
@@ -65,7 +66,7 @@ public class GameIntro : MonoBehaviour
             Events.ChangeVolume("croud", vol);
         }
         yield return new WaitForSeconds(4);
-        Data.Instance.LoadLevel("Game");
+        Ready();
     }
     IEnumerator SetCharacterOn(Character character)
     {

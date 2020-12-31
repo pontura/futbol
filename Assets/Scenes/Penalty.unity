@@ -6171,7 +6171,6 @@ GameObject:
   - component: {fileID: 483686595}
   - component: {fileID: 483686597}
   - component: {fileID: 483686599}
-  - component: {fileID: 483686596}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -6249,22 +6248,6 @@ MonoBehaviour:
   team2: []
   playingCharacters: []
   signals: {fileID: 483686597}
---- !u!114 &483686596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483686593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ff695a72d39ca4b814c1b1e918ba3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalAxis_team_1: 0
-  horizontalAxis_team_2: 0
-  verticalAxis_team_1: 0
-  verticalAxis_team_2: 0
 --- !u!114 &483686597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6308,7 +6291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballAimer: {fileID: 424397256}
-  inputManager: {fileID: 483686596}
   character: {fileID: 2120862097}
   goalKeeper: {fileID: 4932910988181984954}
   ballAnim: {fileID: 1633951608}
@@ -26060,6 +26042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  runFast: 0
   lastAnimPlayed: 
 --- !u!54 &3160418783750167795
 Rigidbody:
@@ -26115,6 +26098,7 @@ MonoBehaviour:
   isBeingControlled: 0
   ai: {fileID: 0}
   scaleFactor: 0
+  limits_x: {x: 0, y: 0}
 --- !u!136 &3160418783750167806
 CapsuleCollider:
   m_ObjectHideFlags: 0

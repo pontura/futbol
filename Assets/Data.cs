@@ -16,6 +16,7 @@ public class Data : MonoBehaviour
     public TextsData textsData;
     public bool isMobile;
     [HideInInspector] public MatchData matchData;
+    [HideInInspector] public InputManagerUI inputManagerUI;
     public GameObject[] init_on_start;
 
     public static Data Instance
@@ -49,6 +50,7 @@ public class Data : MonoBehaviour
         isMobile = true;
 #endif
         matchData = GetComponent<MatchData>();
+        inputManagerUI = GetComponent<InputManagerUI>();
         DontDestroyOnLoad(this);
     }
     private void Start()

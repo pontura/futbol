@@ -23,7 +23,15 @@ public class MatchData : MonoBehaviour
     void GameInit()
     {
         CancelInvoke();
+        if (secs == Data.Instance.settings.totalTime)
+            Reset();
         Loop();
+    }
+    private void Reset()
+    {
+        score = Vector2.zero;
+        lastGoalBy = 0;
+        penaltyGoalKeeperTeamID = 0;
     }
     public void OnGoal(int _teamID)
     {
