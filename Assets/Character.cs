@@ -126,7 +126,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                _ball.character.actions.StartCoroutine( _ball.character.actions.Freeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall) );
+                _ball.character.actions.StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall);
                 _ball.character.actions.Cry();
             }
         }
@@ -161,12 +161,14 @@ public class Character : MonoBehaviour
     {
         charactersManager.Swap(control_id);
     }
+    Coroutine dashCoroutine;
     public void Dash()
     {
         if (actions.state == CharacterActions.states.DASH || actions.state == CharacterActions.states.FREEZE)
             return;
-        StopAllCoroutines();        
-        StartCoroutine(DashC());
+        if(dashCoroutine != null)
+            StopCoroutine(dashCoroutine);
+        dashCoroutine = StartCoroutine(DashC());
     }
     IEnumerator DashC()
     {
@@ -174,10 +176,11 @@ public class Character : MonoBehaviour
         ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
         yield return new WaitForSeconds(0.25f);
         if (ai.ball.character != this)
-            StartCoroutine(actions.Freeze(0, Data.Instance.settings.gameplay.freeze_dash));
+            actions.StartFreeze(0, Data.Instance.settings.gameplay.freeze_dash);
         else
             actions.EndDash();
         ChangeSpeedTo(0);
+        yield return null;
     }
     public void ChangeSpeedTo(float value)
     {
@@ -271,23 +274,31 @@ public class Character : MonoBehaviour
     {
         if (colliders.Length == 0) return;
         colliders[0].GetComponent<CapsuleCollider>().center = collidersOriginalPos + pos;
+        Invoke("ResetColliders", 0.5f);
+    }
+    public void Reset()
+    {
+        ResetColliders();
     }
     void ResetColliders()
     {
         foreach (Collider c in colliders)
             c.enabled = true;
+        colliders[0].GetComponent<CapsuleCollider>().center = collidersOriginalPos;
     }
     public void Jump()
     {
         if(type != types.GOALKEEPER)
             actions.Jump();
     }
+    Coroutine runCoroutine;
     public void SuperRun()
     {
         if (actions.state == CharacterActions.states.DASH)
             return;
-        StopAllCoroutines();
-        StartCoroutine(RunSpeedDesacelerate());
+        if(runCoroutine != null)
+            StopCoroutine(runCoroutine);
+        runCoroutine = StartCoroutine(RunSpeedDesacelerate());
     }
     IEnumerator RunSpeedDesacelerate()
     {     

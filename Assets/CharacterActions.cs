@@ -63,9 +63,8 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
             return;
-        } else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+        } else if (state == states.FREEZE || state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
-        StopAllCoroutines();
         CancelInvoke();
         this.state = states.IDLE;
         PlayAnim("idle");
@@ -223,7 +222,7 @@ public class CharacterActions : MonoBehaviour
         character.Freeze();
         if(duration>0)
             yield return new WaitForSeconds(duration);
-        EndDash();
+        Reset();
     }
     public void EndDash()
     {
@@ -235,14 +234,21 @@ public class CharacterActions : MonoBehaviour
         state = states.ACTION_DONE;
         Idle();
     }
+  
     public void Kicked()
     {
         state = states.SPECIAL_ACTION;
         CancelInvoke();
-        StopAllCoroutines();
-        StartCoroutine(Freeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall));
+        StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall);
         Events.PlaySound("shouts", "foul", false);
         PlayAnim("kicked");
+    }
+    Coroutine freezeCoroutine;
+    public void StartFreeze(float delay, float duration)
+    {
+        if (freezeCoroutine != null)
+            StopCoroutine(freezeCoroutine);
+        freezeCoroutine = StartCoroutine(Freeze(delay, duration));
     }
     public void Pita()
     {
