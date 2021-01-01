@@ -838,7 +838,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 50
+        value: 2
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -846,16 +846,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5833333
-        value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6666667
+        time: 0.1
         value: 0
         inSlope: 0
         outSlope: 0
@@ -867,6 +858,25 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: EmissionModule.rateOverTime.scalar
+    path: cuerpo/torax/brazo_1/brazo_1D/brazo_1D (1)/pito
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: looping
     path: cuerpo/torax/brazo_1/brazo_1D/brazo_1D (1)/pito
     classID: 198
     script: {fileID: 0}
@@ -1035,6 +1045,13 @@ AnimationClip:
     - serializedVersion: 2
       path: 848337340
       attribute: 2883525743
+      script: {fileID: 0}
+      typeID: 198
+      customType: 27
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 848337340
+      attribute: 925582877
       script: {fileID: 0}
       typeID: 198
       customType: 27
@@ -3281,7 +3298,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 50
+        value: 2
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3289,16 +3306,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5833333
-        value: 50
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.6666667
+        time: 0.1
         value: 0
         inSlope: 0
         outSlope: 0
@@ -3310,6 +3318,25 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: EmissionModule.rateOverTime.scalar
+    path: cuerpo/torax/brazo_1/brazo_1D/brazo_1D (1)/pito
+    classID: 198
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: looping
     path: cuerpo/torax/brazo_1/brazo_1D/brazo_1D (1)/pito
     classID: 198
     script: {fileID: 0}
