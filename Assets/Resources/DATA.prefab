@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.34317875, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.8207547, b: 0.015425118, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -411,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1956510527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -745,13 +745,16 @@ MonoBehaviour:
   id: 0
   active:
     name: 
+    sceneName: 
     size_x: 0
     size_y: 0
   all:
   - name: Estadio Guita
+    sceneName: Game
     size_x: 41
     size_y: 20.5
   - name: Gigante
+    sceneName: GameLarge
     size_x: 81
     size_y: 20.5
 --- !u!1 &1187772259431785653
