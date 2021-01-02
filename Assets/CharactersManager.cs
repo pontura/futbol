@@ -8,7 +8,6 @@ public class CharactersManager : MonoBehaviour
     [HideInInspector] public int teamID_2;
     public float rotationOffset = 10;
     public Referi referi;
-    public GameObject boardFloor;
     Vector2 limits;
     Ball ball;
     public bool player1;
@@ -45,7 +44,7 @@ public class CharactersManager : MonoBehaviour
         ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1].asset);
-        limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
+        limits = new Vector2(Data.Instance.stadiumData.active.size_x / 2, Data.Instance.stadiumData.active.size_y / 2);
         limits.x -= 1;
         int id = 0;
         foreach (Character character in containerTeam1.GetComponentsInChildren<Character>())
@@ -81,7 +80,7 @@ public class CharactersManager : MonoBehaviour
         ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId - 1].asset);
-        limits = new Vector2(boardFloor.transform.localScale.x / 2, boardFloor.transform.localScale.z / 2);
+        limits = new Vector2(Data.Instance.stadiumData.active.size_x / 2, Data.Instance.stadiumData.active.size_y / 2);
         limits.x -= 1;
 
         //patea:
@@ -216,7 +215,7 @@ public class CharactersManager : MonoBehaviour
         foreach (Character c in team)
         {
             float distance = Vector3.Distance(c.transform.position, pos);
-            if (distanceMin > distance && c.type != Character.types.GOALKEEPER)
+            if (distanceMin > distance)// && c.type != Character.types.GOALKEEPER)
             {
                 if (hasControl)
                 {
@@ -320,7 +319,7 @@ public class CharactersManager : MonoBehaviour
                 case 2:
                     Character characterNear;
                     float uiForceValue = ball.uIForce.GetForce();
-                    float distanceToForceCentro = (gameplaySettings.limits.x/2) * gameplaySettings.distanceToForceCentro;
+                    float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * gameplaySettings.distanceToForceCentro;
 
                     if (
                         Mathf.Abs(character.transform.position.z) > 7.5f &&

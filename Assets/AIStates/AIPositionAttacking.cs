@@ -80,7 +80,7 @@ public class AIPositionAttacking : AIState
         if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
         gotoPosition = ai.originalPosition;
-        float resta = (Data.Instance.settings.gameplay.limits.x / 2.25f) + Utils.GetRandomFloatBetween(-2, 2);
+        float resta = (Data.Instance.stadiumData.active.size_x / 2.25f) + Utils.GetRandomFloatBetween(-2, 2);
         if(ai.character.teamID == 1)
             gotoPosition.x = ai.originalPosition.x - resta;
         else

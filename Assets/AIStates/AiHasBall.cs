@@ -9,7 +9,7 @@ public class AiHasBall : AIState
 
     public override void Init(AI ai)
     {
-        limits = Data.Instance.settings.gameplay.limits;
+        limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
         base.Init(ai);
         color = Color.red;       
     }

@@ -55,7 +55,7 @@ public class Penalty : MonoBehaviour
     }
     void GotoGame()
     {
-        Data.Instance.LoadLevel("Game");
+        Data.Instance.LoadLevel(Data.Instance.stadiumData.active.sceneName);
     }
     void OnButtonClick(int playerID, int a)
     {

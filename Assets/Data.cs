@@ -13,6 +13,7 @@ public class Data : MonoBehaviour
     public string newScene;
     private float time_ViewingMap = 7.5f;
     public Settings settings;
+    public StadiumsData stadiumData;
     public TextsData textsData;
     public bool isMobile;
     [HideInInspector] public MatchData matchData;
@@ -51,6 +52,7 @@ public class Data : MonoBehaviour
 #endif
         matchData = GetComponent<MatchData>();
         inputManagerUI = GetComponent<InputManagerUI>();
+        stadiumData = GetComponent<StadiumsData>();
         DontDestroyOnLoad(this);
     }
     private void Start()

@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 1515485348}
   - component: {fileID: 1526771217}
   - component: {fileID: 1526771218}
+  - component: {fileID: 1526771216}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -504,6 +505,7 @@ MonoBehaviour:
   lastScene: Game
   newScene: Game
   settings: {fileID: 999694241}
+  stadiumData: {fileID: 0}
   textsData: {fileID: 864794640}
   isMobile: 0
   matchData: {fileID: 0}
@@ -599,7 +601,6 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   selectedTeams: {x: 1, y: 0}
   gameplay:
-    limits: {x: 41, y: 20.5}
     input_x_sensibilitty: 0
     scaleFactor: 0
     speed: 0
@@ -729,6 +730,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1956510526}
   progressBar: {fileID: 1104846895}
+--- !u!114 &1526771216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  active:
+    name: 
+    size_x: 0
+    size_y: 0
+  all:
+  - name: Estadio Guita
+    size_x: 41
+    size_y: 20.5
+  - name: Gigante
+    size_x: 81
+    size_y: 20.5
 --- !u!1 &1187772259431785653
 GameObject:
   m_ObjectHideFlags: 0

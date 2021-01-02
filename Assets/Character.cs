@@ -84,8 +84,8 @@ public class Character : MonoBehaviour
     }
     public void SetLimits()
     {
-        float _limits_x = Data.Instance.settings.gameplay.limits.x / 2;
-        float _limits_y = Data.Instance.settings.gameplay.limits.y / 2;
+        float _limits_x = Data.Instance.stadiumData.active.size_x / 2;
+        float _limits_y = Data.Instance.stadiumData.active.size_y / 2;
 
         limits_y = new Vector2(_limits_y, -_limits_y);
         limits_x = new Vector2(-_limits_x, _limits_x);
@@ -113,9 +113,9 @@ public class Character : MonoBehaviour
                 _ball.character.actions.Kicked();
                 Vector3 pos = transform.position;
                 if (
-                    (pos.x > 13 && teamID == 1) || (pos.x < -13 && teamID == 2)
+                    (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
                     &&
-                     (pos.z < 8.5f && pos.z > -8.5f)
+                     (pos.z < 8.25f && pos.z > -8.25f)
                     &&
                     (_ball.character.teamID != teamID)
                     )
@@ -218,6 +218,8 @@ public class Character : MonoBehaviour
         if (ballCatcher != null)
             ballCatcher.RotateTo(forwardVector);
 
+      
+
         Vector3 pos = transform.position;
         if (transform.position.x > limits_x.y && _x>0)
         {
@@ -226,6 +228,8 @@ public class Character : MonoBehaviour
         }
         else if (transform.position.x < limits_x.x && _x < 0)
         {
+            if (isBeingControlled)
+                print("_______________" + transform.position.x + " limits_x.x: " + limits_x.x);
             pos.x = limits_x.x;
             transform.position = pos;
         }
