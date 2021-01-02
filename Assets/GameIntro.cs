@@ -38,9 +38,12 @@ public class GameIntro : MonoBehaviour
     IEnumerator Init()
     {
         yield return new WaitForEndOfFrame();
-        Events.OnIntroSound(1, null);
+        Events.OnIntroSound(3, null);
         Events.PlaySound("crowd", "crowd_quiet", true);
-        
+        yield return new WaitForSeconds(8);
+
+        Events.OnIntroSound(1, null);
+
         yield return new WaitForSeconds(4);
 
         Events.OnIntroSound(2, charactersManager.referi);

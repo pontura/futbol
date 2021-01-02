@@ -16,6 +16,7 @@ public class VoicesManager : MonoBehaviour
 
     public AudioClip[] intro_salen;
     public AudioClip[] intro_sale_referi;
+    public AudioClip[] intro_stadio;
 
     public AudioClip[] penalty;
     public AudioClip[] penalty_lo_patea;
@@ -136,6 +137,8 @@ public class VoicesManager : MonoBehaviour
             PlayAudios(new AudioClip[] { GetRandomAudioClip(intro_salen) });
         else if (id == 2)
             PlayAudios(new AudioClip[] { GetRandomAudioClip(intro_sale_referi), nameClip });
+        else if (id == 3)
+            PlayAudios(new AudioClip[] { GetRandomAudioClip(intro_stadio), nameClip });
         else
             PlayAudios(new AudioClip[] { nameClip });
 
