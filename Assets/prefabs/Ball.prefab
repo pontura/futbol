@@ -9911,7 +9911,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4.5
       minScalar: 2
       maxCurve:
         serializedVersion: 2
@@ -9964,7 +9964,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10777,7 +10777,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.8142929
+          time: 0.9000015
           value: 1
           inSlope: 0.22012593
           outSlope: 0.22012593
@@ -10788,11 +10788,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -9.928014
-          outSlope: -9.928014
+          inSlope: -37.769314
+          outSlope: -37.769314
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.17949492
+          inWeight: 0.095240735
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -13350,9 +13350,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -13367,7 +13367,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -13420,7 +13420,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14505,7 +14505,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e54d999919c7076418302e3f5c0ef6ab, type: 2}
+  - {fileID: 2100000, guid: b947cb09bc3d2074f9e91a9fd265a234, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -14665,7 +14665,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4.5
       minScalar: 2
       maxCurve:
         serializedVersion: 2
@@ -14718,7 +14718,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -15531,7 +15531,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.8142929
+          time: 0.9000015
           value: 1
           inSlope: 0.22012593
           outSlope: 0.22012593
@@ -15542,11 +15542,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -9.928014
-          outSlope: -9.928014
+          inSlope: -37.769314
+          outSlope: -37.769314
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.17949492
+          inWeight: 0.095240735
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -18104,9 +18104,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -18121,7 +18121,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -18174,7 +18174,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
