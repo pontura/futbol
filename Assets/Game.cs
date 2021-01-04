@@ -37,7 +37,8 @@ public class Game : MonoBehaviour
     {
         cameraInGame.SetTargetTo(ball.transform);
         cameraInGame.Restart();
-        Events.PlaySound("crowd", "crowd_quiet", true);
+        Events.PlaySound("crowd", "crowd_quiet", true);        
+        Events.PlaySound("common", "ballEnter", false);
         if (state == states.PENALTY)
             charactersManager.InitPenalty(1);
         else
@@ -59,11 +60,13 @@ public class Game : MonoBehaviour
         state = states.WAITING;
         yield return new WaitForSeconds(0.6f);
         VoicesManager.Instance.SayResults();
+        Events.PlaySound("crowd", "crowd_quiet", true);
         yield return new WaitForSeconds(2);
         state = states.PLAYING;
         Events.OnGameStatusChanged(Game.states.PLAYING);
         yield return new WaitForSeconds(0.6f);        
         cameraInGame.Reset();
+        
     }
     public void Goal(int teamID, Character character)
     {

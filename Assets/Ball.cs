@@ -213,37 +213,37 @@ public class Ball : MonoBehaviour
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
-                Events.PlaySound("common", "kick3", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickHard* force;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.SOFT:
-                Events.PlaySound("common", "kick2", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickSoft * force;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
-                Events.PlaySound("common", "kick1", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickBaloon * force;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickBaloonAngle * force;
                 break;
             case CharacterActions.kickTypes.HEAD:
-                Events.PlaySound("common", "kick1", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickHead * force;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
-                Events.PlaySound("common", "kick3", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickChilena * force;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
-                Events.PlaySound("common", "kick3", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickHard * 1.5f;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.CENTRO:
-                Events.PlaySound("common", "kick3", false);
+                KickBallSound();
                 dir *= Data.Instance.settings.gameplay.kickCentro * 1.5f;
                 dir += Vector3.up * Data.Instance.settings.gameplay.kickCentroAngle * force;
                 break;
@@ -252,6 +252,13 @@ public class Ball : MonoBehaviour
         rb.AddForce(dir);
         Events.OnBallKicked(kickType, forceForce, character);
         character = null;
+    }
+    int kick_id = 1;
+    void KickBallSound()
+    {
+        Events.PlaySound("common", "kick" + kick_id, false);
+        kick_id++;
+        if (kick_id > 4) kick_id = 1;
     }
     public void OnSetApplyForce(Vector3 dir, Character character)
     {

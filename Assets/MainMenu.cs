@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
     Rewired.UI.ControlMapper.ControlMapper controlMapper;
     public Canvas controlMappingCanvas;
     public GameObject credits;
+    public GameObject controls;
 
     void Start()
     {
+        SetControls(false);
         SetCredits(false);
         Events.PlaySound("crowd", "fulbo_music1", true);
         Events.OnButtonClick += OnButtonClick;
@@ -36,8 +38,17 @@ public class MainMenu : MonoBehaviour
     public void Controls()
     {
         controlMapper.Open();
+        SetControls(false);
     }
     public void SetCredits(bool isOn)
+    {
+        credits.SetActive(isOn);
+    }
+    public void SetControls(bool isOn)
+    {
+        controls.SetActive(isOn);
+    }
+    public void closeControls(bool isOn)
     {
         credits.SetActive(isOn);
     }

@@ -52,7 +52,6 @@ public class GoalMoment : MonoBehaviour
             ch.actions.Goal();
 
         yield return new WaitForSeconds(2);
-        Events.PlaySound("crowd", "crowd_quiet", true);
         Events.ChangeVolume("croud", 0.5f);
     }
     void OnRestartGame()

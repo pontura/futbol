@@ -55,7 +55,7 @@ public class GameIntro : MonoBehaviour
 
         float vol = 0.5f;
         Events.ChangeVolume("croud", vol);
-        Events.PlaySound("crowd", "crowd_gol", true);
+        Events.PlaySound("crowd", "crowd_intro", true);
         Character character;
         for (int id = 0; id< totalCharacters; id++)
         {
@@ -68,7 +68,9 @@ public class GameIntro : MonoBehaviour
             vol -= 0.05f;
             Events.ChangeVolume("croud", vol);
         }
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1);
+        Events.PlaySound("crowd", "crowd_quiet", true);
+        yield return new WaitForSeconds(3);
         Ready();
     }
     IEnumerator SetCharacterOn(Character character)
