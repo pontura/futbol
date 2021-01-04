@@ -49,13 +49,14 @@ public class GameIntro : MonoBehaviour
         Events.OnIntroSound(2, charactersManager.referi);
         charactersManager.referi.gameObject.SetActive(true);
         charactersManager.referi.actions.EnterCancha();
+        Events.PlaySound("crowd", "crowd_intro", true);
 
         yield return new WaitForSeconds(2);
         Events.SetDialogue(charactersManager.referi, Data.Instance.textsData.GetRandomReferiDialogue("random"));
-
         float vol = 0.5f;
         Events.ChangeVolume("croud", vol);
-        Events.PlaySound("crowd", "crowd_intro", true);
+        Events.PlaySound("common", "pito_enter", false);
+
         Character character;
         for (int id = 0; id< totalCharacters; id++)
         {
