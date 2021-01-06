@@ -1,13 +1,13 @@
 {
 	"scaleFactor": 0.6,
 
-	"speed": 3.4,
-	"speedRun": 4.8,
-	"speedRunFade": 1.1,
-	"speedWithBall": 1.9,
+	"speed": 3.2,
+	"speedRun": 5,
+	"speedRunFade": 1.5,
+	"speedWithBall": 2,
 	"speedRunWithBall": 4.2,
 
-	"speedDash": 7,
+	"speedDash": 8,
 
 	"distance_to_dash_ai": 2.8,
 	"random_dash_percent":60,
@@ -17,25 +17,25 @@
 	"gkSpeed_sale_z": 4,
 	"gkSpeed_sale_x": 2.7,
 
-	"freeze_dash": 0.5,
-	"freeze_by_loseBall": 0.3,
-	"freeze_by_dashBall": 0.75,
+	"freeze_dash": 1.5,
+	"freeze_by_loseBall": 1,
+	"freeze_by_dashBall": 3,
 
 	"referiSpeed": 1.1,
 	"distanceToForceCentro": 0.65,
-	"startingUIForceBar": 0.45,
+	"startingUIForceBar": 0.15,
 	"dialoguesDuration": 4,
 	"timeToSwapCharactersAutomatically": 0.7,
-	"forceBarSpeed": 3,
+	"forceBarSpeed": 2.7,
 	"input_x_sensibilitty": 4,
 
 	"defenseDelay": 0.7,
 	"attackDelay": 0.7,
 
-	"kickHard": 500,
-	"kickHardAngle": 230,
+	"kickHard": 600,
+	"kickHardAngle": 180,
 
-	"kickSoft": 500,
+	"kickSoft": 700,
 	"kickSoftAngle": 90,
 
 	"kickBaloon": 170,
