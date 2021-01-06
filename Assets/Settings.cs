@@ -35,6 +35,8 @@ public class Settings : MonoBehaviour
         public float freeze_by_loseBall;
         public float freeze_by_dashBall;
         public float freeze_dash;
+        public float distance_to_dash_ai;
+        public float random_dash_percent;
         public float goalKeeperSpeed;
         public float gkSpeed_sale_x;
         public float gkSpeed_sale_z;

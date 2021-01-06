@@ -52,4 +52,8 @@ public class MainMenu : MonoBehaviour
     {
         credits.SetActive(isOn);
     }
+    public void gotoParsec()
+    {
+        Data.Instance.LoadLevel("Parsec");
+    }
 }

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ControlRemapping.unity
     guid: ca05ffe9a1b88594f83a136abd47215f
+  - enabled: 1
+    path: Assets/Scenes/Parsec.unity
+    guid: 2ad069c9e65db3d4288f603f4811a5b2
   m_configObjects: {}

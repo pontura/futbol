@@ -10,6 +10,7 @@ public class AiGotoBall : AIState
     {
         base.Init(ai);
         color = Color.black;
+       
     }
     public override void SetActive()
     {
@@ -60,7 +61,7 @@ public class AiGotoBall : AIState
         float distToBall = Vector3.Distance(ai.transform.position, dest);
         if (distToBall > 20)
             ai.character.SuperRun();
-        else if (distToBall < 3.5f && Random.Range(0, 10) < 7)
+        else if (distToBall < distance_to_dash_ai && Random.Range(0, 100) < random_dash_percent)
             ai.character.Dash();
         else if (
             ai.character.teamID == 2 && ai.character.transform.position.x > dest.x

@@ -54,7 +54,7 @@ public class InputManagerUI : MonoBehaviour
         else
         {
             int id = 0;
-            for (id = 0; id < 3; id++)
+            for (id = 0; id < 2; id++)
             {
                 if (InputManager.instance.GetButtonDown(id, InputAction.action1))
                     Events.OnButtonDown(id+1,1);

@@ -5,6 +5,7 @@ public class AIPositionAttacking : AIState
     public Vector3 gotoPosition;
     public bool isHelper; // lo sigue al qeu tiene la pelota
     float delay;
+    public bool goalkeeperHasBall;
 
     public override void Init(AI ai)
     {
@@ -18,6 +19,10 @@ public class AIPositionAttacking : AIState
         isHelper = false;
         timer = 0;
         SetDestination();
+        if (ai.ball.character != null && ai.ball.character.type == Character.types.GOALKEEPER)
+            goalkeeperHasBall = true;
+        else
+            goalkeeperHasBall = false;
     }
     public override void OnCharacterCatchBall(Character character)
     {
@@ -79,12 +84,22 @@ public class AIPositionAttacking : AIState
         CheckHelper();
         if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
+  
         gotoPosition = ai.originalPosition;
+
         float resta = (Data.Instance.stadiumData.active.size_x / 2.25f) + Utils.GetRandomFloatBetween(-2, 2);
-        if(ai.character.teamID == 1)
+
+        //si la agarra tu arquero y sos defensor, vas a buscarla:
+        if (goalkeeperHasBall &&
+        (ai.character.type == Character.types.DEFENSOR_DOWN
+        || ai.character.type == Character.types.DEFENSOR_UP))
+            resta -= (Data.Instance.stadiumData.active.size_x / 3);
+
+        if (ai.character.teamID == 1)
             gotoPosition.x = ai.originalPosition.x - resta;
         else
             gotoPosition.x = ai.originalPosition.x + resta;
+
         gotoPosition.x = Mathf.Lerp(gotoPosition.x, ai.ball.transform.position.x, 0.35f);
         gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
     }

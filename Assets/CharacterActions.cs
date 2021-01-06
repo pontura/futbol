@@ -209,10 +209,14 @@ public class CharacterActions : MonoBehaviour
     {
         if (state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
             return;
+        
         Events.PlaySound("common", "dash", false);
         CancelInvoke();        
         this.state = states.DASH;
-        PlayAnim("dash");
+        if (character.type == Character.types.GOALKEEPER)
+            GoalKeeperJump();
+        else
+            PlayAnim("dash");
     }   
     public IEnumerator Freeze(float delay, float duration)
     {

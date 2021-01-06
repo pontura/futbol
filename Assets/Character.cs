@@ -325,8 +325,8 @@ public class Character : MonoBehaviour
             speed -= Data.Instance.settings.gameplay.speedRunFade * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-
-        actions.Run();
+        if(Game.Instance.state == Game.states.PLAYING)
+            actions.Run();
         speed = minSpeed;
         yield break;
     }

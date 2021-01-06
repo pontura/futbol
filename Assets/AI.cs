@@ -183,7 +183,7 @@ public class AI : MonoBehaviour
         if (sacaTeamID == 0) sacaTeamID = 1;
         else if (sacaTeamID == 1) sacaTeamID = 2;
         else if (sacaTeamID == 2) sacaTeamID = 1;
-        if (character.teamID == sacaTeamID && character.type == Character.types.CENTRAL)
+        if (character.teamID == sacaTeamID && character.type == Character.types.DELANTERO_DOWN)
             SetInitialCharacterPosition(sacaTeamID);
         else transform.position = originalPosition;
     }

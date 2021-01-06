@@ -609,6 +609,8 @@ MonoBehaviour:
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
     freeze_dash: 0
+    distance_to_dash_ai: 0
+    random_dash_percent: 0
     goalKeeperSpeed: 0
     gkSpeed_sale_x: 0
     gkSpeed_sale_z: 0

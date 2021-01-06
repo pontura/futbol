@@ -13,6 +13,11 @@ public class AiHasBall : AIState
         base.Init(ai);
         color = Color.red;       
     }
+    public override void OnCharacterCatchBall(Character character)
+    {
+        if (character.data.id != ai.character.data.id)
+            SetState(ai.aiIdle);
+    }
     public override void SetActive()
     {
         timer = 0;

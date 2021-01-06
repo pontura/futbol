@@ -10,6 +10,8 @@
 
 	"speedDash": 8,
 
+	"distance_to_dash_ai": 3,
+	"random_dash_percent":60,
 
 	"gk_CatchOnAir": 66,
 	"goalKeeperSpeed": 1.2,

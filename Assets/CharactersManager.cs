@@ -116,10 +116,23 @@ public class CharactersManager : MonoBehaviour
         }
     }
     void Loop()
-    {
-        CheckStateByTeam(team1[0]);
-        CheckStateByTeam(team2[0]);
+    {     
         Invoke("Loop", gameplaySettings.timeToSwapCharactersAutomatically);
+        if (Game.Instance.state == Game.states.PLAYING)
+        {
+            CheckStateByTeam(team1[0]);
+            CheckStateByTeam(team2[0]);
+            BallInsideChecker();
+        }            
+    }
+    void  BallInsideChecker()
+    {
+        Vector3 ballPos = ball.transform.position;
+        if (ball.transform.position.x > limits.x)
+            ballPos.x = limits.x;
+        else if (ball.transform.position.x < -limits.x)
+            ballPos.x = -limits.x;
+        ball.transform.position = ballPos;
     }
     void CheckStateByTeam(Character character)
     {

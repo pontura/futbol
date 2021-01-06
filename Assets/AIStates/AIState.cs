@@ -6,9 +6,13 @@ public class AIState
     [HideInInspector] public AI ai;
     public Color color;
     AIState state;
+    public float distance_to_dash_ai;
+    public float random_dash_percent;
 
     public virtual void Init(AI ai)
     {
+        distance_to_dash_ai = Data.Instance.settings.gameplay.distance_to_dash_ai;
+        random_dash_percent = Data.Instance.settings.gameplay.random_dash_percent;
         this.ai = ai;
         state = this;
     }
