@@ -59,7 +59,7 @@ public class UIForce : MonoBehaviour
     }
     public float GetForce()
     {
-        return value-0.25f;
+        return value;
     }
     void Loop()
     {
