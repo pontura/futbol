@@ -219,13 +219,13 @@ public class CharacterActions : MonoBehaviour
             PlayAnim("dash");
     }   
     public IEnumerator Freeze(float delay, float duration)
-    {
+    {        
         if (delay > 0)
-            yield return new WaitForSeconds(delay);        
+            yield return new WaitForSeconds(delay);
+        character.SetCollidersOff(duration);
         state = states.FREEZE;
         character.Freeze();
-        if(duration>0)
-            yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration);
         Reset();
     }
     public void EndDash()

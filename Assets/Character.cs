@@ -267,18 +267,18 @@ public class Character : MonoBehaviour
         if(ai.enabled)
             ai.ResetAll();
     }
-    public void SetCollidersOff()
+    public void SetCollidersOff(float delay)
     {
         foreach (Collider c in colliders)
             c.enabled = false;
-        Invoke("ResetColliders", 0.5f); 
+        Invoke("ResetColliders", delay); 
     }
     Vector3 collidersOriginalPos = Vector3.zero;
     public void MoveCollidersTo(Vector3 pos)
     {
         if (colliders.Length == 0) return;
         colliders[0].GetComponent<CapsuleCollider>().center = collidersOriginalPos + pos;
-        Invoke("ResetColliders", 0.5f);
+        Invoke("ResetColliders", 0.5f); // resetea posicion de c desepues de saltar:
     }
     public void Reset()
     {

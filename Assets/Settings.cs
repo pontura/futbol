@@ -32,6 +32,7 @@ public class Settings : MonoBehaviour
         public float speed;
         public float speedRun;
         public float speedRunWithBall;
+        public float freeze_by_kick;
         public float freeze_by_loseBall;
         public float freeze_by_dashBall;
         public float freeze_dash;

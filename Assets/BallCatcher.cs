@@ -32,7 +32,7 @@ public class BallCatcher : MonoBehaviour
     }
     public void LoseBall()
     {
-        character.SetCollidersOff();
+        character.SetCollidersOff(Data.Instance.settings.gameplay.freeze_by_loseBall);
         container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
