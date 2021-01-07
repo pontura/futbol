@@ -17,17 +17,17 @@
 	"gkSpeed_sale_z": 4,
 	"gkSpeed_sale_x": 2.7,
 
-	"freeze_by_kick": 0.6,
-	"freeze_dash": 0.5,
+	"freeze_by_kick": 3,
+	"freeze_dash": 1.5,
 	"freeze_by_loseBall": 1,
 	"freeze_by_dashBall": 3,
 
 	"referiSpeed": 1.1,
-	"distanceToForceCentro": 0.65,
+	"distanceToForceCentro": 0.73,
 	"startingUIForceBar": 0.15,
 	"dialoguesDuration": 4,
 	"timeToSwapCharactersAutomatically": 0.7,
-	"forceBarSpeed": 3,
+	"forceBarSpeed": 3.5,
 	"input_x_sensibilitty": 4,
 
 	"defenseDelay": 0.7,
@@ -36,7 +36,7 @@
 	"kickHard": 560,
 	"kickHardAngle": 180,
 
-	"kickSoft": 410,
+	"kickSoft": 600,
 	"kickSoftAngle": 90,
 
 	"kickBaloon": 140,
