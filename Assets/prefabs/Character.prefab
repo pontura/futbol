@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268174012}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.8, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0.6, y: -0.3, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 3612399095006768771}
@@ -123,7 +123,7 @@ Transform:
   m_GameObject: {fileID: 1318170393469747023}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.534, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.25}
   m_Children: []
   m_Father: {fileID: 2908317565382538884}
   m_RootOrder: 3
@@ -247,8 +247,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 17e3cacfa2f7e3944babdb21c7aa458a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 2.8
+  m_Radius: 0.4
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2908317565382538886
@@ -289,6 +289,7 @@ MonoBehaviour:
   isBeingControlled: 0
   ai: {fileID: 0}
   scaleFactor: 0
+  limits_x: {x: 0, y: 0}
 --- !u!114 &2908317565382538891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  runFast: 0
   lastAnimPlayed: 
 --- !u!114 &1118783848
 MonoBehaviour:

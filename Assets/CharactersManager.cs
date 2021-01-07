@@ -217,7 +217,7 @@ public class CharactersManager : MonoBehaviour
         }
         return character;
     }
-    public Character GetNearest(int teamID, bool hasControl, Vector3 pos)
+    public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false)
     {
         List<Character> team;
         if (teamID == 1)
@@ -230,6 +230,14 @@ public class CharactersManager : MonoBehaviour
             float distance = Vector3.Distance(c.transform.position, pos);
             if (distanceMin > distance)// && c.type != Character.types.GOALKEEPER)
             {
+                if(ifHasControlGetSecond)
+                {
+                    if (!c.isBeingControlled)
+                    {
+                        character = c;
+                        distanceMin = distance;
+                    }
+                } else
                 if (hasControl)
                 {
                     if (c.isBeingControlled)
@@ -378,7 +386,7 @@ public class CharactersManager : MonoBehaviour
     {
         int teamID = GetTeamByPlayer(control_id);
         Character character = GetPlayer(control_id);       
-        Character newCharacter = GetNearest(teamID, false, ball.transform.position);
+        Character newCharacter = GetNearest(teamID, false, ball.transform.position, true);
         if (newCharacter != character)
             SwapTo(character, newCharacter);
     }

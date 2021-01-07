@@ -59,6 +59,8 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Idle()
     {
+        if (state == states.FREEZE)
+            return;
         if (state == states.IDLE)
         {
             PlayAnim("idle");
@@ -92,6 +94,8 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Run()
     {
+        if (state == states.FREEZE)
+            return;
         runFast = false;
         if (state == states.GOAL)
             return;
@@ -99,7 +103,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
         }
-        else if (state == states.JUMP || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
         PlayAnim("run");
@@ -127,15 +131,7 @@ public class CharacterActions : MonoBehaviour
         Invoke("ResetSpecial", 0.5f);
         character.MoveCollidersTo(new Vector3(0, 1, 0));
     }
-    public void Cry()
-    {
-        if (state == states.SPECIAL_ACTION)
-            return;
-        this.state = states.SPECIAL_ACTION;
-        PlayAnim("cry");
-        Events.PlaySound("shouts", "cry", false);
-        Invoke("ResetSpecial", 0.5f);
-    }
+    
     public void GoalKeeperJump()
     {
         if (state == states.SPECIAL_ACTION)
@@ -218,18 +214,10 @@ public class CharacterActions : MonoBehaviour
         else
             PlayAnim("dash");
     }   
-    public IEnumerator Freeze(float delay, float duration)
-    {        
-        if (delay > 0)
-            yield return new WaitForSeconds(delay);
-        character.SetCollidersOff(duration);
-        state = states.FREEZE;
-        character.Freeze();
-        yield return new WaitForSeconds(duration);
-        Reset();
-    }
+   
     public void EndDash()
     {
+        if (state == states.FREEZE) return;
         Reset();
     }
     public void Reset()
@@ -238,21 +226,36 @@ public class CharacterActions : MonoBehaviour
         state = states.ACTION_DONE;
         Idle();
     }
-  
+    public void Cry()
+    {
+        CancelInvoke();
+        PlayAnim("cry");
+        StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall);        
+        Events.PlaySound("shouts", "cry", false);        
+    }
     public void Kicked()
     {
-        state = states.SPECIAL_ACTION;
         CancelInvoke();
-        StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall);
-        Events.PlaySound("shouts", "foul", false);
         PlayAnim("kicked");
-    }
+        StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall);
+        Events.PlaySound("shouts", "foul", false);        
+    }   
     Coroutine freezeCoroutine;
     public void StartFreeze(float delay, float duration)
     {
         if (freezeCoroutine != null)
             StopCoroutine(freezeCoroutine);
         freezeCoroutine = StartCoroutine(Freeze(delay, duration));
+    }
+    public IEnumerator Freeze(float delay, float duration)
+    {
+        if (delay > 0)
+            yield return new WaitForSeconds(delay);
+        character.SetCollidersOff(duration);
+        state = states.FREEZE;
+        character.Freeze();
+        yield return new WaitForSeconds(duration);
+        Reset();
     }
     public void Pita()
     {
@@ -279,6 +282,8 @@ public class CharacterActions : MonoBehaviour
     public string lastAnimPlayed;
     void PlayAnim(string animName)
     {
+        if (state == states.FREEZE)
+            return;
         if (lastAnimPlayed == animName)
             return;
         //if (character.isBeingControlled)

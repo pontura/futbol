@@ -18,7 +18,7 @@
 	"gkSpeed_sale_x": 2.7,
 
 	"freeze_by_kick": 0.6,
-	"freeze_dash": 1.5,
+	"freeze_dash": 0.5,
 	"freeze_by_loseBall": 1,
 	"freeze_by_dashBall": 3,
 
@@ -36,11 +36,11 @@
 	"kickHard": 560,
 	"kickHardAngle": 180,
 
-	"kickSoft": 420,
+	"kickSoft": 410,
 	"kickSoftAngle": 90,
 
 	"kickBaloon": 140,
-	"kickBaloonAngle": 390,
+	"kickBaloonAngle": 320,
 
 	"kickHead": 170,
 	"kickHeadAngle": 130,

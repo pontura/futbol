@@ -125,10 +125,7 @@ public class Character : MonoBehaviour
                 }
             }
             else
-            {
-                _ball.character.actions.StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall);
                 _ball.character.actions.Cry();
-            }
         }
        // actions.Reset();
         speed = Data.Instance.settings.gameplay.speedWithBall;
