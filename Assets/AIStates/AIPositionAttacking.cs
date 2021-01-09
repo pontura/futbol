@@ -82,6 +82,7 @@ public class AIPositionAttacking : AIState
     void UpdateAttackPosition()
     {
         CheckHelper();
+        Vector3 ballPos = ai.ball.transform.position;
         if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
   
@@ -96,11 +97,17 @@ public class AIPositionAttacking : AIState
             resta -= (Data.Instance.stadiumData.active.size_x / 3);
 
         if (ai.character.teamID == 1)
-            gotoPosition.x = ai.originalPosition.x - resta;
+            gotoPosition.x = ai.originalPosition.x - resta;   
         else
             gotoPosition.x = ai.originalPosition.x + resta;
 
-        gotoPosition.x = Mathf.Lerp(gotoPosition.x, ai.ball.transform.position.x, 0.35f);
+        if (Random.Range(0, 10) < 5) // considera a veces la posicion adelantada
+        {
+            float posicionAdelantada = ai.character.charactersManager.GetPosicionAdelantada(ai.character.teamID);
+            if (gotoPosition.x < posicionAdelantada) gotoPosition.x = posicionAdelantada; // para no quedar adelantados
+        }
+
+        gotoPosition.x = Mathf.Lerp(gotoPosition.x, ballPos.x, 0.35f);
         gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
     }
     void UpdateAttackPositionHelper()

@@ -123,6 +123,7 @@ public class CharactersManager : MonoBehaviour
             CheckStateByTeam(team1[0]);
             CheckStateByTeam(team2[0]);
             BallInsideChecker();
+            CheckPosicionAdelantadas();
         }            
     }
     void  BallInsideChecker()
@@ -153,7 +154,11 @@ public class CharactersManager : MonoBehaviour
     Character lastNearestToDefend;
     void CheckForNewDefender(int teamID)
     {
-        Character nearestToDefend = GetNearest(teamID, false, ball.transform.position);
+        float offset = 2;
+        Vector3 ballPos = ball.transform.position;
+        if (teamID == 1)  ballPos.x += offset;   else  ballPos.x -= offset;
+
+        Character nearestToDefend = GetNearest(teamID, false, ballPos);
         if (nearestToDefend == lastNearestToDefend)
             return;
 
@@ -456,4 +461,44 @@ public class CharactersManager : MonoBehaviour
         return null;
     }
 
+    float posicionAdelantadaTeam1 = 0;
+    float posicionAdelantadaTeam2 = 0;
+    public float GetPosicionAdelantada(int teamID)
+    {
+        if (teamID == 1) return posicionAdelantadaTeam1;
+        else return posicionAdelantadaTeam2;
+    }
+    void CheckPosicionAdelantadas()
+    {
+        posicionAdelantadaTeam1 = GetPosicionAdelantadaByTeam(1);
+        posicionAdelantadaTeam2 = GetPosicionAdelantadaByTeam(2);
+    }
+    float GetPosicionAdelantadaByTeam(int teamID)
+    {
+        float ball_x = ball.transform.position.x;
+        float pos = ball_x;
+
+        if (teamID == 1) { //se fija a la izquierda
+            foreach (Character c in team2)
+            {
+                if (c.type != Character.types.GOALKEEPER)
+                {
+                    float character_x = c.transform.position.x;
+                    if (character_x < pos)
+                        pos = character_x;
+                }
+            }
+        } else  {      //se fija a la derecha
+            foreach (Character c in team1)
+            {
+                if (c.type != Character.types.GOALKEEPER)
+                {
+                    float character_x = c.transform.position.x;
+                    if (character_x > pos)
+                        pos = character_x;
+                }
+            }
+        }
+        return pos;
+    }
 }

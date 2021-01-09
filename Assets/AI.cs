@@ -23,9 +23,11 @@ public class AI : MonoBehaviour
 
     public AIState currentState;
     [HideInInspector] public Vector3 originalPosition;
+    [HideInInspector] public Settings.GamePlay gameplaySettings;
 
     public string aiStateName;
     public MeshRenderer debugAsset;
+    
 
     float areaEnding_x;
 
@@ -37,6 +39,7 @@ public class AI : MonoBehaviour
     //}
     public virtual void Init()
     {
+        gameplaySettings = Data.Instance.settings.gameplay;
         if (!Data.Instance.DEBUG)
             debugAsset.enabled = false;
 
@@ -145,16 +148,28 @@ public class AI : MonoBehaviour
     }
     void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character _character)
     {
-       // if (character == null) return;
-
-       // ResetAll();
-
-        if (kickType == CharacterActions.kickTypes.CENTRO 
-            && _character.teamID != character.teamID
-            && (character.type == Character.types.DEFENSOR_DOWN || character.type == Character.types.DEFENSOR_UP)
-            )
-            currentState.GotoBall();
-        
+        if (_character == null) //fue un cabezaso o algo insignificante...
+            return;
+        float _z = _character.transform.position.z;
+        if (_character.type == Character.types.GOALKEEPER)
+        {
+            if (character.type == Character.types.CENTRAL)
+                currentState.GotoBall();
+            return;
+        }
+        switch (kickType)
+        {
+        case CharacterActions.kickTypes.CENTRO:
+            if (_character.teamID != character.teamID)
+            {
+                if ((character.type == Character.types.DEFENSOR_DOWN && _z > 0) || (character.type == Character.types.DEFENSOR_UP && _z < 0))
+                    currentState.GotoBall();
+            } else  {
+                if ((character.type == Character.types.DELANTERO_DOWN && _z > 0) || (character.type == Character.types.DELANTERO_UP && _z < 0))
+                    currentState.GotoBall();
+            }
+            break;
+        }
     }
     void SetCharacterNewDefender(Character _character)
     {
@@ -208,7 +223,7 @@ public class AI : MonoBehaviour
         else if (character.teamID == 2 && areaEnding_x < to.x)
             dest.x = areaEnding_x;
 
-        float sale_z = Data.Instance.settings.gameplay.gkSpeed_sale_z;
+        float sale_z = gameplaySettings.gkSpeed_sale_z;
 
         if (dest.z > sale_z) dest.z = sale_z;
         else if (dest.z < -sale_z) dest.z = -sale_z;

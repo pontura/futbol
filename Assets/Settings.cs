@@ -41,6 +41,7 @@ public class Settings : MonoBehaviour
         public float goalKeeperSpeed;
         public float gkSpeed_sale_x;
         public float gkSpeed_sale_z;
+        public float height_to_dominate_ball;
         public float referiSpeed;
         public float speedWithBall;
         public float speedDash;

@@ -70,20 +70,32 @@ public class AIPositionDefending : AIState
     }
     void UpdatePosition()
     {
-        if (ai.character.type == Character.types.DEFENSOR_DOWN  || ai.character.type == Character.types.DEFENSOR_UP && Random.Range(0,10)<5)
+        int rand = Random.Range(0, 10);
+        float offset_x = Utils.GetRandomFloatBetween(1, 3f);
+        float offset_z = Utils.GetRandomFloatBetween(-3, 3);
+        gotoPosition.z += offset_z;
+
+        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
+        {
+            float ballPos_x = ai.ball.transform.position.x;
+            if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 20)
+            {
+                gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.3f);
+                return;
+            }
+            else if (rand < 5)
+                ai.character.SuperRun();
+        }
+        else if (ai.character.type == Character.types.CENTRAL && rand < 7)
             ai.character.SuperRun();
 
         gotoPosition = oponentTransform.position;
-
-        float offset_x = Utils.GetRandomFloatBetween(0.5f, 2);
-        float offset_z = Utils.GetRandomFloatBetween(-3, 3);
-
-        if(ai.character.teamID == 2)
+        if (ai.character.teamID == 2)
             gotoPosition.x -= offset_x;
         else
             gotoPosition.x += offset_x;
 
-        gotoPosition.z += offset_z;
+        
     }   
     Transform GetOponent()
     {

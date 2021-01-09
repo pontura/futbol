@@ -47,6 +47,7 @@ public class Character : MonoBehaviour
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
+        ballCatcher.Show(false);
         scaleFactor = Data.Instance.settings.gameplay.scaleFactor;
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
@@ -74,7 +75,7 @@ public class Character : MonoBehaviour
 
         if (type == types.GOALKEEPER)
         {
-            limits_y /= 2;
+            limits_y /= 1.8f;
 
             if (teamID == 1)
                 limits_x = new Vector2(limits_x.y- 5, limits_x.y);
@@ -106,26 +107,27 @@ public class Character : MonoBehaviour
     }
     public void OnCatch(Ball _ball)
     {
-        if (_ball.character != null)
+        Character other = _ball.character;
+        if (other != null)
         {
             if (actions.state == CharacterActions.states.DASH)
             {
-                _ball.character.actions.Kicked();
-                Vector3 pos = transform.position;
+                other.actions.Kicked();
+                Vector3 pos = other.transform.position;
                 if (
                     (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
                     &&
-                     (pos.z < 8.25f && pos.z > -8.25f)
+                     (pos.z < 8.5f && pos.z > -8.5f)
                     &&
-                    (_ball.character.teamID != teamID)
+                    (other.teamID != teamID)
                     )
                 {
-                    Invoke("PenaltyDelayed", 0.24f);
+                    Invoke("PenaltyDelayed", 0.25f);
                     return;
                 }
             }
             else
-                _ball.character.actions.Cry();
+                other.actions.Cry();
         }
        // actions.Reset();
         speed = Data.Instance.settings.gameplay.speedWithBall;
@@ -225,8 +227,6 @@ public class Character : MonoBehaviour
         }
         else if (transform.position.x < limits_x.x && _x < 0)
         {
-            if (isBeingControlled)
-                print("_______________" + transform.position.x + " limits_x.x: " + limits_x.x);
             pos.x = limits_x.x;
             transform.position = pos;
         }
@@ -254,6 +254,7 @@ public class Character : MonoBehaviour
     }
     public void SetControlled(bool _isBeingControlled)
     {
+        ballCatcher.Show(_isBeingControlled);
         this.isBeingControlled = _isBeingControlled;
     }
     public void OnGoal(bool win)

@@ -115,7 +115,7 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            if (transform.localPosition.y < 0.9f && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
+            if (transform.localPosition.y < gameplaySettings.height_to_dominate_ball && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
                 CharacterCatchBall(character);
             else if (character.type == Character.types.GOALKEEPER)
             {

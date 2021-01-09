@@ -22,6 +22,7 @@
 	"freeze_by_loseBall": 1,
 	"freeze_by_dashBall": 3,
 
+	"height_to_dominate_ball":0.7,
 	"referiSpeed": 1.1,
 	"distanceToForceCentro": 0.73,
 	"startingUIForceBar": 0.15,

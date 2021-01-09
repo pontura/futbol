@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 268174013}
   state: 0
+  arrow: {fileID: 9146755130452463359}
 --- !u!114 &1002136894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +481,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3145519202799430204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

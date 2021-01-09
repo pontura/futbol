@@ -8,6 +8,7 @@ public class BallCatcher : MonoBehaviour
     Ball ball;
     public states state;
     Character character;
+    public SpriteRenderer arrow;
 
     public enum states
     {
@@ -51,5 +52,9 @@ public class BallCatcher : MonoBehaviour
     {
         if (targetPos == Vector3.zero) return;
         container.transform.forward = targetPos;
+    }
+    public void Show(bool isOn)
+    {
+        arrow.enabled = isOn;
     }
 }

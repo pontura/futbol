@@ -43,6 +43,8 @@ public class AiGotoBall : AIState
     {
         if (character.data.id == ai.character.data.id)
             SetState(ai.aiHasBall);
+        else if (character.teamID == ai.character.teamID)
+            SetState(ai.aiPositionAttacking);
         else
             SetState(ai.aiIdle);
     }
