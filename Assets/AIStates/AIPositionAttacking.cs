@@ -122,8 +122,12 @@ public class AIPositionAttacking : AIState
         float offset = GetOffsetToHelper();
         if (ai.character.teamID == 1)
             offset *= -1;
-
+      
         gotoPosition.x = characterWithBallPos.x - offset;
+
+        float posicionAdelantada = ai.character.charactersManager.GetPosicionAdelantada(ai.character.teamID);
+        if (gotoPosition.x < posicionAdelantada) gotoPosition.x = posicionAdelantada; // para no quedar adelantados
+
         gotoPosition.z = ai.originalPosition.z + Utils.GetRandomFloatBetween(-2, 2);
     }
     void CheckHelper()
