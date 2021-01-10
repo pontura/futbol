@@ -53,7 +53,9 @@ public class Settings : MonoBehaviour
 
         public float height_to_dominate_ball;
         public float speedWithBall;
-        public float speedDash;       
+        public float speedDash;
+        public float gk_FlyingDuration;
+        public float gk_FlyingSpeed;
         public float gk_CatchOnAir;
         public float speedRunFade;
         public float distanceToForceCentro;
@@ -181,6 +183,8 @@ public class Settings : MonoBehaviour
             case "height_to_dominate_ball": gameplayStats.height_to_dominate_ball = value; break;
             case "speedWithBall": gameplayStats.speedWithBall = value; break;
             case "speedDash": gameplayStats.speedDash = value; break;
+            case "gk_FlyingSpeed": gameplayStats.gk_FlyingSpeed = value; break;
+            case "gk_FlyingDuration": gameplayStats.gk_FlyingDuration = value; break;
             case "gk_CatchOnAir": gameplayStats.gk_CatchOnAir = value; break;
             case "speedRunFade": gameplayStats.speedRunFade = value; break;
             case "distanceToForceCentro": gameplayStats.distanceToForceCentro = value; break;

@@ -8,7 +8,6 @@ speedDash,80,-5,-5,-5,-5,-5,-5
 distance_to_dash_ai,28,-5,-5,-5,-5,-5,-5
 dash_percent_attacking,200,-20,-20,-20,-20,-20,-20
 dash_percent_defending,400,-20,-20,-20,-20,-20,-20
-gk_CatchOnAir,660,0,0,0,0,0,0
 goalKeeperSpeed,10,0,0,0,0,0,0
 freeze_by_kick,30,1,1,1,1,1,0
 freeze_dash,15,1,1,1,1,1,1
@@ -19,6 +18,9 @@ distanceToForceCentro,7,0,0,0,0,0,0
 timeToSwapCharactersAutomatically,7,0,0,0,0,0,0
 defenseDelay,11,5,5,5,5,5,5
 attackDelay,7,5,5,5,5,5,5
+gk_FlyingDuration,50,,,,,,-10
+gk_FlyingSpeed,10,,,,,,-2
+gk_CatchOnAir,660,0,0,0,0,0,-200
 kickHard,6200,-20,-20,-20,-20,-20,-20
 kickHardAngle,2200,0,0,0,0,0,0
 kickSoft,6000,-20,-20,-20,-20,-20,-20
