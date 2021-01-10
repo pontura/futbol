@@ -35,6 +35,17 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(WaitToStart());
+    }
+    IEnumerator WaitToStart()
+    {
+        while (!Data.Instance.settings.loaded)
+            yield return new WaitForEndOfFrame();
+        OnInit();
+    }
+    private void OnInit()
+    {
+        GetComponent<DialoguesManager>().Init();
         cameraInGame.SetTargetTo(ball.transform);
         cameraInGame.Restart();
         Events.PlaySound("crowd", "crowd_quiet", true);        
@@ -48,6 +59,7 @@ public class Game : MonoBehaviour
         }
         Events.GameInit();
     }
+    
     private void OnDestroy()
     {
         Events.OnGameStatusChanged -= OnGameStatusChanged;

@@ -8,7 +8,7 @@ public class DialoguesManager : MonoBehaviour
     public List<CharacterDialogueUI> all;
     public Transform container;
 
-    void Start()
+    public void Init()
     {
         Events.SetDialogue += SetDialogue;
         if (Data.Instance.newScene == "Game")

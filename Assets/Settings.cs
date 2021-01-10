@@ -34,6 +34,7 @@ public class Settings : MonoBehaviour
     public float scaleFactor = 0.6f;
     public float gkSpeed_sale_x = 2.7f;
     public float gkSpeed_sale_z = 4;
+    public bool loaded;
 
     [Serializable]
     public class GamePlay
@@ -89,11 +90,23 @@ public class Settings : MonoBehaviour
     }
     void Start()
     {
-        TextAsset targetFile = Resources.Load<TextAsset>("stats/FulboStars - Easy");
-        if(targetFile == null)
-            Debug.LogError("No existe: " + "stats/FulboStars - Easy" + " acordate de que sea: .csv");
+        StartCoroutine(LoadGamePlaySettings());
+        //TextAsset targetFile = Resources.Load<TextAsset>("stats/FulboStars - Easy");
+        //if(targetFile == null)
+        //    Debug.LogError("No existe: " + "stats/FulboStars - Easy" + " acordate de que sea: .csv");
         
-        Data.Instance.spreadsheetLoader.CreateListFromFile(targetFile.text, OnDataLoaded);
+        //Data.Instance.spreadsheetLoader.CreateListFromFile(targetFile.text, OnDataLoaded);
+    }
+    IEnumerator LoadGamePlaySettings()
+    {
+        string url = Application.dataPath + "/StreamingAssets/stats/FulboStars - Easy.csv";
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+            Data.Instance.spreadsheetLoader.CreateListFromFile(www.text, OnDataLoaded);
+            loaded = true;
+        }
+        
     }
     public List<GamePlay> stats_by_character;
     public GamePlay GetStats(Character.types characterType, int teamID)

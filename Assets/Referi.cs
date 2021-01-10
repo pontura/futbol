@@ -68,6 +68,8 @@ public class Referi : Character
     float timer;
     void Update()
     {
+        if (ball == null)
+            return;
         if (Game.Instance.state != Game.states.GOAL && actions.state != CharacterActions.states.SPECIAL_ACTION)
         {
             timer += Time.deltaTime;

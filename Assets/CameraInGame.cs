@@ -52,6 +52,8 @@ public class CameraInGame : MonoBehaviour
     }
     void Update()
     {
+        if (target == null)
+            return;
         Vector3 pos = transform.position;
         pos.x = target.position.x * 0.8f;
         if (filmingPlayer)
