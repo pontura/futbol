@@ -11,11 +11,9 @@ public class Ball : MonoBehaviour
     public Character characterThatKicked;
     Vector3 limits;
     float timeCatched;
-    Settings.GamePlay gameplaySettings;
 
     void Start()
     {
-        gameplaySettings = Data.Instance.settings.gameplay;
         Events.OnRestartGame += OnRestartGame;
         limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
         container = transform.parent;
@@ -115,12 +113,12 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            if (transform.localPosition.y < gameplaySettings.height_to_dominate_ball && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
+            if (transform.localPosition.y < character.stats.height_to_dominate_ball && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
                 CharacterCatchBall(character);
             else if (character.type == Character.types.GOALKEEPER)
             {
                 int rand = Random.Range(0, 100);
-                if(rand < gameplaySettings.gk_CatchOnAir)
+                if(rand < character.stats.gk_CatchOnAir)
                     CharacterCatchBall(character);
                 else
                     character.actions.GoalKeeperJump();
@@ -201,59 +199,65 @@ public class Ball : MonoBehaviour
         )
             force = AddForceToKick();
 
-        FreeBall();
- 
+        FreeBall(); 
 
         //El arquero saca por abajo:
         if (character != null && (character.type == Character.types.GOALKEEPER && kickType == CharacterActions.kickTypes.SOFT))
             transform.localPosition = new Vector3(transform.localPosition.x, -0.17f, transform.localPosition.z);
-
-        
+                
         Vector3 dir = transform.forward;
-       
+        Settings.GamePlay stats;
+        if (character != null)   stats = character.stats;   else   stats = Data.Instance.settings.gameplay;
+
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
                 KickBallSound();
-                dir *= gameplaySettings.kickHard* force;
-                dir += Vector3.up * gameplaySettings.kickHardAngle * force;
+                dir *= stats.kickHard* force;
+                dir += Vector3.up * stats.kickHardAngle * force;               
                 break;
             case CharacterActions.kickTypes.SOFT:
                 KickBallSound();
-                dir *= gameplaySettings.kickSoft * force;
-                dir += Vector3.up * gameplaySettings.kickSoftAngle * force;
+                dir *= stats.kickSoft * force;
+                dir += Vector3.up * stats.kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
                 KickBallSound();
-                dir *= gameplaySettings.kickBaloon * force;
-                dir += Vector3.up * gameplaySettings.kickBaloonAngle * force;
+                dir *= stats.kickBaloon * force;
+                dir += Vector3.up * stats.kickBaloonAngle * force;
+                if (character != null && character.type == Character.types.GOALKEEPER)
+                    dir *= 1.4f;
                 break;
             case CharacterActions.kickTypes.HEAD:
                 KickBallSound();
-                dir *= gameplaySettings.kickHead * force;
-                dir += Vector3.up * gameplaySettings.kickHeadAngle * force;
+                dir *= stats.kickHead * force;
+                dir += Vector3.up * stats.kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
                 KickBallSound();
-                dir *= gameplaySettings.kickChilena * force;
-                dir += Vector3.up * gameplaySettings.kickChilenaAngle * force;
+                dir *= stats.kickChilena * force;
+                dir += Vector3.up * stats.kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 KickBallSound();
-                dir *= gameplaySettings.kickHard * 1.5f;
-                dir += Vector3.up * gameplaySettings.kickHardAngle * force;
+                dir *= stats.kickHard * 1.5f;
+               
+                if (character != null && character.type == Character.types.GOALKEEPER)
+                    dir += Vector3.up * stats.kickHardAngle * 2;
+                else
+                    dir += Vector3.up * stats.kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.CENTRO:
                 KickBallSound();
-                dir *= gameplaySettings.kickCentro * 1.5f;
-                dir += Vector3.up * gameplaySettings.kickCentroAngle * force;
+                dir *= stats.kickCentro * 1.5f;
+                dir += Vector3.up * stats.kickCentroAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;
         rb.AddForce(dir);
 
         if (character != null)
-            character.SetCollidersOff(gameplaySettings.freeze_by_kick);
+            character.SetCollidersOff(stats.freeze_by_kick);
 
         Events.OnBallKicked(kickType, forceForce, character);
         character = null;

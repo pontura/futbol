@@ -27,7 +27,7 @@ public class DialoguesManager : MonoBehaviour
     }
     void LoopRandomDialogues()
     {
-        Invoke("LoopRandomDialogues", Random.Range(Data.Instance.settings.gameplay.dialoguesTimeToAppear.x, Data.Instance.settings.gameplay.dialoguesTimeToAppear.y));
+        Invoke("LoopRandomDialogues", Random.Range(Data.Instance.settings.dialoguesTimeToAppear.x, Data.Instance.settings.dialoguesTimeToAppear.y));
         Character character;
         if(Random.Range(0,10)<5)
             character = Game.Instance.charactersManager.team1[Random.Range(0, Game.Instance.charactersManager.team1.Count)];

@@ -7,12 +7,16 @@ public class AIState
     public Color color;
     AIState state;
     public float distance_to_dash_ai;
-    public float random_dash_percent;
+    public float dash_percent;
 
     public virtual void Init(AI ai)
     {
         distance_to_dash_ai = Data.Instance.settings.gameplay.distance_to_dash_ai;
-        random_dash_percent = Data.Instance.settings.gameplay.random_dash_percent;
+        if(ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP )
+            dash_percent = Data.Instance.settings.gameplay.dash_percent_defending;
+        else
+            dash_percent = Data.Instance.settings.gameplay.dash_percent_attacking;
+
         this.ai = ai;
         state = this;
     }

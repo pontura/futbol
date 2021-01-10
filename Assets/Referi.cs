@@ -37,9 +37,9 @@ public class Referi : Character
     public void InitReferi(CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
         ball = Game.Instance.ball;
-        scaleFactor = Data.Instance.settings.gameplay.scaleFactor;
+        scaleFactor = Data.Instance.settings.scaleFactor;
         this.charactersManager = charactersManager;
-        speed = Data.Instance.settings.gameplay.referiSpeed;
+        speed = Data.Instance.settings.referiSpeed;
         GameObject asset = Instantiate(asset_to_instantiate);
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;

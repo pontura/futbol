@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     Collider[] colliders;
     public float speed;
     public Transform characterContainer;
+    public Settings.GamePlay stats;
     public types type;
     public enum types
     {
@@ -41,14 +42,14 @@ public class Character : MonoBehaviour
     }
     public virtual void Start()
     {
-       
         colliders = GetComponents<Collider>();
         Loop();
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
+        stats = Data.Instance.settings.GetStats(type, _temaID);
         ballCatcher.Show(false);
-        scaleFactor = Data.Instance.settings.gameplay.scaleFactor;
+        scaleFactor = Data.Instance.settings.scaleFactor;
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
 
@@ -57,11 +58,11 @@ public class Character : MonoBehaviour
         if (type == Character.types.GOALKEEPER)
         {
             dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
-            speed = Data.Instance.settings.gameplay.goalKeeperSpeed;
+            speed = stats.goalKeeperSpeed;
         }   else
         {
             dataSources = CharactersData.Instance.all[data.id - 1];
-            speed = Data.Instance.settings.gameplay.speed;
+            speed = stats.speed;
         }
         
         GameObject asset = Instantiate(asset_to_instantiate);
@@ -130,7 +131,7 @@ public class Character : MonoBehaviour
                 other.actions.Cry();
         }
        // actions.Reset();
-        speed = Data.Instance.settings.gameplay.speedWithBall;
+        speed = stats.speedWithBall;
         ballCatcher.Catch(Game.Instance.ball);
         charactersManager.CharacterCatchBall(this);
         Events.PlaySound("common", "ballSnap", false); 
@@ -172,10 +173,10 @@ public class Character : MonoBehaviour
     IEnumerator DashC()
     {
         actions.Dash();
-        ChangeSpeedTo(Data.Instance.settings.gameplay.speedDash);
+        ChangeSpeedTo(stats.speedDash);
         yield return new WaitForSeconds(0.25f);
         if (ai.ball.character != this)
-            actions.StartFreeze(0, Data.Instance.settings.gameplay.freeze_dash);
+            actions.StartFreeze(0, stats.freeze_dash);
         else
             actions.EndDash();
         ChangeSpeedTo(0);
@@ -184,9 +185,9 @@ public class Character : MonoBehaviour
     public void ChangeSpeedTo(float value)
     {
         if(Game.Instance.ball.character == this)
-            speed = Data.Instance.settings.gameplay.speedWithBall + value;
+            speed = stats.speedWithBall + value;
         else
-            speed = Data.Instance.settings.gameplay.speed + value;
+            speed = stats.speed + value;
     }
     public void Freeze()
     {
@@ -309,18 +310,18 @@ public class Character : MonoBehaviour
 
         if(Game.Instance.ball.character == this)
         {
-            speed = Data.Instance.settings.gameplay.speedRunWithBall;
-            minSpeed = Data.Instance.settings.gameplay.speedWithBall;
+            speed = stats.speedRunWithBall;
+            minSpeed = stats.speedWithBall;
         }
         else
         {
-            speed = Data.Instance.settings.gameplay.speedRun;
-            minSpeed = Data.Instance.settings.gameplay.speed;
+            speed = stats.speedRun;
+            minSpeed = stats.speed;
         }   
 
         while (speed > minSpeed)
         {
-            speed -= Data.Instance.settings.gameplay.speedRunFade * Time.deltaTime;
+            speed -= stats.speedRunFade * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
         if(Game.Instance.state == Game.states.PLAYING)

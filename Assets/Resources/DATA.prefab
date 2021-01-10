@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1526771217}
   - component: {fileID: 1526771218}
   - component: {fileID: 1526771216}
+  - component: {fileID: 2085480492}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -601,30 +602,25 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   selectedTeams: {x: 1, y: 0}
   gameplay:
-    input_x_sensibilitty: 0
-    scaleFactor: 0
     speed: 0
     speedRun: 0
     speedRunWithBall: 0
+    freeze_by_kick: 0
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
     freeze_dash: 0
     distance_to_dash_ai: 0
-    random_dash_percent: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
     goalKeeperSpeed: 0
     gkSpeed_sale_x: 0
     gkSpeed_sale_z: 0
-    referiSpeed: 0
+    height_to_dominate_ball: 0
     speedWithBall: 0
     speedDash: 0
-    dialoguesTimeToAppear: {x: 2, y: 4}
-    dialoguesDuration: 0
-    timeToSwapCharactersAutomatically: 0.7
-    forceBarSpeed: 0
     gk_CatchOnAir: 0
     speedRunFade: 0
     distanceToForceCentro: 0
-    startingUIForceBar: 0
     defenseDelay: 0
     attackDelay: 0
     kickHard: 0
@@ -639,6 +635,14 @@ MonoBehaviour:
     kickChilenaAngle: 0
     kickCentro: 0
     kickCentroAngle: 0
+  dialoguesTimeToAppear: {x: 2, y: 4}
+  referiSpeed: 1.1
+  dialoguesDuration: 4
+  forceBarSpeed: 3.5
+  timeToSwapCharactersAutomatically: 0.7
+  startingUIForceBar: 0.15
+  input_x_sensibilitty: 4
+  scaleFactor: 0.6
 --- !u!114 &864794640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,21 +748,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   active:
     name: 
     sceneName: 
     size_x: 0
     size_y: 0
   all:
-  - name: Estadio Guita
+  - name: Offshore Arena
     sceneName: Game
     size_x: 41
     size_y: 20.5
-  - name: Gigante
+  - name: Large
     sceneName: GameLarge
-    size_x: 81
+    size_x: 61
     size_y: 20.5
+--- !u!114 &2085480492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53df995414fd23a4fbeb40459e9aa878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1187772259431785653
 GameObject:
   m_ObjectHideFlags: 0

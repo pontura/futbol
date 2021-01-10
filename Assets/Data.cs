@@ -19,6 +19,7 @@ public class Data : MonoBehaviour
     [HideInInspector] public MatchData matchData;
     [HideInInspector] public InputManagerUI inputManagerUI;
     public GameObject[] init_on_start;
+    public SpreadsheetLoader spreadsheetLoader;
 
     public static Data Instance
     {
@@ -53,6 +54,7 @@ public class Data : MonoBehaviour
         matchData = GetComponent<MatchData>();
         inputManagerUI = GetComponent<InputManagerUI>();
         stadiumData = GetComponent<StadiumsData>();
+        spreadsheetLoader = GetComponent<SpreadsheetLoader>();
         DontDestroyOnLoad(this);
     }
     private void Start()

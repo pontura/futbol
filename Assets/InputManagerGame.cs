@@ -16,7 +16,7 @@ public class InputManagerGame : MonoBehaviour
             joystickAsset.SetActive(true);
         else
             joystickAsset.SetActive(false);
-        input_x_sensibilitty = Data.Instance.settings.gameplay.input_x_sensibilitty;
+        input_x_sensibilitty = Data.Instance.settings.input_x_sensibilitty;
 
         Events.CharacterCatchBall += CharacterCatchBall;
     }

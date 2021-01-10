@@ -606,6 +606,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87503449}
   m_CullTransparentMesh: 0
+--- !u!1 &101741189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1322994394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &101741198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101741189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ab4d80a6cfe3740bf38a995e287dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &105739242
 GameObject:
   m_ObjectHideFlags: 0
@@ -20531,24 +20549,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 187147302}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &193202158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7793851902414820856, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4932910988181984953}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &193202166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193202158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32096952074df414e9b942793a6e9261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &194716567
 GameObject:
   m_ObjectHideFlags: 0
@@ -46580,24 +46580,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022677273}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1026171030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7793851902414820856, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1827815128}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1026171038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026171030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32096952074df414e9b942793a6e9261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1027038207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47723,7 +47705,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197125487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.16, z: 0.4}
+  m_LocalPosition: {x: 0, y: 15.3, z: 0.4}
   m_LocalScale: {x: 80, y: 4.2, z: 30}
   m_Children: []
   m_Father: {fileID: 483686594}
@@ -49001,30 +48983,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: id
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[0].name
-      value: Offshore Arena
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[1].name
-      value: Large
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[0].sceneName
-      value: Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[1].sceneName
-      value: GameLarge
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[1].size_x
-      value: 61
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -62240,7 +62198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2027691590
 Transform:
   m_ObjectHideFlags: 0
@@ -63547,6 +63505,39 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
   type: 6
   charactersManager: {fileID: 0}
   teamID: 0

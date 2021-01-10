@@ -1,6 +1,4 @@
 {
-	"scaleFactor": 0.6,
-
 	"speed": 3.2,
 	"speedRun": 5,
 	"speedRunFade": 1.5,
@@ -10,7 +8,8 @@
 	"speedDash": 8,
 
 	"distance_to_dash_ai": 2.8,
-	"random_dash_percent":60,
+	"dash_percent_attacking":20,
+	"dash_percent_defending":40,
 
 	"gk_CatchOnAir": 66,
 	"goalKeeperSpeed": 1,
@@ -23,25 +22,20 @@
 	"freeze_by_dashBall": 3,
 
 	"height_to_dominate_ball":0.7,
-	"referiSpeed": 1.1,
 	"distanceToForceCentro": 0.73,
-	"startingUIForceBar": 0.15,
-	"dialoguesDuration": 4,
 	"timeToSwapCharactersAutomatically": 0.7,
-	"forceBarSpeed": 3.5,
-	"input_x_sensibilitty": 4,
 
-	"defenseDelay": 0.7,
+	"defenseDelay": 1.1,
 	"attackDelay": 0.7,
 
-	"kickHard": 560,
-	"kickHardAngle": 180,
+	"kickHard": 620,
+	"kickHardAngle": 220,
 
 	"kickSoft": 600,
 	"kickSoftAngle": 90,
 
-	"kickBaloon": 140,
-	"kickBaloonAngle": 320,
+	"kickBaloon": 200,
+	"kickBaloonAngle": 280,
 
 	"kickHead": 170,
 	"kickHeadAngle": 130,
@@ -49,7 +43,7 @@
 	"kickChilena": 450,
 	"kickChilenaAngle": 45,
 
-	"kickCentro": 255,
+	"kickCentro": 265,
 	"kickCentroAngle": 285
 
 } 

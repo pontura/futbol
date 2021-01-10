@@ -23,7 +23,6 @@ public class AI : MonoBehaviour
 
     public AIState currentState;
     [HideInInspector] public Vector3 originalPosition;
-    [HideInInspector] public Settings.GamePlay gameplaySettings;
 
     public string aiStateName;
     public MeshRenderer debugAsset;
@@ -39,7 +38,6 @@ public class AI : MonoBehaviour
     //}
     public virtual void Init()
     {
-        gameplaySettings = Data.Instance.settings.gameplay;
         if (!Data.Instance.DEBUG)
             debugAsset.enabled = false;
 
@@ -92,7 +90,7 @@ public class AI : MonoBehaviour
     }
     public void SetGoalkeeperValues()
     {
-        areaEnding_x = Mathf.Abs(originalPosition.x) - Data.Instance.settings.gameplay.gkSpeed_sale_x;
+        areaEnding_x = Mathf.Abs(originalPosition.x) - Data.Instance.settings.gkSpeed_sale_x;
         if (character.teamID == 2)
             areaEnding_x *= -1;
 
@@ -223,7 +221,7 @@ public class AI : MonoBehaviour
         else if (character.teamID == 2 && areaEnding_x < to.x)
             dest.x = areaEnding_x;
 
-        float sale_z = gameplaySettings.gkSpeed_sale_z;
+        float sale_z = Data.Instance.settings.gkSpeed_sale_z;
 
         if (dest.z > sale_z) dest.z = sale_z;
         else if (dest.z < -sale_z) dest.z = -sale_z;

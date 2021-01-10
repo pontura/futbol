@@ -18,7 +18,6 @@ public class AiGotoBall : AIState
             offset = 0.25f;
         else
             offset = -0.25f;
-        timer = 0;
         SetDest();
     }
     public override AIState UpdatedByAI()
@@ -53,9 +52,9 @@ public class AiGotoBall : AIState
         timer = 0;
         dest = ai.ball.transform.position;
         dest.x += offset;
-        if (ai.ball.character != null && ai.ball.character.type == Character.types.GOALKEEPER)
+        if (ai.ball.character != null && ai.ball.character.teamID == ai.character.teamID)// && ai.ball.character.type == Character.types.GOALKEEPER)
         {
-            SetState(ai.aiPositionDefending);
+            SetState(ai.aiPositionAttacking);
             return;
         }
         if (ai.character.actions.state == CharacterActions.states.DASH || ai.character.actions.runFast)
@@ -63,7 +62,7 @@ public class AiGotoBall : AIState
         float distToBall = Vector3.Distance(ai.transform.position, dest);
         if (distToBall > 20)
             ai.character.SuperRun();
-        else if (distToBall < distance_to_dash_ai && Random.Range(0, 100) < random_dash_percent)
+        else if (distToBall < distance_to_dash_ai && Random.Range(0, 100) < dash_percent)
             ai.character.Dash();
         else if (
             ai.character.teamID == 2 && ai.character.transform.position.x > dest.x
