@@ -45,7 +45,9 @@ public class Game : MonoBehaviour
     }
     private void OnInit()
     {
-        GetComponent<DialoguesManager>().Init();
+        DialoguesManager d = GetComponent<DialoguesManager>();
+        if(d != null)  d.Init();
+
         cameraInGame.SetTargetTo(ball.transform);
         cameraInGame.Restart();
         Events.PlaySound("crowd", "crowd_quiet", true);        
