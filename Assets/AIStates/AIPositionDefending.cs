@@ -3,7 +3,6 @@
 public class AIPositionDefending : AIState
 {
     public Vector3 gotoPosition;
-    Transform oponentTransform;
     float delay; 
 
     public override void Init(AI ai)
@@ -15,9 +14,6 @@ public class AIPositionDefending : AIState
     }
     public override void SetActive()
     {
-        if (oponentTransform == null)
-            GetOponent();
-
         timer = 0;
         SetDestination();
     }
@@ -77,47 +73,29 @@ public class AIPositionDefending : AIState
         float offset_z = Utils.GetRandomFloatBetween(-2, 2);
 
 
-        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
+        if (ai.character.type == Character.types.DEFENSOR)
         {
-            float ballPos_x = ai.ball.transform.position.x;
-            if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 15)
-            {
-                ai.character.SuperRun();
-                gotoPosition.z = ai.originalPosition.z;
-                gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.15f);
-                return;
-            }
-            if (rand < 7)
+            //float ballPos_x = ai.ball.transform.position.x;
+            //if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 15)
+            //{
+            //    ai.character.SuperRun();
+            //    gotoPosition.z = ai.originalPosition.z;
+            //    gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.15f);
+            //    return;
+            //}
+            if (rand < 8)
                 ai.character.SuperRun();
         }
+        if (ai.character.type == Character.types.CENTRAL && rand < 5)
+            ai.character.SuperRun();
+
+        gotoPosition = ai.character.Oponent.transform.position;
+        gotoPosition.z += offset_z;
+        if (ai.character.teamID == 2)
+            gotoPosition.x -= offset_x;
         else
-        {
-            if (ai.character.type == Character.types.CENTRAL && rand < 7)
-                ai.character.SuperRun();
-
-            gotoPosition = oponentTransform.position;
-            gotoPosition.z += offset_z;
-            if (ai.character.teamID == 2)
-                gotoPosition.x -= offset_x;
-            else
-                gotoPosition.x += offset_x;
-        }
-
+            gotoPosition.x += offset_x;
+  
         
     }   
-    Transform GetOponent()
-    {
-        int oponentTeam;
-        if (ai.character.teamID == 1) oponentTeam = 2; else oponentTeam = 1;
-        Character.types type = ai.character.type;
-
-        if (type == Character.types.DEFENSOR_DOWN) type = Character.types.DELANTERO_DOWN;
-        else if (type == Character.types.DEFENSOR_UP) type = Character.types.DELANTERO_UP;
-        else if (type == Character.types.CENTRAL) type = Character.types.CENTRAL;
-        else if (type == Character.types.DELANTERO_UP) type = Character.types.DEFENSOR_UP;
-        else if (type == Character.types.DELANTERO_DOWN) type = Character.types.DEFENSOR_DOWN;
-
-        oponentTransform = Game.Instance.charactersManager.GetCharacterByType(type, oponentTeam).transform;
-        return oponentTransform;
-    }
 }

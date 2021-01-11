@@ -7,6 +7,8 @@ public class UIMain : MonoBehaviour
     static UIMain mInstance = null;
     public TeamUI team1;
     public TeamUI team2;
+    public GameObject all;
+    public UIForce uIForce;
 
     public static UIMain Instance
     {
@@ -19,7 +21,21 @@ public class UIMain : MonoBehaviour
     }
     void Start()
     {
-        
+        Events.OnGoal += OnGoal;
+        Events.OnRestartGame += OnRestartGame;
+    }
+    void OnDestroy()
+    {
+        Events.OnGoal -= OnGoal;
+        Events.OnRestartGame -= OnRestartGame;
+    }
+    void OnRestartGame()
+    {
+        all.SetActive(true);
+    }
+    void OnGoal(int i, Character c)
+    {
+        all.SetActive(false);
     }
     public Vector3 GetScore()
     {

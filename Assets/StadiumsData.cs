@@ -16,9 +16,15 @@ public class StadiumsData : MonoBehaviour
         public string sceneName;
         public float size_x;
         public float size_y;
+        public int totalPlayers;
     }
     void Awake()
     {
         active = all[id];
+    }
+    public void SetActiveStadium(int id)
+    {
+        active = all[id];
+        this.id = id;
     }
 }

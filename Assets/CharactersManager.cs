@@ -344,7 +344,7 @@ public class CharactersManager : MonoBehaviour
                 //pasa:
                 case 2:
                     Character characterNear;
-                    float uiForceValue = ball.uIForce.GetForce();
+                    float uiForceValue = UIMain.Instance.uIForce.GetForce();
                     float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * gameplaySettings.distanceToForceCentro;
 
                     if (
@@ -365,15 +365,16 @@ public class CharactersManager : MonoBehaviour
                         return;
                     }
                     //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
-                    characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(4));
+                    characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(5));
                     //Character characterNear = GetNearestTo(character, character.teamID);
                   
                     if (ball.character != characterNear)
                     {
                         character.ballCatcher.LookAt(characterNear.transform.position);
                         SwapTo(character, characterNear);
-                    }
-                    CheckPase(character, uiForceValue);
+                        character.Kick(CharacterActions.kickTypes.SOFT, 1.4f);
+                    } else
+                        CheckPase(character, uiForceValue);
                     break;
                 case 3: return;// character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
@@ -381,7 +382,6 @@ public class CharactersManager : MonoBehaviour
     }
     void CheckPase(Character character, float uiForceValue)
     {
-        Debug.Log("pase uiForceValue: " + uiForceValue);
         if (uiForceValue > 0.5f)
             character.Kick(CharacterActions.kickTypes.BALOON);
         else
@@ -500,5 +500,24 @@ public class CharactersManager : MonoBehaviour
             }
         }
         return pos;
+    }
+    public Character GetOponentFor(Character ch)
+    {
+        List<Character> all;
+        Debug.Log("ch " + ch.teamID);
+
+        if (ch.teamID == 1) all = team2; else all = team1;
+        foreach (Character c in all)
+            if (c.fieldPosition == ch.fieldPosition)
+            {
+                if (c.type == Character.types.DEFENSOR && ch.type == Character.types.DELANTERO)
+                    return c;
+                else if (c.type == Character.types.DELANTERO && ch.type == Character.types.DEFENSOR)
+                    return c;
+                else if (c.type == ch.type)
+                    return c;
+            }
+        Debug.Log("no hay oponente para " + ch.type);
+        return null;
     }
 }

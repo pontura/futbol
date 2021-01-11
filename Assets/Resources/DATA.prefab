@@ -513,6 +513,7 @@ MonoBehaviour:
   inputManagerUI: {fileID: 0}
   init_on_start:
   - {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b, type: 3}
+  spreadsheetLoader: {fileID: 0}
 --- !u!114 &999694241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b930e79caea734f821d118633cad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: FulboStars - Easy
   totalPlayers: 1
   totalTime: 260
   teamSettings:
@@ -600,8 +602,13 @@ MonoBehaviour:
     clothColorB: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
+  mainSettings:
+    debug: 0
+    force_mode: 
+    stadium_id: 0
   selectedTeams: {x: 1, y: 0}
   gameplay:
+    characterType: 0
     speed: 0
     speedRun: 0
     speedRunWithBall: 0
@@ -613,11 +620,12 @@ MonoBehaviour:
     dash_percent_attacking: 0
     dash_percent_defending: 0
     goalKeeperSpeed: 0
-    gkSpeed_sale_x: 0
-    gkSpeed_sale_z: 0
+    random_steal_ball: 0
     height_to_dominate_ball: 0
     speedWithBall: 0
     speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
     gk_CatchOnAir: 0
     speedRunFade: 0
     distanceToForceCentro: 0
@@ -638,11 +646,15 @@ MonoBehaviour:
   dialoguesTimeToAppear: {x: 2, y: 4}
   referiSpeed: 1.1
   dialoguesDuration: 4
-  forceBarSpeed: 3.5
+  forceBarSpeed: 2
   timeToSwapCharactersAutomatically: 0.7
   startingUIForceBar: 0.15
   input_x_sensibilitty: 4
   scaleFactor: 0.6
+  gkSpeed_sale_x: 2.7
+  gkSpeed_sale_z: 4
+  loaded: 0
+  stats_by_character: []
 --- !u!114 &864794640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,21 +760,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   active:
     name: 
     sceneName: 
     size_x: 0
     size_y: 0
+    totalPlayers: 0
   all:
   - name: Offshore Arena
     sceneName: Game
     size_x: 41
     size_y: 20.5
+    totalPlayers: 5
   - name: Large
     sceneName: GameLarge
     size_x: 61
     size_y: 20.5
+    totalPlayers: 7
 --- !u!114 &2085480492
 MonoBehaviour:
   m_ObjectHideFlags: 0

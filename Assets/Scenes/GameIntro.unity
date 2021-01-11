@@ -1802,6 +1802,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -1885,6 +1890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -2141,6 +2151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team1: {fileID: 0}
   team2: {fileID: 0}
+  all: {fileID: 0}
+  uIForce: {fileID: 0}
 --- !u!114 &450357706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,7 +2413,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  character_to_instantiate: {fileID: 2908317565382538886, guid: 449eb424ed587d045af6f7f8820b54c8,
+    type: 3}
+  ui: {fileID: 450357703}
   charactersManager: {fileID: 483686595}
+  container_team1: {fileID: 251931618}
+  container_team2: {fileID: 636111529}
 --- !u!114 &483686597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2581,6 +2598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7944603867640042748, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -2767,6 +2789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -3878,6 +3905,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -3902,7 +3934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01dcf834399bb74cb223450acc28648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uIForce: {fileID: 0}
   rb: {fileID: 952271337}
   character: {fileID: 0}
   characterThatKicked: {fileID: 0}
@@ -5128,6 +5159,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -6255,6 +6291,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_Enabled
@@ -6288,6 +6329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoalKeeper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793851902414820856, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793851902414820857, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
         type: 3}
@@ -6508,6 +6554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538885, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7944603867640042748, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -17373,7 +17424,44 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    random_steal_ball: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
   type: 0
+  fieldPosition: 0
   charactersManager: {fileID: 0}
   teamID: 0
   data:
@@ -22356,6 +22444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoalKeeper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793851902414820856, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7793851902414820857, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
         type: 3}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5976,6 +5976,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &351281264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351281265}
+  m_Layer: 5
+  m_Name: top
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &351281265
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351281264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1748213156}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &412947753
 GameObject:
   m_ObjectHideFlags: 0
@@ -6432,7 +6467,6 @@ MonoBehaviour:
   teamID_2: 0
   rotationOffset: 10
   referi: {fileID: 3160418783750167796}
-  boardFloor: {fileID: 413866836}
   player1: 0
   player2: 0
   player3: 0
@@ -13998,6 +14032,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1322994396, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2028850181, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -14071,6 +14109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: teamID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908317565382538886, guid: 449eb424ed587d045af6f7f8820b54c8,
+        type: 3}
+      propertyPath: type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2908317565457134973, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
@@ -24964,6 +25007,7 @@ RectTransform:
   - {fileID: 1831282256}
   - {fileID: 1564226208}
   - {fileID: 3752219249278790708}
+  - {fileID: 351281265}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24986,6 +25030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team1: {fileID: 1634276717}
   team2: {fileID: 1831282257}
+  all: {fileID: 351281264}
 --- !u!1 &1808001031
 GameObject:
   m_ObjectHideFlags: 0
@@ -27313,7 +27358,44 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    random_steal_ball: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
   type: 6
+  fieldPosition: 0
   charactersManager: {fileID: 0}
   teamID: 0
   data:
@@ -28339,6 +28421,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026666403}
     m_Modifications:
+    - target: {fileID: 193202166, guid: b3d39ebfc5d487e4b942c629d55f2bb3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784170761190992003, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2182933038487937707, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
         type: 3}
       propertyPath: m_Enabled

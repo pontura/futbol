@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
     }
     public void GotoGame()
     {
-        Data.Instance.LoadLevel("Selector");
+        GetComponent<DifficultSelector>().Init();
     }
     public void Controls()
     {

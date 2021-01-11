@@ -160,20 +160,20 @@ public class AI : MonoBehaviour
         case CharacterActions.kickTypes.CENTRO:
             if (_character.teamID != character.teamID)
             {
-                if ((character.type == Character.types.DEFENSOR_DOWN && _z > 0) || (character.type == Character.types.DEFENSOR_UP && _z < 0))
-                    currentState.GotoBall();
-            } else  {
-                if ((character.type == Character.types.DELANTERO_DOWN && _z > 0) || (character.type == Character.types.DELANTERO_UP && _z < 0))
-                    currentState.GotoBall();
+                if (character.type == Character.types.DEFENSOR)
+                {
+                    if ((_z > 0 && character.fieldPosition == Character.fieldPositions.DOWN) || (_z < 0 && character.fieldPosition == Character.fieldPositions.UP))
+                        currentState.GotoBall();
+                }
             }
             break;
         }
     }
     void SetCharacterNewDefender(Character _character)
     {
-        if (character.teamID != _character.teamID)  return;
+        if (character != _character)  return;
         if(ball.character != null && ball.character.type == Character.types.GOALKEEPER) return;
-        if (_character.data.id == character.data.id)
+       // if (_character.data.id == character.data.id)
             currentState.OnFollow(ball.transform);
     }
     public void CharacterCatchBall(Character characterWithBall)
@@ -196,7 +196,7 @@ public class AI : MonoBehaviour
         if (sacaTeamID == 0) sacaTeamID = 1;
         else if (sacaTeamID == 1) sacaTeamID = 2;
         else if (sacaTeamID == 2) sacaTeamID = 1;
-        if (character.teamID == sacaTeamID && character.type == Character.types.DELANTERO_DOWN)
+        if (character.teamID == sacaTeamID && character.type == Character.types.DELANTERO && character.fieldPosition == Character.fieldPositions.UP)
             SetInitialCharacterPosition(sacaTeamID);
         else transform.position = originalPosition;
     }

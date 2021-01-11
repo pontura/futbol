@@ -55,13 +55,12 @@ public class UIForce : MonoBehaviour
         value = Data.Instance.settings.startingUIForceBar;
         isOn = true;
         Reset();
-        Loop();
     }
     public float GetForce()
     {
         return value;
     }
-    void Loop()
+    void Update()
     {
         if (isOn)
         {
@@ -76,8 +75,8 @@ public class UIForce : MonoBehaviour
             else
                 bar.color = colors[2];
             value += Time.deltaTime * speed * dir;
+            print(value + " speed: " + speed);
             bar.fillAmount = value;
         }
-        Invoke("Loop", 0.05f);
     }
 }

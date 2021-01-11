@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/GameLarge.unity
+    guid: 14d9dfc028be66a4593f69d4bbb0a737
+  - enabled: 1
     path: Assets/Scenes/Penalty.unity
     guid: 627490131e3701043958f94920ce3778
   - enabled: 1

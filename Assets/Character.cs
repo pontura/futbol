@@ -13,13 +13,18 @@ public class Character : MonoBehaviour
     public types type;
     public enum types
     {
-        DEFENSOR_UP,
-        DEFENSOR_DOWN,
+        DEFENSOR,
         CENTRAL,
-        DELANTERO_UP,
-        DELANTERO_DOWN,
+        DELANTERO,
         GOALKEEPER,
         REFERI
+    }
+    public fieldPositions fieldPosition;
+    public enum fieldPositions
+    {
+       UP,
+       CENTER,
+       DOWN
     }
     [HideInInspector] public CharactersManager charactersManager;
     public int teamID;
@@ -30,7 +35,7 @@ public class Character : MonoBehaviour
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public float scaleFactor;
-
+    Character oponent;
     Vector2 limits_y;
     public Vector2 limits_x;
 
@@ -44,6 +49,14 @@ public class Character : MonoBehaviour
     {
         colliders = GetComponents<Collider>();
         Loop();
+    }
+    public Character Oponent
+    {
+        get {
+            if (oponent == null)
+                oponent = charactersManager.GetOponentFor(this);
+            return oponent;
+        }
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {
@@ -71,7 +84,6 @@ public class Character : MonoBehaviour
         asset.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         actions.Init(asset, teamID);
         ai.Init();
-
         SetLimits();
 
         if (type == types.GOALKEEPER)
@@ -83,6 +95,7 @@ public class Character : MonoBehaviour
             else
                 limits_x = new Vector2(limits_x.x, limits_x.x + 5);
         }
+        
     }
     public void SetLimits()
     {

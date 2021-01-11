@@ -24,9 +24,24 @@ public class GameOver : MonoBehaviour
             team_win = charactersManager.team2;
         }
 
+        int id = 0;
+        foreach (Character ch in charactersManager.team1)
+        {
+            id++;
+            if (id >= Data.Instance.stadiumData.active.totalPlayers)
+                ch.enabled = false;
+        }
+        id = 0;
+        foreach (Character ch in charactersManager.team2)
+        {
+            id++;
+            if (id >= Data.Instance.stadiumData.active.totalPlayers)
+                ch.enabled = false;
+        }
+
         Events.ChangeVolume("crowd_gol", 0.25f);
-        charactersManager.Init(0);
-        charactersManager.referi.actions.Pita();
+        //charactersManager.Init(0);
+       // charactersManager.referi.actions.Pita();
         Events.OnOutroSound(OnPita, audioID);
         
         Invoke("Delayed", 1);
@@ -46,7 +61,8 @@ public class GameOver : MonoBehaviour
     }
     void Sigue()
     {
-        Events.OnGameOverVoiceHappy(team_win[Random.Range(0,5)], Done);
+        Done();
+        //Events.OnGameOverVoiceHappy(team_win[Random.Range(0,5)], Done);
     }
     void Done()
     {

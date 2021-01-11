@@ -16,6 +16,7 @@ public class Settings : MonoBehaviour
     {
         public bool debug;
         public string force_mode;
+        public int stadium_id;
     }
     [Serializable]
     public class TeamSettings
@@ -35,7 +36,7 @@ public class Settings : MonoBehaviour
     public Vector2 dialoguesTimeToAppear = new Vector2(2, 4);
     public float referiSpeed = 1.1f;
     public float dialoguesDuration = 4;
-    public float forceBarSpeed = 3.5f;
+    public float forceBarSpeed = 0.2f;
     public float timeToSwapCharactersAutomatically = 0.7f;
     public float startingUIForceBar = 0.15f;
     public float input_x_sensibilitty = 4;
@@ -120,7 +121,7 @@ public class Settings : MonoBehaviour
         {
             yield return www;
             Data.Instance.spreadsheetLoader.CreateListFromFile(www.text, OnDataLoaded);
-            loaded = true;
+            loaded = true;           
         }
         
     }
@@ -151,11 +152,9 @@ public class Settings : MonoBehaviour
                         gameplayStats = new GamePlay();                        
                         switch (data)
                         {
-                            case "DEF_DOWN": gameplayStats.characterType = Character.types.DEFENSOR_DOWN; break;
-                            case "DEF_UP": gameplayStats.characterType = Character.types.DEFENSOR_UP; break;
+                            case "DEFENSOR": gameplayStats.characterType = Character.types.DEFENSOR; break;
                             case "CENTRAL": gameplayStats.characterType = Character.types.CENTRAL; break;
-                            case "DEL_DOWN": gameplayStats.characterType = Character.types.DELANTERO_DOWN; break;
-                            case "DEL_UP": gameplayStats.characterType = Character.types.DELANTERO_UP; break;
+                            case "DELANTERO": gameplayStats.characterType = Character.types.DELANTERO; break;
                             default: gameplayStats.characterType = Character.types.GOALKEEPER; break;
                         }
                         stats_by_character.Add(gameplayStats);

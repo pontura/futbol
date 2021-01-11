@@ -6,16 +6,44 @@ public class GameIntro : MonoBehaviour
 {
     public float speed = 2;
     int totalCharacters;
+    public Character character_to_instantiate;
+    public GameObject ui;
 
     public CharactersManager charactersManager;
+    public Transform container_team1;
+    public Transform container_team2;
+
     void Start()
     {
-        totalCharacters = CharactersData.Instance.team1.Count;
+
+        totalCharacters = Data.Instance.stadiumData.active.totalPlayers;
+
+        for (int a = 0; a < totalCharacters; a++)
+        {
+            Character character1 = Instantiate(character_to_instantiate, Vector3.zero, Quaternion.identity, container_team1.transform);
+            Character character2 = Instantiate(character_to_instantiate, Vector3.zero, Quaternion.identity, container_team2.transform);
+
+            character1.transform.localPosition = new Vector3(0.5f, 0.54f, 16);
+            character2.transform.localPosition = new Vector3(-0.5f, 0.54f, 16);
+
+            if (a == Data.Instance.stadiumData.active.totalPlayers - 1)
+            {
+                character1.type = Character.types.GOALKEEPER;
+                character2.type = Character.types.GOALKEEPER;
+            }
+            else
+            {
+                character1.type = Character.types.CENTRAL;
+                character2.type = Character.types.CENTRAL;
+            }
+
+        }
+        GetComponent<DialoguesManager>().Init();
         Events.ChangeVolume("croud", 0.25f);
-       
 
         charactersManager.Init(0);
         charactersManager.referi.gameObject.SetActive(false);
+
         foreach (Character ch in charactersManager.team1)
             ch.gameObject.SetActive(false);
         foreach (Character ch in charactersManager.team2)
@@ -32,7 +60,7 @@ public class GameIntro : MonoBehaviour
     void Ready()
     {
         StopAllCoroutines();
-        Data.Instance.LoadLevel("Game");
+        Data.Instance.LoadLevel(Data.Instance.stadiumData.active.sceneName);
         Events.OnSkipOff();
     }
     IEnumerator Init()
@@ -52,6 +80,7 @@ public class GameIntro : MonoBehaviour
         Events.PlaySound("crowd", "crowd_intro", true);
 
         yield return new WaitForSeconds(2);
+        ui.SetActive(false);
         Events.SetDialogue(charactersManager.referi, Data.Instance.textsData.GetRandomReferiDialogue("random"));
         float vol = 0.5f;
         Events.ChangeVolume("croud", vol);

@@ -12,6 +12,8 @@ public class BallNearController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (ai == null) return;
+        if (ai.character == null) return;
         if (ai.character.isBeingControlled) return;
         if(other.tag == "Ball")
         {

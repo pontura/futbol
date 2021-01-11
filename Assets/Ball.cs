@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public UIForce uIForce;
     Transform container;
     public Rigidbody rb;
     public Character character;
@@ -180,7 +179,7 @@ public class Ball : MonoBehaviour
     }
     float AddForceToKick()
     {       
-        float force = uIForce.GetForce();
+        float force = UIMain.Instance.uIForce.GetForce();
         if (force <= 0 && character != null)
         {
             if (character.transform.localScale.x == -1)
@@ -196,7 +195,7 @@ public class Ball : MonoBehaviour
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
         float force = 1;
-        if (kickType == CharacterActions.kickTypes.HARD && uIForce.GetForce() > 0.6f)
+        if (kickType == CharacterActions.kickTypes.HARD && UIMain.Instance.uIForce.GetForce() > 0.6f)
             kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
 
         

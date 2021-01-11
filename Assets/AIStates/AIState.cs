@@ -12,7 +12,7 @@ public class AIState
     public virtual void Init(AI ai)
     {
         distance_to_dash_ai = Data.Instance.settings.gameplay.distance_to_dash_ai;
-        if(ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP )
+        if(ai.character.type == Character.types.DEFENSOR )
             dash_percent = Data.Instance.settings.gameplay.dash_percent_defending;
         else
             dash_percent = Data.Instance.settings.gameplay.dash_percent_attacking;

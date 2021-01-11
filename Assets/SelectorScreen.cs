@@ -15,6 +15,8 @@ public class SelectorScreen : MonoBehaviour
     public Ruleta referiRuleta;
     public Text referiName;
 
+    public GameObject characterRuleta_to_instantiate;
+
     Ruleta[] character1;
     Ruleta[] character2;    
 
@@ -35,6 +37,14 @@ public class SelectorScreen : MonoBehaviour
     {
         CharactersData.Instance.Init();
         Events.OnButtonClick += OnButtonClick;
+
+        for(int a = 0; a<Data.Instance.stadiumData.active.totalPlayers; a++)
+        {
+            GameObject go;
+            go = Instantiate(characterRuleta_to_instantiate, characters1_container.transform);
+            go = Instantiate(characterRuleta_to_instantiate, characters2_container.transform);
+        }
+        
 
         character1 = characters1_container.GetComponentsInChildren<Ruleta>();
         character2 = characters2_container.GetComponentsInChildren<Ruleta>();

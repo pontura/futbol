@@ -88,7 +88,7 @@ public class AIPositionAttacking : AIState
     {
         CheckHelper();
         
-        if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
+        if (ai.character.type == Character.types.DELANTERO && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
   
         gotoPosition = ai.originalPosition;
@@ -97,8 +97,7 @@ public class AIPositionAttacking : AIState
 
         //si la agarra tu arquero y sos defensor, vas a buscarla:
         if (goalkeeperHasBall &&
-        (ai.character.type == Character.types.DEFENSOR_DOWN
-        || ai.character.type == Character.types.DEFENSOR_UP))
+        ai.character.type == Character.types.DEFENSOR)
             resta -= (Data.Instance.stadiumData.active.size_x / 3);
 
         if (ai.character.teamID == 1)
@@ -106,7 +105,7 @@ public class AIPositionAttacking : AIState
         else
             gotoPosition.x = ai.originalPosition.x + resta;
 
-        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
+        if (ai.character.type == Character.types.DEFENSOR)
         {
             gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.5f);
         }
@@ -162,17 +161,13 @@ public class AIPositionAttacking : AIState
             switch (ai.characterWithBall.type)
             {
                 case Character.types.CENTRAL:
-                    if (ai.character.type == Character.types.DEFENSOR_DOWN) isHelper = true; break;
+                    if (ai.character.type == Character.types.DEFENSOR) isHelper = true; break;
                 //case Character.types.GOALKEEPER:
                 //    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
-                case Character.types.DEFENSOR_DOWN:
-                    if (ai.character.type == Character.types.DEFENSOR_UP) isHelper = true; break;
-                case Character.types.DEFENSOR_UP:
-                    if (ai.character.type == Character.types.DEFENSOR_DOWN) isHelper = true; break;
-                case Character.types.DELANTERO_DOWN:
-                    if (ai.character.type == Character.types.DELANTERO_UP) isHelper = true; break;
-                case Character.types.DELANTERO_UP:
-                    if (ai.character.type == Character.types.DELANTERO_DOWN) isHelper = true; break;
+                case Character.types.DEFENSOR:
+                    if (ai.character.type == Character.types.DEFENSOR) isHelper = true; break;
+                case Character.types.DELANTERO:
+                    if (ai.character.type == Character.types.DELANTERO) isHelper = true; break;
             }
         }
     }
@@ -185,11 +180,9 @@ public class AIPositionAttacking : AIState
             case Character.types.CENTRAL: return Random.Range(0, 2);
             case Character.types.GOALKEEPER:
                 return Random.Range(3, 6);
-            case Character.types.DEFENSOR_DOWN:
+            case Character.types.DEFENSOR:
                 return Random.Range(0, 2);
-            case Character.types.DEFENSOR_UP:
-                return Random.Range(0, 2);
-            case Character.types.DELANTERO_DOWN:
+            case Character.types.DELANTERO:
                 return Random.Range(-1, 1);
             default:
                 return Random.Range(-1, 1);
