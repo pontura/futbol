@@ -5,10 +5,18 @@ using System;
 
 public class Settings : MonoBehaviour
 {
-
+    public string fileName = "FulboStars - Easy";
     public int totalPlayers = 1;
     public int totalTime;
     public TeamSettings[] teamSettings;
+
+    public MainSettings mainSettings;
+    [Serializable]
+    public class MainSettings
+    {
+        public bool debug;
+        public string force_mode;
+    }
     [Serializable]
     public class TeamSettings
     {
@@ -90,16 +98,24 @@ public class Settings : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(LoadGamePlaySettings());
-        //TextAsset targetFile = Resources.Load<TextAsset>("stats/FulboStars - Easy");
-        //if(targetFile == null)
-        //    Debug.LogError("No existe: " + "stats/FulboStars - Easy" + " acordate de que sea: .csv");
-        
-        //Data.Instance.spreadsheetLoader.CreateListFromFile(targetFile.text, OnDataLoaded);
+        StartCoroutine(LoadSettings());
+    }
+    IEnumerator LoadSettings()
+    {
+        string url = Application.dataPath + "/StreamingAssets/settings.json";
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+            mainSettings = JsonUtility.FromJson<MainSettings>(www.text);
+            StartCoroutine(LoadGamePlaySettings());
+        }
     }
     IEnumerator LoadGamePlaySettings()
     {
-        string url = Application.dataPath + "/StreamingAssets/stats/FulboStars - Easy.csv";
+        if (mainSettings.debug)
+            fileName = mainSettings.force_mode;
+
+        string url = Application.dataPath + "/StreamingAssets/stats/" + fileName + ".csv";
         using (WWW www = new WWW(url))
         {
             yield return www;
