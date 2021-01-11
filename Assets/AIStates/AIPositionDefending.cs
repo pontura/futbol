@@ -37,6 +37,8 @@ public class AIPositionDefending : AIState
 
         int _h, _v = 0;
         Vector3 pos = ai.transform.position;
+       // gotoPosition = ai.character.SetPositionInsideLimits(gotoPosition);
+
         if (Vector3.Distance(pos, gotoPosition) > 0.5f)
         {
             if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
@@ -71,29 +73,35 @@ public class AIPositionDefending : AIState
     void UpdatePosition()
     {
         int rand = Random.Range(0, 10);
-        float offset_x = Utils.GetRandomFloatBetween(1, 3f);
-        float offset_z = Utils.GetRandomFloatBetween(-3, 3);
-        gotoPosition.z += offset_z;
+        float offset_x = Utils.GetRandomFloatBetween(2, 6);
+        float offset_z = Utils.GetRandomFloatBetween(-2, 2);
+
 
         if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
         {
             float ballPos_x = ai.ball.transform.position.x;
-            if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 20)
+            if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 15)
             {
-                gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.3f);
+                ai.character.SuperRun();
+                gotoPosition.z = ai.originalPosition.z;
+                gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.15f);
                 return;
             }
-            else if (rand < 5)
+            if (rand < 7)
                 ai.character.SuperRun();
         }
-        else if (ai.character.type == Character.types.CENTRAL && rand < 7)
-            ai.character.SuperRun();
-
-        gotoPosition = oponentTransform.position;
-        if (ai.character.teamID == 2)
-            gotoPosition.x -= offset_x;
         else
-            gotoPosition.x += offset_x;
+        {
+            if (ai.character.type == Character.types.CENTRAL && rand < 7)
+                ai.character.SuperRun();
+
+            gotoPosition = oponentTransform.position;
+            gotoPosition.z += offset_z;
+            if (ai.character.teamID == 2)
+                gotoPosition.x -= offset_x;
+            else
+                gotoPosition.x += offset_x;
+        }
 
         
     }   

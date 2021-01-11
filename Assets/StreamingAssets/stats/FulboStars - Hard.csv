@@ -5,6 +5,7 @@ speedRunFade,15,0,0,0,0,0,0
 speedWithBall,20,5,5,5,5,5,0
 speedRunWithBall,42,8,5,5,5,5,0
 speedDash,80,10,10,10,10,10,0
+random_steal_ball,50,50,50,50,50,50,0
 distance_to_dash_ai,28,0,0,0,0,0,0
 dash_percent_attacking,200,40,40,40,40,40,0
 dash_percent_defending,400,40,40,40,40,40,0

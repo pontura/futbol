@@ -19,11 +19,12 @@ public class BallCatcher : MonoBehaviour
     private void Start()
     {
         character = GetComponent<Character>();
-        container.gameObject.SetActive(false);
+        Show(false);
+        //container.gameObject.SetActive(false);
     }
     public void Catch(Ball _ball)
     {
-        container.gameObject.SetActive(true);
+        //container.gameObject.SetActive(true);
         ball = _ball;
         ball.transform.SetParent(container);
         ball.transform.localPosition = Vector3.zero;
@@ -34,7 +35,7 @@ public class BallCatcher : MonoBehaviour
     public void LoseBall()
     {
         character.SetCollidersOff(Data.Instance.settings.gameplay.freeze_by_loseBall);
-        container.gameObject.SetActive(false);
+        //container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
         Invoke("Reset", 0.2f);

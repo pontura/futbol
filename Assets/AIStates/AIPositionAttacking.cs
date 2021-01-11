@@ -6,6 +6,7 @@ public class AIPositionAttacking : AIState
     public bool isHelper; // lo sigue al qeu tiene la pelota
     float delay;
     public bool goalkeeperHasBall;
+    Vector3 ballPos;
 
     public override void Init(AI ai)
     {
@@ -71,9 +72,13 @@ public class AIPositionAttacking : AIState
     {
         SetState(ai.aiGotoBall);
     }
+    
     public virtual void SetDestination()
     {
         timer = 0;
+
+        ballPos = ai.ball.transform.position;
+
         if (isHelper)
             UpdateAttackPositionHelper();
         else
@@ -82,7 +87,7 @@ public class AIPositionAttacking : AIState
     void UpdateAttackPosition()
     {
         CheckHelper();
-        Vector3 ballPos = ai.ball.transform.position;
+        
         if (ai.character.type == Character.types.DELANTERO_UP || ai.character.type == Character.types.DELANTERO_DOWN && Random.Range(0, 10) < 5)
             ai.character.SuperRun();
   
@@ -101,34 +106,50 @@ public class AIPositionAttacking : AIState
         else
             gotoPosition.x = ai.originalPosition.x + resta;
 
-        if (Random.Range(0, 10) < 5) // considera a veces la posicion adelantada
+        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
         {
-            float posicionAdelantada = ai.character.charactersManager.GetPosicionAdelantada(ai.character.teamID);
-            if (gotoPosition.x < posicionAdelantada) gotoPosition.x = posicionAdelantada; // para no quedar adelantados
+            gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.5f);
         }
-
-        gotoPosition.x = Mathf.Lerp(gotoPosition.x, ballPos.x, 0.35f);
+        else if (ai.character.type == Character.types.CENTRAL)
+        {
+            gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.7f);
+        }
+        else
+        {
+            if (Random.Range(0, 10) < 5) // considera a veces la posicion adelantada
+            {
+                float posicionAdelantada = ai.character.charactersManager.GetPosicionAdelantada(ai.character.teamID);
+                if (gotoPosition.x < posicionAdelantada) gotoPosition.x = posicionAdelantada; // para no quedar adelantados
+            }
+            gotoPosition.x = Mathf.Lerp(gotoPosition.x, ballPos.x, 0.35f);            
+        }
         gotoPosition.z += Utils.GetRandomFloatBetween(-3, 3);
+
+        if (Vector3.Distance(gotoPosition, ballPos)<4)
+            Opposite_Z();
     }
     void UpdateAttackPositionHelper()
-    {
-        Vector3 characterWithBallPos = ai.characterWithBall.transform.position;
-
-        if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
+    {   
+       // if (ai.character.type == Character.types.DEFENSOR_DOWN || ai.character.type == Character.types.DEFENSOR_UP)
             ai.character.SuperRun();
-        else if (Mathf.Abs(ai.transform.position.x - characterWithBallPos.x) > 5)
-            ai.character.SuperRun();
+       // else if (Mathf.Abs(ai.transform.position.x - characterWithBallPos.x) > 5)
+        //    ai.character.SuperRun();
 
-        float offset = GetOffsetToHelper();
+        float offset = GetOffsetXToHelper();
         if (ai.character.teamID == 1)
             offset *= -1;
       
-        gotoPosition.x = characterWithBallPos.x - offset;
+        gotoPosition.x = ballPos.x - offset;
 
         float posicionAdelantada = ai.character.charactersManager.GetPosicionAdelantada(ai.character.teamID);
         if (gotoPosition.x < posicionAdelantada) gotoPosition.x = posicionAdelantada; // para no quedar adelantados
-
         gotoPosition.z = ai.originalPosition.z + Utils.GetRandomFloatBetween(-2, 2);
+        Opposite_Z();
+    }
+    void Opposite_Z()
+    {
+        if ((ballPos.z > 0 && gotoPosition.z > 0) || (ballPos.z < 0 && gotoPosition.z < 0))
+            gotoPosition.z *= -1;
     }
     void CheckHelper()
     {
@@ -140,7 +161,8 @@ public class AIPositionAttacking : AIState
         {
             switch (ai.characterWithBall.type)
             {
-                case Character.types.CENTRAL: break;
+                case Character.types.CENTRAL:
+                    if (ai.character.type == Character.types.DEFENSOR_DOWN) isHelper = true; break;
                 //case Character.types.GOALKEEPER:
                 //    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
                 case Character.types.DEFENSOR_DOWN:
@@ -154,13 +176,13 @@ public class AIPositionAttacking : AIState
             }
         }
     }
-    float GetOffsetToHelper()
+    float GetOffsetXToHelper()
     {
         if (ai.characterWithBall == null)
             return 0;
         switch (ai.characterWithBall.type)
         {
-            case Character.types.CENTRAL: return 0;
+            case Character.types.CENTRAL: return Random.Range(0, 2);
             case Character.types.GOALKEEPER:
                 return Random.Range(3, 6);
             case Character.types.DEFENSOR_DOWN:

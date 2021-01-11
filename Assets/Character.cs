@@ -92,6 +92,25 @@ public class Character : MonoBehaviour
         limits_y = new Vector2(_limits_y, -_limits_y);
         limits_x = new Vector2(-_limits_x, _limits_x);
     }
+    public Vector2 SetPositionInsideLimits(Vector2 newPos)
+    {
+        Vector2 pos = newPos;
+        if (newPos.x < limits_x.x)
+            pos.x = limits_x.x;
+        else if(newPos.x > limits_x.y)
+            pos.x = limits_x.y;
+        if (newPos.y > limits_y.x)
+            pos.y = limits_y.x;
+        else if (newPos.y < limits_y.y)
+            pos.y = limits_y.y;
+        return pos;
+    }
+    public bool IsPositionOutsideLimitsZ(float pos)
+    {
+        if (pos < limits_y.y || pos > limits_y.y)
+            return true;
+        return false;
+    }
     void Loop()
     {
         //if (Game.Instance.state == Game.states.PLAYING)

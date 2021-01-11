@@ -47,7 +47,10 @@ public class Ball : MonoBehaviour
         Gizmos.color = Color.red;
     }
 #endif
-
+    Settings.GamePlay GetStats()
+    {
+        if (character != null) return character.stats; return Data.Instance.settings.gameplay;
+    }
     public Vector3 GetForwardPosition(float value)
     {
         return transform.position + transform.forward * value;
@@ -113,23 +116,23 @@ public class Ball : MonoBehaviour
         {
             Character character = collision.gameObject.GetComponent<Character>();
 
-            if (transform.localPosition.y < character.stats.height_to_dominate_ball && (this.character == null || (character != this.character)) )//character.ballCatcher.state == BallCatcher.states.IDLE)
-                CharacterCatchBall(character);
+            if (transform.localPosition.y < character.stats.height_to_dominate_ball)
+                CheckToGetBall(character);
             else if (character.type == Character.types.GOALKEEPER)
             {
                 int rand = Random.Range(0, 100);
-                if(rand < character.stats.gk_CatchOnAir)
+                if (rand < character.stats.gk_CatchOnAir)
                     CharacterCatchBall(character);
                 else
                     character.actions.GoalKeeperJump();
-            }                
+            }
             else if (transform.localPosition.y > 1.5f &&
                       (character.teamID == 1 && transform.position.x < -limits.x / 5
                     || character.teamID == 2 && transform.position.x > limits.x / 5))
             {
                 characterThatKicked = character;
 
-                if(character.actions.state != CharacterActions.states.JUMP)
+                if (character.actions.state != CharacterActions.states.JUMP)
                     character.actions.Kick(CharacterActions.kickTypes.CHILENA);
 
                 AimGoal(character);
@@ -147,6 +150,17 @@ public class Ball : MonoBehaviour
             }
         }
     }
+    void CheckToGetBall(Character characterToCatch)
+    {
+        bool canCatch = false;
+        if (character == null)  canCatch = true;
+        else if (characterToCatch.actions.state == CharacterActions.states.FREEZE) canCatch = false;
+        else if(characterToCatch.actions.state ==CharacterActions.states.DASH) canCatch = true;
+        else if (character != characterToCatch && (Random.Range(0,10)<GetStats().random_steal_ball || characterToCatch.isBeingControlled))  canCatch = true;
+
+        if (canCatch)
+         CharacterCatchBall(characterToCatch);
+}
     public void AimGoal(Character character, float randomYRotation = 0)
     {
         Vector3 lookTo = Vector3.zero;
@@ -206,58 +220,57 @@ public class Ball : MonoBehaviour
             transform.localPosition = new Vector3(transform.localPosition.x, -0.17f, transform.localPosition.z);
                 
         Vector3 dir = transform.forward;
-        Settings.GamePlay stats;
-        if (character != null)   stats = character.stats;   else   stats = Data.Instance.settings.gameplay;
+   
 
         switch (kickType)
         {
             case CharacterActions.kickTypes.HARD:
                 KickBallSound();
-                dir *= stats.kickHard* force;
-                dir += Vector3.up * stats.kickHardAngle * force;               
+                dir *= GetStats().kickHard* force;
+                dir += Vector3.up * GetStats().kickHardAngle * force;               
                 break;
             case CharacterActions.kickTypes.SOFT:
                 KickBallSound();
-                dir *= stats.kickSoft * force;
-                dir += Vector3.up * stats.kickSoftAngle * force;
+                dir *= GetStats().kickSoft * force;
+                dir += Vector3.up * GetStats().kickSoftAngle * force;
                 break;
             case CharacterActions.kickTypes.BALOON:
                 KickBallSound();
-                dir *= stats.kickBaloon * force;
-                dir += Vector3.up * stats.kickBaloonAngle * force;
+                dir *= GetStats().kickBaloon * force;
+                dir += Vector3.up * GetStats().kickBaloonAngle * force;
                 if (character != null && character.type == Character.types.GOALKEEPER)
                     dir *= 1.4f;
                 break;
             case CharacterActions.kickTypes.HEAD:
                 KickBallSound();
-                dir *= stats.kickHead * force;
-                dir += Vector3.up * stats.kickHeadAngle * force;
+                dir *= GetStats().kickHead * force;
+                dir += Vector3.up * GetStats().kickHeadAngle * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
                 KickBallSound();
-                dir *= stats.kickChilena * force;
-                dir += Vector3.up * stats.kickChilenaAngle * force;
+                dir *= GetStats().kickChilena * force;
+                dir += Vector3.up * GetStats().kickChilenaAngle * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 KickBallSound();
-                dir *= stats.kickHard * 1.5f;
+                dir *= GetStats().kickHard * 1.5f;
                
                 if (character != null && character.type == Character.types.GOALKEEPER)
-                    dir += Vector3.up * stats.kickHardAngle * 2;
+                    dir += Vector3.up * GetStats().kickHardAngle * 2;
                 else
-                    dir += Vector3.up * stats.kickHardAngle * force;
+                    dir += Vector3.up * GetStats().kickHardAngle * force;
                 break;
             case CharacterActions.kickTypes.CENTRO:
                 KickBallSound();
-                dir *= stats.kickCentro * 1.5f;
-                dir += Vector3.up * stats.kickCentroAngle * force;
+                dir *= GetStats().kickCentro * 1.5f;
+                dir += Vector3.up * GetStats().kickCentroAngle * force;
                 break;
         }
         rb.velocity = Vector3.zero;
         rb.AddForce(dir);
 
         if (character != null)
-            character.SetCollidersOff(stats.freeze_by_kick);
+            character.SetCollidersOff(GetStats().freeze_by_kick);
 
         Events.OnBallKicked(kickType, forceForce, character);
         character = null;

@@ -43756,6 +43756,10 @@ PrefabInstance:
       propertyPath: totalTime
       value: 260
       objectReference: {fileID: 0}
+    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: id
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -44005,7 +44009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 11.500015}
+  m_AnchoredPosition: {x: 0, y: 11.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564226209
@@ -49314,7 +49318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 11.500015}
+  m_AnchoredPosition: {x: 0, y: 11.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634276717
@@ -50797,7 +50801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 11.500015}
+  m_AnchoredPosition: {x: 0, y: 11.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831282257
@@ -53232,6 +53236,42 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 362486807549609134}
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    random_steal_ball: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
   type: 6
   charactersManager: {fileID: 0}
   teamID: 0
