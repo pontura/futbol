@@ -200,7 +200,7 @@ public class Ball : MonoBehaviour
 
         
 
-        if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL)
+        if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL && !character.isBeingControlled)
         {
             AimGoal(character, 40);
         }

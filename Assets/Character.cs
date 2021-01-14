@@ -177,7 +177,10 @@ public class Character : MonoBehaviour
     {
         MoveTo(_x, _y);            
     }
-
+    public void StartKicking()
+    {
+        actions.AimingKick(true);
+    }
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
         actions.Kick(kickType);
@@ -225,15 +228,19 @@ public class Character : MonoBehaviour
     {
         speed = 0;
     }
+    Vector2 direction;
     public virtual void MoveTo(float _x, float _y)
     {
+        
         if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
+
+
         if (_x == 0 && _y == 0)
             actions.Idle();
         else
-        {
-            if(_x != 0)
+        {            
+            if (_x != 0 && actions.state != CharacterActions.states.AIMING_KICK)
             {
                 if(_x<1) actions.LookTo(-1);
                 else actions.LookTo(1);
@@ -244,13 +251,23 @@ public class Character : MonoBehaviour
         if (transform.position.z > limits_y.x ) _y = -1;
         else if (transform.position.z < limits_y.y) _y = 1;
 
-
+        Vector3 aimVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
+        if (actions.state == CharacterActions.states.AIMING_KICK)
+        {
+            _x = direction.x;
+            _y = direction.y;
+        }
+        else
+        {
+            direction = new Vector2(_x, _y);
+        }
         Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
+        
+        if (actions.state == CharacterActions.states.AIMING_KICK)
+            aimVector = aimVector / 10;
 
         if (ballCatcher != null)
-            ballCatcher.RotateTo(forwardVector);
-
-      
+            ballCatcher.RotateTo(aimVector);
 
         Vector3 pos = transform.position;
         if (transform.position.x > limits_x.y && _x>0)
@@ -264,6 +281,8 @@ public class Character : MonoBehaviour
             transform.position = pos;
         }
         transform.Translate(forwardVector);
+
+      
     }
     public void SetSignal(CharacterSignal signal)
     {

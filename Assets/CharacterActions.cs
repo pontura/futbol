@@ -20,7 +20,8 @@ public class CharacterActions : MonoBehaviour
         GOAL,
         KICKED,
         FREEZE,
-        JUMP
+        JUMP,
+        AIMING_KICK
     }
     public enum kickTypes
     {
@@ -59,7 +60,7 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Idle()
     {
-        if (state == states.FREEZE)
+        if (state == states.FREEZE || state == states.AIMING_KICK)
             return;
         if (state == states.IDLE)
         {
@@ -94,7 +95,7 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Run()
     {
-        if (state == states.FREEZE)
+        if (state == states.FREEZE || state == states.AIMING_KICK)
             return;
         runFast = false;
         if (state == states.GOAL)
@@ -290,5 +291,10 @@ public class CharacterActions : MonoBehaviour
         //    print("animName " + animName);
         lastAnimPlayed = animName;
         anim.Play(animName);
+    }
+    public void AimingKick(bool isOn)
+    {
+        if (isOn)
+            state = states.AIMING_KICK;
     }
 }

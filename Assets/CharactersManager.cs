@@ -314,6 +314,7 @@ public class CharactersManager : MonoBehaviour
         else if (ball.character == character)
         {
            Events.PlayerProgressBarSetState(true);
+            character.StartKicking();
         }
     }   
     public void ButtonUp(int buttonID, int id)
