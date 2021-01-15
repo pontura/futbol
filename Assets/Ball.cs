@@ -152,14 +152,29 @@ public class Ball : MonoBehaviour
     void CheckToGetBall(Character characterToCatch)
     {
         bool canCatch = false;
-        if (character == null)  canCatch = true;
+        if (character == null) canCatch = true;
+        else if (!character.isBeingControlled && characterToCatch.actions.state == CharacterActions.states.DASH && Random.Range(0, 10) < GetStats().random_jump_a_dash)
+        {
+            character.Dash_with_ball();
+            canCatch = false;
+            Events.PlaySound("common2", "risa", false);
+        }
         else if (characterToCatch.actions.state == CharacterActions.states.FREEZE) canCatch = false;
-        else if(characterToCatch.actions.state ==CharacterActions.states.DASH) canCatch = true;
-        else if (character != characterToCatch && (Random.Range(0,10)<GetStats().random_steal_ball || characterToCatch.isBeingControlled))  canCatch = true;
-
+        else if (character.actions.state == CharacterActions.states.DASH_WITH_BALL)
+        {
+            Events.PlaySound("common2", "risa", false);
+            canCatch = false;
+        }
+        else if (characterToCatch.actions.state == CharacterActions.states.DASH) canCatch = true;
+        else if (character != characterToCatch && (Random.Range(0, 10) < GetStats().random_steal_ball || characterToCatch.isBeingControlled))
+        {
+            canCatch = true;
+        }
         if (canCatch)
-         CharacterCatchBall(characterToCatch);
-}
+            CharacterCatchBall(characterToCatch);
+        else
+            characterToCatch.SetCollidersOff(0.75f);
+    }
     public void AimGoal(Character character, float randomYRotation = 0)
     {
         Vector3 lookTo = Vector3.zero;

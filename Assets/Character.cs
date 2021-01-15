@@ -204,10 +204,24 @@ public class Character : MonoBehaviour
         if(dashCoroutine != null)
             StopCoroutine(dashCoroutine);
         dashCoroutine = StartCoroutine(DashC());
+        actions.Dash();
+    }
+    float lastTimeDashWithBall = 0;
+    public void Dash_with_ball()
+    {
+        if (lastTimeDashWithBall != 0 && lastTimeDashWithBall + 1 > Time.time)
+            return;
+        if (actions.state == CharacterActions.states.DASH || actions.state == CharacterActions.states.FREEZE)
+            return;
+        if (dashCoroutine != null)
+            StopCoroutine(dashCoroutine);
+        lastTimeDashWithBall = Time.time;
+        dashCoroutine = StartCoroutine(DashC());
+        actions.DashWithBall();
+        ballCatcher.Jump();
     }
     IEnumerator DashC()
-    {
-        actions.Dash();
+    {        
         ChangeSpeedTo(stats.speedDash);
         yield return new WaitForSeconds(0.25f);
         if (ai.ball.character != this)
@@ -234,6 +248,8 @@ public class Character : MonoBehaviour
         
         if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
+        if (actions.state == CharacterActions.states.DASH_WITH_BALL)
+            if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
 
 
         if (_x == 0 && _y == 0)

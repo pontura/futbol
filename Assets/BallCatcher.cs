@@ -9,6 +9,7 @@ public class BallCatcher : MonoBehaviour
     public states state;
     Character character;
     public SpriteRenderer arrow;
+    Animation anim;
 
     public enum states
     {
@@ -18,6 +19,7 @@ public class BallCatcher : MonoBehaviour
     }
     private void Start()
     {
+        anim = container.GetComponent<Animation>();
         character = GetComponent<Character>();
         Show(false);
         //container.gameObject.SetActive(false);
@@ -57,5 +59,9 @@ public class BallCatcher : MonoBehaviour
     public void Show(bool isOn)
     {
         arrow.enabled = isOn;
+    }
+    public void Jump()
+    {
+        anim.Play("ball_Jump");
     }
 }

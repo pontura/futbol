@@ -88,13 +88,13 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268174012}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9ab70dacdfa6593478479cbf09a5d9e3, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 9ab70dacdfa6593478479cbf09a5d9e3, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1318170393469747023
@@ -248,7 +248,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
-  m_Height: 1.8
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2908317565382538886
@@ -272,7 +272,44 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 470543275296796378}
-  type: 3
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    random_steal_ball: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
+  type: 2
+  fieldPosition: 0
   charactersManager: {fileID: 0}
   teamID: 0
   data:

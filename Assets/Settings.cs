@@ -61,6 +61,7 @@ public class Settings : MonoBehaviour
         public float dash_percent_defending;
         public float goalKeeperSpeed;
         public float random_steal_ball;
+        public float random_jump_a_dash;
         public float height_to_dominate_ball;
         public float speedWithBall;
         public float speedDash;
@@ -209,6 +210,7 @@ public class Settings : MonoBehaviour
             case "dash_percent_defending": gameplayStats.dash_percent_defending = value; break;
             case "goalKeeperSpeed": gameplayStats.goalKeeperSpeed = value; break;
             case "random_steal_ball": gameplayStats.random_steal_ball = value; break;
+            case "random_jump_a_dash": gameplayStats.random_jump_a_dash = value; break;
             case "height_to_dominate_ball": gameplayStats.height_to_dominate_ball = value; break;
             case "speedWithBall": gameplayStats.speedWithBall = value; break;
             case "speedDash": gameplayStats.speedDash = value; break;

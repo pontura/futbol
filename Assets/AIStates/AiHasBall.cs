@@ -6,6 +6,7 @@ public class AiHasBall : AIState
     float center_goto_goal_x = 12;
     int _z = 0;
     Vector3 limits;
+    float initialTime;
 
     public override void Init(AI ai)
     {
@@ -20,15 +21,10 @@ public class AiHasBall : AIState
     }
     public override void SetActive()
     {
+        initialTime = Time.time;
         timer = 0;
-        center_goto_goal_x = 12 + Utils.GetRandomFloatBetween(-4, 1);
-        if (center_goto_goal_x < Mathf.Abs(ai.character.transform.position.x))
-            center_goto_goal_x = Mathf.Abs(ai.character.transform.position.x) + 0.25f;
-        dest = Vector3.zero;
-        dest.x = center_goto_goal_x;
-        if (ai.character.teamID == 1)
-            dest.x *= -1;
-        dest.z = Utils.GetRandomFloatBetween(0, 5);
+        SetDestination();
+       
         if (ai.character.transform.position.z < 0)
             dest.z *= -1;
 
@@ -37,6 +33,17 @@ public class AiHasBall : AIState
         else if (dest.z < -limits.y / 2)
             dest.z = -limits.y;
 
+    }
+    void SetDestination()
+    {
+        center_goto_goal_x = Data.Instance.stadiumData.active.size_x/2 - Utils.GetRandomFloatBetween(8, 14);
+        if (center_goto_goal_x < Mathf.Abs(ai.character.transform.position.x))
+            center_goto_goal_x = Mathf.Abs(ai.character.transform.position.x) + 0.25f;
+        dest = Vector3.zero;
+        dest.x = center_goto_goal_x;
+        if (ai.character.teamID == 1)
+            dest.x *= -1;
+        dest.z = Utils.GetRandomFloatBetween(0, 5);
     }
     public override AIState UpdatedByAI()
     {
@@ -70,8 +77,13 @@ public class AiHasBall : AIState
     }
     void KickBall()
     {
-        ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
-        SetState(ai.aiPositionAttacking);
+        if (initialTime + 1 > Time.time)
+            SetDestination();
+        else
+        {
+            ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+            SetState(ai.aiPositionAttacking);
+        }
     }
     void CheckPase()
     {

@@ -47098,6 +47098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251931618}
     m_Modifications:
+    - target: {fileID: 268174013, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2908317565382538884, guid: 449eb424ed587d045af6f7f8820b54c8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47157,21 +47161,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538886, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2908317565382538890, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7944603867640042748, guid: 449eb424ed587d045af6f7f8820b54c8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449eb424ed587d045af6f7f8820b54c8, type: 3}
@@ -47596,14 +47585,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: totalTime
-      value: 260
-      objectReference: {fileID: 0}
-    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: id
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -61552,6 +61533,7 @@ MonoBehaviour:
     dash_percent_defending: 0
     goalKeeperSpeed: 0
     random_steal_ball: 0
+    random_jump_a_dash: 0
     height_to_dominate_ball: 0
     speedWithBall: 0
     speedDash: 0

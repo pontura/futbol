@@ -296,7 +296,12 @@ public class CharactersManager : MonoBehaviour
         if (buttonID == 3)
         {
             if (character.actions.state == CharacterActions.states.IDLE)
-                character.Jump();
+            {
+                if (ball.character == character)
+                    character.Dash_with_ball();
+                else
+                    character.Jump();
+            }
             else
                 character.SuperRun();
             return;

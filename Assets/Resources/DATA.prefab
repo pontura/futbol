@@ -701,6 +701,9 @@ MonoBehaviour:
   - sourceName: shouts
     audioSource: {fileID: 0}
     volume: 0.2
+  - sourceName: common2
+    audioSource: {fileID: 0}
+    volume: 0.3
 --- !u!114 &1515485348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   active:
     name: 
     sceneName: 

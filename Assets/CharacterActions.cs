@@ -21,7 +21,8 @@ public class CharacterActions : MonoBehaviour
         KICKED,
         FREEZE,
         JUMP,
-        AIMING_KICK
+        AIMING_KICK,
+        DASH_WITH_BALL
     }
     public enum kickTypes
     {
@@ -66,7 +67,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
             return;
-        } else if (state == states.FREEZE || state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+        } else if (state == states.FREEZE || state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH_WITH_BALL || state == states.DASH)
             return;
         CancelInvoke();
         this.state = states.IDLE;
@@ -104,7 +105,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
         }
-        else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
+        else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH || state == states.DASH_WITH_BALL)
             return;
         this.state = states.RUN;
         PlayAnim("run");
@@ -201,6 +202,16 @@ public class CharacterActions : MonoBehaviour
             Invoke("Reset", 0.35f);
         }
 
+    }
+    public void DashWithBall()
+    {
+        if (state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+            return;
+
+        Events.PlaySound("common", "dash", false);
+        CancelInvoke();
+        this.state = states.DASH_WITH_BALL;
+        PlayAnim("dashWithBall");
     }
     public void Dash()
     {
