@@ -66,6 +66,9 @@ public class CharactersManager : MonoBehaviour
             AddCharacter(a+1);
 
         ResetAll();
+
+        if (Data.Instance.settings.mainSettings.turn_off_team2)
+            containerTeam2.SetActive(false);
     }
     public void InitPenalty(int totalPlayersActive)
     {
@@ -283,7 +286,13 @@ public class CharactersManager : MonoBehaviour
         rot.y += transform.position.x * rotationOffset;
         character.characterContainer.transform.localEulerAngles = rot;
     }
-
+    public void Palancazo(int control_id)
+    {
+        Character character = GetPlayer(control_id);
+        if (character == null) return;
+        if (ball.character == character)
+            character.Dash_with_ball();
+    }
     public void ButtonPressed(int buttonID, int control_id)
     {
        // print("buttonID " + buttonID);
@@ -294,7 +303,9 @@ public class CharactersManager : MonoBehaviour
             if (character.actions.state == CharacterActions.states.IDLE)
             {
                 if (ball.character == character)
-                    character.Dash_with_ball();
+                {
+                    //hace jueguito:
+                }
                 else
                     character.Jump();
             }

@@ -18,7 +18,32 @@ public class AIIdle : AIState
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {
-            if (ai.ball.character != null)
+            if (ai.ball.character == null)
+            {
+                Vector3 ballPos = ai.ball.transform.position;
+                if (Mathf.Sign(ballPos.x) != ai.originalPosition.x)
+                {
+                    if(ai.character.type == Character.types.DELANTERO)
+                    {
+                        if(ballPos.z>0 && ai.character.fieldPosition == Character.fieldPositions.UP)
+                            SetState(ai.aiGotoBall);
+                        else if (ballPos.z < 0 && ai.character.fieldPosition == Character.fieldPositions.DOWN)
+                            SetState(ai.aiGotoBall);
+                        else
+                            SetState(ai.aiPositionAttacking);
+                    }                        
+                }
+                else
+                {
+                    if (ai.character.type == Character.types.DEFENSOR)
+                    {
+                        if (ballPos.z > 0 && ai.character.fieldPosition == Character.fieldPositions.UP)
+                            SetState(ai.aiGotoBall);
+                        else if (ballPos.z < 0 && ai.character.fieldPosition == Character.fieldPositions.DOWN)
+                            SetState(ai.aiGotoBall);
+                    }                        
+                }
+            } else
             {
                 if (ai.ball.character.teamID == ai.character.teamID)
                     SetState(ai.aiPositionAttacking);

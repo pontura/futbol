@@ -27390,6 +27390,7 @@ MonoBehaviour:
   charactersManager: {fileID: 483686595}
   joystickAsset: {fileID: 221468582}
   analogicKnob: {fileID: 1057772396}
+  playerInputs: []
 --- !u!114 &483686597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47585,6 +47586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: mainSettings.turn_off_team2
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA

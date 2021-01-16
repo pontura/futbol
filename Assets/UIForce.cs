@@ -64,10 +64,8 @@ public class UIForce : MonoBehaviour
     {
         if (isOn)
         {
-            if (value >= 1 && dir == 1)
-                dir = -1;
-            else if (value <= 0 && dir == -1)
-                dir = 1;
+            if (value >= 1)
+                return;
             if (value < 0.2f)
                 bar.color = colors[0];
             else if (value < 0.6f)
@@ -75,7 +73,6 @@ public class UIForce : MonoBehaviour
             else
                 bar.color = colors[2];
             value += Time.deltaTime * speed * dir;
-            print(value + " speed: " + speed);
             bar.fillAmount = value;
         }
     }

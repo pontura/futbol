@@ -2,16 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LeoLuz.PlugAndPlayJoystick;
-
+using System;
 public class InputManagerGame : MonoBehaviour
 {
+    float time_to_palancazo = 0.2f;
     public CharactersManager charactersManager;
     public GameObject joystickAsset;
     public AnalogicKnob analogicKnob;
     float input_x_sensibilitty;
 
+    public List<PlayerInput> playerInputs;
+    [Serializable] public class PlayerInput
+    {
+        public int lastDirection;
+        public float lastDirectionTime;
+        public int totaldirectionChanges;
+    }
+
     private void Start()
     {
+        for (int a = 0; a < 2; a++)
+            playerInputs.Add(new PlayerInput());
+
         if (Data.Instance.isMobile)
             joystickAsset.SetActive(true);
         else
@@ -63,6 +75,8 @@ public class InputManagerGame : MonoBehaviour
 
                 if (charactersManager != null)
                     charactersManager.SetPosition(a+1, _x, _y);
+                if (_x != 0)
+                    SetNewInput_x(a, _x);
             }        
 
             for (int a = 0; a < 2; a++)
@@ -136,5 +150,28 @@ public class InputManagerGame : MonoBehaviour
     {
         Data.Instance.settings.totalPlayers++;
         Game.Instance.charactersManager.AddCharacter(2);
+    }
+    void SetNewInput_x(int playerID, float _x)
+    {
+        PlayerInput playerInput = GetInputByPlayer(playerID);
+        int dir = (int)Mathf.Ceil(_x);
+        if (dir != 0 && playerInput.lastDirection != dir)
+        {
+            if (playerInput.lastDirectionTime == 0 || playerInput.lastDirectionTime + time_to_palancazo > Time.time)
+            {
+                charactersManager.Palancazo(playerID+1);
+                playerInput.totaldirectionChanges = 0;
+            }
+            playerInput.lastDirectionTime = Time.time;
+        }
+        if (playerInput.lastDirectionTime + time_to_palancazo < Time.time)
+        {
+            playerInput.totaldirectionChanges = 0;
+        }            
+        playerInput.lastDirection = dir;
+    }
+    PlayerInput GetInputByPlayer(int playerID)
+    {
+        return playerInputs[playerID];
     }
 }

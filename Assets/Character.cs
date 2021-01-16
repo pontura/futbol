@@ -248,8 +248,8 @@ public class Character : MonoBehaviour
         
         if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
-        if (actions.state == CharacterActions.states.DASH_WITH_BALL)
-            if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
+       // if (actions.state == CharacterActions.states.DASH_WITH_BALL)
+        //    if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
 
 
         if (_x == 0 && _y == 0)

@@ -15,6 +15,7 @@ public class Settings : MonoBehaviour
     public class MainSettings
     {
         public bool debug;
+        public bool turn_off_team2;
         public string force_mode;
         public int stadium_id;
     }

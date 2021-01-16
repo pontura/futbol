@@ -161,15 +161,47 @@ public class AIPositionAttacking : AIState
             switch (ai.characterWithBall.type)
             {
                 case Character.types.CENTRAL:
-                    if (ai.character.type == Character.types.DEFENSOR) isHelper = true; break;
-                //case Character.types.GOALKEEPER:
-                //    if (ai.character.type == Character.types.CENTRAL) isHelper = true; break;
+                    if (ai.character.type == Character.types.DELANTERO)
+                    {
+                        if(ai.character.fieldPosition == Character.fieldPositions.UP && ai.characterWithBall.transform.position.z<0)
+                            isHelper = true;
+                        else if (ai.character.fieldPosition == Character.fieldPositions.DOWN && ai.characterWithBall.transform.position.z > 0)
+                            isHelper = true;
+                    }
+                    break;
                 case Character.types.DEFENSOR:
-                    if (ai.character.type == Character.types.DEFENSOR) isHelper = true; break;
+                    if (FarFromOrigin() > 20)
+                        if (ai.character.type == Character.types.DELANTERO)
+                        {
+                            if (ai.character.fieldPosition == Character.fieldPositions.UP && ai.characterWithBall.transform.position.z < 0)
+                                isHelper = true;
+                            else if (ai.character.fieldPosition == Character.fieldPositions.DOWN && ai.characterWithBall.transform.position.z > 0)
+                                isHelper = true;
+                        }
+                        else
+                        if (ai.character.type == Character.types.DEFENSOR)
+                        {
+                            if (ai.character.fieldPosition == Character.fieldPositions.UP && ai.characterWithBall.transform.position.z < 0)
+                                isHelper = true;
+                            else if (ai.character.fieldPosition == Character.fieldPositions.DOWN && ai.characterWithBall.transform.position.z > 0)
+                                isHelper = true;
+                        }
+                    break;
                 case Character.types.DELANTERO:
-                    if (ai.character.type == Character.types.DELANTERO) isHelper = true; break;
+                    if (ai.character.type == Character.types.DELANTERO)
+                    {
+                        if (ai.character.fieldPosition == Character.fieldPositions.UP && ai.characterWithBall.transform.position.z < 0)
+                            isHelper = true;
+                        else if (ai.character.fieldPosition == Character.fieldPositions.DOWN && ai.characterWithBall.transform.position.z > 0)
+                            isHelper = true;
+                    }
+                    break;
             }
         }
+    }
+    float FarFromOrigin()
+    {
+        return Mathf.Abs(ballPos.x - ai.originalPosition.x);
     }
     float GetOffsetXToHelper()
     {
@@ -177,15 +209,15 @@ public class AIPositionAttacking : AIState
             return 0;
         switch (ai.characterWithBall.type)
         {
-            case Character.types.CENTRAL: return Random.Range(0, 2);
+            case Character.types.CENTRAL: return Random.Range(-4, 4);
             case Character.types.GOALKEEPER:
                 return Random.Range(3, 6);
             case Character.types.DEFENSOR:
-                return Random.Range(0, 2);
+                return Random.Range(-1, 3);
             case Character.types.DELANTERO:
-                return Random.Range(-1, 1);
+                return Random.Range(-3, 3);
             default:
-                return Random.Range(-1, 1);
+                return Random.Range(-3, 3);
         }
     }
 }

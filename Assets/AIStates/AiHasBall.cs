@@ -16,8 +16,7 @@ public class AiHasBall : AIState
     }
     public override void OnCharacterCatchBall(Character character)
     {
-        if (character.data.id != ai.character.data.id)
-            SetState(ai.aiIdle);
+        SetState(ai.aiIdle);
     }
     public override void SetActive()
     {
@@ -36,6 +35,11 @@ public class AiHasBall : AIState
     }
     void SetDestination()
     {
+        if(ai.ball.character == null || ai.ball.character != ai.character)
+        {
+            SetState(ai.aiIdle);
+            return;
+        }
         center_goto_goal_x = Data.Instance.stadiumData.active.size_x/2 - Utils.GetRandomFloatBetween(8, 14);
         if (center_goto_goal_x < Mathf.Abs(ai.character.transform.position.x))
             center_goto_goal_x = Mathf.Abs(ai.character.transform.position.x) + 0.25f;
