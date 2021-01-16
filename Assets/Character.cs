@@ -150,7 +150,7 @@ public class Character : MonoBehaviour
                 if (
                     (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
                     &&
-                     (pos.z < 8.5f && pos.z > -8.5f)
+                     (pos.z < 7.25f && pos.z > -7.25f)
                     &&
                     (other.teamID != teamID)
                     )

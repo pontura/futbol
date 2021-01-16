@@ -36,9 +36,10 @@ public class SelectorScreen : MonoBehaviour
     void Start()
     {
         CharactersData.Instance.Init();
-        Events.OnButtonClick += OnButtonClick;
+        Invoke("ButtonClicked", 0.75f);
+       // Events.OnButtonClick += OnButtonClick;
 
-        for(int a = 0; a<Data.Instance.stadiumData.active.totalPlayers; a++)
+        for (int a = 0; a<Data.Instance.stadiumData.active.totalPlayers; a++)
         {
             GameObject go;
             go = Instantiate(characterRuleta_to_instantiate, characters1_container.transform);
@@ -69,10 +70,10 @@ public class SelectorScreen : MonoBehaviour
         ruletaEscudo_team1.Init(all);
         ruletaEscudo_team2.Init(all);
     }
-    void OnDestroy()
-    {
-        Events.OnButtonClick -= OnButtonClick;
-    }
+    //void OnDestroy()
+    //{
+    //    Events.OnButtonClick -= OnButtonClick;
+    //}
     public void ButtonClicked()
     {
         if(state == states.IDLE)
@@ -82,10 +83,6 @@ public class SelectorScreen : MonoBehaviour
             ruletaEscudo_team2.SetOn(OnDoneTeam);
             state = states.TEAM;
         }
-    }
-    void OnButtonClick(int playerID, int id)
-    {
-        ButtonClicked();
     }
    
     void OnDoneTeam(int selectedID)

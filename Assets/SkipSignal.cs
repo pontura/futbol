@@ -8,7 +8,7 @@ public class SkipSignal : MonoBehaviour
     [SerializeField] private GameObject panel;
     bool isOn;
     float timer = 0;
-    float totalTime = 2;
+    float totalTime = 1;
     [SerializeField] private Image progressBar;
     System.Action OnReady;
     bool pressed;
