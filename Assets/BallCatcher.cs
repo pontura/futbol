@@ -15,7 +15,8 @@ public class BallCatcher : MonoBehaviour
     {
         IDLE,
         GOT_IT,
-        WAITING
+        WAITING,
+        JUEGUITO
     }
     private void Start()
     {
@@ -42,9 +43,10 @@ public class BallCatcher : MonoBehaviour
         ball = null;
         Invoke("Reset", 0.2f);
     }
-    private void Reset()
+    public void Reset()
     {
         state = states.IDLE;
+        anim.Play("ball_idle");
     }
     public void LookAt(Vector3 targetPos)
     {
@@ -63,5 +65,10 @@ public class BallCatcher : MonoBehaviour
     public void Jump()
     {
         anim.Play("ball_Jump");
+    }
+    public void Jueguito()
+    {
+        state = states.JUEGUITO;
+        anim.Play("ball_jueguito");
     }
 }

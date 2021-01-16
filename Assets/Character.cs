@@ -206,6 +206,14 @@ public class Character : MonoBehaviour
         dashCoroutine = StartCoroutine(DashC());
         actions.Dash();
     }
+    public void Jueguito()
+    {
+        if (actions.state == CharacterActions.states.JUEGUITO)
+            return;
+        StopAllCoroutines();
+        actions.Jueguito();
+        ballCatcher.Jueguito();
+    }
     float lastTimeDashWithBall = 0;
     public void Dash_with_ball()
     {
@@ -245,9 +253,15 @@ public class Character : MonoBehaviour
     Vector2 direction;
     public virtual void MoveTo(float _x, float _y)
     {
-        
+
         if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
+        else if (actions.state == CharacterActions.states.JUEGUITO)
+        {
+            if (_x == 0)
+                return;
+            else ballCatcher.Reset();
+        }
        // if (actions.state == CharacterActions.states.DASH_WITH_BALL)
         //    if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
 

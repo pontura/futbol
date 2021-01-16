@@ -22,7 +22,8 @@ public class CharacterActions : MonoBehaviour
         FREEZE,
         JUMP,
         AIMING_KICK,
-        DASH_WITH_BALL
+        DASH_WITH_BALL,
+        JUEGUITO
     }
     public enum kickTypes
     {
@@ -61,7 +62,7 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Idle()
     {
-        if (state == states.FREEZE || state == states.AIMING_KICK)
+        if (state == states.FREEZE || state == states.AIMING_KICK || state == states.JUEGUITO)
             return;
         if (state == states.IDLE)
         {
@@ -202,6 +203,15 @@ public class CharacterActions : MonoBehaviour
             Invoke("Reset", 0.35f);
         }
 
+    }
+    public void Jueguito()
+    {
+        if (state == states.JUEGUITO || state == states.GOAL || state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH)
+            return;
+
+        CancelInvoke();
+        this.state = states.JUEGUITO;
+        PlayAnim("jueguito");
     }
     public void DashWithBall()
     {

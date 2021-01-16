@@ -304,7 +304,7 @@ public class CharactersManager : MonoBehaviour
             {
                 if (ball.character == character)
                 {
-                    //hace jueguito:
+                    character.Jueguito();
                 }
                 else
                     character.Jump();
