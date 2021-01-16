@@ -151,7 +151,6 @@ public class CharactersManager : MonoBehaviour
         if (to != from && to.control_id != from.control_id)
             SwapTo(from, to);
     }
-    Character lastNearestToDefend;
     void CheckForNewDefender(int teamID)
     {
         float offset = 2;
@@ -159,20 +158,17 @@ public class CharactersManager : MonoBehaviour
         if (teamID == 1)  ballPos.x += offset;   else  ballPos.x -= offset;
 
         Character nearestToDefend = GetNearest(teamID, false, ballPos);
-        if (nearestToDefend == lastNearestToDefend)
+        if (nearestToDefend.ai.aiStateName == "AiGotoBall")
             return;
-
         if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
-        if (nearestToDefend.isBeingControlled || nearestToDefend.ai.currentState == nearestToDefend.ai.aiGotoBall)
+        if (nearestToDefend.isBeingControlled)
             return;
         
-        lastNearestToDefend = nearestToDefend;
         Events.SetCharacterNewDefender(nearestToDefend);
     }
     public void CharacterCatchBall(Character character)
     {
-        lastNearestToDefend = null;
         if (character.isBeingControlled)
             return;
         Character characterNear = GetNearest(character.teamID, true, ball.transform.position);
