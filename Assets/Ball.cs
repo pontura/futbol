@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     public Character characterThatKicked;
     Vector3 limits;
     float timeCatched;
+    CombaFX combaFX;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class Ball : MonoBehaviour
         limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
         container = transform.parent;
         this.rb = GetComponent<Rigidbody>();
+        combaFX = GetComponent<CombaFX>();
         Reset();
     }
     private void OnDestroy()
@@ -86,7 +88,10 @@ public class Ball : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision collision)
-    {      
+    {
+        if(combaFX != null)
+            combaFX.Reset();
+
         if (Game.Instance.state != Game.states.PLAYING)
             return;
         if (character != null && character.type == Character.types.GOALKEEPER)
@@ -211,7 +216,10 @@ public class Ball : MonoBehaviour
     {
         float force = 1;
         if (kickType == CharacterActions.kickTypes.HARD && UIMain.Instance.uIForce.GetForce() > 0.6f)
-            kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
+        {
+            if(character != null && !character.isBeingControlled)
+                kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
+        }
 
         
 
