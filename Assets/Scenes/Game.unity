@@ -27129,6 +27129,7 @@ MonoBehaviour:
   charactersManager: {fileID: 483686595}
   joystickAsset: {fileID: 3965661212022091162}
   analogicKnob: {fileID: 3934089645479300448}
+  playerInputs: []
 --- !u!114 &483686597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42228,6 +42229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: id
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -51120,6 +51125,7 @@ MonoBehaviour:
     dash_percent_defending: 0
     goalKeeperSpeed: 0
     random_steal_ball: 0
+    random_jump_a_dash: 0
     height_to_dominate_ball: 0
     speedWithBall: 0
     speedDash: 0
@@ -51427,11 +51433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251931618}
     m_Modifications:
-    - target: {fileID: 784170761190992003, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
-        type: 3}
-      propertyPath: type
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7793851902414820856, guid: b3d39ebfc5d487e4b942c629d55f2bb3,
         type: 3}
       propertyPath: m_Name
@@ -51560,6 +51561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[0]
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}
