@@ -462,6 +462,10 @@ public class CharactersManager : MonoBehaviour
         if(ball.character!= null)
             ball.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
     }
+    public List<Character> GetCharactersByTeam(int teamID)
+    {
+        if (teamID == 1) return team1; else return team2;
+    }
     public Character GetCharacterByType(Character.types type, int teamID)
     {
         List<Character> team;

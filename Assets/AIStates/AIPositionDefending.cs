@@ -72,17 +72,8 @@ public class AIPositionDefending : AIState
         float offset_x = Utils.GetRandomFloatBetween(2, 6);
         float offset_z = Utils.GetRandomFloatBetween(-2, 2);
 
-
         if (ai.character.type == Character.types.DEFENSOR)
         {
-            //float ballPos_x = ai.ball.transform.position.x;
-            //if (Mathf.Abs(ai.originalPosition.x - ballPos_x) > 15)
-            //{
-            //    ai.character.SuperRun();
-            //    gotoPosition.z = ai.originalPosition.z;
-            //    gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.15f);
-            //    return;
-            //}
             if (rand < 8)
                 ai.character.SuperRun();
         }

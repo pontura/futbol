@@ -47574,6 +47574,10 @@ PrefabInstance:
       propertyPath: mainSettings.turn_off_team2
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1526771216, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA

@@ -126,7 +126,19 @@ public class AI : MonoBehaviour
         if (ball.character != null && ball.character.teamID == character.teamID && ball.character.type == Character.types.GOALKEEPER)
             return;
 
-        currentState.OnFollow(ball.transform);
+        //la tiene uno del otro equipo y no es el arquero:
+        Character characterNearest = character.charactersManager.GetNearest(character.teamID, false, ball.transform.position, true);
+        if (characterNearest == character)
+        {
+            SetStopFollowOthers();
+            currentState.OnFollow(ball.transform);
+        }
+    }
+    void SetStopFollowOthers()
+    {
+        foreach (Character ch in character.charactersManager.GetCharactersByTeam(character.teamID))
+            if (ch != character && ch.ai.aiStateName == "AiGotoBall")
+                ch.ai.ResetAll(); // si alguien lo seguía chau:
     }
     private void Update()
     {        
@@ -173,18 +185,12 @@ public class AI : MonoBehaviour
     {
         if (character != _character)  return;
         if(ball.character != null && ball.character.type == Character.types.GOALKEEPER) return;
-       // if (_character.data.id == character.data.id)
-            currentState.OnFollow(ball.transform);
+        SetStopFollowOthers();
+        currentState.OnFollow(ball.transform);
     }
     public void CharacterCatchBall(Character characterWithBall)
     {
         if (Game.Instance.state != Game.states.PLAYING) return;
-
-        //if (character.teamID == characterWithBall.teamID)
-        //    state = states.ATTACKING;
-        //else
-        //    state = states.DEFENDING;
-
         this.characterWithBall = characterWithBall;
         currentState.OnCharacterCatchBall(characterWithBall);
     }
