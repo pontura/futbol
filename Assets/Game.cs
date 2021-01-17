@@ -35,6 +35,7 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        Time.timeScale = Data.Instance.settings.timeScale;
         StartCoroutine(WaitToStart());
     }
     IEnumerator WaitToStart()

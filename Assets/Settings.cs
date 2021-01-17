@@ -35,6 +35,8 @@ public class Settings : MonoBehaviour
     public Vector2 selectedTeams;
     public GamePlay gameplay;
     public Vector2 dialoguesTimeToAppear = new Vector2(2, 4);
+
+    public float timeScale = 0.8f;
     public float referiSpeed = 1.1f;
     public float dialoguesDuration = 4;
     public float forceBarSpeed = 0.2f;

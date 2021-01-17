@@ -604,6 +604,7 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   mainSettings:
     debug: 0
+    turn_off_team2: 0
     force_mode: 
     stadium_id: 0
   selectedTeams: {x: 1, y: 0}
@@ -621,6 +622,7 @@ MonoBehaviour:
     dash_percent_defending: 0
     goalKeeperSpeed: 0
     random_steal_ball: 0
+    random_jump_a_dash: 0
     height_to_dominate_ball: 0
     speedWithBall: 0
     speedDash: 0
@@ -644,6 +646,7 @@ MonoBehaviour:
     kickCentro: 0
     kickCentroAngle: 0
   dialoguesTimeToAppear: {x: 2, y: 4}
+  timeScale: 0.9
   referiSpeed: 1.1
   dialoguesDuration: 4
   forceBarSpeed: 2
@@ -763,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   active:
     name: 
     sceneName: 

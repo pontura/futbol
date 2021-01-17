@@ -49,7 +49,7 @@ public class InputManagerGame : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(Time.timeScale == 0)
-                Time.timeScale = 1;
+                Time.timeScale = Data.Instance.settings.timeScale;
             else
                 Time.timeScale = 0;
         }
