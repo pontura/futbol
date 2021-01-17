@@ -195,10 +195,6 @@ public class VoicesManager : MonoBehaviour
             PlayAudiosComentarista(new AudioClip[] { GetRandomAudioClip(pide_comentario), comentario_goal }, SayGoalEnd);
         }
     }
-    void GoalDelayed()
-    {
-        Events.OnRestartGame();
-    }
     void SayComentarioGoalEnContra()
     {
         AudioClip comentario_goal;
@@ -211,7 +207,7 @@ public class VoicesManager : MonoBehaviour
     {
         PlayAudios(new AudioClip[] {
                 GetRandomAudioClip(responde_comentario_gol)
-            }, Events.OnRestartGame);
+            }, Game.Instance.GetComponent<GoalMoment>().Done);
     }
     private void Reset()
     {

@@ -106,7 +106,7 @@ public class Game : MonoBehaviour
         state = states.GOAL;
         Events.OnGameStatusChanged(state);        
         
-        StartCoroutine(GetComponent<GoalMoment>().Init(teamID, character));
+        GetComponent<GoalMoment>().Init(teamID, character);
     }
     void OnGameStatusChanged(states state)
     {

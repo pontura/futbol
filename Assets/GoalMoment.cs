@@ -16,15 +16,14 @@ public class GoalMoment : MonoBehaviour
 
     void Start()
     {
-        Events.OnRestartGame += OnRestartGame;
         charactersManager = Game.Instance.charactersManager;
     }
-    void OnDestroy()
+    public void Init(int teamID, Character character)
     {
-        Events.OnRestartGame -= OnRestartGame;
+        StartCoroutine(InitC(teamID, character));
     }
-    public IEnumerator Init(int teamID, Character character)
-    {
+    IEnumerator InitC(int teamID, Character character)
+    {        
         character_made_goal = character;
 
         if (teamID == 1)
@@ -43,8 +42,9 @@ public class GoalMoment : MonoBehaviour
 
         if (character.teamID == teamID)
             character_made_goal.actions.Goal();
-
-        yield return new WaitForSeconds(4);        
+        yield return new WaitForSeconds(0.3f);
+        Events.OnSkipOn(Done);
+        yield return new WaitForSeconds(3.7f);        
         state = states.IDLE;
         yield return new WaitForSeconds(1);
 
@@ -53,19 +53,25 @@ public class GoalMoment : MonoBehaviour
 
         yield return new WaitForSeconds(2);
         Events.ChangeVolume("croud", 0.5f);
+        
     }
-    void OnRestartGame()
+    public void Done()
     {
+        if (Game.Instance.state != Game.states.GOAL)
+            return;
+
+        StopAllCoroutines();
+        Events.OnSkipOff();
         Game.Instance.ball.Reset();
         Game.Instance.charactersManager.ResetAll();
-        
+        state = states.IDLE;
         StartCoroutine( Game.Instance.OnWaitToStart() );
         winners = null;
     }
     void Update()
     {
         if (state == states.IDLE) return;
-      
+
         foreach (Character character in winners)
         {
             Vector3 targetPos;
