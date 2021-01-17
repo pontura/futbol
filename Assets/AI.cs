@@ -169,7 +169,7 @@ public class AI : MonoBehaviour
         }
         switch (kickType)
         {
-        case CharacterActions.kickTypes.CENTRO:
+            case CharacterActions.kickTypes.CENTRO:
             if (_character.teamID != character.teamID)
             {
                 if (character.type == Character.types.DEFENSOR)

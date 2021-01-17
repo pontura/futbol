@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b4792e612c89040b7dc7d813770775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idle: {fileID: 0}
+  idle: {fileID: 6730644392963577402}
   angry: {fileID: 3999471607688057908}
 --- !u!1 &3999471608069022386
 GameObject:

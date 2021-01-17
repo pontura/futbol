@@ -18,10 +18,11 @@ public class AIIdle : AIState
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {
+            timer = 0;
             if (ai.ball.character == null)
             {
                 Vector3 ballPos = ai.ball.transform.position;
-                if (Mathf.Sign(ballPos.x) != ai.originalPosition.x)
+                if (Mathf.Sign(ballPos.x) != Mathf.Sign(ai.originalPosition.x))
                 {
                     if(ai.character.type == Character.types.DELANTERO)
                     {

@@ -303,6 +303,60 @@
 				"goal":  [ "¡FLAAAN CASERO!" ],
 				"full":  [ "¡¡PELAFUSTÁN!!", "¡CORRUPCIÓN!" ]
 			}
+		},
+		{
+			"id": 24,
+			"avatarName": "KLEM",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
+		},
+		{
+			"id": 25,
+			"avatarName": "RED NECK",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
+		},
+		{
+			"id": 26,
+			"avatarName": "MACRI",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
+		},
+		{
+			"id": 27,
+			"avatarName": "KRISTINA",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
+		},
+		{
+			"id": 28,
+			"avatarName": "BABY",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
+		},
+		{
+			"id": 29,
+			"avatarName": "BOLSONARO",
+			"dialogs": {
+				"random": [ "xxx" ],
+				"goal":  [  "xxx" ],
+				"full":  [  "xxx" ]
+			}
 		}
 	]
 }
