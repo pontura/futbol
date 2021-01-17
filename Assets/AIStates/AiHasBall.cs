@@ -82,7 +82,12 @@ public class AiHasBall : AIState
     void KickBall()
     {
         if (initialTime + 1 > Time.time)
-            SetDestination();
+        {
+            if(Random.Range(0,10)<5)
+                ai.character.Jueguito();
+            else
+                SetDestination();
+        }            
         else
         {
             ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);

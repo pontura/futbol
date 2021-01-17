@@ -46,7 +46,8 @@ public class BallCatcher : MonoBehaviour
     public void Reset()
     {
         state = states.IDLE;
-        anim.Play("ball_idle");
+        if(anim != null)
+            anim.Play("ball_idle");
     }
     public void LookAt(Vector3 targetPos)
     {
