@@ -4865,6 +4865,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 9ab70dacdfa6593478479cbf09a5d9e3, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 9ab70dacdfa6593478479cbf09a5d9e3, type: 2}
+  - {fileID: 7400000, guid: e6cb79be68d58e144986eebcd928dac0, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5124,7 +5125,45 @@ MonoBehaviour:
   control_id: 0
   speed: 0
   characterContainer: {fileID: 4824073138760584615}
-  type: 5
+  stats:
+    characterType: 0
+    speed: 0
+    speedRun: 0
+    speedRunWithBall: 0
+    freeze_by_kick: 0
+    freeze_by_loseBall: 0
+    freeze_by_dashBall: 0
+    freeze_dash: 0
+    distance_to_dash_ai: 0
+    dash_percent_attacking: 0
+    dash_percent_defending: 0
+    goalKeeperSpeed: 0
+    random_steal_ball: 0
+    random_jump_a_dash: 0
+    height_to_dominate_ball: 0
+    speedWithBall: 0
+    speedDash: 0
+    gk_FlyingDuration: 0
+    gk_FlyingSpeed: 0
+    gk_CatchOnAir: 0
+    speedRunFade: 0
+    distanceToForceCentro: 0
+    defenseDelay: 0
+    attackDelay: 0
+    kickHard: 0
+    kickHardAngle: 0
+    kickSoft: 0
+    kickSoftAngle: 0
+    kickBaloon: 0
+    kickBaloonAngle: 0
+    kickHead: 0
+    kickHeadAngle: 0
+    kickChilena: 0
+    kickChilenaAngle: 0
+    kickCentro: 0
+    kickCentroAngle: 0
+  type: 3
+  fieldPosition: 0
   charactersManager: {fileID: 0}
   teamID: 0
   data:
