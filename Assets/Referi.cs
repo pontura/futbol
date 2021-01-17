@@ -40,6 +40,7 @@ public class Referi : Character
         scaleFactor = Data.Instance.settings.scaleFactor;
         this.charactersManager = charactersManager;
         speed = Data.Instance.settings.referiSpeed;
+        stats.speed = speed;
         GameObject asset = Instantiate(asset_to_instantiate);
         asset.transform.SetParent(characterContainer);
         asset.transform.localEulerAngles = asset.transform.localPosition = Vector3.zero;

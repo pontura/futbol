@@ -80,7 +80,24 @@ public class AIPositionDefending : AIState
         if (ai.character.type == Character.types.CENTRAL && rand < 5)
             ai.character.SuperRun();
 
-        gotoPosition = ai.character.Oponent.transform.position;
+        Vector3 ballPos = ai.ball.transform.position;
+
+        
+        if (Mathf.Sign(ballPos.x) == Mathf.Sign(ai.originalPosition.x))
+            gotoPosition = ai.character.Oponent.transform.position;
+        else
+        {
+            float diffPos = 0.5f;
+            if (ai.character.type == Character.types.DEFENSOR)
+                diffPos = 0.5f;
+            else if (ai.character.type == Character.types.CENTRAL)
+                diffPos = 0.7f;
+            else if (ai.character.type == Character.types.DELANTERO)
+                diffPos = 0.8f;
+            gotoPosition = Vector3.Lerp(ai.originalPosition, ai.character.Oponent.transform.position, diffPos);
+        }
+            
+
         gotoPosition.z += offset_z;
         if (ai.character.teamID == 2)
             gotoPosition.x -= offset_x;

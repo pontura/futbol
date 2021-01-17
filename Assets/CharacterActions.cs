@@ -132,7 +132,7 @@ public class CharacterActions : MonoBehaviour
         this.state = states.JUMP;
         PlayAnim("jump");
         Invoke("ResetSpecial", 0.5f);
-        character.MoveCollidersTo(new Vector3(0, 1, 0));
+        character.MoveCollidersTo(new Vector3(0, 0.7f, 0));
     }
     
     public void GoalKeeperJump()
