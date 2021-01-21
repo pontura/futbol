@@ -238,37 +238,37 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 7d42bd37b1a544c459ef070dd43ab26c, type: 3}
     - {fileID: 8300000, guid: 2fb1ebc335bad4549abdffa592cd74d1, type: 3}
   - asset: {fileID: 3999471607175928656, guid: 5f36ba8c2a7d9bd46bba0874782d8f10, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 3a7a00e0c36cf85409985f292dd6777d, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 3999471607175928656, guid: f999368dbefb26145928044a97239232, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 5006695b0ad95f04785d9c4c230cc6dd, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 3999471607175928656, guid: 5e8758717231bfc47b449978cdcac77a, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 2fe2248c17016c141b8a8a47ef9bbe79, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 6901122285471923383, guid: eef9e2df9b28d6a45a464d31ae303bd6, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 1c573421ce480d447875dfebf82f26df, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 4367421719257010718, guid: d7d55f5a7c78dc14b83134f6808c46bb, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 7f15097e4326f7044955f9e76fe9bb98, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 3999471607175928656, guid: 7255d39d44ad3b04ebc3d4b4cbcea6b6, type: 3}
-    thumb: {fileID: 21300000, guid: 0cfc20f2a635c96459d58861cff471d0, type: 3}
+    thumb: {fileID: 21300000, guid: 5f25dcbc17e28e54ebe317a1815d82bb, type: 3}
     audio_names:
     - {fileID: 8300000, guid: d17c6196eecdcb348a69f2fceb0bbd65, type: 3}
     audio_goal: []

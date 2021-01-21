@@ -182,9 +182,9 @@
 			"id": 10,
 			"avatarName": "Acid Queen",
 			"dialogs": {
-				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!", "GOLDENBALL WILL DO WHAT I PLEASE", "BEST HAIR", "BABY, GET IT ON!", "DRINK PEXI COCA" ],
+				"random": [ "WE DON´T NEED ANOTHER HERO", "SNIF", "STEAAAAMY WINDOWWSS!", "GOLDENBALL WILL DO WHAT I PLEASE", "BEST HAIR", "BABY, GET IT ON!", "DRINK PEXI COCA", "ROCK IT, BABY", "WET´N´HOT, DADDY" ],
 				"goal":  [ "GOOOAL!", "SIMPLY THA BEST" ],
-				"full":  [ "HEEEYY!!!!", "WTF!!!" ]
+				"full":  [ "HEEEYY!!!!", "WTF!!!", "NO WAY!" ]
 			}
 		},
 		{
@@ -306,57 +306,58 @@
 		},
 		{
 			"id": 24,
-			"avatarName": "KLEM",
+			"avatarName": "Federico Kremme",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "¡¡EXTASIS!!", "EL BUEN GUSTO SE ORIGINA EN FRANCIA" ],
+				"goal":  [ "¡CLIMAAAAAX!" ],
+				"full":  [ "¡#&%@$!" ]
 			}
 		},
 		{
 			"id": 25,
-			"avatarName": "RED NECK",
+			"avatarName": "Bobby W. Supporter",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "NO WAY YOU WIN", "WHITE TAKES STADIUM BACK", "YESSIR!", "GOD IS WHITE", "STEP BACK OR I´LL SHOOT", "GOD BLESS MY TEAM", "SPEAK ENGLISH OR DIE" ],
+				"goal":  [ "AMERICA!!!" ],
+				"full":  [ "N-WORD!!!!!" ]
 			}
 		},
 		{
 			"id": 26,
-			"avatarName": "MACRI",
+			"avatarName": "Macricio Mauri",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "¡NO SE INUNDA MÁAAAS!", "¿EN QUÉ TE HAS CONVERTIDO?", "WE WILL ROCK YOU!", "TE LO DEBO", "¡QUE LINDO CULITO!", "YA TE VAS A AFLOJAR", "HAY QUE PAGAR CON ALEGRÍA", "¿YA EMPEZÓ EL PARTIDO?" ],
+				"goal":  [ "¿¿GANAMOS??" ],
+				"full":  [ "¿¿QUÉ PASO??" ]
 			}
 		},
 		{
 			"id": 27,
-			"avatarName": "KRISTINA",
+			"avatarName": "La Doctora",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "¡YEGUA, P8T4 Y GOLEADORA!", "ESTO PARECE PLAZA DE MAYO", "CUCHUFLITO Y PINDONGA CONDUCCIÓN", "A RODAR, MI AMOR", "VENÍ PARA ACÁ, CHIQUITO" ],
+				"goal":  [ "¡¡GRACIAS!!" ],
+				"full":  [ "¡LOWFARE!" ]
 			}
 		},
 		{
 			"id": 28,
-			"avatarName": "BABY",
+			"avatarName": "Feto Etchecopar",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "SERÉ PETISO PERO TENGO UNA H4RLEY" ],
+				"goal":  [ "¡¡TOMÁ, PARDO!!" ],
+				"full":  [ "¡NO VALE!" ]
 			}
 		},
 		{
 			"id": 29,
-			"avatarName": "BOLSONARO",
+			"avatarName": "Joao Bolsorinho",
 			"dialogs": {
-				"random": [ "xxx" ],
-				"goal":  [  "xxx" ],
-				"full":  [  "xxx" ]
+				"random": [ "EU NÃO TENHO GRIPECINHA" ],
+				"goal":  [ "¡¡TOMÁ, PARDO!!" ],
+				"full":  [ "¡NO VALE!" ]
 			}
 		}
+		
 	]
 }

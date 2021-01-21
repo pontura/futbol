@@ -696,6 +696,7 @@ Transform:
   - {fileID: 3999471608714834018}
   - {fileID: 3999471607726957389}
   - {fileID: 5981796885917609954}
+  - {fileID: 2628817499069819876}
   m_Father: {fileID: 3999471608356586803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1887,7 +1888,6 @@ Transform:
   - {fileID: 3999471608042907664}
   - {fileID: 3999471608949052096}
   - {fileID: 1685790557203453041}
-  - {fileID: 2628817499069819876}
   m_Father: {fileID: 3999471607897319488}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4048,7 +4048,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3999471608714834018}
+    m_TransformParent: {fileID: 3999471607897319488}
     m_Modifications:
     - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
         type: 3}
@@ -4058,7 +4058,7 @@ PrefabInstance:
     - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.24
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
         type: 3}
@@ -4104,6 +4104,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2044842876744687864, guid: 2c3f2419e9cada74f9445be7c0662472,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3160181492281909949, guid: 2c3f2419e9cada74f9445be7c0662472,
         type: 3}
