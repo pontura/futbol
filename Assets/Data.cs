@@ -14,6 +14,7 @@ public class Data : MonoBehaviour
     private float time_ViewingMap = 7.5f;
     public Settings settings;
     public StadiumsData stadiumData;
+    public CharactersPositions charactersPositions;
     public TextsData textsData;
     public bool isMobile;
     [HideInInspector] public MatchData matchData;
@@ -55,6 +56,7 @@ public class Data : MonoBehaviour
         inputManagerUI = GetComponent<InputManagerUI>();
         stadiumData = GetComponent<StadiumsData>();
         spreadsheetLoader = GetComponent<SpreadsheetLoader>();
+        charactersPositions = GetComponent<CharactersPositions>();
         DontDestroyOnLoad(this);
     }
     private void Start()

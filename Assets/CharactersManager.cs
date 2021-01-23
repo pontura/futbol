@@ -37,6 +37,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
+        GetComponent<CharactersConstructor>().AddCharacters();
         gameplaySettings = Data.Instance.settings.gameplay;
         totalPlayers = CharactersData.Instance.team1.Count;
         teamID_1 = 1;
@@ -89,14 +90,14 @@ public class CharactersManager : MonoBehaviour
         //patea:
         Character character = containerTeam1.GetComponentInChildren<Character>();
         team1.Add(character);
-        character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(0, CharactersData.Instance.team2.Count-2), false));
+        character.Init(teamID_1, this, CharactersData.Instance.GetCharacter(teamID_1, Random.Range(1, CharactersData.Instance.team2.Count-1), false));
         character.actions.LookTo(-1); //mira a la izquierda siempre:
         Events.OnPenaltyWaitingToKick(character, GetComponent<Penalty>().PenaltyPita);
 
         //ataja:
         character = containerTeam2.GetComponentInChildren<Character>();
         team2.Add(character);
-        character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, CharactersData.Instance.team2.Count-1, true));
+        character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, 0, true));
 
         if (totalPlayersActive > 0)
         {
@@ -160,14 +161,15 @@ public class CharactersManager : MonoBehaviour
         Vector3 ballPos = ball.transform.position;
         if (teamID == 1)  ballPos.x += offset;   else  ballPos.x -= offset;
 
-        Character nearestToDefend = GetNearest(teamID, false, ballPos);
+        Character nearestToDefend = GetNearest(teamID, false, ballPos, false, true);
         if (nearestToDefend.ai.aiStateName == "AiGotoBall")
             return;
         if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
         if (nearestToDefend.isBeingControlled)
             return;
-        
+
+        print("Set New Defender " + nearestToDefend.data.avatarName);
         Events.SetCharacterNewDefender(nearestToDefend);
     }
     public void CharacterCatchBall(Character character)
@@ -221,7 +223,7 @@ public class CharactersManager : MonoBehaviour
         }
         return character;
     }
-    public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false)
+    public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false, bool DontGetGoalKeeper = false)
     {
         List<Character> team;
         if (teamID == 1)
@@ -232,7 +234,11 @@ public class CharactersManager : MonoBehaviour
         foreach (Character c in team)
         {
             float distance = Vector3.Distance(c.transform.position, pos);
-            if (distanceMin > distance)// && c.type != Character.types.GOALKEEPER)
+            if( DontGetGoalKeeper && c.type == Character.types.GOALKEEPER)
+            {
+
+            } else
+            if (distanceMin > distance  )
             {
                 if(ifHasControlGetSecond)
                 {

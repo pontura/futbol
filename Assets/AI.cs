@@ -22,7 +22,7 @@ public class AI : MonoBehaviour
     [HideInInspector] public AIHasBallGK aiHasBallGK;
 
     public AIState currentState;
-    [HideInInspector] public Vector3 originalPosition;
+    public Vector3 originalPosition;
 
     public string aiStateName;
     public MeshRenderer debugAsset;

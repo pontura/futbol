@@ -17,6 +17,7 @@ public class StadiumsData : MonoBehaviour
         public float size_x;
         public float size_y;
         public int totalPlayers;
+        public int charactersPositions_id;
     }
     void Awake()
     {
