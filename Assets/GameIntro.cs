@@ -26,7 +26,7 @@ public class GameIntro : MonoBehaviour
             character1.transform.localPosition = new Vector3(0.5f, 0.54f, 16);
             character2.transform.localPosition = new Vector3(-0.5f, 0.54f, 16);
 
-            if (a == Data.Instance.stadiumData.active.totalPlayers - 1)
+            if (a == 0)
             {
                 character1.type = Character.types.GOALKEEPER;
                 character2.type = Character.types.GOALKEEPER;

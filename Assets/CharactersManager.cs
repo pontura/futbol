@@ -37,7 +37,9 @@ public class CharactersManager : MonoBehaviour
     }
     public void Init(int totalPlayersActive)
     {
-        GetComponent<CharactersConstructor>().AddCharacters();
+        CharactersConstructor cc = GetComponent<CharactersConstructor>();
+        if(cc != null)  cc.AddCharacters();
+
         gameplaySettings = Data.Instance.settings.gameplay;
         totalPlayers = CharactersData.Instance.team1.Count;
         teamID_1 = 1;

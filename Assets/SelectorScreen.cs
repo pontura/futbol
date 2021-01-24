@@ -23,7 +23,7 @@ public class SelectorScreen : MonoBehaviour
     public Text[] character1_texts;
     public Text[] character2_texts;
     public int teamsDone;
-    int totalPlayers;
+    public int totalPlayers;
 
     public enum states
     {
@@ -37,9 +37,11 @@ public class SelectorScreen : MonoBehaviour
     {
         CharactersData.Instance.Init();
         Invoke("ButtonClicked", 0.75f);
-       // Events.OnButtonClick += OnButtonClick;
+        // Events.OnButtonClick += OnButtonClick;
 
-        for (int a = 0; a<Data.Instance.stadiumData.active.totalPlayers; a++)
+        totalPlayers = Data.Instance.stadiumData.active.totalPlayers;
+
+        for (int a = 0; a< totalPlayers; a++)
         {
             GameObject go;
             go = Instantiate(characterRuleta_to_instantiate, characters1_container.transform);
@@ -53,7 +55,7 @@ public class SelectorScreen : MonoBehaviour
         character1_texts = characters1_container.GetComponentsInChildren<Text>();
         character2_texts = characters2_container.GetComponentsInChildren<Text>();
 
-        totalPlayers = character1_texts.Length;
+        
 
         all = new List<Sprite>();
         foreach (Settings.TeamSettings data in Data.Instance.settings.teamSettings) all.Add(data.escudo);
@@ -108,8 +110,8 @@ public class SelectorScreen : MonoBehaviour
         Data.Instance.settings.selectedTeams = new Vector2(ruletaEscudo_team1.selectedID, ruletaEscudo_team2.selectedID);
         team1_field.text = Data.Instance.settings.teamSettings[ruletaEscudo_team1.selectedID].name;
         team2_field.text = Data.Instance.settings.teamSettings[ruletaEscudo_team2.selectedID].name;
-        SetCharacter(1, false);
-        SetCharacter(2, false);
+        SetCharacter(1, true);
+        SetCharacter(2, true);
     }
     public int team1_characterID;
     public int team2_characterID;
@@ -146,13 +148,12 @@ public class SelectorScreen : MonoBehaviour
     {
         int characterID;
         team1_characterID++;
-        if (team1_characterID >= totalPlayers)
+        if (team1_characterID == 1)
         {
             characterID = CharactersData.Instance.availablesTeam1_goalkeepers[id];
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
 
             CharactersData.Instance.AddCharacterToTeam(1, characterID);
-            TeamReady();
         }
         else
         {
@@ -160,24 +161,22 @@ public class SelectorScreen : MonoBehaviour
             character1_texts[team1_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
             CharactersData.Instance.AddCharacterToTeam(1, characterID);
-            if(team1_characterID == totalPlayers-1)
-                SetCharacter(1, true);
-            else
-                SetCharacter(1, false);
+            
         }
-
+        SetCharacter(1, false);
+        if (team1_characterID >= totalPlayers)
+            TeamReady();
     }
     void OnCharacterDoneTeam2(int id)
     {
         int characterID;
         team2_characterID++;
-        if (team2_characterID >= totalPlayers)
+        if (team2_characterID == 1)
         {
             characterID = CharactersData.Instance.availablesTeam2_goalkeepers[id];
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID, true).avatarName;
 
-            CharactersData.Instance.AddCharacterToTeam(2, characterID);
-            TeamReady();
+            CharactersData.Instance.AddCharacterToTeam(2, characterID);            
         }
         else
         {
@@ -185,13 +184,12 @@ public class SelectorScreen : MonoBehaviour
             character2_texts[team2_characterID-1].text = Data.Instance.textsData.GetCharactersData(characterID).avatarName;
 
             CharactersData.Instance.AddCharacterToTeam(2, characterID);
-            if (team2_characterID == totalPlayers - 1)
-                SetCharacter(2, true);
-            else
-                SetCharacter(2, false);
+           
         }
+        SetCharacter(2, false);
+        if (team2_characterID >= totalPlayers)
+            TeamReady();
 
-        
     }
     int teamsReady = 0;
     void TeamReady()
