@@ -60,7 +60,7 @@ public class GameIntro : MonoBehaviour
     void Ready()
     {
         StopAllCoroutines();
-        Data.Instance.LoadLevel(Data.Instance.stadiumData.active.sceneName);
+        Data.Instance.LoadLevel("Game");
         Events.OnSkipOff();
     }
     IEnumerator Init()

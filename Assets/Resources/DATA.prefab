@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   active:
     name: 
     sceneName: 
@@ -776,6 +776,7 @@ MonoBehaviour:
     size_y: 0
     totalPlayers: 0
     charactersPositions_id: 0
+    stadiumAsset: {fileID: 0}
   all:
   - name: Offshore Arena
     sceneName: Game
@@ -783,12 +784,16 @@ MonoBehaviour:
     size_y: 20.5
     totalPlayers: 5
     charactersPositions_id: 1
+    stadiumAsset: {fileID: 7454598723649077627, guid: 8be39126f37911d4c9018583395adb03,
+      type: 3}
   - name: Large
     sceneName: GameLarge
     size_x: 61
     size_y: 20.5
     totalPlayers: 7
     charactersPositions_id: 0
+    stadiumAsset: {fileID: 8849686315084780500, guid: b14e9c1e3e97825449d9078ad4a295d5,
+      type: 3}
 --- !u!114 &2085480492
 MonoBehaviour:
   m_ObjectHideFlags: 0
