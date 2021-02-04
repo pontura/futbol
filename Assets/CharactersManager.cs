@@ -72,6 +72,11 @@ public class CharactersManager : MonoBehaviour
 
         if (Data.Instance.settings.mainSettings.turn_off_team2)
             containerTeam2.SetActive(false);
+
+        foreach (Character ch in team1)
+            ch.SetOponent();
+        foreach (Character ch in team2)
+            ch.SetOponent();
     }
     public void InitPenalty(int totalPlayersActive)
     {
@@ -526,23 +531,57 @@ public class CharactersManager : MonoBehaviour
         }
         return pos;
     }
+    int rep = 0;
     public Character GetOponentFor(Character ch)
     {
-        List<Character> all;
-        Debug.Log("ch " + ch.teamID);
+        rep = 0;       
+        Character oponent =  GetOponentForType(ch, ch.type);
+       // Debug.Log("ch " + ch.teamID + " myType: " + ch.type + " fieldPosition: " + ch.fieldPosition + " oponent: " + oponent.teamID + " type: " + oponent.type + " fieldPosition: " + oponent.fieldPosition);
+        return oponent;
+    }
+    Character GetOponentForType(Character ch, Character.types myType)
+    {
+        rep++;
+        List<Character> all;        
 
         if (ch.teamID == 1) all = team2; else all = team1;
         foreach (Character c in all)
-            if (c.fieldPosition == ch.fieldPosition)
-            {
-                if (c.type == Character.types.DEFENSOR && ch.type == Character.types.DELANTERO)
-                    return c;
-                else if (c.type == Character.types.DELANTERO && ch.type == Character.types.DEFENSOR)
-                    return c;
-                else if (c.type == ch.type)
-                    return c;
-            }
-        Debug.Log("no hay oponente para " + ch.type);
-        return null;
+        {
+            //if (c.fieldPosition == ch.fieldPosition)
+            //{
+            if (c.type == Character.types.DEFENSOR && myType == Character.types.DELANTERO && !ThisOponentIsTaken(ch.teamID, c))
+                return c;
+            else if (c.type == Character.types.DELANTERO && myType == Character.types.DEFENSOR && !ThisOponentIsTaken(ch.teamID, c))
+                return c;
+            else if (c.type == Character.types.CENTRAL && myType == Character.types.CENTRAL && !ThisOponentIsTaken(ch.teamID, c))
+                return c;
+            else if (c.type == Character.types.GOALKEEPER && myType == Character.types.GOALKEEPER)
+                return c;
+            // }   
+        }
+
+        if (myType == Character.types.DELANTERO) myType = Character.types.CENTRAL;
+        else if(myType == Character.types.DEFENSOR) myType = Character.types.CENTRAL;
+        else if(Random.Range(0,10)<5)
+            myType = Character.types.DEFENSOR;
+        else
+            myType = Character.types.DELANTERO;
+
+        if (rep > 10)
+        {
+            Debug.LogError("no hay oponente para " + ch.type);
+            return null;
+        }
+        return GetOponentForType(ch, myType);
+       
+    }
+    bool ThisOponentIsTaken(int teamID, Character oponent)
+    {
+        List<Character> all;
+        if (teamID == 1) all = team1; else all = team2;
+        foreach (Character ch in all)
+            if (ch.oponent == oponent)
+                return true;
+        return false;
     }
 }

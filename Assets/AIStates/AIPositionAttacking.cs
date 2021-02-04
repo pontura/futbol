@@ -111,7 +111,10 @@ public class AIPositionAttacking : AIState
         }
         else if (ai.character.type == Character.types.CENTRAL)
         {
-            gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x, 0.7f);
+            float offset = Random.Range(-3, 7);
+            if (ai.character.teamID == 1)
+                offset *= -1;
+            gotoPosition.x = Mathf.Lerp(ai.originalPosition.x, ai.ball.transform.position.x + offset,  0.8f);
         }
         else
         {

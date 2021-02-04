@@ -9,6 +9,8 @@ public class MatchData : MonoBehaviour
     public int penaltyGoalKeeperTeamID;
     public int totalPlayers;
     public int lastGoalBy;
+    public int totalCharacters;
+    public int[] charactersPositions;
 
     void Start()
     {

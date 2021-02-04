@@ -20,7 +20,8 @@ public class CharactersConstructor : MonoBehaviour
         else container = Game.Instance.charactersManager.containerTeam2.transform;
 
         StadiumsData.StadiumData stadiumData = Data.Instance.stadiumData.active;
-        CharactersPositions.PositionsData positionsData = Data.Instance.charactersPositions.GetPositionsData(stadiumData.charactersPositions_id);
+        int charactersPositions_id = Data.Instance.matchData.charactersPositions[teamID-1];
+        CharactersPositions.PositionsData positionsData = Data.Instance.charactersPositions.GetPositionsData(charactersPositions_id);
         foreach (CharactersPositions.CharacterPositionData d in positionsData.posData)
         {
             Character thisCharacter;

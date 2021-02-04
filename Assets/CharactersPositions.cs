@@ -20,6 +20,19 @@ public class CharactersPositions : MonoBehaviour
         public Character.types type;
         public Vector2 pos;
     }
+    private void Awake()
+    {
+        //StartCoroutine(Load());
+    }
+    IEnumerator Load()
+    {
+        string url = Application.dataPath + "/StreamingAssets/characterPositions.json";
+        using (WWW www = new WWW(url))
+        {
+            yield return www;
+            all = JsonUtility.FromJson<PositionsData[]>(www.text);
+        }
+    }
     public PositionsData GetPositionsData(int id)
     {
         foreach(PositionsData p in all)

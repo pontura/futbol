@@ -15,8 +15,6 @@ public class StadiumsData : MonoBehaviour
         public string name;
         public float size_x;
         public float size_y;
-        public int totalPlayers;
-        public int charactersPositions_id;
         public GameObject stadiumAsset;
     }
     void Awake()

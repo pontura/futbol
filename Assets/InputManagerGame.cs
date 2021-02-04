@@ -5,7 +5,7 @@ using LeoLuz.PlugAndPlayJoystick;
 using System;
 public class InputManagerGame : MonoBehaviour
 {
-    float time_to_palancazo = 0.15f;
+    float time_to_palancazo = 0.25f;
     public CharactersManager charactersManager;
     public GameObject joystickAsset;
     public AnalogicKnob analogicKnob;
@@ -75,8 +75,8 @@ public class InputManagerGame : MonoBehaviour
 
                 if (charactersManager != null)
                     charactersManager.SetPosition(a+1, _x, _y);
-                if (_x != 0)
-                    SetNewInput_x(a, _x);
+                if (_y != 0)
+                    SetNewInput_x(a, _y);
             }        
 
             for (int a = 0; a < 2; a++)

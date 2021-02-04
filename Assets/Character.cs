@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
     public bool isBeingControlled;
     [HideInInspector] public AI ai;
     [HideInInspector] public float scaleFactor;
-    Character oponent;
+    public Character oponent;
     Vector2 limits_y;
     public Vector2 limits_x;
 
@@ -50,13 +50,10 @@ public class Character : MonoBehaviour
         colliders = GetComponents<Collider>();
         Loop();
     }
-    public Character Oponent
+    public void SetOponent ()
     {
-        get {
-            if (oponent == null)
-                oponent = charactersManager.GetOponentFor(this);
-            return oponent;
-        }
+        if (oponent == null)
+            oponent = charactersManager.GetOponentFor(this);
     }
     public void Init(int _temaID, CharactersManager charactersManager, GameObject asset_to_instantiate)
     {

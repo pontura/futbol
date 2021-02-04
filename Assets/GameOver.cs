@@ -28,14 +28,14 @@ public class GameOver : MonoBehaviour
         foreach (Character ch in charactersManager.team1)
         {
             id++;
-            if (id >= Data.Instance.stadiumData.active.totalPlayers)
+            if (id >= Data.Instance.matchData.totalPlayers)
                 ch.enabled = false;
         }
         id = 0;
         foreach (Character ch in charactersManager.team2)
         {
             id++;
-            if (id >= Data.Instance.stadiumData.active.totalPlayers)
+            if (id >= Data.Instance.matchData.totalPlayers)
                 ch.enabled = false;
         }
 

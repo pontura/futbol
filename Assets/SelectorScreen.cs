@@ -23,7 +23,7 @@ public class SelectorScreen : MonoBehaviour
     public Text[] character1_texts;
     public Text[] character2_texts;
     public int teamsDone;
-    public int totalPlayers;
+    public int totalCharacters;
 
     public enum states
     {
@@ -39,9 +39,9 @@ public class SelectorScreen : MonoBehaviour
         Invoke("ButtonClicked", 0.75f);
         // Events.OnButtonClick += OnButtonClick;
 
-        totalPlayers = Data.Instance.stadiumData.active.totalPlayers;
+        totalCharacters = Data.Instance.matchData.totalCharacters;
 
-        for (int a = 0; a< totalPlayers; a++)
+        for (int a = 0; a< totalCharacters; a++)
         {
             GameObject go;
             go = Instantiate(characterRuleta_to_instantiate, characters1_container.transform);
@@ -121,7 +121,7 @@ public class SelectorScreen : MonoBehaviour
         List<Sprite> all = CharactersData.Instance.GetAvailablePlayers(teamID, isGoalKeeper);
         if (teamID == 1)
         {
-            if (team1_characterID >= totalPlayers)
+            if (team1_characterID >= totalCharacters)
             {
                 TeamReady();
                 return;
@@ -133,7 +133,7 @@ public class SelectorScreen : MonoBehaviour
         }
         else
         {
-            if (team2_characterID >= totalPlayers)
+            if (team2_characterID >= totalCharacters)
             {
                 TeamReady();
                 return;
@@ -164,7 +164,7 @@ public class SelectorScreen : MonoBehaviour
             
         }
         SetCharacter(1, false);
-        if (team1_characterID >= totalPlayers)
+        if (team1_characterID >= totalCharacters)
             TeamReady();
     }
     void OnCharacterDoneTeam2(int id)
@@ -187,7 +187,7 @@ public class SelectorScreen : MonoBehaviour
            
         }
         SetCharacter(2, false);
-        if (team2_characterID >= totalPlayers)
+        if (team2_characterID >= totalCharacters)
             TeamReady();
 
     }

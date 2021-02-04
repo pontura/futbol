@@ -656,7 +656,7 @@ MonoBehaviour:
   startingUIForceBar: 0.15
   input_x_sensibilitty: 4
   scaleFactor: 0.6
-  gkSpeed_sale_x: 2.7
+  gkSpeed_sale_x: 0.2
   gkSpeed_sale_z: 4
   loaded: 0
   stats_by_character: []
@@ -726,6 +726,8 @@ MonoBehaviour:
   penaltyGoalKeeperTeamID: 1
   totalPlayers: 0
   lastGoalBy: 0
+  totalCharacters: 7
+  charactersPositions: 0000000000000000
 --- !u!114 &1526771217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,30 +770,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   active:
     name: 
-    sceneName: 
     size_x: 0
     size_y: 0
-    totalPlayers: 0
-    charactersPositions_id: 0
     stadiumAsset: {fileID: 0}
   all:
   - name: Offshore Arena
-    sceneName: Game
     size_x: 41
     size_y: 20.5
-    totalPlayers: 5
-    charactersPositions_id: 1
     stadiumAsset: {fileID: 7454598723649077627, guid: 8be39126f37911d4c9018583395adb03,
       type: 3}
   - name: Large
-    sceneName: GameLarge
     size_x: 61
     size_y: 20.5
-    totalPlayers: 7
-    charactersPositions_id: 0
     stadiumAsset: {fileID: 8849686315084780500, guid: b14e9c1e3e97825449d9078ad4a295d5,
       type: 3}
 --- !u!114 &2085480492
@@ -834,9 +827,26 @@ MonoBehaviour:
       pos: {x: 0.5, y: -0.2}
     - type: 2
       pos: {x: 0.2, y: 0.7}
-    - type: 0
+    - type: 2
       pos: {x: 0.2, y: -0.7}
   - id: 1
+    name: 1+2+3
+    posData:
+    - type: 3
+      pos: {x: 0.9, y: 0}
+    - type: 0
+      pos: {x: 0.7, y: 0.7}
+    - type: 0
+      pos: {x: 0.65, y: 0}
+    - type: 0
+      pos: {x: 0.7, y: -0.7}
+    - type: 1
+      pos: {x: 0.5, y: -0.2}
+    - type: 1
+      pos: {x: 0.5, y: 0.2}
+    - type: 2
+      pos: {x: 0.2, y: -0.5}
+  - id: 2
     name: 2+2
     posData:
     - type: 3

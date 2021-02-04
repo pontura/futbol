@@ -84,7 +84,7 @@ public class AIPositionDefending : AIState
 
         
         if (Mathf.Sign(ballPos.x) == Mathf.Sign(ai.originalPosition.x))
-            gotoPosition = ai.character.Oponent.transform.position;
+            gotoPosition = ai.character.oponent.transform.position;
         else
         {
             float diffPos = 0.5f;
@@ -94,7 +94,7 @@ public class AIPositionDefending : AIState
                 diffPos = 0.7f;
             else if (ai.character.type == Character.types.DELANTERO)
                 diffPos = 0.8f;
-            gotoPosition = Vector3.Lerp(ai.originalPosition, ai.character.Oponent.transform.position, diffPos);
+            gotoPosition = Vector3.Lerp(ai.originalPosition, ai.character.oponent.transform.position, diffPos);
         }
             
 
