@@ -5,8 +5,13 @@ using System;
 
 public class CharactersPositions : MonoBehaviour
 {
-    public PositionsData[] all;
+    public All all;
 
+    [Serializable]
+    public class All
+    {
+        public PositionsData[] all;
+    }
     [Serializable]
     public class PositionsData
     {
@@ -18,11 +23,11 @@ public class CharactersPositions : MonoBehaviour
     public class CharacterPositionData
     {
         public Character.types type;
-        public Vector2 pos;
+        public float[] pos;
     }
     private void Awake()
     {
-        //StartCoroutine(Load());
+        StartCoroutine(Load());
     }
     IEnumerator Load()
     {
@@ -30,12 +35,12 @@ public class CharactersPositions : MonoBehaviour
         using (WWW www = new WWW(url))
         {
             yield return www;
-            all = JsonUtility.FromJson<PositionsData[]>(www.text);
+            all = JsonUtility.FromJson<All>(www.text);
         }
     }
     public PositionsData GetPositionsData(int id)
     {
-        foreach(PositionsData p in all)
+        foreach(PositionsData p in all.all)
         {
             if (p.id == id)
                 return p;

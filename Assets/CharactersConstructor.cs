@@ -33,8 +33,8 @@ public class CharactersConstructor : MonoBehaviour
             thisCharacter.type = d.type;
             thisCharacter.transform.SetParent(container);
             thisCharacter.transform.localScale = Vector3.one;
-            float _x = d.pos.x * stadiumData.size_x / 2;
-            float _z = d.pos.y * stadiumData.size_y / 2;
+            float _x = d.pos[0] * stadiumData.size_x / 2;
+            float _z = d.pos[1] * stadiumData.size_y / 2;
 
             if (teamID == 2)
                 _x *= -1;
