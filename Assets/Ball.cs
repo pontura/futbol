@@ -129,7 +129,7 @@ public class Ball : MonoBehaviour
                     CharacterCatchBall(character);
                 else
                     character.actions.GoalKeeperJump();
-            }
+            }            
             else if (transform.localPosition.y > 1.5f &&
                       (character.teamID == 1 && transform.position.x < -limits.x / 5
                     || character.teamID == 2 && transform.position.x > limits.x / 5))
@@ -141,6 +141,10 @@ public class Ball : MonoBehaviour
 
                 AimGoal(character);
                 Kick(CharacterActions.kickTypes.CHILENA);
+            }
+            else if (transform.localPosition.y > 1.5f)
+            {
+                character.actions.Kicked();
             }
             else
             {
