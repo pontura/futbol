@@ -205,7 +205,7 @@ public class Character : MonoBehaviour
     }
     public void Jueguito()
     {
-        if (actions.state == CharacterActions.states.JUEGUITO)
+        if (type == types.GOALKEEPER || actions.state == CharacterActions.states.JUEGUITO)
             return;
         StopAllCoroutines();
         actions.Jueguito();
@@ -273,10 +273,7 @@ public class Character : MonoBehaviour
                 else actions.LookTo(1);
             }                
             actions.Run();
-        }
-
-        if (transform.position.z > limits_y.x ) _y = -1;
-        else if (transform.position.z < limits_y.y) _y = 1;
+        }      
 
         Vector3 aimVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
         if (actions.state == CharacterActions.states.AIMING_KICK)
@@ -288,6 +285,10 @@ public class Character : MonoBehaviour
         {
             direction = new Vector2(_x, _y);
         }
+
+        if (transform.position.z > limits_y.x) _y = -1;
+        else if (transform.position.z < limits_y.y) _y = 1;
+
         Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
         
         if (actions.state == CharacterActions.states.AIMING_KICK)
