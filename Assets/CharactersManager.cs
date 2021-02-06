@@ -111,8 +111,21 @@ public class CharactersManager : MonoBehaviour
             AddCharacter(1);
         }        
     }
+    Character GetSacaCharacter(List<Character> team)
+    {
+        foreach (Character ch in team)
+            if (ch.type == Character.types.DELANTERO)
+                return ch;
+        return null;
+    }
     public void ResetAll()
     {
+        List<Character> team;
+        if (Data.Instance.matchData.lastGoalBy == 1)
+            team = team2;
+        else
+            team = team1;        
+
         foreach (Character c in team1)
         {
             c.ai.ResetPosition();
@@ -124,6 +137,13 @@ public class CharactersManager : MonoBehaviour
             c.ai.ResetPosition();
             c.actions.LookAtBall();
             c.actions.Idle();
+        }
+        Character saca = GetSacaCharacter(team);
+        if (saca != null)
+        {
+            AI ai = GetSacaCharacter(team).ai;
+            if (ai != null)
+                ai.SetInitialCharacterPosition();
         }
     }
     void Loop()

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    public GameObject team1_container;
+    public GameObject team2_container;
     public float speed = 2;
     public Animation cameraInGame;
     public CharactersManager charactersManager;
@@ -25,23 +27,28 @@ public class GameOver : MonoBehaviour
         }
 
         int id = 0;
-        foreach (Character ch in charactersManager.team1)
+        Character[] team1 = team1_container.GetComponentsInChildren<Character>();
+        Character[] team2 = team2_container.GetComponentsInChildren<Character>();
+
+        foreach (Character ch in team1)
         {
             id++;
-            if (id >= Data.Instance.matchData.totalPlayers)
-                ch.enabled = false;
+            if (id >= Data.Instance.matchData.totalCharacters)
+                ch.gameObject.SetActive(false);
         }
         id = 0;
-        foreach (Character ch in charactersManager.team2)
+        foreach (Character ch in team2)
         {
             id++;
-            if (id >= Data.Instance.matchData.totalPlayers)
-                ch.enabled = false;
+            if (id >= Data.Instance.matchData.totalCharacters)
+                ch.gameObject.SetActive(false);
         }
 
+        charactersManager.Init(0);
+        charactersManager.referi.actions.Pita();
+
         Events.ChangeVolume("crowd_gol", 0.25f);
-        //charactersManager.Init(0);
-       // charactersManager.referi.actions.Pita();
+       
         Events.OnOutroSound(OnPita, audioID);
         
         Invoke("Delayed", 1);

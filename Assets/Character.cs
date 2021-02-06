@@ -68,11 +68,13 @@ public class Character : MonoBehaviour
         if (type == Character.types.GOALKEEPER)
         {
             dataSources = CharactersData.Instance.all_goalkeepers[data.id - 1];
-            speed = stats.goalKeeperSpeed;
+            if(stats != null)
+                speed = stats.goalKeeperSpeed;
         }   else
         {
             dataSources = CharactersData.Instance.all[data.id - 1];
-            speed = stats.speed;
+            if (stats != null)
+                speed = stats.speed;
         }
         
         GameObject asset = Instantiate(asset_to_instantiate);
