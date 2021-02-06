@@ -55,5 +55,10 @@ public class MatchData : MonoBehaviour
         } else
             Invoke("Loop", 1);
     }
+    public void SetCharactersPositions(int team1, int team2)
+    {
+        charactersPositions[0] = team1;
+        charactersPositions[1] = team2;
+    }
 
 }

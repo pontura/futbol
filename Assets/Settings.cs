@@ -162,7 +162,6 @@ public class Settings : MonoBehaviour
                             default: gameplayStats.characterType = Character.types.GOALKEEPER; break;
                         }
                         stats_by_character.Add(gameplayStats);
-                        print(data + " " + gameplayStats.characterType);
                     }
                 } 
                 else if (colID == 0)

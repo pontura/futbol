@@ -16,7 +16,7 @@ public class GameIntro : MonoBehaviour
     void Start()
     {
 
-        totalCharacters = Data.Instance.matchData.totalPlayers;
+        totalCharacters = Data.Instance.matchData.totalCharacters;
 
         for (int a = 0; a < totalCharacters; a++)
         {

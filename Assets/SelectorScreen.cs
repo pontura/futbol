@@ -198,12 +198,11 @@ public class SelectorScreen : MonoBehaviour
         if(teamsReady>=2)
         {
             SetReferi();
-        }
-            
+        }            
     }
     void Go()
     {
-        Data.Instance.LoadLevel("GameIntro");
+        Data.Instance.LoadLevel("Positions");
     }
     void SetReferi()
     {

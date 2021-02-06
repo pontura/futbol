@@ -10,6 +10,11 @@ public class InputManagerUI : MonoBehaviour
     public float verticalAxis_team_1;
     public float verticalAxis_team_2;
 
+    float lastXDirection_team1;
+    float lastYDirection_team1;
+
+    float lastXDirection_team2;
+    float lastYDirection_team2;
 
     public enum buttonTypes
     {
@@ -70,10 +75,29 @@ public class InputManagerUI : MonoBehaviour
                 if (InputManager.instance.GetButtonUp(id, InputAction.action3))
                     Events.OnButtonClick(id + 1, 3);
             }
-            horizontalAxis_team_1 = InputManager.instance.GetAxis(0, InputAction.horizontal);
-            horizontalAxis_team_2 = InputManager.instance.GetAxis(1, InputAction.horizontal);
-            verticalAxis_team_1 = InputManager.instance.GetAxis(0, InputAction.vertical);
-            verticalAxis_team_2 = InputManager.instance.GetAxis(1, InputAction.vertical);
+            horizontalAxis_team_1 = (int)Mathf.Round(InputManager.instance.GetAxis(0, InputAction.horizontal));
+            horizontalAxis_team_2 = (int)Mathf.Round(InputManager.instance.GetAxis(1, InputAction.horizontal));
+            verticalAxis_team_1 = (int)Mathf.Round(InputManager.instance.GetAxis(0, InputAction.vertical));
+            verticalAxis_team_2 = (int)Mathf.Round(InputManager.instance.GetAxis(1, InputAction.vertical));
+
+            if(lastXDirection_team1 != horizontalAxis_team_1)
+            {
+                if (horizontalAxis_team_1 > 0.5f)
+                    Events.OnRight(1, true);
+                else if (horizontalAxis_team_1 < -0.5f)
+                    Events.OnRight(1, false);
+                lastXDirection_team1 = horizontalAxis_team_1;
+            }
+            else
+            if (lastXDirection_team2 != horizontalAxis_team_2)
+            {
+                if (horizontalAxis_team_2 > 0.5f)
+                    Events.OnRight(2, true);
+                else if (horizontalAxis_team_2 < -0.5f)
+                    Events.OnRight(2, false);
+                lastXDirection_team2 = horizontalAxis_team_2;
+            }
+
         }
 
 

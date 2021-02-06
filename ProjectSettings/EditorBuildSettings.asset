@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Selector.unity
     guid: 956ed58ae2567e046a09bb98ee377f5f
   - enabled: 1
+    path: Assets/Scenes/Positions.unity
+    guid: 893e17b46316d7d479e4d37851622b1d
+  - enabled: 1
     path: Assets/Scenes/GameIntro.unity
     guid: 54cb5491bb5692e4887ad946b45ef1d7
   - enabled: 1
