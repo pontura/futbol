@@ -67,6 +67,8 @@ public class GoalMoment : MonoBehaviour
         state = states.IDLE;
         StartCoroutine( Game.Instance.OnWaitToStart() );
         winners = null;
+
+        UIMain.Instance.OnShow();
     }
     void Update()
     {

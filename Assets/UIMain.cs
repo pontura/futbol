@@ -22,14 +22,12 @@ public class UIMain : MonoBehaviour
     void Start()
     {
         Events.OnGoal += OnGoal;
-        Events.OnRestartGame += OnRestartGame;
     }
     void OnDestroy()
     {
         Events.OnGoal -= OnGoal;
-        Events.OnRestartGame -= OnRestartGame;
     }
-    void OnRestartGame()
+    public void OnShow()
     {
         all.SetActive(true);
     }
