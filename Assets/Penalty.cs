@@ -96,23 +96,23 @@ public class Penalty : MonoBehaviour
 
         if (Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)
         {
-            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_2, (float)inputManager.verticalAxis_team_2);
-            characterDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
+            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis[1], 0);
+            characterDirection = new Vector2((float)inputManager.horizontalAxis[0], 0);
         } 
         else
         {
-            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis_team_1, (float)inputManager.verticalAxis_team_1);
-            characterDirection = new Vector2((float)inputManager.horizontalAxis_team_2, (float)inputManager.verticalAxis_team_2);
+            goalKeeperDirection = new Vector2((float)inputManager.horizontalAxis[0], 0);
+            characterDirection = new Vector2((float)inputManager.horizontalAxis[1], 0);
         }
 
         pos.x += goalkeeperSpeed * Time.deltaTime * goalKeeperDirection.x;
-        pos.z += (goalkeeperSpeed/2) * Time.deltaTime * inputManager.verticalAxis_team_2;
+        //pos.z += (goalkeeperSpeed/2) * Time.deltaTime * inputManager.verticalAxis_team_2;
         if (pos.z < 8.7f) pos.z = 8.7f; else if (pos.z > 9.6f) pos.z = 9.6f;
         float _x_max = 0.2f;
         if (pos.x < -_x_max) pos.x = -_x_max; else if (pos.x > _x_max) pos.x = _x_max;
        // goalKeeper.transform.localPosition = pos;
 
-        if (goalKeeperDirection.x != 0 || inputManager.verticalAxis_team_2 != 0)
+        if (goalKeeperDirection.x != 0)// || inputManager.verticalAxis_team_2 != 0)
         {
             //goalKeeper.actions.Run();
             //if (goalKeeperDirection.x > 0)         goalKeeper.actions.LookTo(1);

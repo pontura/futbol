@@ -202,7 +202,7 @@ public class SelectorScreen : MonoBehaviour
     }
     void Go()
     {
-        Data.Instance.LoadLevel("Positions");
+        Data.Instance.LoadLevel("PlayersTeamSelector");
     }
     void SetReferi()
     {

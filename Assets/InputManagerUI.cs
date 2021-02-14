@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class InputManagerUI : MonoBehaviour
 {
-    public float horizontalAxis_team_1;
-    public float horizontalAxis_team_2;
+    public float[] horizontalAxis;
+    public float[] verticalAxis;
 
-    public float verticalAxis_team_1;
-    public float verticalAxis_team_2;
-
-    float lastXDirection_team1;
-    float lastYDirection_team1;
-
-    float lastXDirection_team2;
-    float lastYDirection_team2;
+    float[] lastXDirection;
+    float[] lastYDirection;
 
     public enum buttonTypes
     {
@@ -22,28 +16,23 @@ public class InputManagerUI : MonoBehaviour
         BUTTON_2,
         BUTTON_3
     }
+    private void Start()
+    {
+        horizontalAxis = new float[4];
+        verticalAxis = new float[4];
+
+        lastXDirection = new float[4];
+        lastYDirection = new float[4];
+    }
     void Update()
     {
         if (Data.Instance.isMobile)
         {
-
-            //if (Input.GetButtonDown("Button1_1") && !charactersManager.player1) charactersManager.AddCharacter(1);
-            //if (Input.GetButtonDown("Button1_2") && !charactersManager.player2) charactersManager.AddCharacter(2);
-            //if (Input.GetButtonDown("Button1_3") && !charactersManager.player3) charactersManager.AddCharacter(3);
-            //if (Input.GetButtonDown("Button1_4") && !charactersManager.player4) charactersManager.AddCharacter(4);
-
             for (int id = 1; id < 3; id++)
             {
-                if (id == 1)
-                {
-                    horizontalAxis_team_1 = Input.GetAxis("Horizontal" + id);
-                    verticalAxis_team_1 = Input.GetAxis("Vertical" + id);
-                }
-                else
-                {
-                    horizontalAxis_team_2 = Input.GetAxis("Horizontal" + id);
-                    verticalAxis_team_2 = Input.GetAxis("Vertical" + id);
-                }
+
+                horizontalAxis[id-1] = Input.GetAxis("Horizontal" + id);
+                verticalAxis[id-1] = Input.GetAxis("Vertical" + id);
 
                 if (Input.GetButtonDown("Button1_" + id))
                     Events.OnButtonPressed(id, buttonTypes.BUTTON_1);
@@ -59,10 +48,10 @@ public class InputManagerUI : MonoBehaviour
         else
         {
             int id = 0;
-            for (id = 0; id < 2; id++)
+            for (id = 0; id < 4; id++)
             {
                 if (InputManager.instance.GetButtonDown(id, InputAction.action1))
-                    Events.OnButtonDown(id+1,1);
+                    Events.OnButtonDown(id + 1,1);
                 if (InputManager.instance.GetButtonDown(id, InputAction.action2))
                     Events.OnButtonDown(id + 1, 2);
                 if (InputManager.instance.GetButtonDown(id, InputAction.action3))
@@ -74,28 +63,18 @@ public class InputManagerUI : MonoBehaviour
                     Events.OnButtonClick(id + 1, 2);
                 if (InputManager.instance.GetButtonUp(id, InputAction.action3))
                     Events.OnButtonClick(id + 1, 3);
-            }
-            horizontalAxis_team_1 = (int)Mathf.Round(InputManager.instance.GetAxis(0, InputAction.horizontal));
-            horizontalAxis_team_2 = (int)Mathf.Round(InputManager.instance.GetAxis(1, InputAction.horizontal));
-            verticalAxis_team_1 = (int)Mathf.Round(InputManager.instance.GetAxis(0, InputAction.vertical));
-            verticalAxis_team_2 = (int)Mathf.Round(InputManager.instance.GetAxis(1, InputAction.vertical));
 
-            if(lastXDirection_team1 != horizontalAxis_team_1)
-            {
-                if (horizontalAxis_team_1 > 0.5f)
-                    Events.OnRight(1, true);
-                else if (horizontalAxis_team_1 < -0.5f)
-                    Events.OnRight(1, false);
-                lastXDirection_team1 = horizontalAxis_team_1;
-            }
-            else
-            if (lastXDirection_team2 != horizontalAxis_team_2)
-            {
-                if (horizontalAxis_team_2 > 0.5f)
-                    Events.OnRight(2, true);
-                else if (horizontalAxis_team_2 < -0.5f)
-                    Events.OnRight(2, false);
-                lastXDirection_team2 = horizontalAxis_team_2;
+                horizontalAxis[id] = (int)Mathf.Round(InputManager.instance.GetAxis(id, InputAction.horizontal));
+                verticalAxis[id] = (int)Mathf.Round(InputManager.instance.GetAxis(id, InputAction.vertical));
+
+                if (lastXDirection[id] != horizontalAxis[id])
+                {
+                    if (horizontalAxis[id] > 0.25f)
+                        Events.OnRight(id+1, true);
+                    else if (horizontalAxis[id] < -0.25f)
+                        Events.OnRight(id+1, false);
+                    lastXDirection[id] = horizontalAxis[id];
+                }
             }
 
         }

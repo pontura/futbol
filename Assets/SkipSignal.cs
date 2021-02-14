@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class SkipSignal : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
-    bool isOn;
-    float timer = 0;
-    float totalTime = 1;
+    public bool isOn;
+    public float timer = 0;
+    public float totalTime = 1;
     [SerializeField] private Image progressBar;
     System.Action OnReady;
-    bool pressed;
+    public bool pressed;
 
     void Start()
     {
@@ -23,9 +23,11 @@ public class SkipSignal : MonoBehaviour
     }
     void OnSkipOff()
     {
+        print("OnSkipOff");
         pressed = false;
         isOn = false;
         panel.SetActive(false);
+        Reset();
     }
     private void Update()
     {
@@ -47,9 +49,11 @@ public class SkipSignal : MonoBehaviour
     }
     void OnSkipOn(System.Action OnReady)
     {
+        print("OnSkipOn");
         isOn = true;
         this.OnReady = OnReady;
         Reset();
+        pressed = false;
     }
     private void Reset()
     {
@@ -70,7 +74,7 @@ public class SkipSignal : MonoBehaviour
     void Done()
     {
         isOn = false;
-        OnReady();
         OnSkipOff();
+        OnReady();        
     }
 }

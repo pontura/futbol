@@ -58,7 +58,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &419260961
 MonoBehaviour:
@@ -741,10 +741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ff695a72d39ca4b814c1b1e918ba3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalAxis_team_1: 0
-  horizontalAxis_team_2: 0
-  verticalAxis_team_1: 0
-  verticalAxis_team_2: 0
+  horizontalAxis: []
+  verticalAxis: []
 --- !u!114 &1526771218
 MonoBehaviour:
   m_ObjectHideFlags: 0

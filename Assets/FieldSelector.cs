@@ -41,5 +41,6 @@ public class FieldSelector : MonoBehaviour
         Data.Instance.settings.mainSettings.stadium_id = id;
         Data.Instance.stadiumData.SetActiveStadium(id);
         Data.Instance.LoadLevel("Selector");
+        
     }
 }

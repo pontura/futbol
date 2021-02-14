@@ -49,14 +49,6 @@ public class InputManagerGame : MonoBehaviour
         if (Game.Instance.state != Game.states.PLAYING)
             return;
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(Time.timeScale == 0)
-                Time.timeScale = Data.Instance.settings.timeScale;
-            else
-                Time.timeScale = 0;
-        }
-
         if (Data.Instance.isMobile)
         {
             float _x = analogicKnob.NormalizedAxis.x;
