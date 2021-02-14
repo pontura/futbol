@@ -54,10 +54,10 @@ public class Game : MonoBehaviour
         Events.PlaySound("crowd", "crowd_quiet", true);        
         Events.PlaySound("common", "ballEnter", false);
         if (state == states.PENALTY)
-            charactersManager.InitPenalty(1);
+            charactersManager.InitPenalty();
         else
         {
-            charactersManager.Init(Data.Instance.settings.totalPlayers);
+            charactersManager.Init();
             StartCoroutine(OnWaitToStart());
         }
         Events.GameInit();

@@ -5,8 +5,8 @@ using System;
 
 public class Settings : MonoBehaviour
 {
+    public int totalPlayersAvailable = 4;
     public string fileName = "FulboStars - Easy";
-    public int totalPlayers = 1;
     public int totalTime;
     public TeamSettings[] teamSettings;
 

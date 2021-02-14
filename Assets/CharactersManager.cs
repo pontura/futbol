@@ -10,10 +10,6 @@ public class CharactersManager : MonoBehaviour
     public Referi referi;
     Vector2 limits;
     Ball ball;
-    public bool player1;
-    public bool player2;
-    public bool player3;
-    public bool player4;
 
     int totalPlayers = 0;
     public GameObject containerTeam1, containerTeam2;
@@ -35,7 +31,7 @@ public class CharactersManager : MonoBehaviour
         Events.OnGoal -= OnGoal;
         Events.KickToGoal -= KickToGoal;
     }
-    public void Init(int totalPlayersActive)
+    public void Init()
     {
         CharactersConstructor cc = GetComponent<CharactersConstructor>();
         if(cc != null)  cc.AddCharacters();
@@ -65,8 +61,15 @@ public class CharactersManager : MonoBehaviour
         }
         Loop();
 
-        for (int a = 0; a < totalPlayersActive; a++)
-            AddCharacter(a+1);
+        if (Data.Instance.newScene == "Game")
+        {
+            for (int a = 0; a < Data.Instance.matchData.players.Length; a++)
+            {
+                int teamID = Data.Instance.matchData.players[a];
+                if (teamID != 0) AddCharacter(a + 1, teamID);
+            }
+        }
+            
 
         ResetAll();
 
@@ -78,7 +81,7 @@ public class CharactersManager : MonoBehaviour
         foreach (Character ch in team2)
             ch.SetOponent();
     }
-    public void InitPenalty(int totalPlayersActive)
+    public void InitPenalty()
     {
         teamID_1 = 1;
         teamID_2 = 2;
@@ -106,10 +109,7 @@ public class CharactersManager : MonoBehaviour
         team2.Add(character);
         character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, 0, true));
 
-        if (totalPlayersActive > 0)
-        {
-            AddCharacter(1);
-        }        
+        AddCharacter(1, 1);
     }
     Character GetSacaCharacter(List<Character> team)
     {
@@ -206,14 +206,9 @@ public class CharactersManager : MonoBehaviour
         Character characterNear = GetNearest(character.teamID, true, ball.transform.position);
         SwapTo(characterNear, character);
     }
-    public void AddCharacter(int id)
+    public void AddCharacter(int id, int teamID)
     {
-        int teamID = GetTeamByPlayer(id);
-
-        if (id == 1) player1 = true;
-        else if(id == 2) player2 = true;
-        else if(id == 3) player3 = true;
-        else if(id == 4) player4 = true;
+        //int teamID = GetTeamByPlayer(id);
 
         Character character = GetNextCharacterByTeam(teamID);
         character.control_id = id;
@@ -221,11 +216,9 @@ public class CharactersManager : MonoBehaviour
         signals.Add(character);
         character.SetControlled(true);
     }
-    int GetTeamByPlayer(int characterID)
+    int GetTeamByPlayer(int id)
     {
-        int teamID = 1;
-        if (characterID == 2 || characterID == 4) teamID = 2;
-        return teamID;
+        return Data.Instance.matchData.players[id - 1];
     }
     //hasControl = if true solo busca entre los activos.
     public Character GetNearestTo(Character myCharacter, int teamID)

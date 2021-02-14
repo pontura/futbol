@@ -528,9 +528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b930e79caea734f821d118633cad65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalPlayersAvailable: 4
   fileName: FulboStars - Easy
-  totalPlayers: 1
-  totalTime: 260
+  totalTime: 2601
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
     name: Sportivo Punga
@@ -656,7 +656,7 @@ MonoBehaviour:
   startingUIForceBar: 0.15
   input_x_sensibilitty: 4
   scaleFactor: 0.6
-  gkSpeed_sale_x: 0.2
+  gkSpeed_sale_x: 0.1
   gkSpeed_sale_z: 4
   loaded: 0
   stats_by_character: []
@@ -721,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d153422ac27de43827015ccd1a437c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: 01000000000000000000000000000000
   secs: 0
   score: {x: 0, y: 0}
   penaltyGoalKeeperTeamID: 1

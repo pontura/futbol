@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MatchData : MonoBehaviour
 {
+    public int[] players;
     public int secs;
     public Vector2 score;
     public int penaltyGoalKeeperTeamID;
@@ -12,11 +13,19 @@ public class MatchData : MonoBehaviour
     public int totalCharacters;
     public int[] charactersPositions;
 
-    void Start()
+    private void Awake()
     {
-        totalPlayers = 1;
+        AddPlayer(1, 1);
+    }
+    void Start()
+    {        
         secs = Data.Instance.settings.totalTime;
-        Events.GameInit += GameInit;
+        Events.GameInit += GameInit;        
+    }
+    public void AddPlayer(int id, int teamID)
+    {
+        players[id - 1] = teamID;
+        totalPlayers++;
     }
     private void OnDestroy()
     {

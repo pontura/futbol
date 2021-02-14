@@ -41,7 +41,7 @@ public class GameIntro : MonoBehaviour
         GetComponent<DialoguesManager>().Init();
         Events.ChangeVolume("croud", 0.25f);
 
-        charactersManager.Init(0);
+        charactersManager.Init();
         charactersManager.referi.gameObject.SetActive(false);
 
         foreach (Character ch in charactersManager.team1)

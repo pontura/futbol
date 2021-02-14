@@ -5,6 +5,7 @@ using LeoLuz.PlugAndPlayJoystick;
 using System;
 public class InputManagerGame : MonoBehaviour
 {
+    int totalPlayersAvailable;
     float time_to_palancazo = 0.25f;
     public CharactersManager charactersManager;
     public GameObject joystickAsset;
@@ -21,7 +22,9 @@ public class InputManagerGame : MonoBehaviour
 
     private void Start()
     {
-        for (int a = 0; a < 2; a++)
+        totalPlayersAvailable = Data.Instance.settings.totalPlayersAvailable;
+
+        for (int a = 0; a < 4; a++)
             playerInputs.Add(new PlayerInput());
 
         if (Data.Instance.isMobile)
@@ -66,7 +69,7 @@ public class InputManagerGame : MonoBehaviour
         }
         else
         {
-            for (int a = 0; a < Data.Instance.settings.totalPlayers; a++)
+            for (int a = 0; a < totalPlayersAvailable; a++)
             {
                 float _x = InputManager.instance.GetAxis(a, InputAction.horizontal) * input_x_sensibilitty;
                 float _y = InputManager.instance.GetAxis(a, InputAction.vertical);
@@ -120,11 +123,14 @@ public class InputManagerGame : MonoBehaviour
     {
         if (playerID == 1)
             lastButtonDown_p1 = buttonID;
-        else
+        else if (playerID == 2)
         {
-            if(Data.Instance.settings.totalPlayers == 1)
+            if(Data.Instance.matchData.players[playerID-1] != 0)
             {
-                AddPlayer();
+                int teamID = 1;
+                if (playerID == 2 || playerID == 4)  teamID = 2;
+                Data.Instance.matchData.AddPlayer(playerID, teamID);                
+                AddPlayer(playerID, teamID);
                 return;
             }
             lastButtonDown_p2 = buttonID;
@@ -146,10 +152,9 @@ public class InputManagerGame : MonoBehaviour
         else
             Events.OnButtonClick(buttonID, playerID);
     }
-    void AddPlayer()
+    void AddPlayer(int playerID, int teamID)
     {
-        Data.Instance.settings.totalPlayers++;
-        Game.Instance.charactersManager.AddCharacter(2);
+        Game.Instance.charactersManager.AddCharacter(playerID, teamID);
     }
     void SetNewInput_x(int playerID, float _x)
     {

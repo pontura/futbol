@@ -44,7 +44,7 @@ public class GameOver : MonoBehaviour
                 ch.gameObject.SetActive(false);
         }
 
-        charactersManager.Init(0);
+        charactersManager.Init();
         charactersManager.referi.actions.Pita();
 
         Events.ChangeVolume("crowd_gol", 0.25f);
