@@ -1,4 +1,4 @@
-Accion,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
+  ,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
 speed,32,0,0,-5,0
 speedRun,50,0,0,-5,0
 speedRunFade,15,0,0,-5,0
@@ -10,7 +10,7 @@ random_steal_ball,50,-10,-20,-30,0
 distance_to_dash_ai,28,-5,-5,-5,-5
 dash_percent_attacking,200,-20,-20,-20,-20
 dash_percent_defending,400,-20,-20,-20,-20
-goalKeeperSpeed,10,0,0,0,0
+goalKeeperSpeed,12,0,0,0,0
 freeze_by_kick,30,5,5,5,0
 freeze_dash,15,5,5,5,0
 freeze_by_loseBall,10,5,5,5,0
@@ -20,18 +20,18 @@ distanceToForceCentro,7,0,0,0,0
 timeToSwapCharactersAutomatically,7,0,0,0,0
 defenseDelay,11,5,5,5,5
 attackDelay,7,5,5,5,5
-gk_FlyingDuration,50,,,,-10
-gk_FlyingSpeed,10,,,,-2
+gk_FlyingDuration,60,,,,-10
+gk_FlyingSpeed,12,,,,-2
 gk_CatchOnAir,660,0,0,0,-200
-kickHard,6200,-20,-20,-20,-20
-kickHardAngle,2200,0,0,0,0
-kickSoft,4000,-20,-20,-20,-20
-kickSoftAngle,900,0,0,0,0
-kickBaloon,2000,-20,-20,-20,-20
+kickHard,3400,-20,-20,-20,-20
+kickHardAngle,2000,0,0,0,0
+kickSoft,3900,-20,-20,-20,-20
+kickSoftAngle,1100,0,0,0,0
+kickBaloon,2100,-20,-20,-20,-20
 kickBaloonAngle,2800,0,0,0,0
-kickHead,1700,-20,-20,-20,-20
+kickHead,1500,-20,-20,-20,-20
 kickHeadAngle,1300,0,0,0,0
-kickChilena,4500,-20,-20,-20,-20
+kickChilena,3800,-20,-20,-20,-20
 kickChilenaAngle,450,0,0,0,0
-kickCentro,2650,-20,-20,-20,-20
-kickCentroAngle,2850,0,0,0,0
+kickCentro,2200,-20,-20,-20,-20
+kickCentroAngle,2750,0,0,0,0
