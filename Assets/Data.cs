@@ -17,9 +17,10 @@ public class Data : MonoBehaviour
     public CharactersPositions charactersPositions;
     public TextsData textsData;
     public bool isMobile;
+    public bool isArcade;
     [HideInInspector] public MatchData matchData;
     [HideInInspector] public InputManagerUI inputManagerUI;
-    public GameObject[] init_on_start;
+    public GameObject rewiredInputManager;
     public SpreadsheetLoader spreadsheetLoader;
 
     public static Data Instance
@@ -58,10 +59,7 @@ public class Data : MonoBehaviour
         spreadsheetLoader = GetComponent<SpreadsheetLoader>();
         charactersPositions = GetComponent<CharactersPositions>();
         DontDestroyOnLoad(this);
-    }
-    private void Start()
-    {
-        foreach (GameObject go in init_on_start)
-            Instantiate(go);
+        if(!isArcade)
+            Instantiate(rewiredInputManager);
     }
 }

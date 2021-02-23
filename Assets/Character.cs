@@ -185,7 +185,7 @@ public class Character : MonoBehaviour
         actions.Kick(kickType);
         if (Game.Instance.ball.GetCharacter() == this)
         {
-            if (Game.Instance.ball.character.type == Character.types.GOALKEEPER)
+            if (Game.Instance.ball.character.type == Character.types.GOALKEEPER && control_id > 0)
                 Invoke("AutomaticChangePlayer", 0.1f);
             Game.Instance.ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();            

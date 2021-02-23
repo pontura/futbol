@@ -14,6 +14,7 @@ public class Settings : MonoBehaviour
     [Serializable]
     public class MainSettings
     {
+        public bool rewired;
         public bool debug;
         public bool turn_off_team2;
         public string force_mode;
@@ -113,6 +114,8 @@ public class Settings : MonoBehaviour
             yield return www;
             mainSettings = JsonUtility.FromJson<MainSettings>(www.text);
             StartCoroutine(LoadGamePlaySettings());
+            //if (!Data.Instance.isArcade)
+            //    SetRewiredControlls(true);
         }
     }
     IEnumerator LoadGamePlaySettings()
@@ -236,5 +239,26 @@ public class Settings : MonoBehaviour
             case "kickCentro": gameplayStats.kickCentro = value; break;
             case "kickCentroAngle": gameplayStats.kickCentroAngle = value; break;
         }
+    }
+    public void SetRewiredControlls(bool isOn)
+    {
+
+        Rewired.UI.ControlMapper.ControlMapper controlMapper = Data.Instance.rewiredInputManager.GetComponent<Rewired.UI.ControlMapper.ControlMapper>();
+
+        if (isOn)
+        {
+            foreach (Rewired.Player player in Rewired.ReInput.players.AllPlayers)
+            {
+                player.controllers.maps.SetMapsEnabled(true, "Default");
+            }
+        }
+        else
+        {
+            foreach (Rewired.Player player in Rewired.ReInput.players.AllPlayers)
+            {
+                player.controllers.maps.SetMapsEnabled(false, "Default");
+            }
+        }
+
     }
 }

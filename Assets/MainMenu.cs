@@ -17,9 +17,9 @@ public class MainMenu : MonoBehaviour
         SetCredits(false);
         Events.PlaySound("crowd", "fulbo_music1", true);
         Events.OnButtonClick += OnButtonClick;
-        controlMapper = Instantiate( controlMapper_to_add);
-        controlMapper.rewiredInputManager = GameObject.Find("Rewired Input Manager(Clone)").GetComponent< Rewired.InputManager>();
-        controlMappingCanvas = controlMapper.GetComponentInChildren<Canvas>();
+        //controlMapper = Instantiate( controlMapper_to_add);
+        //controlMapper.rewiredInputManager = GameObject.Find("Rewired Input Manager(Clone)").GetComponent< Rewired.InputManager>();
+        //controlMappingCanvas = controlMapper.GetComponentInChildren<Canvas>();
     }
     void OnDestroy()
     {
@@ -27,16 +27,24 @@ public class MainMenu : MonoBehaviour
     }
     void OnButtonClick(int buttonID, int playerID)
     {
-        if (controlMapper.isOpen)
+
+        if (controlMapper != null && controlMapper.isOpen)
             return;
         GotoGame();
+
     }
     public void GotoGame()
     {
-        GetComponent<DifficultSelector>().Init();
+        Data.Instance.settings.fileName = "FulboStars - Easy";
+        Data.Instance.stadiumData.SetActiveStadium(Data.Instance.stadiumData.id);
+        Data.Instance.LoadLevel("Selector");
+
+        //GetComponent<DifficultSelector>().Init();
     }
     public void Controls()
     {
+        if (controlMapper == null)
+            return;
         controlMapper.Open();
         SetControls(false);
     }

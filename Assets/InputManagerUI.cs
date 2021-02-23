@@ -26,22 +26,40 @@ public class InputManagerUI : MonoBehaviour
     }
     void Update()
     {
-        if (Data.Instance.isMobile)
+        if (Data.Instance.isMobile || Data.Instance.isArcade)
         {
-            for (int id = 1; id < 3; id++)
+            for (int id = 0; id < 4; id++)
             {
 
-                horizontalAxis[id-1] = Input.GetAxis("Horizontal" + id);
-                verticalAxis[id-1] = Input.GetAxis("Vertical" + id);
+                horizontalAxis[id] = Input.GetAxis("Horizontal" + (id+1));
+                verticalAxis[id] = Input.GetAxis("Vertical" + (id + 1));
 
-                if (Input.GetButtonDown("Button1_" + id))
-                    Events.OnButtonPressed(id, buttonTypes.BUTTON_1);
+                if (Input.GetButtonDown("Button" + (id + 1) + "_1"))
+                    Events.OnButtonDown((id + 1), 1);
 
-                else if (Input.GetButtonDown("Button2_" + id))
-                    Events.OnButtonPressed(id, buttonTypes.BUTTON_2);
+                else if (Input.GetButtonDown("Button" + (id + 1) + "_2"))
+                    Events.OnButtonDown((id + 1), 2);
 
-                else if (Input.GetButtonDown("Button3_" + id))
-                    Events.OnButtonPressed(id, buttonTypes.BUTTON_3);
+                else if (Input.GetButtonDown("Button" + (id + 1) + "_3"))
+                    Events.OnButtonDown((id + 1), 3);
+
+                if (Input.GetButtonUp("Button" + (id + 1) + "_1"))
+                    Events.OnButtonClick((id + 1), 1);
+
+                else if (Input.GetButtonUp("Button" + (id + 1) + "_2"))
+                    Events.OnButtonClick((id + 1), 2);
+
+                else if (Input.GetButtonUp("Button" + (id + 1) + "_3"))
+                    Events.OnButtonClick((id + 1), 3);
+                
+                if (lastXDirection[id ] != horizontalAxis[id])
+                {
+                    if (horizontalAxis[id] > 0.25f)
+                        Events.OnRight((id + 1), true);
+                    else if (horizontalAxis[id] < -0.25f)
+                        Events.OnRight((id + 1), false);
+                    lastXDirection[id] = horizontalAxis[id];
+                }
 
             }
         }

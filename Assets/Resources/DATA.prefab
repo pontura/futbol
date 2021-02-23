@@ -464,7 +464,6 @@ GameObject:
   - component: {fileID: 864794640}
   - component: {fileID: 968984449}
   - component: {fileID: 1515485348}
-  - component: {fileID: 1526771217}
   - component: {fileID: 1526771218}
   - component: {fileID: 1526771216}
   - component: {fileID: 2085480492}
@@ -511,10 +510,11 @@ MonoBehaviour:
   charactersPositions: {fileID: 0}
   textsData: {fileID: 864794640}
   isMobile: 0
+  isArcade: 0
   matchData: {fileID: 0}
   inputManagerUI: {fileID: 0}
-  init_on_start:
-  - {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b, type: 3}
+  rewiredInputManager: {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b,
+    type: 3}
   spreadsheetLoader: {fileID: 0}
 --- !u!114 &999694241
 MonoBehaviour:
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPlayersAvailable: 4
   fileName: FulboStars - Easy
-  totalTime: 2601
+  totalTime: 260
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
     name: Sportivo Punga
@@ -605,6 +605,7 @@ MonoBehaviour:
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   mainSettings:
+    rewired: 0
     debug: 0
     turn_off_team2: 1
     force_mode: 
@@ -729,20 +730,6 @@ MonoBehaviour:
   lastGoalBy: 0
   totalCharacters: 8
   charactersPositions: 0000000000000000
---- !u!114 &1526771217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013221123710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ff695a72d39ca4b814c1b1e918ba3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalAxis: []
-  verticalAxis: []
 --- !u!114 &1526771218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +743,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1956510526}
+  isOn: 0
+  timer: 0
+  totalTime: 1
   progressBar: {fileID: 1104846895}
+  pressed: 0
 --- !u!114 &1526771216
 MonoBehaviour:
   m_ObjectHideFlags: 0

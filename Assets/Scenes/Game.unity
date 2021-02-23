@@ -426,10 +426,6 @@ MonoBehaviour:
   teamID_2: 0
   rotationOffset: 10
   referi: {fileID: 3160418783750167796}
-  player1: 0
-  player2: 0
-  player3: 0
-  player4: 0
   containerTeam1: {fileID: 251931617}
   containerTeam2: {fileID: 636111528}
   team1: []
@@ -1444,22 +1440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: totalTime
-      value: 2601
-      objectReference: {fileID: 0}
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: gkSpeed_sale_x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1515485348, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: totalCharacters
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1515485348, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: charactersPositions.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -1508,14 +1488,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4210853430889230933, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
+    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
         type: 3}
-      propertyPath: all.all.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4210853430889230933, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
-        type: 3}
-      propertyPath: all.all.Array.data[0].posData.Array.size
+      propertyPath: isArcade
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

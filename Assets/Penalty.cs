@@ -20,6 +20,7 @@ public class Penalty : MonoBehaviour
     Vector2 characterDirection;
     public Animation ballAnim;
     public CharactersManager charactersManager;
+    InputManagerUI inputManager;
 
     void Start()
     {
@@ -30,9 +31,10 @@ public class Penalty : MonoBehaviour
         Events.OnButtonPressed += OnButtonPressed;
         Events.OnButtonClick += OnButtonClick;
         Events.OnRestartGame += OnRestartGame;
-       // goalKeeper.isGoalKeeper = false;
-        
+        // goalKeeper.isGoalKeeper = false;
+        inputManager = Data.Instance.inputManagerUI;
     }
+    
     public void PenaltyPita()
     {
         if (Data.Instance.matchData.totalPlayers == 1 && Data.Instance.matchData.penaltyGoalKeeperTeamID == 1)
@@ -92,7 +94,7 @@ public class Penalty : MonoBehaviour
 
         Vector3 pos = goalKeeper.transform.localPosition;
 
-        InputManagerUI inputManager = Data.Instance.inputManagerUI;
+        
 
         if (Data.Instance.matchData.penaltyGoalKeeperTeamID == 2)
         {

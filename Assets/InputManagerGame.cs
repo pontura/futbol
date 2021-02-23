@@ -49,7 +49,43 @@ public class InputManagerGame : MonoBehaviour
         if (Game.Instance.state != Game.states.PLAYING)
             return;
 
-        if (Data.Instance.isMobile)
+        if(Data.Instance.isArcade)
+        {
+            for (int id = 0; id < 4; id++)
+            {
+
+                float _x = Input.GetAxis("Horizontal" + (id + 1)) * input_x_sensibilitty;
+                float _y = Input.GetAxis("Vertical" + (id + 1));
+
+                if (_x > 1) _x = 1;
+                else if (_x < -1) _x = -1;
+
+                if (charactersManager != null)
+                    charactersManager.SetPosition(id + 1, _x, _y);
+                if (_y != 0)
+                    SetNewInput_x(id, _y);
+
+
+                if (Input.GetButtonDown("Button" + (id + 1) + "_1"))
+                    GetButtonDown(1, (id + 1));
+
+                else if (Input.GetButtonDown("Button" + (id + 1) + "_2"))
+                    GetButtonDown(2, (id + 1));
+
+                else if (Input.GetButtonDown("Button" + (id + 1) + "_3"))
+                    GetButtonDown(3, (id + 1));
+
+                if (Input.GetButtonUp("Button" + (id + 1) + "_1"))
+                    GetButtonUp(1, (id + 1));
+
+                else if (Input.GetButtonUp("Button" + (id + 1) + "_2"))
+                    GetButtonUp(2, (id + 1));
+
+                else if (Input.GetButtonUp("Button" + (id + 1) + "_3"))
+                    GetButtonUp(3, (id + 1));
+
+            }
+        } else if (Data.Instance.isMobile)
         {
             float _x = analogicKnob.NormalizedAxis.x;
             float _y = analogicKnob.NormalizedAxis.y;
@@ -117,14 +153,14 @@ public class InputManagerGame : MonoBehaviour
             lastButtonDown_p1 = buttonID;
         else if (playerID == 2)
         {
-            if(Data.Instance.matchData.players[playerID-1] != 0)
-            {
-                int teamID = 1;
-                if (playerID == 2 || playerID == 4)  teamID = 2;
-                Data.Instance.matchData.AddPlayer(playerID, teamID);                
-                AddPlayer(playerID, teamID);
-                return;
-            }
+            //if(Data.Instance.matchData.players[playerID-1] != 0)
+            //{
+            //    int teamID = 1;
+            //    if (playerID == 2 || playerID == 4)  teamID = 2;
+            //    Data.Instance.matchData.AddPlayer(playerID, teamID);                
+            //    AddPlayer(playerID, teamID);
+            //    return;
+            //}
             lastButtonDown_p2 = buttonID;
         }
             
