@@ -20,7 +20,7 @@ public class Penalty : MonoBehaviour
     Vector2 characterDirection;
     public Animation ballAnim;
     public CharactersManager charactersManager;
-    InputManagerUI inputManager;
+    public InputManagerUI inputManager;
 
     void Start()
     {
@@ -31,8 +31,7 @@ public class Penalty : MonoBehaviour
         Events.OnButtonPressed += OnButtonPressed;
         Events.OnButtonClick += OnButtonClick;
         Events.OnRestartGame += OnRestartGame;
-        // goalKeeper.isGoalKeeper = false;
-        inputManager = Data.Instance.inputManagerUI;
+
     }
     
     public void PenaltyPita()

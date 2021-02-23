@@ -19,8 +19,7 @@ public class AiHasBall : AIState
         SetState(ai.aiIdle);
     }
     public override void SetActive()
-    {
-        initialTime = Time.time;
+    {        
         timer = 0;
         SetDestination();
        
@@ -35,7 +34,8 @@ public class AiHasBall : AIState
     }
     void SetDestination()
     {
-        if(ai.ball.character == null || ai.ball.character != ai.character)
+        initialTime = Time.time;
+        if (ai.ball.character == null || ai.ball.character != ai.character)
         {
             SetState(ai.aiIdle);
             return;
@@ -71,17 +71,22 @@ public class AiHasBall : AIState
             else  _z = -1;
         }
 
-        int _x = 0;
-        if (ai.transform.position.x < dest.x) _x = 1; else _x = -1;
+        int _x;
+        if (Mathf.Abs(ai.transform.position.x - dest.x)<0.2f)
+            _x = 0;
+        else if (ai.transform.position.x < dest.x)
+            _x = 1;
+        else
+            _x = -1;
 
-        if (_x == 0 && _z == 0)
+        if (_x == 0)
             KickBall();
         else
             ai.character.MoveTo(_x, _z);
     }
     void KickBall()
     {
-        if (initialTime + 1 > Time.time)
+        if (initialTime + 0.25f > Time.time)
         {
             if(Random.Range(0,10)<5)
                 ai.character.Jueguito();

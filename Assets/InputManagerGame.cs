@@ -53,6 +53,8 @@ public class InputManagerGame : MonoBehaviour
         {
             for (int id = 0; id < 4; id++)
             {
+                if (Input.GetKeyDown(KeyCode.Alpha0))
+                    UIMain.Instance.GetComponent<IngameMenu>().Open();
 
                 float _x = Input.GetAxis("Horizontal" + (id + 1)) * input_x_sensibilitty;
                 float _y = Input.GetAxis("Vertical" + (id + 1));
