@@ -79,20 +79,19 @@ public class AiHasBall : AIState
         else
             _x = -1;
 
-        if (_x == 0)
-            KickBall();
-        else
-            ai.character.MoveTo(_x, _z);
+        ai.character.MoveTo(_x, _z);
     }
     void KickBall()
     {
         if (initialTime + 0.25f > Time.time)
         {
-            if(Random.Range(0,10)<5)
-                ai.character.Jueguito();
-            else
-                SetDestination();
-        }            
+            ai.character.Jueguito();
+        }
+        else if (Mathf.Abs(ai.character.transform.position.z) > 7.5f && Random.Range(0,10)<6)
+        {
+            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.7f, 3));
+            SetState(ai.aiIdle);
+        }
         else
         {
             ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
