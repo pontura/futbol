@@ -20,7 +20,6 @@ public class CombaFX : MonoBehaviour
     }
     void OnBallKicked(CharacterActions.kickTypes type, float force, Character character )
     {
-        print(type);
         if (character == null) return;
         if ((type == CharacterActions.kickTypes.HARD || type == CharacterActions.kickTypes.KICK_TO_GOAL) && character.isBeingControlled)
             Init(character);

@@ -18,6 +18,7 @@ public class InputManagerGame : MonoBehaviour
         public int lastDirection;
         public float lastDirectionTime;
         public int totaldirectionChanges;
+        public int lastButtonIDPressed;
     }
 
     private void Start()
@@ -151,6 +152,12 @@ public class InputManagerGame : MonoBehaviour
     int lastButtonDown_p2;
     void GetButtonDown(int buttonID, int playerID)
     {
+
+        int lastButtonPressedID = GetInputByPlayer(playerID).lastButtonIDPressed;
+
+      
+
+       
         if (playerID == 1)
             lastButtonDown_p1 = buttonID;
         else if (playerID == 2)
@@ -165,15 +172,23 @@ public class InputManagerGame : MonoBehaviour
             //}
             lastButtonDown_p2 = buttonID;
         }
-            
-
-        if (charactersManager != null)
+        if (lastButtonPressedID == 2 && buttonID == 1)
+        {
+            print("Pälancaso_: " + playerID);
+            charactersManager.Palancazo(playerID);
+        }            
+        else if (charactersManager != null)
             charactersManager.ButtonPressed(buttonID, playerID);
         else
             Events.OnButtonClick(buttonID, playerID);
+
+        GetInputByPlayer(playerID).lastButtonIDPressed = buttonID;
     }
     void GetButtonUp(int buttonID, int playerID)
     {
+      
+        GetInputByPlayer(playerID).lastButtonIDPressed = 0;
+
         if (playerID == 1 && lastButtonDown_p1 != buttonID
             || playerID == 2 && lastButtonDown_p2 != buttonID)
             return;
@@ -192,11 +207,11 @@ public class InputManagerGame : MonoBehaviour
         int dir = (int)Mathf.Ceil(_x);
         if (dir != 0 && playerInput.lastDirection != dir)
         {
-            if (playerInput.lastDirectionTime == 0 || playerInput.lastDirectionTime + time_to_palancazo > Time.time)
-            {
-                charactersManager.Palancazo(playerID+1);
-                playerInput.totaldirectionChanges = 0;
-            }
+            //if (playerInput.lastDirectionTime == 0 || playerInput.lastDirectionTime + time_to_palancazo > Time.time)
+            //{
+            //    charactersManager.Palancazo(playerID+1);
+            //    playerInput.totaldirectionChanges = 0;
+            //}
             playerInput.lastDirectionTime = Time.time;
         }
         if (playerInput.lastDirectionTime + time_to_palancazo < Time.time)

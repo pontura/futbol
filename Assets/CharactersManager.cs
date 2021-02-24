@@ -196,7 +196,6 @@ public class CharactersManager : MonoBehaviour
         if (nearestToDefend.isBeingControlled)
             return;
 
-        print("Set New Defender " + nearestToDefend.data.avatarName);
         Events.SetCharacterNewDefender(nearestToDefend);
     }
     public void CharacterCatchBall(Character character)
@@ -356,10 +355,9 @@ public class CharactersManager : MonoBehaviour
         }
     }   
     public void ButtonUp(int buttonID, int id)
-    {
-       
+    {       
         Character character = GetPlayer(id);
-        if(character == null)
+        if(character == null || character.actions.state == CharacterActions.states.DASH_WITH_BALL)
         {
             Debug.Log("no hay usuario id: " + id);
             return;
