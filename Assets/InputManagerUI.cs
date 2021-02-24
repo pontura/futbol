@@ -26,7 +26,9 @@ public class InputManagerUI : MonoBehaviour
     }
     void Update()
     {
-        if (Data.Instance.isMobile || Data.Instance.isArcade)
+        if (!Data.Instance.settings.loaded)
+            return;
+        if (Data.Instance.isMobile || Data.Instance.settings.mainSettings.isArcade)
         {
             for (int id = 0; id < 4; id++)
             {

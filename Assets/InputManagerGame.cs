@@ -49,7 +49,7 @@ public class InputManagerGame : MonoBehaviour
         if (Game.Instance.state != Game.states.PLAYING)
             return;
 
-        if(Data.Instance.isArcade)
+        if(Data.Instance.settings.mainSettings.isArcade)
         {
             for (int id = 0; id < 4; id++)
             {

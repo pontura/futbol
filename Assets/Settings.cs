@@ -14,6 +14,7 @@ public class Settings : MonoBehaviour
     [Serializable]
     public class MainSettings
     {
+        public bool isArcade;
         public bool rewired;
         public bool debug;
         public bool turn_off_team2;
@@ -114,8 +115,7 @@ public class Settings : MonoBehaviour
             yield return www;
             mainSettings = JsonUtility.FromJson<MainSettings>(www.text);
             StartCoroutine(LoadGamePlaySettings());
-            //if (!Data.Instance.isArcade)
-            //    SetRewiredControlls(true);
+            
         }
     }
     IEnumerator LoadGamePlaySettings()
@@ -128,7 +128,8 @@ public class Settings : MonoBehaviour
         {
             yield return www;
             Data.Instance.spreadsheetLoader.CreateListFromFile(www.text, OnDataLoaded);
-            loaded = true;           
+            loaded = true;
+            Data.Instance.SettingsLoaded();
         }
         
     }

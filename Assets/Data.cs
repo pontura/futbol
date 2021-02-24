@@ -17,7 +17,6 @@ public class Data : MonoBehaviour
     public CharactersPositions charactersPositions;
     public TextsData textsData;
     public bool isMobile;
-    public bool isArcade;
     [HideInInspector] public MatchData matchData;
     [HideInInspector] public InputManagerUI inputManagerUI;
     public GameObject rewiredInputManager;
@@ -59,7 +58,11 @@ public class Data : MonoBehaviour
         spreadsheetLoader = GetComponent<SpreadsheetLoader>();
         charactersPositions = GetComponent<CharactersPositions>();
         DontDestroyOnLoad(this);
-        if(!isArcade)
+
+    }
+    public void SettingsLoaded()
+    {
+        if (!settings.mainSettings.isArcade)
             Instantiate(rewiredInputManager);
     }
 }
