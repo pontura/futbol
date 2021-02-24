@@ -83,11 +83,12 @@ public class AiHasBall : AIState
     }
     void KickBall()
     {
-        if (initialTime + 0.25f > Time.time)
-        {
-            ai.character.Jueguito();
-        }
-        else if (Mathf.Abs(ai.character.transform.position.z) > 7.5f && Random.Range(0,10)<6)
+        //if (initialTime + 0.25f > Time.time)
+        //{
+        //    ai.character.Jueguito();
+        //}
+        //else 
+        if (Mathf.Abs(ai.character.transform.position.z) > 7.5f && Random.Range(0,10)<6)
         {
             ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.7f, 3));
             SetState(ai.aiIdle);

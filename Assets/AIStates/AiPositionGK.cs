@@ -20,7 +20,10 @@ public class AiPositionGK : AIState
         float _x = 0;
         float _z = 0;
         Vector3 ballPos = ai.ball.transform.position;
-        float diff_X = Mathf.Abs(ai.transform.position.x - ai.originalPosition.x);
+        float diff_X;
+        if (Mathf.Abs(ai.originalPosition.x) < Mathf.Abs(ai.transform.position.x))
+            diff_X = 0;
+        diff_X = Mathf.Abs(ai.transform.position.x - ai.originalPosition.x);
         float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
 
         if (diff_X > 0.15f)
