@@ -2,8 +2,8 @@
 
 public class AiAlertGK : AIState
 {
-    float areaLimits_x = 3;
-    float areaLimits_z = 5;
+    float areaLimits_x = 1;
+    float areaLimits_z = 6;
 
     float ball_distance_to_go = 6;
     float smoothSale = 0.05f;
@@ -36,18 +36,17 @@ public class AiAlertGK : AIState
 
         Vector3 ballPos = ai.ball.transform.position;
         
-        float diff_X = Mathf.Abs(ai.transform.position.x - ballPos.x);
         float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
 
         if (diff_Z > 0.15f)
             if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;
-     
 
-        if (ai.transform.position.x < ai.ball.transform.position.x) _x = 1;
-        else if (ai.transform.position.x > ai.ball.transform.position.x) _x = -1;
+        float dest_x = ai.ball.transform.position.x;
+        if (Mathf.Abs(dest_x) > Mathf.Abs(ai.originalPosition.x)) _x = 0;
+        else if (ai.transform.position.x < dest_x) _x = 1;
+        else if (ai.transform.position.x > dest_x) _x = -1;
 
-        //limites del area:
-        if (IsOutsideAreaInX()) _x = 0;
+        if(_x != 0 && IsOutsideAreaInX()) _x = 0;
         if (IsOutsideAreaInZ()) _z = 0;
 
         if (Vector3.Distance(ai.transform.position,  ballPos) < ball_distance_to_go)
@@ -65,6 +64,7 @@ public class AiAlertGK : AIState
   
     bool IsOutsideAreaInX()
     {
+        return true;
         if (ai.character.teamID == 1 && _x<0 && ai.transform.position.x < (ai.originalPosition.x - areaLimits_x)) return true;
         if (ai.character.teamID == 2 && _x>0 && ai.transform.position.x > (ai.originalPosition.x + areaLimits_x)) return true;
         return false;

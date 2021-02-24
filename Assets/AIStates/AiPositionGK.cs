@@ -2,8 +2,8 @@
 
 public class AiPositionGK : AIState
 {
-    float areaLimits_x = 4;
-    float areaLimits_z = 4;
+    float areaLimits_x = 6;
+    float areaLimits_z = 1;
 
     public override void Init(AI ai)
     {
@@ -21,13 +21,14 @@ public class AiPositionGK : AIState
         float _z = 0;
         Vector3 ballPos = ai.ball.transform.position;
         float diff_X;
-        if (Mathf.Abs(ai.originalPosition.x) < Mathf.Abs(ai.transform.position.x))
-            diff_X = 0;
-        diff_X = Mathf.Abs(ai.transform.position.x - ai.originalPosition.x);
+        // gotoPosition = ai.character.SetPositionInsideLimits(gotoPosition);
+        if (ai.transform.position.x > ai.originalPosition.x)
+                _x = -1;
+            else _x = 1;
+
+
         float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
 
-        if (diff_X > 0.15f)
-            if (ai.transform.position.x > ai.originalPosition.x) _x = -1; else _x = 1;
         if (diff_Z > 0.15f)
             if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;  
 
