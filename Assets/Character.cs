@@ -182,8 +182,7 @@ public class Character : MonoBehaviour
         actions.AimingKick(true);
     }
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
-    {
-        actions.Kick(kickType);
+    {        
         if (Game.Instance.ball.GetCharacter() == this)
         {
             if (Game.Instance.ball.character.type == Character.types.GOALKEEPER && control_id > 0)
@@ -191,6 +190,7 @@ public class Character : MonoBehaviour
             Game.Instance.ball.Kick(kickType, forceForce);
             ballCatcher.LoseBall();            
         }
+        actions.Kick(kickType);
     }
     void AutomaticChangePlayer()
     {

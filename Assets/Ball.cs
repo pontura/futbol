@@ -252,7 +252,18 @@ public class Ball : MonoBehaviour
         {
             case CharacterActions.kickTypes.HARD:
                 KickBallSound();
-                dir *= GetStats().kickHard* force;
+                float kickHard = GetStats().kickHard;
+                print(character.actions.state);
+                if (character != null && 
+                    (character.actions.state == CharacterActions.states.JUEGUITO)
+                    ||
+                     (character.actions.state == CharacterActions.states.DASH_WITH_BALL)
+                    )
+                {
+                    kickHard *= 2;
+                }
+                  
+                dir *= kickHard * force;
                 dir += Vector3.up * GetStats().kickHardAngle * force;               
                 break;
             case CharacterActions.kickTypes.SOFT:
