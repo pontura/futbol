@@ -39,7 +39,9 @@ public class AiAlertGK : AIState
         float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
 
         if (diff_Z > 0.15f)
+        {
             if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;
+        }
 
         float dest_x = ai.ball.transform.position.x;
         if (Mathf.Abs(dest_x) > Mathf.Abs(ai.originalPosition.x)) _x = 0;
@@ -47,7 +49,7 @@ public class AiAlertGK : AIState
         else if (ai.transform.position.x > dest_x) _x = -1;
 
         if(_x != 0 && IsOutsideAreaInX()) _x = 0;
-        if (IsOutsideAreaInZ()) _z = 0;
+        if (_z != 0 && IsOutsideAreaInZ()) _z = 0;
 
         if (Vector3.Distance(ai.transform.position,  ballPos) < ball_distance_to_go)
             UpdateInArea();

@@ -37,10 +37,7 @@ public class AIPositionDefending : AIState
 
         if (Vector3.Distance(pos, gotoPosition) > 0.5f)
         {
-            if (Mathf.Abs(gotoPosition.x) < Mathf.Abs(ai.originalPosition.x - 1))
-                _h = 0;
-            else if (Mathf.Abs(gotoPosition.x) < 10)
-                _h = 0;
+            if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
             else if (pos.x < gotoPosition.x) _h = 1;
             else _h = -1;
 

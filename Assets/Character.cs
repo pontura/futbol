@@ -36,7 +36,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public AI ai;
     [HideInInspector] public float scaleFactor;
     public Character oponent;
-    Vector2 limits_y;
+    public Vector2 limits_y;
     public Vector2 limits_x;
 
     void Awake()
@@ -87,12 +87,13 @@ public class Character : MonoBehaviour
 
         if (type == types.GOALKEEPER)
         {
-            limits_y /= 1.4f;
+            float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
+            limits_y = new Vector2(_limits_y, -_limits_y);
 
             if (teamID == 1)
                 limits_x = new Vector2(limits_x.y- 5f, limits_x.y);
             else
-                limits_x = new Vector2(limits_x.x, limits_x.x + 4f);
+                limits_x = new Vector2(limits_x.x, limits_x.x + 5f);
         }
         
     }
