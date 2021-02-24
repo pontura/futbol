@@ -1,9 +1,9 @@
 Accion,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
 speed,32,5,5,5,0
-speedRun,64,10,10,10,0
+speedRun,55,10,10,10,0
 speedRunFade,15,0,0,0,0
 speedWithBall,20,5,5,5,0
-speedRunWithBall,42,8,5,5,0
+speedRunWithBall,45,8,5,5,0
 speedDash,80,10,10,10,0
 random_jump_a_dash,50,10,10,10,0
 random_steal_ball,50,30,20,10,0
@@ -29,9 +29,9 @@ kickSoft,3900,100,100,100,100
 kickSoftAngle,1100,0,0,0,0
 kickBaloon,2100,100,100,100,100
 kickBaloonAngle,2800,0,0,0,0
-kickHead,1500,100,100,100,100
-kickHeadAngle,1300,0,0,0,0
-kickChilena,3800,100,100,100,100
+kickHead,3500,100,100,100,100
+kickHeadAngle,700S,0,0,0,0
+kickChilena,4200,100,100,100,100
 kickChilenaAngle,450,0,0,0,0
-kickCentro,2200,100,100,100,100
+kickCentro,2150,100,100,100,100
 kickCentroAngle,2750,0,0,0,0
