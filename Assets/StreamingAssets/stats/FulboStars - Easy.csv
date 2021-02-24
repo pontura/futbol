@@ -1,6 +1,6 @@
   ,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
 speed,32,0,0,-5,0
-speedRun,50,0,0,-5,0
+speedRun,64,0,0,-5,0
 speedRunFade,15,0,0,-5,0
 speedWithBall,20,0,0,-5,0
 speedRunWithBall,42,0,0,-5,0
@@ -23,8 +23,8 @@ attackDelay,7,5,5,5,5
 gk_FlyingDuration,60,,,,-10
 gk_FlyingSpeed,12,,,,-2
 gk_CatchOnAir,660,0,0,0,-200
-kickHard,3400,-20,-20,-20,-20
-kickHardAngle,2000,0,0,0,0
+kickHard,3950,-20,-20,-20,-20
+kickHardAngle,1700,0,0,0,0
 kickSoft,3900,-20,-20,-20,-20
 kickSoftAngle,1100,0,0,0,0
 kickBaloon,2100,-20,-20,-20,-20
