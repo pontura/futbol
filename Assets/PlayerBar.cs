@@ -7,7 +7,6 @@ public class PlayerBar : MonoBehaviour
 {
     public Text playerName;
     Character character;
-    public Vector3 offset;
     public GameObject progressBar;
 
     void Awake()
@@ -34,7 +33,7 @@ public class PlayerBar : MonoBehaviour
     {
         if (character == null)
             return;
-        transform.position = Game.Instance.cameraInGame.cam.WorldToScreenPoint(character.transform.position) + offset;        
+        transform.position = Game.Instance.cameraInGame.cam.WorldToScreenPoint(character.transform.position);        
     }
    
     void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character character)

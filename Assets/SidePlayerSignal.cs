@@ -1,11 +1,11 @@
-﻿using System.Collections; 
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SidePlayerSignal : MonoBehaviour
 {
-    Character character;
-    public GameObject asset;
+    [SerializeField] SidePlayerSignalPlayer sidePlayerSignalPlayer;
+    public List<SidePlayerSignalPlayer> all;
     CameraInGame cameraInGame;
     public float offsetZ = 2;
 
@@ -16,7 +16,19 @@ public class SidePlayerSignal : MonoBehaviour
         Events.OnGoal += OnGoal;
         Events.SwapCharacter += SwapCharacter;
         Loop();
-        asset.transform.localPosition = new Vector3(360, 0, 0);
+        for (int a = 0; a < Data.Instance.matchData.players.Length; a++)
+        {
+            int control_id = Data.Instance.matchData.players[a];
+            if (control_id > 0)
+            {
+                SidePlayerSignalPlayer sp = Instantiate(sidePlayerSignalPlayer, transform);
+                sp.transform.localScale = Vector3.one;
+                // Color c = Data.Instance.settings.GetTeamSettings(teamID).color;
+                sp.Init(a+1, Color.white);
+                all.Add(sp);
+            }
+        }
+        
     }
     void OnDestroy()
     {
@@ -26,37 +38,52 @@ public class SidePlayerSignal : MonoBehaviour
     }
     void OnGoal(int id, Character ch)
     {
-        asset.SetActive(false);
+        foreach (SidePlayerSignalPlayer sp in all)
+            sp.SetOn(false);
     }
     void CharacterCatchBall(Character character)
     {
         if (character.isBeingControlled)
-            this.character = character;
+            ChangeCharacter(character);
     }
     void SwapCharacter(Character character)
     {
         if (character.isBeingControlled)
-            this.character = character;
+            ChangeCharacter(character);
+    }
+    void ChangeCharacter(Character character)
+    {
+        foreach (SidePlayerSignalPlayer sp in all)
+        {
+            if (sp.control_id == character.control_id)
+                sp.character = character;
+        }
     }
     void Loop()
     {
         Invoke("Loop", 0.05f);
-        if(character != null)
-        {        
-            Vector3 character_pos = cameraInGame.cam.WorldToScreenPoint(character.transform.localPosition);
-            float fromCenter = character_pos.x - (Screen.width / 2);
-            if (fromCenter < 0)
-                transform.localScale = new Vector3(-1, 1, 1);
-            else
-                transform.localScale = new Vector3(1, 1, 1);
-            if (Mathf.Abs(fromCenter) > Screen.width / 2)
+        int dir = 1;
+        foreach (SidePlayerSignalPlayer sp in all)
+        {
+            if (sp.character != null)
             {
-                asset.SetActive(true);
-                Vector3 p = asset.transform.position;
-                p.y = character_pos.y;
-                asset.transform.position = p;
-            }      
-            else asset.SetActive(false);
+                Vector3 character_pos = cameraInGame.cam.WorldToScreenPoint(sp.character.transform.localPosition);
+                float fromCenter = character_pos.x - (Screen.width / 2);
+                if (Mathf.Abs(fromCenter) > Screen.width / 2)
+                {
+                    if (fromCenter < 0) dir = -1;
+                    SetTransform(sp, character_pos.y, dir);
+                }
+                else sp.SetOn(false);
+            }
         }
+    }
+    void SetTransform(SidePlayerSignalPlayer sp, float _y, int direction)
+    {
+        sp.SetOn(true);
+        Vector3 p = sp.transform.position;
+        p.y = _y;
+        sp.transform.position = p;
+        sp.SetScale(direction);
     }
 }

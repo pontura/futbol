@@ -38,11 +38,14 @@ public class Character : MonoBehaviour
     public Character oponent;
     public Vector2 limits_y;
     public Vector2 limits_x;
+    CharacterFloorSignal floorSignal;
 
     void Awake()
     {
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
+        floorSignal = GetComponent<CharacterFloorSignal>();
+        
         ai = GetComponent<AI>();
     }
     public virtual void Start()
@@ -62,6 +65,8 @@ public class Character : MonoBehaviour
         scaleFactor = Data.Instance.settings.scaleFactor;
         this.charactersManager = charactersManager;
         this.teamID = _temaID;
+        if (floorSignal != null)
+            floorSignal.Init(Data.Instance.settings.GetTeamSettings(teamID).color);
 
         int characterID = int.Parse(asset_to_instantiate.name); //con el nombre sacamos el id:
         data = Data.Instance.textsData.GetCharactersData(characterID, type == Character.types.GOALKEEPER);
@@ -339,6 +344,7 @@ public class Character : MonoBehaviour
     {
         ballCatcher.Show(_isBeingControlled);
         this.isBeingControlled = _isBeingControlled;
+        floorSignal.SetOn(_isBeingControlled);
     }
     public void OnGoal(bool win)
     {

@@ -1769,6 +1769,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   scaleFactor: 0
   oponent: {fileID: 0}
+  limits_y: {x: 0, y: 0}
   limits_x: {x: 0, y: 0}
 --- !u!136 &3160418783750167806
 CapsuleCollider:
@@ -2126,6 +2127,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6837355736623961881, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6837355737457407792, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
       propertyPath: m_Name

@@ -5047,6 +5047,7 @@ GameObject:
   - component: {fileID: 3412157949364424465}
   - component: {fileID: 2182933038487937707}
   - component: {fileID: 193202166}
+  - component: {fileID: 8616467129149636447}
   m_Layer: 9
   m_Name: GoalKeeper
   m_TagString: Player
@@ -5181,6 +5182,7 @@ MonoBehaviour:
   ai: {fileID: 0}
   scaleFactor: 0
   oponent: {fileID: 0}
+  limits_y: {x: 0, y: 0}
   limits_x: {x: 0, y: 0}
 --- !u!114 &5404960763416151749
 MonoBehaviour:
@@ -5255,6 +5257,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32096952074df414e9b942793a6e9261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8616467129149636447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793851902414820856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a03591b4de5f454497037f35d66dbf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRender: {fileID: 7700499683543506886}
 --- !u!1 &7793851902471329285
 GameObject:
   m_ObjectHideFlags: 0
