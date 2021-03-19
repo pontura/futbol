@@ -395,18 +395,39 @@ public class Character : MonoBehaviour
     {     
         actions.SuperRun();
         float minSpeed;
-
+        float to;
         if(Game.Instance.ball.character == this)
         {
-            speed = stats.speedRunWithBall;
+            to = stats.speedRunWithBall;
             minSpeed = stats.speedWithBall;
         }
         else
         {
-            speed = stats.speedRun;
+            to = stats.speedRun;
             minSpeed = stats.speed;
-        }   
+        }
 
+        // sube en fade
+        float duration = 0.3f;
+        float d = 0;
+        while (d < duration)
+        {
+            d += Time.deltaTime;
+            speed = Mathf.Lerp(speed, to, 0.15f);
+            yield return new WaitForEndOfFrame();
+        }
+        speed = to;
+
+        // se mantiene arriba 1 seg:
+        duration = 0.33f;
+        d = 0;
+        while (d < duration)
+        {
+            d += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        //baja
         while (speed > minSpeed)
         {
             speed -= stats.speedRunFade * Time.deltaTime;

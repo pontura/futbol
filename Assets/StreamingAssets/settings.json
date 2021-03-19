@@ -2,7 +2,7 @@
 	"isArcade":true,
 	"rewired":false,
 	"debug": false,
-	"turn_off_team2": false,
+	"turn_off_team2": true,
 	"force_mode": "FulboStars - Easy",
 	"stadium_id": 1
 }

@@ -93,7 +93,8 @@ public class CharacterActions : MonoBehaviour
     public virtual void SuperRun()
     {
         runFast = true;
-        PlayAnim("runBoost");
+        //PlayAnim("runBoost");
+        anim.Play("runBoost", 0);
     }
     public virtual void Run()
     {
