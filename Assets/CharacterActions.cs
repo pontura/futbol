@@ -93,14 +93,12 @@ public class CharacterActions : MonoBehaviour
     public virtual void SuperRun()
     {
         runFast = true;
-        //PlayAnim("runBoost");
         anim.Play("runBoost", 0);
     }
     public virtual void Run()
     {
         if (state == states.FREEZE || state == states.AIMING_KICK)
             return;
-        runFast = false;
         if (state == states.GOAL)
             return;
         if (state == states.IDLE)

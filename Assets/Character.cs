@@ -267,19 +267,23 @@ public class Character : MonoBehaviour
                 return;
             else ballCatcher.Reset();
         }
-       // if (actions.state == CharacterActions.states.DASH_WITH_BALL)
+        // if (actions.state == CharacterActions.states.DASH_WITH_BALL)
         //    if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
 
 
         if (_x == 0 && _y == 0)
+        {
+            StopAllCoroutines();
+            actions.runFast = false;
             actions.Idle();
+        }
         else
-        {            
+        {
             if (_x != 0 && actions.state != CharacterActions.states.AIMING_KICK)
             {
-                if(_x<1) actions.LookTo(-1);
+                if (_x < 1) actions.LookTo(-1);
                 else actions.LookTo(1);
-            }                
+            }
             actions.Run();
         }      
 
@@ -387,12 +391,15 @@ public class Character : MonoBehaviour
     {
         if (actions.state == CharacterActions.states.DASH)
             return;
-        if(runCoroutine != null)
+        if (actions.IsRuningFast())
+            return;
+        if (runCoroutine != null)
             StopCoroutine(runCoroutine);
         runCoroutine = StartCoroutine(RunSpeedDesacelerate());
     }
     IEnumerator RunSpeedDesacelerate()
     {     
+
         actions.SuperRun();
         float minSpeed;
         float to;
@@ -436,6 +443,7 @@ public class Character : MonoBehaviour
         if(Game.Instance.state == Game.states.PLAYING)
             actions.Run();
         speed = minSpeed;
+        actions.runFast = false;
         yield break;
     }
 }
