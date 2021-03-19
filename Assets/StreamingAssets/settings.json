@@ -1,6 +1,6 @@
 {
-	"isArcade":false,
-	"rewired":true,
+	"isArcade":true,
+	"rewired":false,
 	"debug": false,
 	"turn_off_team2": false,
 	"force_mode": "FulboStars - Easy",
