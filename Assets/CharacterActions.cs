@@ -72,8 +72,17 @@ public class CharacterActions : MonoBehaviour
             return;
         CancelInvoke();
         this.state = states.IDLE;
-        PlayAnim("idle");
+        if (ball.character && ball.character.teamID == character.teamID)
+            PlayAnim("idle");
+        else
+            Alert();
+
+
         LookAtBall();
+    }
+    public void Alert()
+    {
+        PlayAnim("alert");
     }
     int lookTo;
     public virtual void LookTo(int v )

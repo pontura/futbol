@@ -175,7 +175,7 @@ public class CharactersManager : MonoBehaviour
     }
     void SwapIfNeeded(int teamID)
     {
-        Character to = GetNearest(teamID, false, ball.transform.position);
+        Character to = GetNearest(teamID, false, ball.transform.position, true);
         Character from = GetNearest(teamID, true, ball.transform.position);
         if (to == null || from == null)
             return;
@@ -434,7 +434,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void SwapTo(Character from, Character to)
     {
-        if (to == null) return;
+        if (to == null || to.isBeingControlled) return;
         if (from == null) return;
         if (from.teamID != to.teamID) return;
         if (from.control_id == to.control_id) return;

@@ -728,7 +728,7 @@ MonoBehaviour:
   penaltyGoalKeeperTeamID: 1
   totalPlayers: 0
   lastGoalBy: 0
-  totalCharacters: 8
+  totalCharacters: 5
   charactersPositions: 0000000000000000
 --- !u!114 &1526771218
 MonoBehaviour:
@@ -760,12 +760,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7bbbb909823848b15c30999f98920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  id: 0
   active:
     name: 
     size_x: 0
     size_y: 0
-    stadiumAsset: {fileID: 0}
+    stadiumAsset: {fileID: 8849686315084780500, guid: b14e9c1e3e97825449d9078ad4a295d5,
+      type: 3}
   all:
   - name: Offshore Arena
     size_x: 41
@@ -776,11 +777,6 @@ MonoBehaviour:
     size_x: 61
     size_y: 20.5
     stadiumAsset: {fileID: 8849686315084780500, guid: b14e9c1e3e97825449d9078ad4a295d5,
-      type: 3}
-  - name: LargeXXL
-    size_x: 102
-    size_y: 20.5
-    stadiumAsset: {fileID: 8849686315084780500, guid: 32f0add29c573a64abceb15070c74d06,
       type: 3}
 --- !u!114 &2085480492
 MonoBehaviour:

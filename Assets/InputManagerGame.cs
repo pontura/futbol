@@ -42,8 +42,6 @@ public class InputManagerGame : MonoBehaviour
     }
     void CharacterCatchBall(Character ch)
     {
-        lastButtonDown_p1 = 0;
-        lastButtonDown_p2 = 0;
     }
     void Update()
     {
@@ -70,22 +68,22 @@ public class InputManagerGame : MonoBehaviour
 
 
                 if (Input.GetButtonDown("Button" + (id + 1) + "_1"))
-                    GetButtonDown(1, (id + 1));
+                    GetButtonDown(3, (id + 1));
 
                 else if (Input.GetButtonDown("Button" + (id + 1) + "_2"))
                     GetButtonDown(2, (id + 1));
 
                 else if (Input.GetButtonDown("Button" + (id + 1) + "_3"))
-                    GetButtonDown(3, (id + 1));
+                    GetButtonDown(1, (id + 1));
 
                 if (Input.GetButtonUp("Button" + (id + 1) + "_1"))
-                    GetButtonUp(1, (id + 1));
+                    GetButtonUp(3, (id + 1));
 
                 else if (Input.GetButtonUp("Button" + (id + 1) + "_2"))
                     GetButtonUp(2, (id + 1));
 
                 else if (Input.GetButtonUp("Button" + (id + 1) + "_3"))
-                    GetButtonUp(3, (id + 1));
+                    GetButtonUp(1, (id + 1));
 
             }
         } else if (Data.Instance.isMobile)
@@ -148,33 +146,14 @@ public class InputManagerGame : MonoBehaviour
         else
             GetButtonUp(3, 1);
     }
-    int lastButtonDown_p1;
-    int lastButtonDown_p2;
     void GetButtonDown(int buttonID, int playerID)
     {
 
-        int lastButtonPressedID = GetInputByPlayer(playerID).lastButtonIDPressed;
+        int lastButtonPressedID = GetInputByPlayer(playerID-1).lastButtonIDPressed;
 
-      
-
-       
-        if (playerID == 1)
-            lastButtonDown_p1 = buttonID;
-        else if (playerID == 2)
+        if ((lastButtonPressedID == 2 && buttonID == 1) || (lastButtonPressedID == 1 && buttonID == 2))
         {
-            //if(Data.Instance.matchData.players[playerID-1] != 0)
-            //{
-            //    int teamID = 1;
-            //    if (playerID == 2 || playerID == 4)  teamID = 2;
-            //    Data.Instance.matchData.AddPlayer(playerID, teamID);                
-            //    AddPlayer(playerID, teamID);
-            //    return;
-            //}
-            lastButtonDown_p2 = buttonID;
-        }
-        if (lastButtonPressedID == 2 && buttonID == 1)
-        {
-            print("Pälancaso_: " + playerID);
+            GetInputByPlayer(playerID - 1).lastButtonIDPressed = 0;
             charactersManager.Palancazo(playerID);
         }            
         else if (charactersManager != null)
@@ -182,16 +161,13 @@ public class InputManagerGame : MonoBehaviour
         else
             Events.OnButtonClick(buttonID, playerID);
 
-        GetInputByPlayer(playerID).lastButtonIDPressed = buttonID;
+        GetInputByPlayer(playerID-1).lastButtonIDPressed = buttonID;
     }
     void GetButtonUp(int buttonID, int playerID)
     {
-      
-        GetInputByPlayer(playerID).lastButtonIDPressed = 0;
+        if (GetInputByPlayer(playerID - 1).lastButtonIDPressed == 0) return;
+        GetInputByPlayer(playerID-1).lastButtonIDPressed = 0;
 
-        if (playerID == 1 && lastButtonDown_p1 != buttonID
-            || playerID == 2 && lastButtonDown_p2 != buttonID)
-            return;
         if (charactersManager != null)
             charactersManager.ButtonUp(buttonID, playerID);
         else
@@ -222,6 +198,7 @@ public class InputManagerGame : MonoBehaviour
     }
     PlayerInput GetInputByPlayer(int playerID)
     {
+        print("playerID " + playerID);
         return playerInputs[playerID];
     }
 }

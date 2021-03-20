@@ -31,7 +31,7 @@ public class CharactersPositions : MonoBehaviour
     }
     IEnumerator Load()
     {
-        string url = Application.dataPath + "/StreamingAssets/characterPositions.json";
+        string url = Application.dataPath + "/StreamingAssets/characterPositions5.json";
         using (WWW www = new WWW(url))
         {
             yield return www;
