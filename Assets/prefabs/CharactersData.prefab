@@ -277,6 +277,36 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ae19203efe182bb4a847dcaf09305870, type: 3}
     audio_goal: []
     comments_goal: []
+  - asset: {fileID: 3999471607175928656, guid: 022049124562475449911629a9522f0d, type: 3}
+    thumb: {fileID: 21300000, guid: 01f0e25f855375a4b8c7c5293d7eb76a, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
+  - asset: {fileID: 6901122285471923383, guid: 349cb42e7a4cc364cab1850c0801509d, type: 3}
+    thumb: {fileID: 21300000, guid: 5fba0641a62988e41a81f4809191837c, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
+  - asset: {fileID: 6901122285471923383, guid: 0d836a1a81b21cd4f8c166ee7a1722d3, type: 3}
+    thumb: {fileID: 21300000, guid: 27f0eedffd202bd47adbaf473feac8d4, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
+  - asset: {fileID: 3999471607175928656, guid: 6e29901003cb0bf4bb1b1fa8ab583a4c, type: 3}
+    thumb: {fileID: 21300000, guid: 27df9f4b832d78149b0b0f72837c5f98, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
+  - asset: {fileID: 7572831978036739007, guid: 232019c15ec97ca449d16a39cf3e37a8, type: 3}
+    thumb: {fileID: 21300000, guid: 26e52abfe82853744b66a385d2548b1e, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
+  - asset: {fileID: 3999471607175928656, guid: 252800b4f1642e74997f95e5d9eb8392, type: 3}
+    thumb: {fileID: 21300000, guid: f020e9690a6b27342bf5bba495d331b7, type: 3}
+    audio_names: []
+    audio_goal: []
+    comments_goal: []
   all_goalkeepers:
   - asset: {fileID: 2674879857765329069, guid: 5397d9487defc874f81b7d2dba4da044, type: 3}
     thumb: {fileID: 21300000, guid: 15506b4f0e0d0f7469579435fddcd064, type: 3}
