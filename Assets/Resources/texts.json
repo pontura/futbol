@@ -362,7 +362,7 @@
 			"id": 30,
 			"avatarName": "Uncle Teddy",
 			"dialogs": {
-				"random": [ "GOD BLESS AMERICA", "OFF MY LAND, INDIANS" ],
+				"random": [ "GOD BLESS AMERICA", "OFF MY LAND, INDIANS", "LEFTISTS ARE GAY", "GAYS ARE LEFTISTS", "GOD BLESS THE SECOND AMENDMENT", "MY TEETH ARE VERY AMERICAN" ],
 				"goal":  [ "¡¡YIIIHAA!!" ],
 				"full":  [ "¡ANTI YANKEES GO HOME!" ]
 			}
@@ -371,16 +371,16 @@
 			"id": 31,
 			"avatarName": "Gimena Susanez",
 			"dialogs": {
-				"random": [ "¿¿VIVO??", "¡NUNCA VI MONEDAS TAN CHIQUITAS EN MI VIDA!", "NO ME CASO CON UN POBRE NI LOCA", "SHAMPOO PARA LAVAR LOS PLATOS" ],
-				"goal":  [ "¡¡ME MUERO!!" ],
-				"full":  [ "¡EL QUE MATA DEBE MORIR!" ]
+				"random": [ "¿¿VIVO??", "¡NUNCA VI MONEDAS TAN CHIQUITAS EN MI VIDA!", "NO ME CASO CON UN POBRE NI LOCA", "SHAMPOO PARA LAVAR LOS PLATOS", "AGUANTEN LOS MILICOS", "¡¡SHOCK!!", "¡UUUUUNA MUJER!" ],
+				"goal":  [ "¡¡ME MUERO!!", "¡CHEERS!" ],
+				"full":  [ "¡EL QUE MATA DEBE MORIR!", "¡ME VOY A URUGUAY!" ]
 			}
 		},
 		{
 			"id": 32,
 			"avatarName": "Oriana Yuyo",
 			"dialogs": {
-				"random": [ "¡¡UUHHHH!!", "¡NO LO PUEDO BELIEVE!", "ME PARECÉS UN HORROR", "SOY UNA ESTRELLA, BEBÉ" ],
+				"random": [ "¡¡UUHHHH!!", "¡NO LO PUEDO BELIEVE!", "ME PARECÉS UN HORROR", "SOY UNA ESTRELLA, BEBÉ", "SOY CARÍSIMA" ],
 				"goal":  [ "¡¡UUUUUUHHHHH!!", "¡SHAMPÉIN!" ],
 				"full":  [ "DE CUARTA TODA TU PRODUCCIÓN Y VOS", "¿¿QUÉ PASOUUU??" ]
 			}
@@ -389,27 +389,27 @@
 			"id": 33,
 			"avatarName": "Claudio María Jipoide",
 			"dialogs": {
-				"random": [ "EU NÃO TENHO GRIPECINHA" ],
-				"goal":  [ "¡¡TOMÁ, PARDO!!" ],
-				"full":  [ "¡NO VALE!" ]
+				"random": [ "YO ME AMO", "NAMASTÉ", "MI BUDA SALUDA A TU BUDA" ],
+				"goal":  [ "¡¡FUÉ CON RE RE RE AMOR!!", "¡¡OOOOHHMMMM!!", "¡SOLTAR!" ],
+				"full":  [ "¡GRACIAS POR HACERNOS UN GOL!", "APROVECHO PARA APRENDER" ]
 			}
 		},
 		{
 			"id": 34,
 			"avatarName": "La Chambona",
 			"dialogs": {
-				"random": [ "¡A TODO RINGTONE!", "CHETO EL CANTRY", "EL CHAMPAIN NUNCA FALTA", "NO ME LO MIREN A MI GUANACO", "ESTA NOCHE ME LO COMO A TU MARIDO", "¡ESCABIANDO UN RE FRIZÉ!", "¡QUE SE ARME LA LORA, GUACHO!" ],
-				"goal":  [ "¡YO ANDO RE GANADA, LORA!" ],
+				"random": [ "¡A TODO RINGTONE!", "CHETO EL CANTRY", "EL CHAMPAIN NUNCA FALTA", "NO ME LO MIREN A MI GUANACO", "ESTA NOCHE ME LO COMO A TU MARIDO", "¡ESCABIANDO UN RE FRIZÉ!", "¡QUE SE ARME LA LORA, GUACHO!", "MIRÁ CON QUIÉN ESTOY", "ATC (A TODO CHIPTUNE)" ],
+				"goal":  [ "¡YO ANDO RE GANADA, LORA!", "¡TE RECABIÓ!" ],
 				"full":  [ "¡TODO MAL, GUANACO!" ]
 			}
 		},
 		{
 			"id": 35,
-			"avatarName": "El Ocupa del Capitolio",
+			"avatarName": "Ocupa del Capitolio",
 			"dialogs": {
-				"random": [ "GOD VLEZ HAMERICA!!", "KENTUCKY FRIED FREEDOM!!", "FREE BURGERS FOUR EVERY WIHTE PEEPLO" ],
-				"goal":  [ "MAIK HAMERICA VEST AGIAN!!", "SOUTHERN GOAL!" ],
-				"full":  [ "NOA WAY YO WEEN!" ]
+				"random": [ "GOD VLEZ HAMERICA!!", "KENTUCKY FRIED FREEDOM!!", "FREE BURGERS FOUR EBERY WIHTE PEEPLO", "F7CK THE REST", "B WAIHT OR DIE" ],
+				"goal":  [ "MAIK HAMERICA VEST AGIAN!!", "SOUTHRN GOWL!" ],
+				"full":  [ "NOA WAY YO WEEN!", "F WORD N WORD!" ]
 			}
 		}
 		
