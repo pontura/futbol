@@ -405,9 +405,9 @@
 		},
 		{
 			"id": 35,
-			"avatarName": "Ocupa del Capitolio",
+			"avatarName": "Quanus, el bruto",
 			"dialogs": {
-				"random": [ "GOD VLEZ HAMERICA!!", "KENTUCKY FRIED FREEDOM!!", "FREE BURGERS FOUR EBERY WIHTE PEEPLO", "F7CK THE REST", "B WAIHT OR DIE" ],
+				"random": [ "GOD VLEZ HAMERICA!!", "KENTUCKY FRIED FREEDOM!!", "FREE BURGERS FOUR EBERY WIHTE PEEPLO", "F7CK THE REST", "B WAIHT OR DIE", "QUANUS QILL THE DEEFERENT", "QUANUS ANGRY!", "HAMERICAN FRIED FOOOD OR DETH" ],
 				"goal":  [ "MAIK HAMERICA VEST AGIAN!!", "SOUTHRN GOWL!" ],
 				"full":  [ "NOA WAY YO WEEN!", "F WORD N WORD!" ]
 			}
