@@ -182,7 +182,7 @@ public class Ball : MonoBehaviour
         if (canCatch)
             CharacterCatchBall(characterToCatch);
         else
-            characterToCatch.SetCollidersOff(0.75f);
+            characterToCatch.SetCollidersOff(0.25f);
     }
     public void AimGoal(Character character)
     {
