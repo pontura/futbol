@@ -15,7 +15,7 @@ public class CameraInGame : MonoBehaviour
     float speed = 0.035f;
     bool filmingPlayer;
     public float filming_y;
-
+    public float offsetZ = 25;
     public float originalSize = 5;
     public float zoomSize = 2;
     public float offsetShootingPlayer_z = 2.5f;
@@ -56,6 +56,11 @@ public class CameraInGame : MonoBehaviour
             return;
         Vector3 pos = transform.position;
         pos.x = target.position.x * 0.8f;
+        pos.z = target.position.z- offsetZ;
+
+        if (pos.z < -14)  pos.z = -14;
+        else if (pos.z > 0)   pos.z = 0;
+
         if (filmingPlayer)
             pos.y = filming_y;
         else if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING || Game.Instance.state == Game.states.GAMEOVER)

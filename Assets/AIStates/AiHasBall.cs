@@ -7,10 +7,12 @@ public class AiHasBall : AIState
     int _z = 0;
     Vector3 limits;
     float initialTime;
+    Vector2 stadiumSize;
 
     public override void Init(AI ai)
     {
-        limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
+        stadiumSize = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
+        limits = new Vector2(stadiumSize.x, stadiumSize.y);
         base.Init(ai);
         color = Color.red;       
     }
@@ -40,7 +42,7 @@ public class AiHasBall : AIState
             SetState(ai.aiIdle);
             return;
         }
-        center_goto_goal_x = Data.Instance.stadiumData.active.size_x/2 - Utils.GetRandomFloatBetween(8, 14);
+        center_goto_goal_x = stadiumSize.x/ 2 - Utils.GetRandomFloatBetween(8, 14);
         if (center_goto_goal_x < Mathf.Abs(ai.character.transform.position.x))
             center_goto_goal_x = Mathf.Abs(ai.character.transform.position.x) + 0.25f;
         dest = Vector3.zero;
@@ -52,8 +54,11 @@ public class AiHasBall : AIState
     public override AIState UpdatedByAI()
     {
         timer += Time.deltaTime;
-        if (timer > 0.5f)
-            CheckPase();
+        if (timer > 0.5f && CheckPase())
+        {            
+            SetState(ai.aiIdle);
+            return State();
+        }
         if (Mathf.Abs(ai.transform.position.x+0.25f) > center_goto_goal_x)
             KickBall();
         else
@@ -88,30 +93,43 @@ public class AiHasBall : AIState
         //    ai.character.Jueguito();
         //}
         //else 
-        if (Mathf.Abs(ai.character.transform.position.z) > 7.5f && Random.Range(0,10)<6)
+        float _z = stadiumSize.y / 2 * 0.7f;
+        Debug.Log(_z);
+        if (Mathf.Abs(ai.character.transform.position.z) > _z && Random.Range(0,10)<4)
         {
-            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.7f, 3));
-            SetState(ai.aiIdle);
+            Character characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
+
+            float diffX = Mathf.Abs(characterToPass.transform.position.x - ai.transform.position.x);
+            if (diffX < 5)
+            {
+                ai.character.ballCatcher.LookAt(characterToPass.transform.position);
+                ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.7f, 3.5f));
+                SetState(ai.aiIdle);
+                return;
+            }
         }
-        else
-        {
-            ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
-            SetState(ai.aiPositionAttacking);
-        }
+
+        KickToGoal();
+
     }
-    void CheckPase()
+    void KickToGoal()
+    {
+        ai.character.Kick(CharacterActions.kickTypes.KICK_TO_GOAL);
+        SetState(ai.aiPositionAttacking);
+    }
+    bool CheckPase()
     {
         timer = 0;
-        if (Random.Range(0, 10) < 5) return;
+        if (Random.Range(0, 10) < 5) return false;
         Character characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);
 
-        if (characterToPass == null) return;
+        if (characterToPass == null) return false;
         Vector3 otherPos = characterToPass.transform.position;
 
         //fuera de posicion de pase:
         if (ai.character.teamID == 2 && otherPos.x < ai.transform.position.x - 2
             || ai.character.teamID == 1 && otherPos.x > ai.transform.position.x + 2
-            )return;
+            ) return false;
 
         float offset = 3;
         if (ai.character.teamID == 1)
@@ -122,12 +140,13 @@ public class AiHasBall : AIState
         ai.character.ballCatcher.LookAt(otherPos);
         CharacterActions.kickTypes kickType;
 
+        float corner_x = (Data.Instance.stadiumData.active.size_x/2)*0.7f;
         //tipos de pase
-        if (ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
+        if (ai.character.teamID == 2 && otherPos.x > corner_x || ai.character.teamID == 1 && otherPos.x < -corner_x)
             ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.5f, 2));
         else
             ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f,2));
 
-        SetState(ai.aiIdle);
+        return true;
     }
 }

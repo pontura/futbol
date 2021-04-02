@@ -1,8 +1,8 @@
 {
-	"isArcade":true,
-	"rewired":false,
-	"debug": false,
+	"isArcade":false,
+	"rewired":true,
+	"debug": true,
 	"turn_off_team2": false,
-	"force_mode": "FulboStars - Easy",
+	"force_mode": "FulboStars - Hard",
 	"stadium_id": 1
 }

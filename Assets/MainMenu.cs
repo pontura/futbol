@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     {
         SetControls(false);
         SetCredits(false);
-        Events.PlaySound("crowd", "fulbo_music1", true);
+        Events.PlaySound("crowd", "", true);
         Events.OnButtonClick += OnButtonClick;
         //controlMapper = Instantiate( controlMapper_to_add);
         //controlMapper.rewiredInputManager = GameObject.Find("Rewired Input Manager(Clone)").GetComponent< Rewired.InputManager>();
