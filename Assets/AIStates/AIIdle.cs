@@ -2,6 +2,9 @@
 
 public class AIIdle : AIState
 {
+    float initTimer;
+    AIState aiNextState;
+
     public override void Init(AI ai)
     {
         base.Init(ai);
@@ -9,15 +12,23 @@ public class AIIdle : AIState
     }
     public override void SetActive()
     {
+        aiNextState = null;
+        initTimer = Time.time;
         base.SetActive();
         ai.character.actions.Idle();
         timer = 0;
     }
     public override AIState UpdatedByAI()
     {
+        initTimer += Time.deltaTime;
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {
+            if (initTimer >0.5f && aiNextState != null)
+            {
+                SetState(aiNextState);
+                return State();
+            }
             timer = 0;
             if (ai.ball.character == null)
             {
@@ -53,18 +64,27 @@ public class AIIdle : AIState
         }            
         return State();
     }
+    void SetNextState(AIState aistate)
+    {
+        if (initTimer < 0.5f)
+            aiNextState = aistate;
+        else
+            SetState(aistate);
+    }
     public override void GotoBall()
     {
-        SetState(ai.aiGotoBall);
+            SetNextState(ai.aiGotoBall);
     }
     public override void OnCharacterCatchBall(Character character)
     {
+        if (timer < 0.5f) return;
+
         if (character.data.id == ai.character.data.id)
-            SetState(ai.aiHasBall);
+            SetNextState(ai.aiHasBall);
         else if (character.teamID == ai.character.teamID)
-            SetState(ai.aiPositionAttacking);
+            SetNextState(ai.aiPositionAttacking);
         else
-            SetState(ai.aiPositionDefending);
+            SetNextState(ai.aiPositionDefending);
     }
     public override void OnBallNearOnAir()
     {
@@ -72,6 +92,6 @@ public class AIIdle : AIState
     }
     public override void OnFollow(Transform target)
     {
-        SetState(ai.aiGotoBall);
+        SetNextState(ai.aiGotoBall);
     }
 }

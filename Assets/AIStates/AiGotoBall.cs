@@ -4,7 +4,7 @@ public class AiGotoBall : AIState
 {
     Vector3 dest;
     float offset;
-    float timerToCalculate = 0.3f;
+    float timerToCalculate = .6f;
 
     public override void Init(AI ai)
     {
