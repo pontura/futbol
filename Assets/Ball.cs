@@ -225,7 +225,7 @@ public class Ball : MonoBehaviour
         if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL && !character.isBeingControlled)
         {
             AimGoal(character);
-            //force = Random.Range(1.6f, 3);
+            force = Random.Range(1.2f, 2.1f);
         }
         else if (forceForce != 0)
             force = forceForce;
