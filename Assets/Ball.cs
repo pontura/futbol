@@ -225,7 +225,7 @@ public class Ball : MonoBehaviour
         if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL && !character.isBeingControlled)
         {
             AimGoal(character);
-            force = Random.Range(1.2f, 2.1f);
+            force = Random.Range(1.5f, 3.1f);
         }
         else if (forceForce != 0)
             force = forceForce;
@@ -286,12 +286,12 @@ public class Ball : MonoBehaviour
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 KickBallSound();
-                dir *= GetStats().kickHard * 1.5f;
+                dir *= GetStats().kickHard * force;
                
                 if (character != null && character.type == Character.types.GOALKEEPER)
                     dir += Vector3.up * GetStats().kickHardAngle * 2;
                 else
-                    dir += Vector3.up * GetStats().kickHardAngle * force;
+                    dir += Vector3.up * GetStats().kickHardAngle * (force/1.2f);
                 break;
             case CharacterActions.kickTypes.CENTRO:
                 KickBallSound();

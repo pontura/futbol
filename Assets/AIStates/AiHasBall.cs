@@ -6,11 +6,13 @@ public class AiHasBall : AIState
     float center_goto_goal_x = 12;
     int _z = 0;
     Vector3 limits;
-    float initialTime;
+    float timerDestination;
     Vector2 stadiumSize;
+    float initTimer;
 
     public override void Init(AI ai)
     {
+        initTimer = Time.time;
         stadiumSize = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
         limits = new Vector2(stadiumSize.x, stadiumSize.y);
         base.Init(ai);
@@ -36,7 +38,7 @@ public class AiHasBall : AIState
     }
     void SetDestination()
     {
-        initialTime = Time.time;
+        timerDestination = Time.time;
         if (ai.ball.character == null || ai.ball.character != ai.character)
         {
             SetState(ai.aiIdle);
@@ -88,12 +90,12 @@ public class AiHasBall : AIState
     }
     void KickBall()
     {
-        //if (initialTime + 0.25f > Time.time)
-        //{
-        //    ai.character.Jueguito();
-        //}
+        if (initTimer + 0.25f > Time.time)
+        {
+            ai.character.Jueguito();
+        }
         //else 
-        float _z = stadiumSize.y / 2 * 0.7f;
+        float _z = (stadiumSize.y / 2) * 0.7f;
         Debug.Log(_z);
         if (Mathf.Abs(ai.character.transform.position.z) > _z && Random.Range(0,10)<4)
         {
