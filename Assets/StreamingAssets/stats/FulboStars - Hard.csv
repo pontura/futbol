@@ -1,7 +1,7 @@
 Accion,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
 speed,40,5,5,5,0
 speedRun,65,8,8,8,0
-speedRunFade,1,0,0,0,0
+speedRunFade,8,0,0,0,0
 speedWithBall,35,5,5,5,0
 speedRunWithBall,55,8,8,8,0
 speedDash,80,15,10,5,0
