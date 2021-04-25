@@ -5,6 +5,8 @@ using System;
 
 public class CharactersPositions : MonoBehaviour
 {
+    public TextAsset fileToLoad;
+  //  public bool reLoad = true;
     public All all;
 
     [Serializable]
@@ -27,17 +29,18 @@ public class CharactersPositions : MonoBehaviour
     }
     private void Awake()
     {
-        StartCoroutine(Load());
+        all = JsonUtility.FromJson<All>(fileToLoad.text);
+       // StartCoroutine(Load());
     }
-    IEnumerator Load()
-    {
-        string url = Application.dataPath + "/StreamingAssets/characterPositions.json";
-        using (WWW www = new WWW(url))
-        {
-            yield return www;
-            all = JsonUtility.FromJson<All>(www.text);
-        }
-    }
+    //IEnumerator Load()
+   // {
+        //string url = Application.dataPath + "/StreamingAssets/characterPositions.json";
+        //using (WWW www = new WWW(url))
+        //{
+        //    yield return www;
+           // all = JsonUtility.FromJson<All>(fileToLoad.text);
+       // }
+    ///}
     public PositionsData GetPositionsData(int id)
     {
         foreach(PositionsData p in all.all)

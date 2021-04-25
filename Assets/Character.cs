@@ -151,18 +151,18 @@ public class Character : MonoBehaviour
             if (actions.state == CharacterActions.states.DASH)
             {
                 other.actions.Kicked();
-                Vector3 pos = other.transform.position;
-                if (
-                    (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
-                    &&
-                     (pos.z < 7.25f && pos.z > -7.25f)
-                    &&
-                    (other.teamID != teamID)
-                    )
-                {
-                    Invoke("PenaltyDelayed", 0.25f);
-                    return;
-                }
+                //Vector3 pos = other.transform.position;
+                //if (
+                //    (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
+                //    &&
+                //     (pos.z < 7.25f && pos.z > -7.25f)
+                //    &&
+                //    (other.teamID != teamID)
+                //    )
+                //{
+                //    Invoke("PenaltyDelayed", 0.25f);
+                //    return;
+                //}
             }
             else
                 other.actions.Cry();
@@ -182,9 +182,10 @@ public class Character : MonoBehaviour
     {
         MoveTo(_x, _y);            
     }
-    public void StartKicking()
+    public void StartKicking(int buttonID)
     {
         actions.AimingKick(true);
+        ballCatcher.InitKick(buttonID);
     }
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {        

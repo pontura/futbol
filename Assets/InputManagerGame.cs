@@ -130,21 +130,11 @@ public class InputManagerGame : MonoBehaviour
     }
     public void OnMobileButtonPressed(int id)
     {
-            if (id == 1)
-                GetButtonDown(1, 1);
-            else if (id == 2)
-                GetButtonDown(2, 1);
-            else
-                GetButtonDown(3, 1);
+        GetButtonDown(id, 1);
     }
-    public void OnMobileButtonUp(int id, bool isDown)
+    public void OnMobileButtonUp(int id)
     {
-        if (id == 1)
-            GetButtonUp(1, 1);
-        else if (id == 2)
-            GetButtonUp(2, 1);
-        else
-            GetButtonUp(3, 1);
+        GetButtonUp(id, 1);
     }
     void GetButtonDown(int buttonID, int playerID)
     {

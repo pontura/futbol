@@ -59,10 +59,12 @@ public class CharactersManager : MonoBehaviour
             character.Init(teamID_2, this, CharactersData.Instance.GetCharacter(teamID_2, id, character.type == Character.types.GOALKEEPER));
             id++;
         }
-        Loop();
-
+        
+        print("_________CharactersManager");
+        print("Data.Instance.newScene: " + Data.Instance.newScene);
         if (Data.Instance.newScene == "Game")
         {
+            Loop();
             for (int a = 0; a < Data.Instance.matchData.players.Length; a++)
             {
                 int teamID = Data.Instance.matchData.players[a];
@@ -351,7 +353,7 @@ public class CharactersManager : MonoBehaviour
         else if (ball.character == character)
         {
            Events.PlayerProgressBarSetState(true);
-            character.StartKicking();
+            character.StartKicking(buttonID);
         }
     }   
     public void ButtonUp(int buttonID, int id)
@@ -370,6 +372,7 @@ public class CharactersManager : MonoBehaviour
             {
                 //arco
                 case 1:
+                    if (character.actions.state == CharacterActions.states.DASH) return;
                     float timeCatched = ball.GetDurationOfBeingCatch();
 
                     if (timeCatched < 0.25f)

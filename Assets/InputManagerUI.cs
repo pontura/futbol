@@ -30,37 +30,46 @@ public class InputManagerUI : MonoBehaviour
             return;
         if (Data.Instance.isMobile || Data.Instance.settings.mainSettings.isArcade)
         {
-            for (int id = 0; id < 4; id++)
+            if (Data.Instance.isMobile)
             {
-
-                horizontalAxis[id] = Input.GetAxis("Horizontal" + (id+1));
-                verticalAxis[id] = Input.GetAxis("Vertical" + (id + 1));
-
-                if (Input.GetButtonDown("Button" + (id + 1) + "_1"))
-                    Events.OnButtonDown((id + 1), 1);
-
-                else if (Input.GetButtonDown("Button" + (id + 1) + "_2"))
-                    Events.OnButtonDown((id + 1), 2);
-
-                else if (Input.GetButtonDown("Button" + (id + 1) + "_3"))
-                    Events.OnButtonDown((id + 1), 3);
-
-                if (Input.GetButtonUp("Button" + (id + 1) + "_1"))
-                    Events.OnButtonClick((id + 1), 1);
-
-                else if (Input.GetButtonUp("Button" + (id + 1) + "_2"))
-                    Events.OnButtonClick((id + 1), 2);
-
-                else if (Input.GetButtonUp("Button" + (id + 1) + "_3"))
-                    Events.OnButtonClick((id + 1), 3);
-                
-                if (lastXDirection[id ] != horizontalAxis[id])
+                if (Input.GetMouseButtonDown(0))
+                    Events.OnButtonDown(1, 1);
+                else if (Input.GetMouseButtonUp(0))                    
+                    Events.OnButtonClick(1, 1);
+            }
+            else {
+                for (int id = 0; id < 4; id++)
                 {
-                    if (horizontalAxis[id] > 0.25f)
-                        Events.OnRight((id + 1), true);
-                    else if (horizontalAxis[id] < -0.25f)
-                        Events.OnRight((id + 1), false);
-                    lastXDirection[id] = horizontalAxis[id];
+
+                    horizontalAxis[id] = Input.GetAxis("Horizontal" + (id + 1));
+                    verticalAxis[id] = Input.GetAxis("Vertical" + (id + 1));
+
+                    if (Input.GetButtonDown("Button" + (id + 1) + "_1"))
+                        Events.OnButtonDown((id + 1), 1);
+
+                    else if (Input.GetButtonDown("Button" + (id + 1) + "_2"))
+                        Events.OnButtonDown((id + 1), 2);
+
+                    else if (Input.GetButtonDown("Button" + (id + 1) + "_3"))
+                        Events.OnButtonDown((id + 1), 3);
+
+                    if (Input.GetButtonUp("Button" + (id + 1) + "_1"))
+                        Events.OnButtonClick((id + 1), 1);
+
+                    else if (Input.GetButtonUp("Button" + (id + 1) + "_2"))
+                        Events.OnButtonClick((id + 1), 2);
+
+                    else if (Input.GetButtonUp("Button" + (id + 1) + "_3"))
+                        Events.OnButtonClick((id + 1), 3);
+
+                    if (lastXDirection[id] != horizontalAxis[id])
+                    {
+                        if (horizontalAxis[id] > 0.25f)
+                            Events.OnRight((id + 1), true);
+                        else if (horizontalAxis[id] < -0.25f)
+                            Events.OnRight((id + 1), false);
+                        lastXDirection[id] = horizontalAxis[id];
+                    }
                 }
 
             }

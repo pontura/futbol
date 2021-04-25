@@ -202,7 +202,10 @@ public class SelectorScreen : MonoBehaviour
     }
     void Go()
     {
-        Data.Instance.LoadLevel("PlayersTeamSelector");
+        if(Data.Instance.isMobile)
+            Data.Instance.LoadLevel("GameIntro");
+        else
+            Data.Instance.LoadLevel("PlayersTeamSelector");
     }
     void SetReferi()
     {

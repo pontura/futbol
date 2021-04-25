@@ -6,27 +6,34 @@ public class BallCatcher : MonoBehaviour
 {
     public Transform container;
     Ball ball;
-    public states state;
+    states state;
     Character character;
     public SpriteRenderer arrow;
+    public SpriteRenderer colaArrow;
     Animation anim;
+    float arrow_pos_z_initial;
+    float arrow_pos_max_z = 17;
+    float speed = 10;
+    public GameObject cola;
 
-    public enum states
+    enum states
     {
         IDLE,
         GOT_IT,
         WAITING,
-        JUEGUITO
+        JUEGUITO,
+        KICKING
     }
     private void Start()
     {
         anim = container.GetComponent<Animation>();
         character = GetComponent<Character>();
         Show(false);
-        //container.gameObject.SetActive(false);
+        arrow_pos_z_initial = arrow.transform.localPosition.z;
     }
     public void Catch(Ball _ball)
     {
+        Reset();
         //container.gameObject.SetActive(true);
         ball = _ball;
         ball.transform.SetParent(container);
@@ -38,13 +45,18 @@ public class BallCatcher : MonoBehaviour
     public void LoseBall()
     {
         character.SetCollidersOff(Data.Instance.settings.gameplay.freeze_by_loseBall);
-        //container.gameObject.SetActive(false);
         state = states.WAITING;
         ball = null;
         Invoke("Reset", 0.2f);
     }
     public void Reset()
     {
+        cola.transform.localScale = Vector3.one;
+        Vector3 pos = arrow.transform.localPosition;
+        pos.z = arrow_pos_z_initial;
+        arrow.transform.localPosition = pos;
+        colaArrow.color = Color.white;
+        arrow.color = Color.white;
         state = states.IDLE;
         if(character.type != Character.types.GOALKEEPER)
             anim.Play("ball_idle");
@@ -71,5 +83,28 @@ public class BallCatcher : MonoBehaviour
     {
         state = states.JUEGUITO;
         anim.Play("ball_jueguito");
+    }
+    public void InitKick(int buttonID)
+    {
+        Color arrowColor = Color.yellow;
+        switch(buttonID)
+        {
+            case 1:
+                arrowColor = Color.red;
+                break;
+        }
+        arrow.color = arrowColor;
+        colaArrow.color = arrowColor;
+        state = states.KICKING;
+    }
+    private void Update()
+    {
+        if (state != states.KICKING) return;
+
+        Vector3 pos = arrow.transform.localPosition;
+        pos.z += speed * Time.deltaTime;
+        if (pos.z > arrow_pos_max_z) pos.z = arrow_pos_max_z;
+        arrow.transform.localPosition = pos;
+        cola.transform.localScale = new Vector3(1, 1, (1+(pos.z-arrow_pos_z_initial)*0.7f));
     }
 }

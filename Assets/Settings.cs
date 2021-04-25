@@ -6,7 +6,9 @@ using System;
 public class Settings : MonoBehaviour
 {
     public int totalPlayersAvailable = 4;
-    public string fileName = "FulboStars - Easy";
+
+    public TextAsset settingsDataFile;
+    public TextAsset[] easy_medium_hard;
     public int totalTime;
     public TeamSettings[] teamSettings;
 
@@ -105,34 +107,47 @@ public class Settings : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(LoadSettings());
-    }
-    IEnumerator LoadSettings()
-    {
-        string url = Application.dataPath + "/StreamingAssets/settings.json";
-        using (WWW www = new WWW(url))
+        //  StartCoroutine(LoadSettings());
+        mainSettings = JsonUtility.FromJson<MainSettings>(settingsDataFile.text);
+        if(Data.Instance.isMobile)
         {
-            yield return www;
-            mainSettings = JsonUtility.FromJson<MainSettings>(www.text);
-            StartCoroutine(LoadGamePlaySettings());
-            
+            mainSettings.debug = false;
+            mainSettings.isArcade = false;
+            mainSettings.rewired = false;
+            mainSettings.turn_off_team2 = false;
         }
+        Data.Instance.spreadsheetLoader.CreateListFromFile(easy_medium_hard[0].text, OnDataLoaded);
+        loaded = true;
+        Data.Instance.SettingsLoaded();
     }
-    IEnumerator LoadGamePlaySettings()
-    {
-        if (mainSettings.debug)
-            fileName = mainSettings.force_mode;
+    //IEnumerator LoadSettings()
+    //{
+    //    string url = Application.dataPath + "/StreamingAssets/settings.json";
+    //    using (WWW www = new WWW(url))
+    //    {
+    //        yield return www;
+    //        mainSettings = JsonUtility.FromJson<MainSettings>(www.text);
+    //        //StartCoroutine(LoadGamePlaySettings());
+    //        Data.Instance.spreadsheetLoader.CreateListFromFile(easy_medium_hard[0].text, OnDataLoaded);
+    //        loaded = true;
+    //        Data.Instance.SettingsLoaded();
+    //    }
+    //}
+    //IEnumerator LoadGamePlaySettings()
+    //{
+    //    if (mainSettings.debug)
+    //        fileName = mainSettings.force_mode;
 
-        string url = Application.dataPath + "/StreamingAssets/stats/" + fileName + ".csv";
-        using (WWW www = new WWW(url))
-        {
-            yield return www;
-            Data.Instance.spreadsheetLoader.CreateListFromFile(www.text, OnDataLoaded);
-            loaded = true;
-            Data.Instance.SettingsLoaded();
-        }
+    //    string url = Application.dataPath + "/StreamingAssets/stats/" + fileName + ".csv";
+    //    using (WWW www = new WWW(url))
+    //    {
+    //        yield return www;
+    //        Data.Instance.spreadsheetLoader.CreateListFromFile(www.text, OnDataLoaded);
+    //        loaded = true;
+    //        Data.Instance.SettingsLoaded();
+    //    }
         
-    }
+    //}
     public List<GamePlay> stats_by_character;
     public GamePlay GetStats(Character.types characterType, int teamID)
     {
@@ -153,6 +168,7 @@ public class Settings : MonoBehaviour
         {
             foreach (string data in line.data)
             {
+               
                 if (rowID == 0) // init all:
                 {
                     if (colID > 1)
@@ -177,19 +193,23 @@ public class Settings : MonoBehaviour
                         else // va para los settings generales
                             gameplayStats = gameplay;
 
-                        float value;
-                        float.TryParse(line.data[a + 1], out value);
-
-                        if (a > 0) // le suma el default:
+                        float value = 0;
+                        if (line.data.Length > a + 1)
                         {
-                            float defaultValue;
-                            float.TryParse(line.data[1], out defaultValue);
-                            if (defaultValue > 0)
-                                value += defaultValue;
-                        }
+                            float.TryParse(line.data[a + 1], out value);
+                           // value = float.Parse(line.data[a + 1]);
 
-                        if (value > 0)
-                            value /= 10;
+                            if (a > 0) // le suma el default:
+                            {
+                                float defaultValue;
+                                float.TryParse(line.data[1], out defaultValue);
+                                if (defaultValue > 0)
+                                    value += defaultValue;
+                            }
+
+                            if (value > 0)
+                                value /= 10;
+                        }
                         
                         AddValue(gameplayStats, data, value);
                     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIMain : MonoBehaviour
 {
+    public GameObject canvasEventSystem;
     static UIMain mInstance = null;
     public TeamUI team1;
     public TeamUI team2;
@@ -22,6 +23,10 @@ public class UIMain : MonoBehaviour
     }
     void Start()
     {
+        if (Data.Instance.isMobile)
+            canvasEventSystem.SetActive(true);
+        else
+            canvasEventSystem.SetActive(false);
         Events.OnGoal += OnGoal;
     }
     void OnDestroy()

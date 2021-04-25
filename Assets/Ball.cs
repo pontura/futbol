@@ -139,7 +139,7 @@ public class Ball : MonoBehaviour
                 if (character.actions.state != CharacterActions.states.JUMP)
                     character.actions.Kick(CharacterActions.kickTypes.CHILENA);
 
-                AimGoal(character);
+                transform.LookAt(AimGoal(character));
                 Kick(CharacterActions.kickTypes.CHILENA);
             }
             else if (transform.localPosition.y > 1.5f)
@@ -184,12 +184,12 @@ public class Ball : MonoBehaviour
         else
             characterToCatch.SetCollidersOff(0.25f);
     }
-    public void AimGoal(Character character)
+    Vector3 AimGoal(Character character)
     {
         float goalX = Data.Instance.stadiumData.active.size_x / 2;
         if (character.teamID == 1) goalX *= -1;
         Vector3 goalPos = new Vector3(goalX, 0, Random.Range(-6.5f, 6.5f));
-        character.ballCatcher.LookAt(goalPos);
+        return goalPos;
     }
     void FreeBall()
     {
@@ -224,7 +224,7 @@ public class Ball : MonoBehaviour
 
         if (kickType == CharacterActions.kickTypes.KICK_TO_GOAL && !character.isBeingControlled)
         {
-            AimGoal(character);
+            character.ballCatcher.LookAt( AimGoal(character) );
             force = Random.Range(1.5f, 3.1f);
         }
         else if (forceForce != 0)
@@ -249,7 +249,6 @@ public class Ball : MonoBehaviour
             case CharacterActions.kickTypes.HARD:
                 KickBallSound();
                 float kickHard = GetStats().kickHard;
-                print(character.actions.state);
                 if (character != null && 
                     (character.actions.state == CharacterActions.states.JUEGUITO)
                     ||

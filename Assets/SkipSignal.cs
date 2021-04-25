@@ -49,7 +49,6 @@ public class SkipSignal : MonoBehaviour
     }
     void OnSkipOn(System.Action OnReady)
     {
-        print("OnSkipOn");
         isOn = true;
         this.OnReady = OnReady;
         Reset();

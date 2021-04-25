@@ -38,12 +38,12 @@ public class DifficultSelector : MonoBehaviour
     public void OnSelect(int id)
     {
         isOn = false;
-        if (id == 0)
-            Data.Instance.settings.fileName = "FulboStars - Easy";
-        else if (id == 1)
-            Data.Instance.settings.fileName = "FulboStars - Medium";
-        else
-            Data.Instance.settings.fileName = "FulboStars - Hard";
+        //if (id == 0)
+        //    Data.Instance.settings.fileName = "FulboStars - Easy";
+        //else if (id == 1)
+        //    Data.Instance.settings.fileName = "FulboStars - Medium";
+        //else
+        //    Data.Instance.settings.fileName = "FulboStars - Hard";
 
         GetComponent<FieldSelector>().Init();
     }

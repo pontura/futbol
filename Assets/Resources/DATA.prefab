@@ -528,7 +528,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPlayersAvailable: 4
-  fileName: FulboStars - Easy
+  settingsDataFile: {fileID: 4900000, guid: 991a6f460b0b20246bcf7c95af6b8885, type: 3}
+  easy_medium_hard:
+  - {fileID: 4900000, guid: 474ee52b2b8644045bb8111c1279c063, type: 3}
+  - {fileID: 4900000, guid: d2d105477a9177543aff21d87e2b4641, type: 3}
+  - {fileID: 4900000, guid: e590c0b857448be49889cb027d66ec8f, type: 3}
   totalTime: 260
   teamSettings:
   - escudo: {fileID: 21300000, guid: 494d0ee5b2af12040b3294a1df427b23, type: 3}
@@ -605,49 +609,49 @@ MonoBehaviour:
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
   mainSettings:
     isArcade: 0
-    rewired: 0
+    rewired: 1
     debug: 0
-    turn_off_team2: 1
-    force_mode: 
-    stadium_id: 0
+    turn_off_team2: 0
+    force_mode: FulboStars - Easy
+    stadium_id: 1
   selectedTeams: {x: 1, y: 0}
   gameplay:
     characterType: 0
-    speed: 0
-    speedRun: 0
-    speedRunWithBall: 0
-    freeze_by_kick: 0
-    freeze_by_loseBall: 0
-    freeze_by_dashBall: 0
-    freeze_dash: 0
-    distance_to_dash_ai: 0
-    dash_percent_attacking: 0
-    dash_percent_defending: 0
-    goalKeeperSpeed: 0
-    random_steal_ball: 0
-    random_jump_a_dash: 0
-    height_to_dominate_ball: 0
-    speedWithBall: 0
-    speedDash: 0
-    gk_FlyingDuration: 0
-    gk_FlyingSpeed: 0
-    gk_CatchOnAir: 0
-    speedRunFade: 0
-    distanceToForceCentro: 0
-    defenseDelay: 0
-    attackDelay: 0
-    kickHard: 0
-    kickHardAngle: 0
-    kickSoft: 0
-    kickSoftAngle: 0
-    kickBaloon: 0
-    kickBaloonAngle: 0
-    kickHead: 0
-    kickHeadAngle: 0
-    kickChilena: 0
-    kickChilenaAngle: 0
-    kickCentro: 0
-    kickCentroAngle: 0
+    speed: 4
+    speedRun: 6.5
+    speedRunWithBall: 5.5
+    freeze_by_kick: 3
+    freeze_by_loseBall: 1
+    freeze_by_dashBall: 3
+    freeze_dash: 1.5
+    distance_to_dash_ai: 2.8
+    dash_percent_attacking: 20
+    dash_percent_defending: 40
+    goalKeeperSpeed: 2.5
+    random_steal_ball: 5
+    random_jump_a_dash: 5
+    height_to_dominate_ball: 1.1
+    speedWithBall: 3.5
+    speedDash: 8
+    gk_FlyingDuration: 5
+    gk_FlyingSpeed: 1.3
+    gk_CatchOnAir: 70
+    speedRunFade: 0.8
+    distanceToForceCentro: 0.7
+    defenseDelay: 1.1
+    attackDelay: 0.7
+    kickHard: 400
+    kickHardAngle: 195
+    kickSoft: 390
+    kickSoftAngle: 100
+    kickBaloon: 210
+    kickBaloonAngle: 280
+    kickHead: 400
+    kickHeadAngle: 70
+    kickChilena: 450
+    kickChilenaAngle: 60
+    kickCentro: 320
+    kickCentroAngle: 230
   dialoguesTimeToAppear: {x: 2, y: 4}
   timeScale: 0.9
   referiSpeed: 1.1
@@ -659,8 +663,152 @@ MonoBehaviour:
   scaleFactor: 0.6
   gkSpeed_sale_x: 0.1
   gkSpeed_sale_z: 4
-  loaded: 0
-  stats_by_character: []
+  loaded: 1
+  stats_by_character:
+  - characterType: 0
+    speed: 3.2
+    speedRun: 5.7
+    speedRunWithBall: 4.7
+    freeze_by_kick: 3.5
+    freeze_by_loseBall: 1.5
+    freeze_by_dashBall: 3.5
+    freeze_dash: 2
+    distance_to_dash_ai: 2.3
+    dash_percent_attacking: 15
+    dash_percent_defending: 38
+    goalKeeperSpeed: 2.5
+    random_steal_ball: 4
+    random_jump_a_dash: 2
+    height_to_dominate_ball: 0.9
+    speedWithBall: 2.7
+    speedDash: 8
+    gk_FlyingDuration: 5
+    gk_FlyingSpeed: 1.3
+    gk_CatchOnAir: 70
+    speedRunFade: 0.8
+    distanceToForceCentro: 0.7
+    defenseDelay: 1.6
+    attackDelay: 1.2
+    kickHard: 360
+    kickHardAngle: 195
+    kickSoft: 380
+    kickSoftAngle: 100
+    kickBaloon: 200
+    kickBaloonAngle: 280
+    kickHead: 390
+    kickHeadAngle: 70
+    kickChilena: 440
+    kickChilenaAngle: 60
+    kickCentro: 310
+    kickCentroAngle: 230
+  - characterType: 1
+    speed: 4
+    speedRun: 6.5
+    speedRunWithBall: 5.5
+    freeze_by_kick: 3.5
+    freeze_by_loseBall: 1.5
+    freeze_by_dashBall: 3.5
+    freeze_dash: 2
+    distance_to_dash_ai: 2.3
+    dash_percent_attacking: 15
+    dash_percent_defending: 38
+    goalKeeperSpeed: 2.5
+    random_steal_ball: 3
+    random_jump_a_dash: 2
+    height_to_dominate_ball: 0.9
+    speedWithBall: 3.5
+    speedDash: 7.5
+    gk_FlyingDuration: 5
+    gk_FlyingSpeed: 1.3
+    gk_CatchOnAir: 70
+    speedRunFade: 0.8
+    distanceToForceCentro: 0.7
+    defenseDelay: 1.6
+    attackDelay: 1.2
+    kickHard: 360
+    kickHardAngle: 195
+    kickSoft: 380
+    kickSoftAngle: 100
+    kickBaloon: 200
+    kickBaloonAngle: 280
+    kickHead: 398
+    kickHeadAngle: 70
+    kickChilena: 440
+    kickChilenaAngle: 60
+    kickCentro: 310
+    kickCentroAngle: 230
+  - characterType: 2
+    speed: 3.5
+    speedRun: 6
+    speedRunWithBall: 5
+    freeze_by_kick: 3.5
+    freeze_by_loseBall: 1.5
+    freeze_by_dashBall: 3.5
+    freeze_dash: 2
+    distance_to_dash_ai: 2.3
+    dash_percent_attacking: 17
+    dash_percent_defending: 38
+    goalKeeperSpeed: 2.5
+    random_steal_ball: 2
+    random_jump_a_dash: 3
+    height_to_dominate_ball: 0.9
+    speedWithBall: 3
+    speedDash: 7.5
+    gk_FlyingDuration: 5
+    gk_FlyingSpeed: 1.3
+    gk_CatchOnAir: 70
+    speedRunFade: 0.3
+    distanceToForceCentro: 0.7
+    defenseDelay: 1.6
+    attackDelay: 1.2
+    kickHard: 360
+    kickHardAngle: 195
+    kickSoft: 380
+    kickSoftAngle: 100
+    kickBaloon: 200
+    kickBaloonAngle: 280
+    kickHead: 390
+    kickHeadAngle: 70
+    kickChilena: 440
+    kickChilenaAngle: 60
+    kickCentro: 310
+    kickCentroAngle: 230
+  - characterType: 3
+    speed: 4
+    speedRun: 6.5
+    speedRunWithBall: 5.5
+    freeze_by_kick: 3
+    freeze_by_loseBall: 1
+    freeze_by_dashBall: 3
+    freeze_dash: 1.5
+    distance_to_dash_ai: 2.8
+    dash_percent_attacking: 20
+    dash_percent_defending: 40
+    goalKeeperSpeed: 2
+    random_steal_ball: 5
+    random_jump_a_dash: 5
+    height_to_dominate_ball: 1.1
+    speedWithBall: 3.5
+    speedDash: 8
+    gk_FlyingDuration: 4
+    gk_FlyingSpeed: 1.1
+    gk_CatchOnAir: 50
+    speedRunFade: 0.8
+    distanceToForceCentro: 0.7
+    defenseDelay: 1.6
+    attackDelay: 1.2
+    kickHard: 340
+    kickHardAngle: 195
+    kickSoft: 370
+    kickSoftAngle: 100
+    kickBaloon: 200
+    kickBaloonAngle: 280
+    kickHead: 400
+    kickHeadAngle: 70
+    kickChilena: 450
+    kickChilenaAngle: 60
+    kickCentro: 320
+    kickCentroAngle: 230
 --- !u!114 &864794640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,12 +824,1065 @@ MonoBehaviour:
   data:
     dialogs:
       random: []
-      goal: []
-      full: []
+      goal:
+      - "\xA1GOOOL!"
+      - "\xA1GOLAZO!"
+      - "\xA1GOL!"
+      full:
+      - "\xA1EH!"
+      - "\xA1\xA1NO!!"
       init: []
-    characters: []
-    goalkeepers: []
-    referis: []
+    characters:
+    - id: 1
+      avatarName: Punga Punga
+      dialogs:
+        random:
+        - ESTE JUEGO ME ESTIGMATIZA MENOS QUE EL ANTERIOR
+        - FOBAL ES VIDA
+        - "MET\xC9 #FULBOSTARS EN TODOS LADOS"
+        - "NING\xDAN PIBE NACE PUNGA PUNGA"
+        - BIEMPIOLA
+        - "EL FICH\xCDN MAS PIOLA DE LA PANDEMIA"
+        - GRACIAS POR JUGAR FICHINES PUNK
+        - THE ULTIMATE POST CHORIPLANDEMIC THRASH PARTY GAME
+        - BUSCANOS EN CAFECITO Y PONETE
+        goal:
+        - "\xA1GRACIAS GAUCHITO!"
+        - "\xA1\xA1GAAAAL!!"
+        - "\xA1PARA VOS, MAM\xC1!"
+        - "TE RECABI\xD3 POR GIL"
+        full:
+        - "\xA1EEEEE, GATO!"
+        - FUISTE...
+        - TE LA VAMO A DAR
+        init: []
+    - id: 2
+      avatarName: Chunky Doll
+      dialogs:
+        random:
+        - "\xA1SOMOS AMIGOS HASTA EL FIN!"
+        - "A VECES ME ASUSTO A M\xCD MISMO"
+        - "\xBFQUER\xC9S JUGAR?"
+        - AL PLAYER 2 LO QUIERO MATAR
+        - "DISCULP\xC1, \xBFME DAR\xCDAS CUERDA?"
+        - "\xBFA QUI\xC9N LE DEC\xCDS MU\xD1ECO?"
+        - "YO NO SOY UN MU\xD1ECO, SOY UN COLLECTIBLE ACTION FIGURE"
+        - "LA PR\xD3XIMA TE DESCUARTIZO"
+        - TA BUENA TOY STORRY
+        - MADE IN CHINA
+        goal:
+        - "\xA1GORE!"
+        full:
+        - "\xA1AAAAHHHRRRRGGGGG!"
+        - :(
+        - DAMN
+        - 7<CK!
+        init: []
+    - id: 3
+      avatarName: Kim Yin
+      dialogs:
+        random:
+        - "\xA1DE RODILLAS!"
+        - "\xA1VIVA EL PARTIDO!"
+        - "\xBFESTE ES EL PARTIDO COMUNISTA?"
+        - "ESTA CANCHA LA CONSTRU\xCD YO"
+        - "\uC774 \uACBD\uAE30\uC7A5 \uC218\uC6A9"
+        - "\xBFME FIRMAR\xCDA UN AUT\xD3GRAFO?"
+        - SI, SOY YO
+        - "LOS CACHETES REGORDETES SON SIGNO DE VIRILIDAD E HIDALGU\xCDA"
+        - "EL MAL ALIENTO ES SIGNO DE VALENT\xCDA Y DESTREZA"
+        - "YO NO FU\xCD"
+        goal:
+        - "\xA1PARA LA PATRIA!"
+        - "\xA1VIVA!"
+        - ESE GOL LO HICE YO
+        - "\uACE8!"
+        - "\uB098\uB294 \uADF8\uC640 \uBAA8\uB4E0 \uBAA9\uD45C\uB97C\uD588\uB2E4"
+        - "\uB098\uB294\uC774 \uC11C\uC591 \uAC8C\uC784\uC744 \uC88B\uC544\uD55C\uB2E4"
+        full:
+        - "\xA1MATEN AL DESERTOR!"
+        - "LA VENGANZA SER\xC1 NUCLEAR"
+        - "\uD0C8\uC601\uBCD1\uC744 \uCC98\uD615\uD558\uC138\uC694!"
+        - "\xA1NO ME MIREN A LOS OJOS!"
+        init: []
+    - id: 4
+      avatarName: Ceresitas
+      dialogs:
+        random:
+        - LOS QUIERO MUCHO...
+        - "\xBFME QUER\xC9S?"
+        - ES RE LINDO SER TU AMIGUITA
+        - "\xBFQUER\xC9S UN CUPCAKE?"
+        - "TIENES UN HERMOSO CORAZ\xD3N"
+        - ENCANTADA DE CONOCERTE
+        - HOLA, MI NOMBRE ES CERESITAS
+        - EMPATEMOS
+        - <3
+        - "\xA1\xA1AMOR!!"
+        goal:
+        - "\xA1FU\xC9 CON MUCHO AMOR!"
+        - "FU\xC9 SIN QUERER..."
+        - LO IMPORTANTE ES COMPETIR
+        full:
+        - ME VAS A HACER LLORAR...
+        - "\xA1BUUUU!"
+        init: []
+    - id: 5
+      avatarName: Poonga Loompa
+      dialogs:
+        random:
+        - ODIO A TIM BURTON
+        - AGUANTE NAVE JUNGLA
+        - ODIO AL COMANDANTE FELTFORD
+        - MIS CHOCOLATES SON MEJORES QUE LOS DE FELTFORD
+        - LEGALIZE CHOCOLATE
+        - "\xBFQU\xC9?"
+        - "\xA1SHHHH!"
+        - "\xA1CORRETE!"
+        goal:
+        - "\xA1GOLAAAAAZO!"
+        - "\xA1CHOCOGOLLLL!"
+        - "\xA1\xA1GOOOOOL!!"
+        full:
+        - "\xA1FULLLL!"
+        - "\xA1\xA1INADI!!"
+        init: []
+    - id: 6
+      avatarName: Mischa Gurkovsky
+      dialogs:
+        random:
+        - "\u041A\u0430\u043A\u0430\u044F \u0440\u0435\u0434\u043A\u0430\u044F \u0441\u043C\u0435\u0441\u044C
+          \u0442\u043E\u0432\u0430\u0440\u0438\u0449\u0435\u0439 ..."
+        - "\u0414\u0430 \u0437\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0435\u0442
+          \u0440\u0435\u0432\u043E\u043B\u044E\u0446\u0438\u044F!"
+        - "\u0412 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0443\u044E \u0438\u0433\u0440\u0443
+          \u044F \u0438\u0433\u0440\u0430\u044E \u0431\u0435\u0437 \u0432\u0438\u043D\u0442\u043E\u0432\u043A\u0438"
+        - LA PRRROXIMA VENGO SIN EL FUSIL
+        - "\xBF\xBFQU\xC9 MIRR\xC1S??"
+        - ME ESTOY HACIENDO PIS
+        - ES UN HONOR, CAMARRADAS
+        goal:
+        - "\u0426\u0435\u043B\u044C!"
+        - VICTORRRIA
+        - "\xA1MUERRRAN, CERRRDOS CAPITALISTAS!"
+        - "\u0426\u0435\u043B\u044C!!"
+        full:
+        - "\u042F \u043E\u0442\u043E\u043C\u0449\u0443"
+        init: []
+    - id: 7
+      avatarName: Fiscal Nissmar
+      dialogs:
+        random:
+        - ME CAE BIEN EL PIBE DE SISTEMAS
+        - "MA\xD1ANA VOY A ONCE A PEGAR COTILL\xD3N PORNO"
+        - "...\xBFPAGU\xC9 LA TARJETA?"
+        - "TENDR\xCDA QUE CAMBIAR LAS MILLAS POR UN PASAJE A MIAMI..."
+        - NECESITO DORMIR
+        - "AL R\xC9FERI LE TRAJE UN PERFUMITO DEL FREE SHOP"
+        - RE GUSTO DE LAS MODELOS
+        - "SI ME PAG\xC1S NOS HAGO UN GOL EN CONTRA"
+        - ALL INCLUSIVE
+        goal:
+        - "\xA1GOOOOL!"
+        - "\xA1\xA1GOLAZO!!"
+        full:
+        - "\xA1CORRUPCI\xD3N!"
+        init: []
+    - id: 8
+      avatarName: Lizzie Queen
+      dialogs:
+        random:
+        - ESTA CANCHA ME PERTENECE
+        - NO ME TOQUEN
+        - BESEN MIS PIES
+        - "SUS PA\xCDSES ME PERTENECEN"
+        - SUS ALMAS ME PERTENECEN
+        - "BESEN LA PARTE DE ATR\xC1S DE MIS RODILLAS"
+        - "\xBFPUEDO DEJAR DE SONREIR?"
+        - BESEN MI BOZO
+        - THIS ARGIE GAME IS FUN
+        goal:
+        - GOAL!
+        - GOLD!
+        full:
+        - FUCKING ARGENTINES!
+        - UNFAIR!
+        - "\xA1NOS VENGAREMOS!"
+        - "\xA1NADIE SE ATREVE A HACERLE ESO A UNA REINA!"
+        - "DETR\xC1S DE ESTA SONRISA HAY ODIO PURO"
+        - "\xA1FU\xC9 MANO, LORD REFER\xCD!"
+        init: []
+    - id: 9
+      avatarName: Spud Boy
+      dialogs:
+        random:
+        - POTATOES!
+        - MONGOLOID!
+        - FREEDOM OF CHOICE!
+        - ARE WE NOT MEN?
+        - I BE SUPD BOY
+        - COMO PESA ESTE SINTE...
+        - SALUDO A LOS SPUDS DEL MUNDO
+        - "WE\xB4RE THROUGH BEING COOL"
+        - "DEVOLUTION SALV\xD3 MI VIDA"
+        - MR. KAMIKAZE!!!
+        - THIS GAME IS DEVO-TIONAL
+        goal:
+        - WHIP IT GOOD!
+        - "THAT\xB4S GOOD!"
+        - SUPPLY AND DEMAND
+        - "THAT\xB4S PEP"
+        - DEVOLUTION TIME!
+        - PEEK-A-BOO!
+        - WE ARE SMART TEAM
+        - SUBURBAN ROBOTS WIN
+        full:
+        - BIG MESS!
+        - SOCIETY'S FOOLS!
+        - PLEASURE PAIN
+        init: []
+    - id: 10
+      avatarName: Acid Queen
+      dialogs:
+        random:
+        - "WE DON\xB4T NEED ANOTHER HERO"
+        - SNIF
+        - STEAAAAMY WINDOWWSS!
+        - GOLDENBALL WILL DO WHAT I PLEASE
+        - BEST HAIR
+        - BABY, GET IT ON!
+        - DRINK PEXI COCA
+        - ROCK IT, BABY
+        - "WET\xB4N\xB4HOT, DADDY"
+        goal:
+        - GOOOAL!
+        - SIMPLY THA BEST
+        full:
+        - HEEEYY!!!!
+        - WTF!!!
+        - NO WAY!
+        init: []
+    - id: 11
+      avatarName: Harold Payne
+      dialogs:
+        random:
+        - HIDING THE PAIN
+        - "M\xC1TENME"
+        - QUIERO UN CAFECITO
+        - "SE ME EST\xC1 PASANDO EL EFECTO DEL DIAZEPAM"
+        - "HAROLD PAYNE A LA \xD3RDEN"
+        - THIS FUCKING SMILE IS KILLING MY SOUL
+        - "\xBFYA SACARON LA FOTO?"
+        - QUIERO PERDER
+        - MEMES HAVE PRIDE TOO
+        - "YES, I CAN\xB4T"
+        goal:
+        - YAY!
+        - YIPEE!
+        - HURRA!
+        - DEBE SER UN ERROR
+        full:
+        - DEAD INSIDE
+        - LIFE SUCKS
+        - FAIL
+        - NEXT TIME
+        - I KNEW IT
+        - OBVIO
+        init: []
+    - id: 12
+      avatarName: "Mirta Manuj\xEDn"
+      dialogs:
+        random:
+        - UNA CANCHA HECHA DE CAPITANES DEL ESPACIO
+        - "ESTA PERFORMANCE ES \xDANICA E IRREPETIBLE"
+        - "FUTBOL PL\xC1STICO"
+        - ESTO YA LO VI EN EL MOMA
+        - "ESTOY TENIENDO UN FLASHBACK DEL MAYO FRANC\xC9S"
+        - FUTBOL DECONSTRUIDO O SOCCER ART
+        - "\xBFQUI\xC9N VA GANANDO ESTE HAPPENING?"
+        - ESTE VIDEOJUEGO ES ARTE
+        - "\xBFPARA D\xD3NDE PATEAMOS?"
+        - QUE LINDO ES COMPARTIR ARTE
+        - "NUEVO F\xDATBOL EF\xCDMERO LATINOAMERICANO"
+        goal:
+        - "\xA1ARTE!"
+        - "\xBFGANAMOS?"
+        - "\xBFGOL NUESTRO?"
+        full:
+        - "\xA1...!"
+        - PARA GANAR HAY QUE PERDER
+        init: []
+    - id: 13
+      avatarName: Tincho M. Diocre
+      dialogs:
+        random:
+        - NI DE UN LADO NI DEL OTRO
+        - ME PUSE UN AXXE MUSK ENTERO
+        - ARBITRE QUIEN ARBITRE YO TENGO QUE JUGAR IGUAL
+        - NO ME REPRESENTAN LOS ISMOS
+        - NADIE MENOS
+        - JUEGAN POR UN PLAN
+        - NI DE IZQUIERDA NI DE DERECHA
+        - OJO, NO DIGO NEGRO DE PIEL
+        - "EN UN PA\xCDS EN SERIO ESTAR\xCDAMOS JUGANDO AL FIFA"
+        - "REFER\xCD, \xA1EST\xC1N HABLANDO CON LA E!"
+        - "R\xC9FER\xCD, \xA1HAY MUJERES JUGANDO!"
+        - "A M\xCD NADIE ME REGAL\xD3 NADA"
+        - "ESTOS GR\xC1FICOS SON UNA MIERDA"
+        - "ESTE JUEGO EST\xC1 BANCADO POR EL SIONISMO REPTILOIDE"
+        - "A M\xCD NO ME CONSTA QUE EL HORIZONTE SEA CURVO"
+        - "\xBFY D\xD3NDE EST\xC1N ENTERRADOS?"
+        - "MIENTRAS QUE NO LO HAGAN ADELANTE M\xCDO TODO BIEN"
+        - "\xBFQU\xC9 MIR\xC1S A MI SE\xD1ORA?"
+        - "\xBFQU\xC9 AUTO TEN\xC9S?"
+        - "\xA1LIBEREN AL PESTO!"
+        - "\xA1VERDAD COMPLETA!"
+        - "DEMASIADO DEMOCR\xC1TICO EL R\xC9FERI..."
+        goal:
+        - "\xA1MERITOCRACIA!"
+        - "\xA1VIVA LA LIBERTAD, CARAJO!"
+        full:
+        - "\xA1PA\xCDS DE MIERDA!"
+        - "\xBFPARA QU\xC9 PAGO MIS IMPUESTOS?"
+        - VIENEN DE BOLIVIA PARA HACERNOS GOLES
+        - SOMOS VENEZUELA
+        - "\xA1\xA1PENA DE MUERTE!!"
+        init: []
+    - id: 14
+      avatarName: Orfelia Gonzalez
+      dialogs:
+        random:
+        - "C\xD3RRASE, ONVRE HORRIBLE"
+        - "\xBFY SI TOMAMOS EL CLUB?"
+        - NO HABLO CON ABOLOS
+        - "\xBFY A M\xCD QU\xC9 ME IMPORTA?"
+        - "C\xC1LLESE, SE\xD1OR"
+        - "\xA1JA JA JA JA!"
+        - MORITE, TINCHO
+        - JE
+        - MEH...
+        - "\xA1CRINGE!"
+        - "\xA1IGLESIA! \xA1ESTADO! \xA1EL PAPA DIPUTADO!"
+        - "PAS\xC1"
+        - ...
+        goal:
+        - "\xA1VAMOS LES PIBES!"
+        - "\xA1\xA1GOL!!"
+        - "\xA1VAMOOOOO!"
+        - "\xA1REDISTRIBUCI\xD3N DE PUNTOS!"
+        full:
+        - "\xA1BOOMER!"
+        - "NO RECONOZCO TU GOL ILEG\xCDTIMO"
+        - "PARA M\xCD NO FU\xC9 GOL"
+        init: []
+    - id: 15
+      avatarName: Boris Jameson
+      dialogs:
+        random:
+        - ...
+        - ......
+        - ....
+        - GROOOGGHHH
+        - RRRRRRRHHHH
+        - '?'
+        - ... :) ...
+        - BLLLL GRRRRR JHHHHH!
+        goal:
+        - WWWAAARGGHHHH!!!
+        - BWWAARJJJ!!
+        full:
+        - HHWWWAARRK!!!
+        - GRRRRRR!!!
+        init: []
+    - id: 16
+      avatarName: Ronald W. Thrumb
+      dialogs:
+        random:
+        - I AM THE LEAST RACIST PLAYER IN THIS FIELD
+        - I LIKE HIM A LOT
+        - "WHY AREN\xB4T YOU RICH?"
+        - CAN YOU JUST BE WHITE?
+        - I AM THE LEAST ANTI SEMITIC PERSON IN THIS TEAM
+        - I AM THE LEAST NAZI MAN THIS SIDE OF THE FIELD
+        - HOW MUCH IS THIS PLANET?
+        - "ME CAGOU EN CHU PA\xCDS"
+        - ORANGE IS THE NEW WHITE
+        - VERY VERY HOT WIFE, MR. PRESIDENT
+        - "I\xB4M BUYING THIS STADIUM"
+        - IO VOY CONSTRWIR UN PARED EN MEDIO DE CANCHA
+        - CAN YOU JUST BE AMERICAN?
+        - "WHY CAN\xB4T YOU BE A LITTLE MORE PROUD?"
+        - I NEED YOU TO BE VERY AMERICAN TODAY
+        - IS THAT A WOMAN?
+        - SIR, YOUR DAUGHTER IS VERY VERY HOT
+        - IO TENGOU UN AMIGOU MEXICANOU
+        - I AM THE LEAST SEXIST GENTLEMAN IN THIS STATE
+        - HOW MUCH IS YOUR SOUL?
+        - MAY I USE YOU?
+        goal:
+        - LOSERS!
+        - I AM PROUD
+        - AMERICAN GOAL!
+        - GOOD DNA PREVAILS!
+        full:
+        - CHINA!
+        - "THAT\xB4S SUCH A RACIST GOAL"
+        - ENEMIES OF DEMOCRACY!
+        - SO ANTI AMERICAN
+        init: []
+    - id: 17
+      avatarName: Gorggy
+      dialogs:
+        random:
+        - YOU TALKING TO ME?
+        - "I\xB4M NOT GONNA TAKE ANYONE\xB4S SANDWICH"
+        - HA HA HA HA!
+        - NO!
+        - GOOD PIE
+        - YOU ARE MY FRIEND AND YOU GET A FREE SODA
+        - NO!!
+        goal:
+        - FIGHT THE POWER!
+        - GOAL!
+        - YEEEAHHHH
+        full:
+        - GIVE ME MY LUNCH!
+        - NOOO!
+        init: []
+    - id: 18
+      avatarName: Turbo Grrrl
+      dialogs:
+        random:
+        - "ME TENDR\xCDA QUE HABER TOMADO UNA BIRRA M\xC1S"
+        - ALTA RESACA, PERO TODO OK
+        - FOREVER AGAINST RACISM
+        - UOOOOO! I GOT ERECTION!
+        - "DISCULPE, \xBFTIENE UN MINUTO PARA HABLAR DE TURBONEGRO?"
+        - DEATH PUNK OR DEATH
+        - TURBOJUGEND FULBO STARS PRESENTE
+        - "\xBFLE DI DE COMER AL GATO?"
+        goal:
+        - HOT FOR NIETZCHE!
+        - "ROCK\xB4N\xB4ROLL MACHINE!"
+        full:
+        - ALL MY FRIENDS ARE DEAD
+        init: []
+    - id: 19
+      avatarName: Betsy Beige
+      dialogs:
+        random:
+        - WHIP, BETSY! WHIP!
+        - ODIO USAR ROPA
+        - "\xA1DE RODILLAS, FULBO STARS!"
+        - CHAS CHAS
+        - "\xBFQUI\xC9N SE PORT\xD3 MAL?"
+        goal:
+        - GOOOAL!!
+        full:
+        - BORING
+        init: []
+    - id: 20
+      avatarName: El Pesto
+      dialogs:
+        random:
+        - "\xA1\xA1NO SALDR\xC1S VIVA DE ESTA CANCHA!!"
+        - "\xA1RATAS INMUNDAS!"
+        - "\xA1RECAUDAN PARA LA FIFFA!"
+        - FUTBOL LIBRE
+        - AL ENEMIGO NI MERCADO
+        - "\xA1\xA1DIGO LO QUE PIENSO!!"
+        - HAGO LO QUE DIGO
+        - "\xA1FEMIZURRRDA!"
+        - "\xA1REFER\xCD DE MI4RRRRD1!"
+        - METETE LA E EN EL 9RT6
+        - LA VERDAD COMPLETA SALE CON FRITAS
+        - SIN CORBATA NO PUEDO RESPIRAR
+        - "\xBFCU\xC1NDO TERMINA EL R\xC9GIMEN?"
+        - "LA IMAGEN DEL REFER\xCD EST\xC1 EN CA\xCDDA LIBRE"
+        - "\xA1MI3RD6S!"
+        - EL ODIO ME DA FIEBRE
+        - SE ME SALEN LOS OJOS DEL ODIO
+        - ESTO ES UNA GUERRA INTERNA
+        - "\xBF\xBFEST\xC1N JUGANDO MINAS??"
+        - "\xA1EST\xC1N TODOS IMPLICADOS!"
+        - "\xBFA QUI\xC9N VOT\xD3 USTED?"
+        goal:
+        - "\xA1\xA1GOLAZ ZZZZZ ZZOOO!!"
+        - "\xA1\xA1TOMEN SUBVERSIVOS!!"
+        - NO HAY PIEDAD CON EL ENEMIGO
+        full:
+        - "\xA1\xA1\xA1AAAAAA RRRRRRR GGGGHHH!!!"
+        - "\xA1\xA1PURO RELATO!!"
+        - "\xA1IZQUIERDA JEROPA!"
+        init: []
+    - id: 21
+      avatarName: Cobra
+      dialogs:
+        random:
+        - ...
+        - "NO M\xC1S ANILLOS, IMB\xC9CIL"
+        - "ME SEPAR\xC9 LA SEMANA PASADA"
+        - "TODAV\xCDA ESTOY SENSIBLE"
+        - "\xBFY SI TE PONGO ANILLOS EN LAS BOL8S?"
+        - UN DOLOR DE CUELLO...
+        - "TREMENDO TINCHO RESULT\xD3"
+        - "CON EL \xDALTIMO ANILLO DIJE BASTA"
+        - "SIEMPRE SO\xD1\xC9 CON SER UNA FULBO STAR"
+        - LO BUENO ES QUE TENGO VISTA CENITAL
+        - CRINGE
+        goal:
+        - "\xA1\xA1\xA1\xA1!!!!"
+        full:
+        - "...LA T\xCDPICA..."
+        init: []
+    - id: 22
+      avatarName: Caniggia Ice
+      dialogs:
+        random:
+        - "AC\xC1, RE PENE"
+        - "S\xD3LO LOS M\xC1S PENE ESTAMOS AC\xC1"
+        - "MIR\xC1 QUE BUENA ES MI VIDA"
+        - "\xBFTE GUSTAR\xCDA SER YO?"
+        - "TENGO M\xC1S FOLLOWERS QUE NEURONAS, MAMI"
+        - "WHAT\xB4S THE SPANISH FOR BARAT?"
+        - "NUNCA PODR\xC1S TENER LO QUE TENGO YO"
+        - "VIRALIZ\xC1 #FULBOSTAR"
+        - BIEN P1J5
+        - MARCE ES RE BARAT
+        - EN EL PRIVATE HOOD ME DICEN CANIGGIA ICE, MAMI
+        - ESTA PARY ES BIEN BARAT
+        - "CADA DIENTE M\xCDO SALE 25 SUELDOS DE TU VIEJA"
+        - EL PU78 AMO
+        - "NUEVA PARRILLA, T\xCDO"
+        - IA TU SABE MI PANNNA, YEAHH!
+        - "\xA1\xA1\xA1SOY TT CO\xD1O!!!"
+        - ICE, ICE, BARATS!
+        - COCINO BARATS, BRO!
+        - "\xA1EL PUTO BRO, BARAT!"
+        goal:
+        - "\xA1CHUPENLA, BARATS!"
+        - ME LO VOY A TATUAR
+        - ME C8J8 ENCIMA B6LUDO
+        - FIESTA FIESTA
+        - YO SOY EL MEJOR REGALO
+        - "\xA1\xA1SAPE!!"
+        full:
+        - WTF??!!
+        - ME PEGAN POR FACHERO
+        - "\xBFTE MOLESTA MI EGO?"
+        - "SI TU ESTRELLA NO ALUMBRA, NO APAGUES LA M\xCDA, LOSER"
+        init: []
+    - id: 23
+      avatarName: Alfredo 'Tota' Messina
+      dialogs:
+        random:
+        - "\xA1LAS MINA DEL SESO OPUESTO QUIEREN FLAAAAAN!"
+        - "\xBFUST\xC9 SIEMPRE JUEGA EN ESTA CANCHA, SE\xD1ORITA?"
+        - "\xA1FLAAAN!"
+        - K 0%
+        - ME DAN BOLA TODAS MENOS LA QUE ME GUSTA DENSERIO
+        - "UN D\xCDA CONQUISTAR\xC9 A LA POROTA"
+        - "LA TOTA Y LA POROTA UN SOLO CORAZ\xD3N"
+        - MAESTRO MAYOR DE OBRA DEL AMOR
+        - "EN DEFENSA DE LA DEMOCRACIA Y LA SEDUSI\xD3N"
+        - CAISTES, MAMITA
+        - "\xBFVAMO A TOMAR UN VERM\xDA?"
+        - "VOS TE CALL\xC1"
+        - COMO SER ATRATIVO PARA LA ENVRA GORILA DEL SESO OPUESTO
+        - VOS TAN CHORI Y YO TAN FLAAAAAN
+        - "\xA1VENITE CON PIZZA, SHALALAL\xC1!"
+        - "\xBFNO TE COMER\xCDAS UN FLANCITO?"
+        - "TE INVITO UN FLANCITO, MAM\xC1"
+        - 'MODO BRADEN: ON'
+        goal:
+        - "\xA1FLAAAN CASERO!"
+        full:
+        - "\xA1\xA1PELAFUST\xC1N!!"
+        - "\xA1CORRUPCI\xD3N!"
+        init: []
+    - id: 24
+      avatarName: Federico Kremme
+      dialogs:
+        random:
+        - "\xA1\xA1EXTASIS!!"
+        - EL BUEN GUSTO SE ORIGINA EN FRANCIA
+        goal:
+        - "\xA1CLIMAAAAAX!"
+        - "ESO FU\xC9 ARTE"
+        full:
+        - "\xA1#&%@$!"
+        - "\xA1\xA1\xA1ASSSSCO!!!"
+        init: []
+    - id: 25
+      avatarName: Bobby W. Supporter
+      dialogs:
+        random:
+        - NO WAY YOU WIN
+        - WHITE TAKES STADIUM BACK
+        - YESSIR!
+        - GOD IS WHITE
+        - "STEP BACK OR I\xB4LL SHOOT"
+        - GOD BLESS MY TEAM
+        - SPEAK ENGLISH OR DIE
+        goal:
+        - AMERICA!!!
+        full:
+        - N-WORD!!!!!
+        init: []
+    - id: 26
+      avatarName: Macricio Mauri
+      dialogs:
+        random:
+        - "\xA1NO SE INUNDA M\xC1AAAS!"
+        - "\xBFEN QU\xC9 TE HAS CONVERTIDO?"
+        - WE WILL ROCK YOU!
+        - TE LO DEBO
+        - "\xA1QUE LINDO CULITO!"
+        - YA TE VAS A AFLOJAR
+        - "HAY QUE PAGAR CON ALEGR\xCDA"
+        - "\xBFYA EMPEZ\xD3 EL PARTIDO?"
+        - "\xA1\xA1PRIMER TIEMPO!!"
+        goal:
+        - "\xBF\xBFGANAMOS??"
+        - "EL MEJOR EQUIPO DE LOS \xDALTIMOS 50 A\xD1OS"
+        - "\xBFLLEGAS A FIN DE MES?"
+        full:
+        - "\xBF\xBFQU\xC9 PASO??"
+        - "SI ME VUELVO LOCO LES PUEDO HACER MUCHO DA\xD1O"
+        - VENIAMOS BIEN
+        init: []
+    - id: 27
+      avatarName: La Doctora
+      dialogs:
+        random:
+        - "\xA1YEGUA, P8T4 Y GOLEADORA!"
+        - ESTO PARECE PLAZA DE MAYO
+        - "CUCHUFLITO Y PINDONGA CONDUCCI\xD3N"
+        - A RODAR, MI AMOR
+        - "VEN\xCD PARA AC\xC1, CHIQUITO"
+        - "BUENOS D\xCDAS, TARDES O NOCHES"
+        - SE PUEDE EXPLICAR TODO
+        goal:
+        - "\xA1\xA1GRACIAS!!"
+        - TE LO DEDICO A VOS EVITA
+        - CON CADA GOL TRANSFORMO LA REALIDAD
+        - UN GOL NO PLANIFICADO
+        - ANOTALO EN EL JUZGADO
+        - POR Y PARA EL PUEBLO
+        full:
+        - "\xA1LOWFARE!"
+        - MEDIOCRE COMO ISABELITA
+        - "SIEMPRE IGUAL LA OPOSICI\xD3N"
+        - VOS NO SOS PERONISTA
+        - "\xA1CARTA DOCUMENTO!"
+        - "AS\xCD NO SE DISCIPLINA"
+        init: []
+    - id: 28
+      avatarName: Feto Etchecopar
+      dialogs:
+        random:
+        - "SER\xC9 PETISO PERO TENGO UNA H4RLEY"
+        - "\xBFVOS SOS CHORRO?"
+        - "YO NO SOY MIS\xD3GINO NI RACISTA, NEGRA DE MIERDA!"
+        - ANDA A UNA CASA DE MUJERES
+        - CONCHETO SE NACE
+        - SOMOS NOSOTROS O ELLOS, PIBE
+        goal:
+        - "\xA1\xA1TOM\xC1, PARDO!!"
+        - META BALA
+        - ME VOY A MIAMI
+        full:
+        - "\xA1NO VALE!"
+        - VENI QUE TENGO FIERRO
+        - LA PROXIMA TE TIRO YO
+        - ME VOY A IR DEL PARTIDO
+        - "YA ESTOY MUERTO, ME MATARON HACE 6 A\xD1OS"
+        init: []
+    - id: 29
+      avatarName: Joao Bolsorinho
+      dialogs:
+        random:
+        - "EU N\xC3O TENHO GRIPECINHA"
+        - TRAMONTINAS PARA CRISTO, NOSSO SENHOR
+        - "EU N\xC3O ME CANSO"
+        - DEUS ME DISSE PARA DESTRUIR A SELVA
+        - EU TE ODEIO MUITO
+        - "ESSE JOGADOR \xC9 UMA MULHER?????"
+        goal:
+        - GOL DA EQUIPE ARIO!
+        full:
+        - "N\xC3O VALE!"
+        - "TOLER\xC2NCIA ZERO"
+        init: []
+    - id: 30
+      avatarName: Uncle Teddy
+      dialogs:
+        random:
+        - GOD BLESS AMERICA
+        - OFF MY LAND, INDIANS
+        - LEFTISTS ARE GAY
+        - GAYS ARE LEFTISTS
+        - GOD BLESS THE SECOND AMENDMENT
+        - MY TEETH ARE VERY AMERICAN
+        - ULTRA AMERICAN AND PROUD
+        - "I\xB4M FREE"
+        goal:
+        - "\xA1\xA1YIIIHAA!!"
+        full:
+        - "\xA1ANTI YANKEES GO HOME!"
+        init: []
+    - id: 31
+      avatarName: Gimena Susanez
+      dialogs:
+        random:
+        - "\xBF\xBFVIVO??"
+        - "\xA1NUNCA VI MONEDAS TAN CHIQUITAS EN MI VIDA!"
+        - NO ME CASO CON UN POBRE NI LOCA
+        - SHAMPOO PARA LAVAR LOS PLATOS
+        - AGUANTEN LOS MILICOS
+        - "\xA1\xA1SHOCK!!"
+        - "\xA1UUUUUNA MUJER!"
+        - "\xA1FUERTE EL APLAUSO!"
+        goal:
+        - "\xA1\xA1ME MUERO!!"
+        - "\xA1CHEERS!"
+        full:
+        - "\xA1EL QUE MATA DEBE MORIR!"
+        - "\xA1ME VOY A URUGUAY!"
+        init: []
+    - id: 32
+      avatarName: Oriana Yuyo
+      dialogs:
+        random:
+        - "\xA1\xA1UUHHHH!!"
+        - "\xA1NO LO PUEDO BELIEVE!"
+        - "ME PAREC\xC9S UN HORROR"
+        - "SOY UNA ESTRELLA, BEB\xC9"
+        - "SOY CAR\xCDSIMA"
+        - "\xA1PAR FAVAAAAR!"
+        - "\xBF\xBFUAT??"
+        goal:
+        - "\xA1\xA1UUUUUUHHHHH!!"
+        - "\xA1LLUVIA DE SHAMP\xC9IN!"
+        full:
+        - "DE CUARTA TODA TU PRODUCCI\xD3N Y VOS"
+        - "\xBF\xBFQU\xC9 PASOUUU??"
+        init: []
+    - id: 33
+      avatarName: "Claudio Mar\xEDa Jipoide"
+      dialogs:
+        random:
+        - YO ME AMO
+        - "NAMAST\xC9"
+        - MI BUDA SALUDA A TU BUDA
+        - ME RE GUSTA TU AURA
+        - TU AURA ME ASUSTA
+        - "\xBFPUEDO PRENDER UN SAUMERIO?"
+        - ACABO DE ENTRAR EN ESTADO ALFA
+        goal:
+        - "\xA1\xA1FU\xC9 CON RE RE RE AMOR!!"
+        - "\xA1\xA1OOOOHHMMMM!!"
+        - "\xA1SOLTAR!"
+        - TE PIDO DISCULPAS, HERMANO
+        full:
+        - "\xA1GRACIAS POR HACERNOS UN GOL!"
+        - APROVECHO PARA APRENDER
+        - QUE LINDO ES QUE APRENDAMOS JUNTOS
+        - ME ALEGRO POR VOS, HERMANO
+        - CASI SE ME ESCAPA UNA PALABROTA, AMIGA
+        init: []
+    - id: 34
+      avatarName: La Chambona
+      dialogs:
+        random:
+        - "\xA1A TODO RINGTONE!"
+        - CHETO EL CANTRY
+        - EL CHAMPAIN NUNCA FALTA
+        - NO ME LO MIREN A MI GUANACO
+        - ESTA NOCHE ME LO COMO A TU MARIDO
+        - "\xA1ESCABIANDO UN RE FRIZ\xC9!"
+        - "\xA1QUE SE ARME LA LORA, GUACHO!"
+        - "MIR\xC1 CON QUI\xC9N ESTOY"
+        - ATC (A TODO CHIPTUNE)
+        goal:
+        - "\xA1YO ANDO RE GANADA, LORA!"
+        - "\xA1TE RECABI\xD3!"
+        - "\xA1\xA1PARA VOS, GUANACO!!"
+        full:
+        - "\xA1TODO MAL, GUANACO!"
+        init: []
+    - id: 35
+      avatarName: Quanus, el bruto
+      dialogs:
+        random:
+        - GOD VLEZ HAMERICA!!
+        - KENTOCKEY FRIED FREEDUM!!
+        - FREE BURGERS FOUR EBRY WIGHT PEEPLO
+        - F7CK THE REST
+        - B WIGHT OR DIE
+        - QUANUS DEESTROY THE DEEFERENTS
+        - QUANUS ANGRY!
+        - HAMERICAN FRIED FOOOD OR DETH
+        - AH 4UCKEN HAIGHT YOW
+        - "AH\xB4LL MCDONALIZE YUO"
+        - SPEEK HAMERICAN OR LEEV
+        goal:
+        - MAIK HAMERICA VEST AGIAN!!
+        - SOUTHRN GOWL!
+        - EPIC SH1T!
+        full:
+        - NOA WAY YO WEEN!
+        - F WORD N WORD!
+        init: []
+    goalkeepers:
+    - id: 1
+      avatarName: Cte. Feltford
+      dialogs:
+        random:
+        - "DEME LO M\xC1S CARO"
+        - "LET\xB4S GO"
+        - "\xBFESTOY SALIENDO BIEN EN LA PANTALLA?"
+        - BASTA, CHICOS
+        - CHOCOLATADA Y CHOCOLOCA NO ES LO MISMO
+        - "ME ABURR\xCDS"
+        - HOLA, BINVENIDOS A MI CANCHA
+        - "UN ANTES Y UN DESPU\xC9S DE CONOCERME A M\xCD"
+        - AHORA SON PARTE DEL MUNDO FELTFORD
+        - "\xA1VAMOS NEMEN!"
+        - "\xA1OUTSIDE THE CASA ROSADA CRYING FELTFOOORD!"
+        - MORE GOLDEN STUFF, PLEASE
+        - HACE COMO 20 MINUTOS QUE NO GASTO DINERO
+        - MIS CHOCOS SON MEJORES QUE LOS DE POONGA LOOMPA
+        - TODOS QUIEREN ESTAR EN MI TEAM
+        - "\xA1BAHAMAAAAAS!"
+        - "\xBFSE NOTA QUE MI VIDA ES LO M\xC1S?"
+        - "QUE BUEN ROLLEX LE REGAL\xC9 AL REFER\xCD"
+        - NO DIGO POBRE DE PIEL; POBRE DE ALMA
+        - SUPER NIGGA CON MIS GATOS
+        - "\xBF\xBFME PODR\xCDAS ENVIDIAR, POR FAVOR??"
+        - "\xA1MU\xC1 MU\xC1 MU\xC1 MU\xC1!"
+        - "\xA1MOI MOI MOI MOI"
+        - "\xA1\xA1VAMOS MENEEEEN!!"
+        goal:
+        - "\xA1\xA1MIAMI!!"
+        - "\xA1GOLD!"
+        - "MI \xC9XITO ES TU DERROTA"
+        - GOTCHA!
+        full:
+        - "\xA1\xA1MAM\xC1AA!!"
+        - "\xA1\xA1\xA1NO ME HABL\xC9S!!!"
+        - "\xA1\xA1GATOS, A M\xCD!!"
+        init: []
+    - id: 2
+      avatarName: Richard Orion
+      dialogs:
+        random:
+        - TODO ES EN VANO SI NO HAY AMORRRRR
+        - SIENTO QUE MIS PAJARITOS ME NECESITAN
+        - "\xA1\xA1AGUANTE BONAVENA!!"
+        - "LO MEJOR DEL FICH\xCDN PESADO NACIONAL"
+        - ME SIENTO QUE NO ESTOY SOLO
+        - "EL CHAMP\xDA ES DETERGENTE"
+        - "EL EMEPETR\xC9, EL MP4, EL WACHIN STEIJIN HOPEN VAYDOR"
+        - LA COMPUTADORA MP3, LA READY
+        - "\xA1TRAGALECHE!"
+        - EL COJINCHE DE MAMUCHA
+        - "\xA1\xD1\xC1 PAAALO!"
+        - "AYER REVENT\xD3 UN GASODUTO"
+        - MICHAEL JACKSON ME PARECE SELENTE
+        - ELLOS SON ELLOS Y YO SOY YO
+        - "\xA1BANDA DE PUTXS VIOLENTOS!"
+        - "YO QUED\xC9 AS\xCD"
+        - "NINGUNA PUBLICIDAD ES V\xC1LIDA PARA ARGENTINA"
+        - "\xA1\xA1CAGAL\xCDQUIDO!!"
+        - "TE CUR\xC1 O TE MOR\xCD, NEGRO"
+        - "\xA1FEMINOIDES!"
+        - "\xA1EST\xC1 PROHIBIDO, HERMANO!"
+        - "L\xCDNEA SAN MART\xCDN, ROSAS, PER\xD3N"
+        - "YO SOY ARQUERO POR PROPIA ELECCI\xD3N"
+        - "ESTOY CLAVANDO MI TAL\xD3N"
+        - "YO JUGU\xC9 EN CEMENTO"
+        - "\xA1\xA1Y TRANSFORMAR A LA GENTE!!"
+        goal:
+        - "\xA1\xA1VIVA LA PATRIA!!"
+        - "\xA1VIVA PER\xD3N!"
+        - METAL PESADO
+        - "\xA1\xA1PERDISTE MU\xD1\xD3N!!"
+        - "\xA1CHUP6L6, REPTILOIDE!"
+        - "\xA1YO TENGO RAZ\xD3N!"
+        full:
+        - "SIENTO VERG\xDCENZA ANTE DIOS"
+        - "\xA1GENTES MALAS!"
+        - "ES UN PALO EN LA RUEDA DE LA EVOLUCI\xD3N"
+        - COSAS BRAVAS
+        - "\xA1\xA1TRAICI\xD3N!!"
+        - "\xA1\xA1JUD\xCDOS!!"
+        init: []
+    - id: 3
+      avatarName: "Vimbo \xB4Vred\xB4 Slice"
+      dialogs:
+        random:
+        - F4CK Y0U!
+        - OH, MAN... YOU KNOW
+        - YOU KNOW...I MEAN
+        - "I MEAN...\xA1OH, MAN!"
+        - NO BU77SH3T
+        - BREAK YOUR F5CK3N SKULL
+        - HEY, MAMA
+        - YOU KNOW WHATAM SAYIN?
+        - BETTER PEACE, BRO
+        goal:
+        - IN YOUR F8CK4N FACE!
+        - YEAH MAN!
+        full:
+        - 3UC7 YOU!
+        - WHA???
+        - W7F!!!!
+        - "IT\xB4S A LOTTA SH3T"
+        init: []
+    - id: 4
+      avatarName: Copbot
+      dialogs:
+        random:
+        - PLEASE DO NOT SCORE
+        - DOWNLOADING SYSTEM UPGRADE...
+        - HALF MACHINE, HALF GOALKEEPER
+        - PLEASE STEP OFF THE GRASS
+        - POR FAVOR NO PISAR EL CESPED
+        - RECALCULANDO...
+        - WIFI CONNECTED
+        - WIFI DISCONNECTED
+        - "IDENTIFICACI\xD3N POR FAVOR"
+        - HALF COP, HALF BASTARD
+        - A.C.A.B. (ALL COPS ARE BOTS)
+        - DO NOT ENTER MY COMFORT ZONE, SIR
+        goal:
+        - THANK YOU FOR YOUR COOPERATION
+        - DONE
+        - CHECK
+        - END
+        - TASK COMPLETED
+        - CREO QUE TENGO SENTIMIENTOS
+        full:
+        - DATA ERROR
+        - RESTART SYSTEM
+        - ERROR DE SISTEMA
+        init: []
+    - id: 5
+      avatarName: Xannah
+      dialogs:
+        random:
+        - 'I COME FROM AN ANCIENT ERA: THE 90S'
+        - FREEDOM FIGHTER
+        - "DEFENDER\xC9 ESTE PORTAL CON MI VIDA"
+        - LIVING ICON, B17CH3S
+        goal:
+        - HONOR AND PRIDE
+        full:
+        - I ACCEPT IT WITH HONOR
+        init: []
+    - id: 6
+      avatarName: Homeboy
+      dialogs:
+        random:
+        - OH, NO NO HAHAHA!
+        - YOU GUYS ARE THE TRUE SUPERHEROES
+        - TERRIFIC!
+        - WHY IS EVERYBODY SPEAKING MEXICAN?
+        - DON'T SPEAK F8CKI5G MEXICAN
+        goal:
+        - GOD BLESS AMERICA!
+        - EASY WIN
+        full:
+        - 7UCK O77!
+        init: []
+    referis:
+    - id: 1
+      avatarName: Herr Friedmann
+      dialogs:
+        random:
+        - "AQU\xCD HAY OLOR A CHARUTO"
+        - "\xBFQUI\xC9N SE FUM\xD3 UN CHARUTO?"
+        - ANTIDOPPING PARA TODOS
+        - UNE MENOS
+        - "ME GUSTA M\xC1S EL EQUIPO DE LA DERECHA"
+        - NO SE DICE JUGADORES, SE DICE JUGADOROS
+        - "ALGUIEN TIENE QUE DECIR \xA1BASSSSTA!"
+        - "ME PARECE QUE EL PLAYER 1 SE FUM\xD3 UN CHARUTO"
+        - NO ES NO
+        - "RECEN POR M\xCD"
+        - "\xBFVOS SOS DE LA C\xC1RPENA, NENA?"
+        - NADIE MENOS
+        - 8547
+        goal:
+        - SE DICE GOL, NO GOLE
+        - "OTRO GOL DE LA CORRUPCI\xD3N"
+        - "\xA1NO!"
+        full:
+        - POR PORRERO
+        - POR KIRCHNO - COMUNISTA
+        - POR NEO FEMINAZI
+        - POR HABLAR CON LA E
+        - "PORQUE AC\xC1 MANDO YO"
+        - POR MOTOCHORRA
+        - "PORQUE S\xCD"
+        - POR LAS DUDAS
+        - POR SI TE QUEDABAN GANAS DE DELINQUIR
+        - "PORQUE TEN\xC9S OLOR A CHARUTO"
+        - "ALGO HABR\xC1 HECHO"
+        - POR EXCESO DE VELOCIDAD
+        - POR RESISTENCIA A LA AUTORIDAD
+        - "POR MILITAR EN LA C\xC1RPENA"
+        - POR ZURDA
+        init:
+        - "SER\xC1 JUSTICIA"
+    - id: 2
+      avatarName: Pipo Mugicca
+      dialogs:
+        random:
+        - LINDO TERRENITO PA PLANTAR UNAS PETUNIAS
+        - "\xBFADONDE QUIEREN LLEGAR?"
+        - DESPACIO, MUCHACHITES
+        - "CORRER MENOS Y AMARNOS M\xC1S"
+        - 'YO SOY MILLONARIO: TENGO ESTE TERMO'
+        - NO CORRAN, DISFRUTEN EL AHORA
+        - LO IMPORTANTE ES EL MILAGRO DE ESTAR VIVOS
+        - EL BICHO HUMANO ES BASTANTE COMPLICAO
+        - YO VENGO POR EL OLOR A PASTO CORTAU
+        - "GASTAMOS M\xC1S EN P\xD3LVORA QUE EN YERBA MATE"
+        - SE INSULTAN DEMASIAU
+        - "\xA1ATATE LOS CHAMPIONES, GUR\xCD!"
+        - SON CONCLUSIONES DE CALABOZO, AMIGUITO
+        - QUE CHANGA QUE TE AGARRASTE, HERMANO
+        - EL ODIO ENVENENA, NENE
+        - DESCANSEMOS UN CACHITO, CHIQUILINES
+        - YA NO ESTOY PA TROTES, AMIGUITA
+        - LOS SUDACAS ATOMIZAU NO ESISTIMO
+        - HAY UNA CULTURA SUBLIMINAL, DE LOS SENTIRES
+        - TA UN POQUITO LAVAU PERO TIRA
+        - "CUIDADO POR AH\xCD QUE PLANT\xC9 ZANAHORIAS, MUCHACHOS"
+        - CUIDADO CON LOS TOMATES
+        - "QUE LINDO D\xCDA, BO"
+        - "ESTE FICH\xCDN TERCERMUNDISTA FOMENTA LA IGUALDAD"
+        - "LA NUEVA RELIGI\xD3N ES EL MERCAO"
+        - "\xBFPA QU\xC9 HICIMO PUNTAELESTE?"
+        goal:
+        - LOS GOLES VAN Y VIENEN
+        - "EL \xC9XITO ES UN PRODUCTO PERECEDERO"
+        - "UT\xD3PICO"
+        - NO HAY TRIUNFO DEFINITIVO
+        - QUE FUBOL BELLAMENTE CONCEBIDO
+        full:
+        - "\xBFUN MATECITO?"
+        - "EL QUE TOMA EL DE MET\xC1LICA"
+        - URUGUAYAN TEA?
+        - CAMBIE ESA CARA, GURISA
+        - LA VIDA ES HERMOSA
+        - "LE PUSE UN TOQUE DE CANNABIS, CHIQUIL\xCDN"
+        - "\xBFDULCE O SALAU, CHIQUILINA?"
+        - "NO COMPRES LA DEL \xC9SITO, BO"
+        init:
+        - "NO ME HAGAN CORRER, \xBFDALE?"
 --- !u!114 &968984449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,8 +2003,2179 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74512a75d477ab94aae149e9fd6b5695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileToLoad: {fileID: 4900000, guid: 3bfc45a754b27fc4dbff4e21bd306958, type: 3}
   all:
-    all: []
+    all:
+    - id: 0
+      name: 2-3-2 - Classic
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.35
+      - type: 0
+        pos:
+        - 0.7
+        - -0.35
+      - type: 1
+        pos:
+        - 0.55
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - 0.8
+      - type: 1
+        pos:
+        - 0.4
+        - -0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.65
+      - type: 2
+        pos:
+        - 0.15
+        - -0.65
+    - id: 1
+      name: 2-3-2 - Fifty-Fifty
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.35
+      - type: 0
+        pos:
+        - 0.7
+        - -0.35
+      - type: 1
+        pos:
+        - 0.5
+        - 0.8
+      - type: 1
+        pos:
+        - 0.35
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - -0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.65
+      - type: 2
+        pos:
+        - 0.15
+        - -0.65
+    - id: 2
+      name: 2-3-2 - Crux
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.9
+      - type: 0
+        pos:
+        - 0.7
+        - -0.9
+      - type: 1
+        pos:
+        - 0.55
+        - 0.3
+      - type: 1
+        pos:
+        - 0.35
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - -0.3
+      - type: 2
+        pos:
+        - 0.15
+        - 0.7
+      - type: 2
+        pos:
+        - 0.15
+        - -0.7
+    - id: 3
+      name: 2-3-2 - Centro
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.4
+      - type: 0
+        pos:
+        - 0.7
+        - -0.4
+      - type: 1
+        pos:
+        - 0.4
+        - 0.9
+      - type: 1
+        pos:
+        - 0.6
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - -0.9
+      - type: 2
+        pos:
+        - 0.3
+        - 0
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 4
+      name: 2-3-2 - Ojito
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.3
+      - type: 0
+        pos:
+        - 0.7
+        - -0.3
+      - type: 1
+        pos:
+        - 0.45
+        - 0.9
+      - type: 1
+        pos:
+        - 0.45
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.9
+      - type: 2
+        pos:
+        - 0.15
+        - -0.3
+      - type: 2
+        pos:
+        - 0.15
+        - 0.3
+    - id: 5
+      name: 2-3-2 - S
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 0
+        pos:
+        - 0.7
+        - -0.3
+      - type: 1
+        pos:
+        - 0.5
+        - -0.6
+      - type: 1
+        pos:
+        - 0.45
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - 0.6
+      - type: 2
+        pos:
+        - 0.25
+        - 0.3
+      - type: 2
+        pos:
+        - 0.15
+        - -0.3
+    - id: 6
+      name: 3-3-1 - Linea
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.7
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.7
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - 0.7
+      - type: 1
+        pos:
+        - 0.4
+        - -0.7
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 7
+      name: 3-3-1 - Curva defensiva
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.7
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - 0.7
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - -0.7
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 8
+      name: 3-3-1 - Curva ofensiva
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.7
+      - type: 0
+        pos:
+        - 0.8
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - 0.7
+      - type: 1
+        pos:
+        - 0.4
+        - -0.7
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 9
+      name: 3-3-1 - Perdidos
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.7
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0.7
+      - type: 1
+        pos:
+        - 0.55
+        - -0.35
+      - type: 1
+        pos:
+        - 0.45
+        - 0.7
+      - type: 1
+        pos:
+        - 0.3
+        - -0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.7
+    - id: 10
+      name: 3-3-1 - Diagonales
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.7
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.6
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - -0.7
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.3
+        - 0.7
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 11
+      name: 3-3-1 - C.C.
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.5
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.73
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.8
+      - type: 1
+        pos:
+        - 0.35
+        - 0.4
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 12
+      name: 3-3-1 - L.L.
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.75
+      - type: 0
+        pos:
+        - 0.6
+        - -0.75
+      - type: 0
+        pos:
+        - 0.6
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - 0.75
+      - type: 1
+        pos:
+        - 0.3
+        - 0.75
+      - type: 1
+        pos:
+        - 0.3
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - -0.75
+    - id: 13
+      name: 3-2-2 - Escudo invertido
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.75
+      - type: 0
+        pos:
+        - 0.75
+        - 0.75
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.75
+      - type: 1
+        pos:
+        - 0.45
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0.3
+      - type: 2
+        pos:
+        - 0.2
+        - -0.3
+    - id: 14
+      name: 3-2-2 - El sapo
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.75
+      - type: 0
+        pos:
+        - 0.8
+        - 0.75
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.75
+      - type: 1
+        pos:
+        - 0.45
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0.3
+      - type: 2
+        pos:
+        - 0.2
+        - -0.3
+    - id: 15
+      name: "3-2-2 - L\xE1ser"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.68
+        - -0.75
+      - type: 0
+        pos:
+        - 0.68
+        - 0.75
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.75
+      - type: 1
+        pos:
+        - 0.45
+        - 0.75
+      - type: 2
+        pos:
+        - 0.25
+        - 0
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 16
+      name: 3-2-2 - Chingao
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.75
+      - type: 0
+        pos:
+        - 0.6
+        - 0.75
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 1
+        pos:
+        - 0.48
+        - -0.3
+      - type: 1
+        pos:
+        - 0.37
+        - 0.3
+      - type: 2
+        pos:
+        - 0.2
+        - 0.75
+      - type: 2
+        pos:
+        - 0.1
+        - -0.3
+    - id: 17
+      name: 3-2-2 - Minataura
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.75
+      - type: 0
+        pos:
+        - 0.75
+        - 0.75
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - -0.25
+      - type: 1
+        pos:
+        - 0.4
+        - 0.25
+      - type: 2
+        pos:
+        - 0.2
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - -0.75
+    - id: 18
+      name: 3-2-2 - Alabanza
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.33
+      - type: 0
+        pos:
+        - 0.8
+        - 0.33
+      - type: 0
+        pos:
+        - 0.65
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - -0.75
+      - type: 1
+        pos:
+        - 0.45
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - -0.75
+    - id: 19
+      name: 3-2-2 - 6+1
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.9
+      - type: 0
+        pos:
+        - 0.7
+        - 0.9
+      - type: 0
+        pos:
+        - 0.8
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - -0.25
+      - type: 1
+        pos:
+        - 0.45
+        - 0.5
+      - type: 2
+        pos:
+        - 0.15
+        - 0.25
+      - type: 2
+        pos:
+        - 0.3
+        - -0.75
+    - id: 20
+      name: 2-2-3 - Torre
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.75
+      - type: 0
+        pos:
+        - 0.7
+        - 0.75
+      - type: 1
+        pos:
+        - 0.45
+        - 0.3
+      - type: 1
+        pos:
+        - 0.45
+        - -0.3
+      - type: 2
+        pos:
+        - 0.2
+        - -0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+    - id: 21
+      name: 2-2-3 - Escudo
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.3
+      - type: 0
+        pos:
+        - 0.7
+        - 0.3
+      - type: 1
+        pos:
+        - 0.45
+        - 0.75
+      - type: 1
+        pos:
+        - 0.45
+        - -0.75
+      - type: 2
+        pos:
+        - 0.2
+        - -0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+    - id: 22
+      name: "2-2-3 - F\xE9retro"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.3
+      - type: 0
+        pos:
+        - 0.7
+        - 0.3
+      - type: 1
+        pos:
+        - 0.5
+        - 0.6
+      - type: 1
+        pos:
+        - 0.5
+        - -0.6
+      - type: 2
+        pos:
+        - 0.25
+        - -0.7
+      - type: 2
+        pos:
+        - 0.25
+        - 0.7
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 23
+      name: 2-2-3 - 7/
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.2
+      - type: 0
+        pos:
+        - 0.7
+        - 0.5
+      - type: 1
+        pos:
+        - 0.45
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - -0.5
+      - type: 2
+        pos:
+        - 0.15
+        - 0.9
+      - type: 2
+        pos:
+        - 0.15
+        - 0.2
+      - type: 2
+        pos:
+        - 0.3
+        - -0.8
+    - id: 24
+      name: 2-2-3 - 5
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.2
+      - type: 0
+        pos:
+        - 0.75
+        - 0.7
+      - type: 1
+        pos:
+        - 0.5
+        - -0.5
+      - type: 1
+        pos:
+        - 0.6
+        - 0.3
+      - type: 2
+        pos:
+        - 0.3
+        - 0.7
+      - type: 2
+        pos:
+        - 0.25
+        - 0
+      - type: 2
+        pos:
+        - 0.2
+        - -0.8
+    - id: 25
+      name: 2-2-3 - Sonrisa
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.3
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 1
+        pos:
+        - 0.55
+        - -0.8
+      - type: 1
+        pos:
+        - 0.55
+        - 0.8
+      - type: 2
+        pos:
+        - 0.45
+        - 0
+      - type: 2
+        pos:
+        - 0.2
+        - -0.3
+      - type: 2
+        pos:
+        - 0.2
+        - 0.3
+    - id: 26
+      name: "2-2-3 - Mo\xF1o"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.9
+      - type: 0
+        pos:
+        - 0.8
+        - 0.9
+      - type: 1
+        pos:
+        - 0.55
+        - -0.3
+      - type: 1
+        pos:
+        - 0.55
+        - 0.3
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+      - type: 2
+        pos:
+        - 0.25
+        - -0.6
+      - type: 2
+        pos:
+        - 0.25
+        - 0.6
+    - id: 27
+      name: 4-2-1 - Cono
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.3
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 0
+        pos:
+        - 0.6
+        - -0.9
+      - type: 0
+        pos:
+        - 0.6
+        - 0.9
+      - type: 1
+        pos:
+        - 0.37
+        - 0.3
+      - type: 1
+        pos:
+        - 0.37
+        - -0.3
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 28
+      name: "4-2-1 - Rombo tri\xE1ngulo"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.75
+      - type: 0
+        pos:
+        - 0.7
+        - -0.75
+      - type: 0
+        pos:
+        - 0.6
+        - 0
+      - type: 1
+        pos:
+        - 0.37
+        - 0.75
+      - type: 1
+        pos:
+        - 0.37
+        - -0.75
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 29
+      name: 4-2-1 - El tuerto triste
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0.9
+      - type: 0
+        pos:
+        - 0.75
+        - -0.9
+      - type: 0
+        pos:
+        - 0.65
+        - -0.3
+      - type: 0
+        pos:
+        - 0.65
+        - 0.3
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.3
+        - -0.75
+      - type: 2
+        pos:
+        - 0.15
+        - 0.5
+    - id: 30
+      name: 4-2-1 - El tuerto contento
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.65
+        - 0.9
+      - type: 0
+        pos:
+        - 0.65
+        - -0.9
+      - type: 0
+        pos:
+        - 0.75
+        - -0.3
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.3
+        - -0.75
+      - type: 2
+        pos:
+        - 0.15
+        - 0.5
+    - id: 31
+      name: 4-2-1 - Alterados
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.8
+      - type: 0
+        pos:
+        - 0.7
+        - -0.1
+      - type: 0
+        pos:
+        - 0.6
+        - -0.8
+      - type: 0
+        pos:
+        - 0.65
+        - 0.75
+      - type: 1
+        pos:
+        - 0.4
+        - 0.1
+      - type: 1
+        pos:
+        - 0.3
+        - -0.9
+      - type: 2
+        pos:
+        - 0.15
+        - 0.25
+    - id: 32
+      name: "4-2-1 - Pir\xE1mide"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.9
+      - type: 0
+        pos:
+        - 0.7
+        - -0.25
+      - type: 0
+        pos:
+        - 0.7
+        - 0.25
+      - type: 0
+        pos:
+        - 0.7
+        - 0.9
+      - type: 1
+        pos:
+        - 0.45
+        - 0.5
+      - type: 1
+        pos:
+        - 0.45
+        - -0.5
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 33
+      name: 4-2-1 - Duende
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.9
+      - type: 0
+        pos:
+        - 0.8
+        - -0.25
+      - type: 0
+        pos:
+        - 0.7
+        - 0.25
+      - type: 0
+        pos:
+        - 0.8
+        - 0.9
+      - type: 1
+        pos:
+        - 0.45
+        - 0.5
+      - type: 1
+        pos:
+        - 0.35
+        - -0.5
+      - type: 2
+        pos:
+        - 0.15
+        - 0.2
+    - id: 34
+      name: "2-4-1 - Chab\xF3n"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.75
+      - type: 0
+        pos:
+        - 0.8
+        - 0.75
+      - type: 1
+        pos:
+        - 0.6
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - 0.75
+      - type: 1
+        pos:
+        - 0.5
+        - -0.75
+      - type: 1
+        pos:
+        - 0.35
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 35
+      name: 2-4-1 - Aerobics
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.25
+      - type: 0
+        pos:
+        - 0.75
+        - 0.25
+      - type: 1
+        pos:
+        - 0.55
+        - -0.25
+      - type: 1
+        pos:
+        - 0.55
+        - 0.25
+      - type: 1
+        pos:
+        - 0.45
+        - -0.8
+      - type: 1
+        pos:
+        - 0.45
+        - 0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 36
+      name: 2-4-1 - 6-1
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.66
+      - type: 0
+        pos:
+        - 0.75
+        - 0.66
+      - type: 1
+        pos:
+        - 0.55
+        - -0.66
+      - type: 1
+        pos:
+        - 0.55
+        - 0.66
+      - type: 1
+        pos:
+        - 0.35
+        - -0.66
+      - type: 1
+        pos:
+        - 0.35
+        - 0.66
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 37
+      name: 2-4-1 - Gordo
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.3
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 1
+        pos:
+        - 0.5
+        - -0.9
+      - type: 1
+        pos:
+        - 0.5
+        - 0.9
+      - type: 1
+        pos:
+        - 0.3
+        - -0.3
+      - type: 1
+        pos:
+        - 0.3
+        - 0.3
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 38
+      name: "2-4-1 - Pent\xE1gono"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.3
+      - type: 0
+        pos:
+        - 0.75
+        - 0.3
+      - type: 1
+        pos:
+        - 0.55
+        - -0.5
+      - type: 1
+        pos:
+        - 0.5
+        - 0.5
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 1
+        pos:
+        - 0.3
+        - -0.5
+      - type: 2
+        pos:
+        - 0.1
+        - 0.5
+    - id: 39
+      name: "2-4-1 - Rombo y l\xEDnea"
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.5
+      - type: 0
+        pos:
+        - 0.7
+        - 0.5
+      - type: 1
+        pos:
+        - 0.55
+        - -0.1
+      - type: 1
+        pos:
+        - 0.55
+        - -0.9
+      - type: 1
+        pos:
+        - 0.4
+        - 0.5
+      - type: 1
+        pos:
+        - 0.3
+        - -0.5
+      - type: 2
+        pos:
+        - 0.1
+        - 0.5
+    - id: 40
+      name: 2-4-1 - Bebe
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.25
+      - type: 0
+        pos:
+        - 0.7
+        - 0.25
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 1
+        pos:
+        - 0.4
+        - -0.8
+      - type: 1
+        pos:
+        - 0.4
+        - 0.8
+      - type: 1
+        pos:
+        - 0.27
+        - -0.25
+      - type: 2
+        pos:
+        - 0.1
+        - 0.5
+    - id: 41
+      name: 1-2-4 - Cabrito
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - -0.5
+      - type: 1
+        pos:
+        - 0.5
+        - 0.5
+      - type: 2
+        pos:
+        - 0.2
+        - -0.25
+      - type: 2
+        pos:
+        - 0.2
+        - 0.25
+      - type: 2
+        pos:
+        - 0.1
+        - -0.75
+      - type: 2
+        pos:
+        - 0.1
+        - 0.75
+    - id: 42
+      name: 1-2-4 - Cabron
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - -0.75
+      - type: 1
+        pos:
+        - 0.5
+        - 0.75
+      - type: 2
+        pos:
+        - 0.25
+        - -0.25
+      - type: 2
+        pos:
+        - 0.25
+        - 0.25
+      - type: 2
+        pos:
+        - 0.1
+        - -0.75
+      - type: 2
+        pos:
+        - 0.1
+        - 0.75
+    - id: 43
+      name: 1-2-4 - Barrilete
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.6
+      - type: 1
+        pos:
+        - 0.5
+        - -0.6
+      - type: 1
+        pos:
+        - 0.45
+        - 0.25
+      - type: 2
+        pos:
+        - 0.3
+        - -0.6
+      - type: 2
+        pos:
+        - 0.3
+        - 0.6
+      - type: 2
+        pos:
+        - 0.1
+        - -0.2
+      - type: 2
+        pos:
+        - 0.1
+        - 0.6
+    - id: 44
+      name: 1-2-4 - T
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - 0
+      - type: 1
+        pos:
+        - 0.35
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - -0.25
+      - type: 2
+        pos:
+        - 0.15
+        - 0.25
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+    - id: 45
+      name: 1-2-4 - T
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - -0.5
+      - type: 1
+        pos:
+        - 0.5
+        - 0.5
+      - type: 2
+        pos:
+        - 0.15
+        - -0.25
+      - type: 2
+        pos:
+        - 0.15
+        - 0.25
+      - type: 2
+        pos:
+        - 0.25
+        - -0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0.8
+    - id: 46
+      name: 1-2-4 - Como quieran
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.65
+        - -0.5
+      - type: 1
+        pos:
+        - 0.5
+        - 0.5
+      - type: 2
+        pos:
+        - 0.3
+        - -0.25
+      - type: 2
+        pos:
+        - 0.25
+        - 0.9
+      - type: 2
+        pos:
+        - 0.2
+        - -0.8
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 47
+      name: 3-1-3 - Poquebol
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.8
+      - type: 0
+        pos:
+        - 0.7
+        - 0.8
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 2
+        pos:
+        - 0.25
+        - 0.75
+      - type: 2
+        pos:
+        - 0.25
+        - -0.75
+      - type: 2
+        pos:
+        - 0.1
+        - 0
+    - id: 48
+      name: 3-1-3 - H
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.8
+      - type: 0
+        pos:
+        - 0.7
+        - 0.8
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 2
+        pos:
+        - 0.2
+        - 0.8
+      - type: 2
+        pos:
+        - 0.2
+        - -0.8
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+    - id: 49
+      name: 3-1-3 - Flecha
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.5
+      - type: 0
+        pos:
+        - 0.75
+        - 0.5
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 2
+        pos:
+        - 0.2
+        - 0.8
+      - type: 2
+        pos:
+        - 0.2
+        - -0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 50
+      name: 3-1-3 - U1U
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.75
+      - type: 0
+        pos:
+        - 0.7
+        - 0.75
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0
+    - id: 51
+      name: 3-1-3 - C
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - 0.8
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - -0.75
+      - type: 1
+        pos:
+        - 0.5
+        - 0.2
+      - type: 2
+        pos:
+        - 0.25
+        - -0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+    - id: 52
+      name: 3-1-3 - >
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - -0.8
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 0
+        pos:
+        - 0.7
+        - 0.75
+      - type: 1
+        pos:
+        - 0.5
+        - 0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0.75
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+    - id: 53
+      name: 3-1-3 - Rally
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.85
+        - -0.8
+      - type: 0
+        pos:
+        - 0.75
+        - 0.5
+      - type: 0
+        pos:
+        - 0.7
+        - -0.8
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 2
+        pos:
+        - 0.3
+        - -0.8
+      - type: 2
+        pos:
+        - 0.2
+        - 0.8
+      - type: 2
+        pos:
+        - 0.1
+        - -0.8
+    - id: 54
+      name: 1-3-3 - Pinche
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - 0
+      - type: 1
+        pos:
+        - 0.5
+        - -0.8
+      - type: 1
+        pos:
+        - 0.5
+        - 0.8
+      - type: 2
+        pos:
+        - 0.2
+        - 0.8
+      - type: 2
+        pos:
+        - 0.2
+        - 0
+      - type: 2
+        pos:
+        - 0.2
+        - -0.8
+    - id: 55
+      name: 1-3-3 - Miguelito
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - -0.8
+      - type: 1
+        pos:
+        - 0.55
+        - 0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+    - id: 56
+      name: 1-3-3 - Miguelito
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.45
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - -0.8
+      - type: 1
+        pos:
+        - 0.55
+        - 0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+    - id: 57
+      name: 1-3-3 - Casi N
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.8
+        - 0.8
+      - type: 1
+        pos:
+        - 0.45
+        - -0.2
+      - type: 1
+        pos:
+        - 0.55
+        - -0.8
+      - type: 1
+        pos:
+        - 0.5
+        - 0.8
+      - type: 2
+        pos:
+        - 0.15
+        - 0.8
+      - type: 2
+        pos:
+        - 0.25
+        - 0.2
+      - type: 2
+        pos:
+        - 0.15
+        - -0.8
+    - id: 58
+      name: 1-3-3 - Zen
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.55
+        - -0.75
+      - type: 1
+        pos:
+        - 0.55
+        - 0.75
+      - type: 1
+        pos:
+        - 0.4
+        - 0
+      - type: 2
+        pos:
+        - 0.25
+        - 0.75
+      - type: 2
+        pos:
+        - 0.25
+        - -0.75
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+    - id: 59
+      name: 1-3-3 - V
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0
+      - type: 1
+        pos:
+        - 0.6
+        - -0.6
+      - type: 1
+        pos:
+        - 0.4
+        - -0.6
+      - type: 1
+        pos:
+        - 0.5
+        - 0.6
+      - type: 2
+        pos:
+        - 0.25
+        - 0.6
+      - type: 2
+        pos:
+        - 0.1
+        - 0.6
+      - type: 2
+        pos:
+        - 0.15
+        - -0.6
+    - id: 60
+      name: 1-3-3 - Trepador
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - 0.5
+      - type: 1
+        pos:
+        - 0.6
+        - 0.5
+      - type: 1
+        pos:
+        - 0.6
+        - -0.5
+      - type: 1
+        pos:
+        - 0.45
+        - -0.5
+      - type: 2
+        pos:
+        - 0.3
+        - 0.4
+      - type: 2
+        pos:
+        - 0.15
+        - 0
+      - type: 2
+        pos:
+        - 0.15
+        - 0.9
+    - id: 61
+      name: 1-3-3 - Tiro al aro
+      posData:
+      - type: 3
+        pos:
+        - 0.9
+        - 0
+      - type: 0
+        pos:
+        - 0.75
+        - -0.5
+      - type: 1
+        pos:
+        - 0.6
+        - -0.5
+      - type: 1
+        pos:
+        - 0.45
+        - -0.9
+      - type: 1
+        pos:
+        - 0.45
+        - 0
+      - type: 2
+        pos:
+        - 0.3
+        - 0
+      - type: 2
+        pos:
+        - 0.3
+        - 0.9
+      - type: 2
+        pos:
+        - 0.15
+        - 0.5
 --- !u!1 &1187772259431785653
 GameObject:
   m_ObjectHideFlags: 0
