@@ -12,11 +12,12 @@ public class CameraInGame : MonoBehaviour
     Transform target;
     public Vector3 offset;
     public float offset_lookAt;
-    float speed = 0.035f;
+    float speed = 3;
     bool filmingPlayer;
     public float filming_y;
     public float offsetZ = 25;
     public float originalSize = 5;
+    public float originalSizeMobile = 3.5f;
     public float zoomSize = 2;
     public float offsetShootingPlayer_z = 2.5f;
 
@@ -27,6 +28,8 @@ public class CameraInGame : MonoBehaviour
     }
     private void Start()
     {
+        if (Data.Instance.isMobile)
+            originalSize = originalSizeMobile;
         initial_y_position = transform.position.y;
     }
     public void Restart()
@@ -67,7 +70,7 @@ public class CameraInGame : MonoBehaviour
             pos.y = initial_y_position;
         else if (pos.y < camera_tribuna_y)
             pos.y += Time.deltaTime * speed_to_tribuna;
-        transform.position = Vector3.Lerp(transform.position, pos, speed);
+        transform.position = Vector3.Lerp(transform.position, pos, speed * Time.deltaTime);
         transform.localEulerAngles = new Vector3(20, target.position.x * 15 / 20, target.position.x * 5 / 20);
     }
     public void OnGoal(Character character)

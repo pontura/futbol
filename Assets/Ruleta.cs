@@ -9,7 +9,7 @@ public class Ruleta : MonoBehaviour {
     public float spacing;
     float InitialSpeed;
     public int speed;
-    public float acceleration;
+    float acceleration = 25;
     public int selectedID;
 
     public Transform container;
@@ -88,7 +88,7 @@ public class Ruleta : MonoBehaviour {
     float lastY = 0;
     void Rolling()
     {
-        mySpeed -= acceleration;
+        mySpeed -= acceleration * Time.deltaTime;
         float newY = container.transform.localPosition.y + mySpeed;
         lastY += mySpeed;
         if (mySpeed <= 0)
@@ -113,8 +113,9 @@ public class Ruleta : MonoBehaviour {
     private void CalculateItem()
     {
         selectedID = (int)Mathf.Round((container.localPosition.y) / itemsHeight);
-        repositionTo = (itemsHeight+spacing) * selectedID;
         if (selectedID >= items.Count-1) selectedID = 0;
+
+        repositionTo = (itemsHeight + spacing) * selectedID;
     }
     void Repositionate()
     {
@@ -143,7 +144,7 @@ public class Ruleta : MonoBehaviour {
     }
     void Ready()
     {
-       
+        container.transform.localPosition = new Vector3(0, repositionTo, 0);
         state = states.FINISH;
          OnDone(selectedID);
     }

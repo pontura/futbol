@@ -44,13 +44,14 @@ public class Data : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        isMobile = false;
+        //isMobile = false;
 #if UNITY_EDITOR
-        isMobile = false;
+        // isMobile = false;
 #elif UNITY_STANDALONE
         DEBUG = false;
 #elif UNITY_ANDROID || UNITY_IOS
         isMobile = true;
+        DEBUG = false;
 #endif
         matchData = GetComponent<MatchData>();
         inputManagerUI = GetComponent<InputManagerUI>();
@@ -62,7 +63,7 @@ public class Data : MonoBehaviour
     }
     public void SettingsLoaded()
     {
-        if (!settings.mainSettings.isArcade)
+        if (!settings.mainSettings.isArcade && !isMobile)
             Instantiate(rewiredInputManager);
     }
 }

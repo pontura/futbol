@@ -35,7 +35,6 @@ public class MainMenu : MonoBehaviour
     }
     public void GotoGame()
     {
-        Data.Instance.settings.fileName = "FulboStars - Easy";
         Data.Instance.stadiumData.SetActiveStadium(Data.Instance.stadiumData.id);
         Data.Instance.LoadLevel("Selector");
 

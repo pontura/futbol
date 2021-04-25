@@ -1022,7 +1022,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1071,6 +1071,7 @@ MonoBehaviour:
   filming_y: 0
   offsetZ: 9
   originalSize: 5
+  originalSizeMobile: 4
   zoomSize: 1.85
   offsetShootingPlayer_z: -10.5
 --- !u!111 &963194230
@@ -1441,10 +1442,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 999694241, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: fileName
-      value: FulboStars - Hard
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -1492,11 +1489,6 @@ PrefabInstance:
     - target: {fileID: 4000012892830758, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
-        type: 3}
-      propertyPath: DEBUG
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
@@ -2162,6 +2154,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4392453412938807877, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 36.944946
+      objectReference: {fileID: 0}
     - target: {fileID: 6837355737457407792, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
       propertyPath: m_Name
@@ -2274,9 +2271,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528065071266614862, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528065071266614862, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 483686596}
+    - target: {fileID: 7528576414310981938, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528576414310981938, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2284,8 +2291,160 @@ PrefabInstance:
       objectReference: {fileID: 483686596}
     - target: {fileID: 7528763688102613516, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528763688102613516, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 483686596}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dd68e8d8ece6774d9c78beac0f60d1c, type: 3}
+--- !u!1 &6837355737859173009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7632038929804330028, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6837355737859173008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6837355737859173010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7631815187452345658, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6837355737859173008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6837355737859173011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7631527558297931448, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6837355737859173008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6837355737859173012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837355737859173009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonPressed
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonUp
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6837355737859173013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837355737859173010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonPressed
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonUp
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6837355737859173014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6837355737859173011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonPressed
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 483686596}
+          m_MethodName: OnMobileButtonUp
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

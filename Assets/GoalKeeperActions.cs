@@ -9,7 +9,7 @@ public class GoalKeeperActions : CharacterActions
         if (state == states.SPECIAL_ACTION || state == states.IDLE || state == states.KICK)
             return;
         this.state = states.IDLE;
-        if (character.ballCatcher.state == BallCatcher.states.GOT_IT)
+        if (Game.Instance.ball.character == character)
             anim.Play("idle_ball");
         else
             anim.Play("idle");
@@ -20,7 +20,7 @@ public class GoalKeeperActions : CharacterActions
         if (state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH)
             return;
         this.state = states.RUN;
-        if (character.ballCatcher.state == BallCatcher.states.GOT_IT)
+        if (Game.Instance.ball.character == character)
             anim.Play("run_ball");
         else
             anim.Play("run");
