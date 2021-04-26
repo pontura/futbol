@@ -102,21 +102,22 @@ public class Settings : MonoBehaviour
     }
     void Awake()
     {
-      //   TextAsset targetFile = Resources.Load<TextAsset>("gameplaySettings");
-      //   gameplay = JsonUtility.FromJson<GamePlay>(targetFile.text);
+        //  StartCoroutine(LoadSettings());
+        mainSettings = JsonUtility.FromJson<MainSettings>(settingsDataFile.text);
+   
     }
     void Start()
     {
-        //  StartCoroutine(LoadSettings());
-        mainSettings = JsonUtility.FromJson<MainSettings>(settingsDataFile.text);
-        if(Data.Instance.isMobile)
+
+        Data.Instance.spreadsheetLoader.CreateListFromFile(easy_medium_hard[0].text, OnDataLoaded);
+        if (Data.Instance.isMobile)
         {
             mainSettings.debug = false;
             mainSettings.isArcade = false;
             mainSettings.rewired = false;
             mainSettings.turn_off_team2 = false;
         }
-        Data.Instance.spreadsheetLoader.CreateListFromFile(easy_medium_hard[0].text, OnDataLoaded);
+
         loaded = true;
         Data.Instance.SettingsLoaded();
     }

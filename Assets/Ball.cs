@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     Transform container;
+    BallAI ballAI;
     public Rigidbody rb;
     public Character character;
     public Character characterThatKicked;
@@ -14,6 +15,7 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        ballAI = GetComponent<BallAI>();
         Events.OnRestartGame += OnRestartGame;
         limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
         container = transform.parent;
@@ -54,7 +56,9 @@ public class Ball : MonoBehaviour
     }
     public Vector3 GetForwardPosition(float value)
     {
-        return transform.position + transform.forward * value;
+        Vector3 to = transform.position + (transform.forward * value);
+       // print(transform.position + "   _____________ to ______________" + to);
+        return to;
     }
     public void SetPlayer(Character _character)
     {
@@ -118,6 +122,8 @@ public class Ball : MonoBehaviour
         }
          else if (collision.gameObject.tag == "Player")
         {
+
+            ballAI.Reset();
             Character character = collision.gameObject.GetComponent<Character>();
 
             if (transform.localPosition.y < character.stats.height_to_dominate_ball)
@@ -188,7 +194,7 @@ public class Ball : MonoBehaviour
     {
         float goalX = Data.Instance.stadiumData.active.size_x / 2;
         if (character.teamID == 1) goalX *= -1;
-        Vector3 goalPos = new Vector3(goalX, 0, Random.Range(-6.5f, 6.5f));
+        Vector3 goalPos = new Vector3(goalX, 0, Random.Range(-6f, 6f));
         return goalPos;
     }
     void FreeBall()
@@ -213,6 +219,7 @@ public class Ball : MonoBehaviour
     }
     public void Kick(CharacterActions.kickTypes kickType, float forceForce = 0)
     {
+        ballAI.Reset();
         float force = 1;
         if (kickType == CharacterActions.kickTypes.HARD && UIMain.Instance.uIForce.GetForce() > 0.6f)
         {
@@ -241,8 +248,7 @@ public class Ball : MonoBehaviour
         if (character != null && (character.type == Character.types.GOALKEEPER && kickType == CharacterActions.kickTypes.SOFT))
             transform.localPosition = new Vector3(transform.localPosition.x, -0.17f, transform.localPosition.z);
                 
-        Vector3 dir = transform.forward;
-   
+        Vector3 dir = transform.forward;   
 
         switch (kickType)
         {
@@ -262,6 +268,7 @@ public class Ball : MonoBehaviour
                 dir += Vector3.up * GetStats().kickHardAngle * force;               
                 break;
             case CharacterActions.kickTypes.SOFT:
+                CharactersManager cm = Game.Instance.charactersManager;
                 KickBallSound();
                 dir *= GetStats().kickSoft * force;
                 dir += Vector3.up * GetStats().kickSoftAngle * force;
@@ -322,5 +329,9 @@ public class Ball : MonoBehaviour
     public float GetDurationOfBeingCatch()
     {
         return Time.time - timeCatched;
+    }
+    public void PaseTo(Character character)
+    {
+        ballAI.Pase(character);
     }
 }

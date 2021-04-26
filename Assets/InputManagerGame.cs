@@ -130,6 +130,7 @@ public class InputManagerGame : MonoBehaviour
     }
     public void OnMobileButtonPressed(int id)
     {
+        Events.PlaySound("common2", "button_click", false);
         GetButtonDown(id, 1);
     }
     public void OnMobileButtonUp(int id)
@@ -188,7 +189,6 @@ public class InputManagerGame : MonoBehaviour
     }
     PlayerInput GetInputByPlayer(int playerID)
     {
-        print("playerID " + playerID);
         return playerInputs[playerID];
     }
 }
