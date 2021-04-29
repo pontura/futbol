@@ -24,7 +24,6 @@ public class BallAI : MonoBehaviour
     public void Reset()
     {
         CancelInvoke();
-        print("Reset_____________");
         state = states.IDLE;
     }
     void Loop()
