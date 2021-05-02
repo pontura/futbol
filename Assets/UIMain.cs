@@ -23,9 +23,9 @@ public class UIMain : MonoBehaviour
     }
     void Start()
     {
-        if (Data.Instance.isMobile)
+        if (Data.Instance.isMobile && canvasEventSystem != null)
             canvasEventSystem.SetActive(true);
-        else
+        else if ( canvasEventSystem != null)
             canvasEventSystem.SetActive(false);
         Events.OnGoal += OnGoal;
     }

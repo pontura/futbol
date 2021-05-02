@@ -12,7 +12,7 @@ public class CameraInGame : MonoBehaviour
     Transform target;
     public Vector3 offset;
     public float offset_lookAt;
-    float speed = 3;
+    float speed = 4.5f;
     bool filmingPlayer;
     public float filming_y;
     public float offsetZ = 25;
@@ -20,6 +20,7 @@ public class CameraInGame : MonoBehaviour
     public float originalSizeMobile = 3.5f;
     public float zoomSize = 2;
     public float offsetShootingPlayer_z = 2.5f;
+    int pos_z = 14;
 
     private void Awake()
     {
@@ -29,7 +30,10 @@ public class CameraInGame : MonoBehaviour
     private void Start()
     {
         if (Data.Instance.isMobile)
+        {
             originalSize = originalSizeMobile;
+            pos_z = 17;
+        }
         initial_y_position = transform.position.y;
     }
     public void Restart()
@@ -43,7 +47,7 @@ public class CameraInGame : MonoBehaviour
     }
     public void Reset()
     {
-        print("RESET");
+
         if (anim != null)
             anim.enabled = false;
         ResetShootingPlayer();
@@ -61,7 +65,7 @@ public class CameraInGame : MonoBehaviour
         pos.x = target.position.x * 0.8f;
         pos.z = target.position.z- offsetZ;
 
-        if (pos.z < -14)  pos.z = -14;
+        if (pos.z < -pos_z)  pos.z = -pos_z;
         else if (pos.z > 0)   pos.z = 0;
 
         if (filmingPlayer)

@@ -140,15 +140,16 @@ public class AiHasBall : AIState
             otherPos.x += offset;       
 
         ai.character.ballCatcher.LookAt(otherPos);
-        CharacterActions.kickTypes kickType;
 
         float corner_x = (Data.Instance.stadiumData.active.size_x/2)*0.7f;
         //tipos de pase
         if (ai.character.teamID == 2 && otherPos.x > corner_x || ai.character.teamID == 1 && otherPos.x < -corner_x)
             ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.5f, 2));
         else
-            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f,2));
-
+        {
+            ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(0.5f, 2));
+            ai.ball.PaseTo(characterToPass);
+        }
         return true;
     }
 }

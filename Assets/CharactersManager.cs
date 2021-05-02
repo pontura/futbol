@@ -74,7 +74,7 @@ public class CharactersManager : MonoBehaviour
             
 
         ResetAll();
-
+        print("____________turn_off_team2: " + Data.Instance.settings.mainSettings.turn_off_team2);
         if (Data.Instance.settings.mainSettings.turn_off_team2)
             containerTeam2.SetActive(false);
 
@@ -244,6 +244,14 @@ public class CharactersManager : MonoBehaviour
         }
         return character;
     }
+    public Character GetOtherCharacterNear(int teamID, Vector3 pos, float MaxDistance)
+    {
+        Character ch = GetNearest(teamID, false, pos);
+        float distance = Vector3.Distance(pos, ch.transform.position);
+        if (distance < MaxDistance)
+            return ch;
+        return null;
+    }
     public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false, bool DontGetGoalKeeper = false)
     {
         List<Character> team;
@@ -269,15 +277,12 @@ public class CharactersManager : MonoBehaviour
                         distanceMin = distance;
                     }
                 } else
-                if (hasControl)
+                if (hasControl && c.isBeingControlled)
                 {
-                    if (c.isBeingControlled)
-                    {
-                        character = c;
-                        distanceMin = distance;
-                    }
+                    character = c;
+                    distanceMin = distance;
                 }
-                else
+                else if (!hasControl && !c.isBeingControlled)
                 {
                     character = c;
                     distanceMin = distance;
@@ -387,6 +392,7 @@ public class CharactersManager : MonoBehaviour
                     float uiForceValue = UIMain.Instance.uIForce.GetForce();
                     float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * gameplaySettings.distanceToForceCentro;
 
+                    //CENTRO::::::::::::::::
                     if (
                         Mathf.Abs(character.transform.position.z) > 7.5f &&
                         (character.teamID == 1 && character.transform.position.x < -distanceToForceCentro
@@ -404,23 +410,30 @@ public class CharactersManager : MonoBehaviour
                             SwapTo(character, characterNear);
                         return;
                     }
-                    //  Character characterNear = GetNearest(character.teamID, false, ball.transform.position + ball.transform.forward * 4);
-                    characterNear = GetNearest(character.teamID, false, ball.GetForwardPosition(5));
-                    //Character characterNear = GetNearestTo(character, character.teamID);
-                  
-                    if (ball.character != characterNear)
-                    {
-                        character.ballCatcher.LookAt(characterNear.transform.position);
-                        SwapTo(character, characterNear);
-                        character.Kick(CharacterActions.kickTypes.SOFT, 1.4f);
-                    } else
-                        CheckPase(character, uiForceValue);
+                    Pasar(character);
                     break;
                 case 3: return;// character.Kick(CharacterActions.kickTypes.BALOON); break;
             }
         }
     }
-    void CheckPase(Character character, float uiForceValue)
+    public void Pasar(Character character)
+    {
+        Character characterNear = GetOtherCharacterNear(character.teamID, ball.GetForwardPosition(5), 7);
+        if (characterNear != null)
+        {
+            character.ballCatcher.LookAt(characterNear.transform.position);
+            SwapTo(character, characterNear);
+            float dist = Vector3.Distance(character.transform.position, characterNear.transform.position);
+            character.Kick(CharacterActions.kickTypes.SOFT, 1 + (dist / 10));
+            ball.PaseTo(characterNear);
+        }
+        else
+        {
+            float uiForceValue = UIMain.Instance.uIForce.GetForce();
+            PasarNotDirectional(character, uiForceValue);
+        }
+    }
+    void PasarNotDirectional(Character character, float uiForceValue)
     {
         if (uiForceValue > 0.5f)
             character.Kick(CharacterActions.kickTypes.BALOON);
