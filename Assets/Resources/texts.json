@@ -411,6 +411,33 @@
 				"goal":  [ "MAIK HAMERICA VEST AGIAN!!", "SOUTHRN GOWL!", "EPIC SH1T!" ],
 				"full":  [ "NOA WAY YO WEEN!", "F WORD N WORD!" ]
 			}
+		},
+		{
+			"id": 36,
+			"avatarName": "Kurtz Kritz",
+			"dialogs": {
+				"random": [ "WHERE ARE THE AFRICANS?", "FREEDOM OF CULT", "WHAT TIME IS IT?" ],
+				"goal":  [ "HAIL AMERIKKKA!" ],
+				"full":  [ ":(" ]
+			}
+		},
+		{
+			"id": 37,
+			"avatarName": "Guillermo Reno",
+			"dialogs": {
+				"random": [ "¿CON QUÉ TE MOTIVÁS EL SÁBADO A LA NOCHE?", "¡¡VIEJA, PONÉ LA MARCHA!!" ],
+				"goal":  [ "¡¡FALTÓ EL AZUCAR!!" ],
+				"full":  [ "¡MALDITOS SOCIALDEMÓCRATAS!" ]
+			}
+		},
+		{
+			"id": 38,
+			"avatarName": "El Druppy",
+			"dialogs": {
+				"random": [ "¡LA BU RAN DO!", "CUMBIA CONSERVA, GATO", "¡¡¡QUIERO OPINAR!!!", "ESTOY HASTA EN LA SOPA", "ALTO GOOFY, PERRITA", "UNO, DOS, PROBANDO" ],
+				"goal":  [ "¡¡¡¡GAAAALLLL!!!!!" ],
+				"full":  [ "¡LACRAS!" ]
+			}
 		}
 		
 	]
