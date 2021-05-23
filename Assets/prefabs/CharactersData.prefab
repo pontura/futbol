@@ -317,18 +317,21 @@ MonoBehaviour:
     comments_goal: []
   - asset: {fileID: 3999471607175928656, guid: 530d9c77da75c0043a810656c0a0a1a6, type: 3}
     thumb: {fileID: 21300000, guid: 7caf513ecddcb0a4fadf90125316555d, type: 3}
-    audio_names: []
+    audio_names:
+    - {fileID: 8300000, guid: 814696f3afe1eab4ba127479ca4e7abf, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 3999471607175928656, guid: a6692479334bdc44694ae1fc6a4d4156, type: 3}
     thumb: {fileID: 21300000, guid: 2bb1363acfd97a446bbfecf39a2c10cd, type: 3}
-    audio_names: []
+    audio_names:
+    - {fileID: 8300000, guid: f923f2dd4626ce84083a841b7c9e8eda, type: 3}
     audio_goal: []
     comments_goal: []
   - asset: {fileID: 8221468473453606760, guid: 33fcdd273df35074a96b94db0f4d321a, type: 3}
     thumb: {fileID: 21300000, guid: a3ce759584edacf4d8399ed402ae25aa, type: 3}
     audio_names:
-    - {fileID: 8300000, guid: 633d263d855719c47809992e2e5f4c36, type: 3}
+    - {fileID: 8300000, guid: 6d9ac9bff6ccbc242803728241914eea, type: 3}
+    - {fileID: 8300000, guid: 9410c0a51d2689d44a0ff484578751eb, type: 3}
     audio_goal: []
     comments_goal: []
   all_goalkeepers:

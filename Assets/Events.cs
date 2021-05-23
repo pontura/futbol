@@ -26,6 +26,7 @@ public static class Events
     public static System.Action<Character> SetCharacterNewDefender = delegate { };
     public static System.Action<CharacterActions.kickTypes, float, Character> OnBallKicked = delegate { };
     public static System.Action<int, Character> OnGoal = delegate { };
+    public static System.Action OnGoalDone = delegate { };
     public static System.Action<Character> SwapCharacter = delegate { };
     public static System.Action<int, Character> OnIntroSound = delegate { };
     public static System.Action<System.Action, int> OnOutroSound = delegate { };

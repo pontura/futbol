@@ -46,6 +46,7 @@ public class VoicesManager : MonoBehaviour
     public AudioClip[] responde_comentario_gol;
     public AudioClip[] gameOver_pita;
     public AudioClip[] gameOver_alegria;
+    public int characterGoalID;
     Character character;
 
     static VoicesManager mInstance = null;
@@ -145,6 +146,7 @@ public class VoicesManager : MonoBehaviour
     }
     void OnGoal(int teamID, Character character)
     {
+        this.characterGoalID = character.data.id;
         Reset();
         StopAllCoroutines();
         if(Game.Instance.state == Game.states.PENALTY && teamID == Data.Instance.matchData.penaltyGoalKeeperTeamID)
@@ -207,7 +209,11 @@ public class VoicesManager : MonoBehaviour
     {
         PlayAudios(new AudioClip[] {
                 GetRandomAudioClip(responde_comentario_gol)
-            }, Game.Instance.GetComponent<GoalMoment>().Done);
+            }, OnGoalDone);
+    }
+    void OnGoalDone()
+    {
+        Events.OnGoalDone();
     }
     private void Reset()
     {

@@ -18,7 +18,6 @@ public class UIForce : MonoBehaviour
         Events.PlayerProgressBarSetState += PlayerProgressBarSetState;
         Events.CharacterCatchBall += CharacterCatchBall;
 
-        PlayerProgressBarSetState(false);
     }
     private void OnDestroy()
     {
@@ -52,7 +51,6 @@ public class UIForce : MonoBehaviour
     }
     void OnEnable()
     {
-        value = Data.Instance.settings.startingUIForceBar;
         isOn = true;
         Reset();
     }
