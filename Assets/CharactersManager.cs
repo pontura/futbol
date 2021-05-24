@@ -74,14 +74,16 @@ public class CharactersManager : MonoBehaviour
             
 
         ResetAll();
-        print("____________turn_off_team2: " + Data.Instance.settings.mainSettings.turn_off_team2);
         if (Data.Instance.settings.mainSettings.turn_off_team2)
             containerTeam2.SetActive(false);
 
-        foreach (Character ch in team1)
-            ch.SetOponent();
-        foreach (Character ch in team2)
-            ch.SetOponent();
+        if (Data.Instance.newScene == "Game")
+        {
+            foreach (Character ch in team1)
+                ch.SetOponent();
+            foreach (Character ch in team2)
+                ch.SetOponent();
+        }
     }
     public void InitPenalty()
     {

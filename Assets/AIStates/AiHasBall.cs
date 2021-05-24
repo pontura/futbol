@@ -20,6 +20,8 @@ public class AiHasBall : AIState
     }
     public override void OnCharacterCatchBall(Character character)
     {
+        if (character.data.id == ai.character.data.id) return;
+
         SetState(ai.aiIdle);
     }
     public override void SetActive()

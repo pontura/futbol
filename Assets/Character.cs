@@ -90,16 +90,16 @@ public class Character : MonoBehaviour
         ai.Init();
         SetLimits();
 
-        if (type == types.GOALKEEPER)
-        {
-            float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
-            limits_y = new Vector2(_limits_y, -_limits_y);
-
-            if (teamID == 1)
-                limits_x = new Vector2(limits_x.y- 5f, limits_x.y);
-            else
-                limits_x = new Vector2(limits_x.x, limits_x.x + 5f);
-        }
+        //if (type == types.GOALKEEPER)
+        //{
+        //    float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
+        //    limits_y = new Vector2(_limits_y, -_limits_y);
+        //    float goalkeeperOffset = 2f;
+        //    if (teamID == 1)
+        //        limits_x = new Vector2(limits_x.y- goalkeeperOffset, limits_x.y);
+        //    else
+        //        limits_x = new Vector2(limits_x.x, limits_x.x + goalkeeperOffset);
+        //}
         
     }
     public void SetLimits()
@@ -109,19 +109,6 @@ public class Character : MonoBehaviour
 
         limits_y = new Vector2(_limits_y, -_limits_y);
         limits_x = new Vector2(-_limits_x, _limits_x);
-    }
-    public Vector2 SetPositionInsideLimits(Vector2 newPos)
-    {
-        Vector2 pos = newPos;
-        if (newPos.x < limits_x.x)
-            pos.x = limits_x.x;
-        else if(newPos.x > limits_x.y)
-            pos.x = limits_x.y;
-        if (newPos.y > limits_y.x)
-            pos.y = limits_y.x;
-        else if (newPos.y < limits_y.y)
-            pos.y = limits_y.y;
-        return pos;
     }
     public bool IsPositionOutsideLimitsZ(float pos)
     {
@@ -298,9 +285,13 @@ public class Character : MonoBehaviour
         {
             direction = new Vector2(_x, _y);
         }
+        Vector3 pos = transform.position;
 
-        if (transform.position.z > limits_y.x) _y = -1;
-        else if (transform.position.z < limits_y.y) _y = 1;
+        if (pos.z > limits_y.x) _y = -1;
+        else if (pos.z < limits_y.y) _y = 1;
+        
+       
+
 
         Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
         
@@ -310,20 +301,18 @@ public class Character : MonoBehaviour
         if (ballCatcher != null)
             ballCatcher.RotateTo(aimVector);
 
-        Vector3 pos = transform.position;
-        if (transform.position.x > limits_x.y && _x>0)
+        transform.Translate(forwardVector);
+
+        if (pos.x > limits_x.y)
         {
             pos.x = limits_x.y;
             transform.position = pos;
         }
-        else if (transform.position.x < limits_x.x && _x < 0)
+        else if (pos.x < limits_x.x)
         {
             pos.x = limits_x.x;
             transform.position = pos;
         }
-        transform.Translate(forwardVector);
-
-      
     }
     public void SetSignal(CharacterSignal signal)
     {

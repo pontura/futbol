@@ -21,9 +21,9 @@ public class AiPositionGK : AIState
         Vector3 ballPos = ai.ball.transform.position;
         float diff_X;
         // gotoPosition = ai.character.SetPositionInsideLimits(gotoPosition);
-        if (ai.transform.position.x > ai.originalPosition.x)
-                _x = -1;
-            else _x = 1;
+        //if (ai.transform.position.x > ai.originalPosition.x)
+        //        _x = -1;
+        //    else _x = 1;
 
 
         float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
@@ -36,6 +36,12 @@ public class AiPositionGK : AIState
             _z = 0;
         else if (_z < 0 && ai.transform.position.z <= -areaLimits_z)
             _z = 0;
+
+        if (ai.character.teamID == 1 && ai.transform.position.x < ai.originalPosition.x)
+            _x = 1;
+        else if (ai.character.teamID == 2 && ai.transform.position.x > ai.originalPosition.x)
+            _x = -1;
+        else _x = 0;
 
         if (_x == 0 && _z == 0)
             SetState(ai.aiIdleGK);

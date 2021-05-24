@@ -22,7 +22,7 @@ public class AIIdle : AIState
     {
         initTimer += Time.deltaTime;
         timer += Time.deltaTime;
-        if (timer > 0.5f)
+        if (timer > 0.75f)
         {
             if (initTimer >0.5f && aiNextState != null)
             {
@@ -66,21 +66,19 @@ public class AIIdle : AIState
     }
     void SetNextState(AIState aistate)
     {
-        if (initTimer < 0.5f)
+        if (initTimer < 0.75f)
             aiNextState = aistate;
         else
             SetState(aistate);
     }
     public override void GotoBall()
     {
-            SetNextState(ai.aiGotoBall);
+        SetNextState(ai.aiGotoBall);
     }
     public override void OnCharacterCatchBall(Character character)
     {
-        if (timer < 0.5f) return;
-
         if (character.data.id == ai.character.data.id)
-            SetNextState(ai.aiHasBall);
+            SetState(ai.aiHasBall);
         else if (character.teamID == ai.character.teamID)
             SetNextState(ai.aiPositionAttacking);
         else
