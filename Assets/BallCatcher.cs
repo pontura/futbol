@@ -26,6 +26,7 @@ public class BallCatcher : MonoBehaviour
     }
     private void Start()
     {
+        container.gameObject.SetActive(false);
         anim = container.GetComponent<Animation>();
         character = GetComponent<Character>();
         Show(false);
@@ -34,7 +35,7 @@ public class BallCatcher : MonoBehaviour
     public void Catch(Ball _ball)
     {
         Reset();
-        //container.gameObject.SetActive(true);
+        container.gameObject.SetActive(true);
         ball = _ball;
         ball.transform.SetParent(container);
         ball.transform.localPosition = Vector3.zero;
@@ -48,9 +49,11 @@ public class BallCatcher : MonoBehaviour
         state = states.WAITING;
         ball = null;
         Invoke("Reset", 0.2f);
+        container.gameObject.SetActive(false);
     }
     public void Reset()
     {
+        container.gameObject.SetActive(false);
         cola.transform.localScale = Vector3.one;
         Vector3 pos = arrow.transform.localPosition;
         pos.z = arrow_pos_z_initial;
