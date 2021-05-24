@@ -121,6 +121,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &111354013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6837355737984272647, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6837355737859173008}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &111354016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111354013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9abb498e316fe641ac28d28a6c9c989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &170217519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4935240531098310, guid: ec3e8f3ed27e2244caaedaf589590a03,
@@ -2664,6 +2682,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.6951294
       objectReference: {fileID: 0}
+    - target: {fileID: 6837355736625792770, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837355736737206206, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 19.110813
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837355736737206206, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 53.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837355736737206207, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6837355737457407792, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
       propertyPath: m_Name
@@ -2774,6 +2812,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6837355737457407797, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
+        type: 3}
+      propertyPath: uIForce
+      value: 
+      objectReference: {fileID: 111354016}
     - target: {fileID: 7526828218820044482, guid: 4dd68e8d8ece6774d9c78beac0f60d1c,
         type: 3}
       propertyPath: m_Sprite
@@ -2972,7 +3015,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 93
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6837355736625792772, guid: 4dd68e8d8ece6774d9c78beac0f60d1c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dd68e8d8ece6774d9c78beac0f60d1c, type: 3}
 --- !u!1 &6837355737859173009 stripped
 GameObject:

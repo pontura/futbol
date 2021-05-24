@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIForce : MonoBehaviour
 {
-    public Color[] colors;
-    public Image bar;
+   // public Color[] colors;
+    //public Image bar;
     float value;
     float speed;
     int dir;
@@ -47,7 +47,7 @@ public class UIForce : MonoBehaviour
         dir = 1;
         speed = Data.Instance.settings.forceBarSpeed;
         CancelInvoke();
-        bar.fillAmount = value;
+        //bar.fillAmount = value;
     }
     void OnEnable()
     {
@@ -64,14 +64,14 @@ public class UIForce : MonoBehaviour
         {
             if (value >= 1)
                 return;
-            if (value < 0.2f)
-                bar.color = colors[0];
-            else if (value < 0.6f)
-                bar.color = colors[1];
-            else
-                bar.color = colors[2];
+            //if (value < 0.2f)
+            //    bar.color = colors[0];
+            //else if (value < 0.6f)
+            //    bar.color = colors[1];
+            //else
+            //    bar.color = colors[2];
             value += Time.deltaTime * speed * dir;
-            bar.fillAmount = value;
+           // bar.fillAmount = value;
         }
     }
 }

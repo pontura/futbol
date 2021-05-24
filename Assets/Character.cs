@@ -90,16 +90,16 @@ public class Character : MonoBehaviour
         ai.Init();
         SetLimits();
 
-        //if (type == types.GOALKEEPER)
-        //{
-        //    float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
-        //    limits_y = new Vector2(_limits_y, -_limits_y);
-        //    float goalkeeperOffset = 2f;
-        //    if (teamID == 1)
-        //        limits_x = new Vector2(limits_x.y- goalkeeperOffset, limits_x.y);
-        //    else
-        //        limits_x = new Vector2(limits_x.x, limits_x.x + goalkeeperOffset);
-        //}
+        if (type == types.GOALKEEPER)
+        {
+            float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
+            limits_y = new Vector2(_limits_y, -_limits_y);
+            float goalkeeperOffset = 8f;
+            if (teamID == 1)
+                limits_x = new Vector2(limits_x.y- goalkeeperOffset, limits_x.y);
+            else
+                limits_x = new Vector2(limits_x.x, limits_x.x + goalkeeperOffset);
+        }
         
     }
     public void SetLimits()
@@ -247,7 +247,7 @@ public class Character : MonoBehaviour
     public virtual void MoveTo(float _x, float _y)
     {
 
-        if (actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
+        if (actions.state == CharacterActions.states.KICK || actions.state == CharacterActions.states.GOAL || actions.state == CharacterActions.states.FREEZE)
             return;
         else if (actions.state == CharacterActions.states.JUEGUITO)
         {
@@ -255,8 +255,6 @@ public class Character : MonoBehaviour
                 return;
             else ballCatcher.Reset();
         }
-        // if (actions.state == CharacterActions.states.DASH_WITH_BALL)
-        //    if (teamID == 1) _x = -1; else _x = 1; // corre si o si mientras hace un dash
 
 
         if (_x == 0 && _y == 0)
@@ -289,9 +287,6 @@ public class Character : MonoBehaviour
 
         if (pos.z > limits_y.x) _y = -1;
         else if (pos.z < limits_y.y) _y = 1;
-        
-       
-
 
         Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
         

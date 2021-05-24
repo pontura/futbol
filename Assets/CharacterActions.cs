@@ -106,17 +106,15 @@ public class CharacterActions : MonoBehaviour
     }
     public virtual void Run()
     {
-        if (state == states.FREEZE || state == states.AIMING_KICK)
-            return;
-        if (state == states.GOAL)
-            return;
+        if (state == states.FREEZE || state == states.GOAL) return;
         if (state == states.IDLE)
         {
             PlayAnim("idle");
         }
         else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.RUN || state == states.KICK || state == states.DASH || state == states.DASH_WITH_BALL)
             return;
-        this.state = states.RUN;
+        if(state != states.AIMING_KICK)
+             this.state = states.RUN;
         PlayAnim("run");
     }
     public virtual void EnterCancha()
@@ -192,25 +190,21 @@ public class CharacterActions : MonoBehaviour
                 LookTo(1);
             else
                 LookTo(-1);
-            PlayAnim("chilena");
-            Invoke("Reset", 0.75f);
+            PlayAnim("chilena", 1f);
         }
         else if (kickType == kickTypes.HEAD)
         {
-            PlayAnim("head");
-            Invoke("Reset", 0.5f);
+            PlayAnim("head", 0.7f);
         }
         else
         {
             if (kickType == kickTypes.BALOON)
-                PlayAnim("kick");
+                PlayAnim("kick", 0.6f);
             else if (kickType == kickTypes.HARD)
-                PlayAnim("kick_power");
-            else if (kickType == kickTypes.SOFT)
-                PlayAnim("kick_soft");
-            Invoke("Reset", 0.35f);
+                PlayAnim("kick_power", 0.8f);
+            else// if (kickType == kickTypes.SOFT)
+                PlayAnim("kick_soft", 0.5f);            
         }
-
     }
     public void Jueguito()
     {
@@ -310,16 +304,18 @@ public class CharacterActions : MonoBehaviour
         
     }
     public string lastAnimPlayed;
-    void PlayAnim(string animName)
+    void PlayAnim(string animName, float timeToReset = 0)
     {
         if (state == states.FREEZE)
             return;
         if (lastAnimPlayed == animName)
             return;
-        //if (character.isBeingControlled)
-        //    print("animName " + animName);
+
         lastAnimPlayed = animName;
         anim.Play(animName);
+
+        if(timeToReset>0)
+            Invoke("Reset", timeToReset);
     }
     public void AimingKick(bool isOn)
     {

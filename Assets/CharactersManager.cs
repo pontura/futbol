@@ -31,15 +31,22 @@ public class CharactersManager : MonoBehaviour
         Events.OnGoal -= OnGoal;
         Events.KickToGoal -= KickToGoal;
     }
-    public void Init()
+    public void Init(bool reverseTeams = false)
     {
         CharactersConstructor cc = GetComponent<CharactersConstructor>();
         if(cc != null)  cc.AddCharacters();
 
         gameplaySettings = Data.Instance.settings.gameplay;
         totalPlayers = CharactersData.Instance.team1.Count;
-        teamID_1 = 1;
-        teamID_2 = 2;
+        if (reverseTeams)
+        {
+            teamID_1 = 2;
+            teamID_2 = 1;
+        } else
+        {
+            teamID_1 = 1;
+            teamID_2 = 2;
+        }
         ball = Game.Instance.ball;
         //AddCharacter(2);
         referi.InitReferi(this, CharactersData.Instance.all_referis[CharactersData.Instance.referiId-1].asset);
@@ -437,7 +444,7 @@ public class CharactersManager : MonoBehaviour
     }
     void PasarNotDirectional(Character character, float uiForceValue)
     {
-        if (uiForceValue > 0.5f)
+        if (uiForceValue > 0.7f)
             character.Kick(CharacterActions.kickTypes.BALOON);
         else
             character.Kick(CharacterActions.kickTypes.SOFT);

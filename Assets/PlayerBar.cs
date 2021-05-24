@@ -7,7 +7,7 @@ public class PlayerBar : MonoBehaviour
 {
     public Text playerName;
     Character character;
-    public GameObject progressBar;
+  //  public GameObject progressBar;
 
     void Awake()
     {
