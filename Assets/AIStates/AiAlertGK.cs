@@ -43,13 +43,20 @@ public class AiAlertGK : AIState
             if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;
         }
 
-        float dest_x = ai.ball.transform.position.x;
-        if (Mathf.Abs(dest_x) > Mathf.Abs(ai.originalPosition.x)) _x = 0;
-        else if (ai.transform.position.x < dest_x) _x = 1;
-        else if (ai.transform.position.x > dest_x) _x = -1;
+      //  float dest_x = ai.ball.transform.position.x;
 
-        if(_x != 0 && IsOutsideAreaInX()) _x = 0;
-        if (_z != 0 && IsOutsideAreaInZ()) _z = 0;
+        if (ai.character.teamID == 1 && ai.transform.position.x < ai.originalPosition.x)
+            _x = 1;
+        else if (ai.character.teamID == 2 && ai.transform.position.x > ai.originalPosition.x)
+            _x = -1;
+        else _x = 0;
+
+        //if (Mathf.Abs(dest_x) > Mathf.Abs(ai.originalPosition.x)) _x = 0;
+        //else if (ai.transform.position.x < dest_x) _x = 1;
+        //else if (ai.transform.position.x > dest_x) _x = -1;
+
+        //if(_x != 0 && IsOutsideAreaInX()) _x = 0;
+        //if (_z != 0 && IsOutsideAreaInZ()) _z = 0;
 
         if (Vector3.Distance(ai.transform.position,  ballPos) < ball_distance_to_go)
             UpdateInArea();
@@ -66,7 +73,6 @@ public class AiAlertGK : AIState
   
     bool IsOutsideAreaInX()
     {
-        return true;
         if (ai.character.teamID == 1 && _x<0 && ai.transform.position.x < (ai.originalPosition.x - areaLimits_x)) return true;
         if (ai.character.teamID == 2 && _x>0 && ai.transform.position.x > (ai.originalPosition.x + areaLimits_x)) return true;
         return false;

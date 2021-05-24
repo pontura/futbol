@@ -90,6 +90,11 @@ public class AI : MonoBehaviour
     }
     public void SetGoalkeeperValues()
     {
+        if (character.teamID == 1)
+            originalPosition.x = (Data.Instance.stadiumData.active.size_x / 2)-2;
+        else
+            originalPosition.x = -(Data.Instance.stadiumData.active.size_x / 2) + 2;
+
         areaEnding_x = Mathf.Abs(originalPosition.x) - Data.Instance.settings.gkSpeed_sale_x;
         if (character.teamID == 2)
             areaEnding_x *= -1;

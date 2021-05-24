@@ -90,16 +90,16 @@ public class Character : MonoBehaviour
         ai.Init();
         SetLimits();
 
-        if (type == types.GOALKEEPER)
-        {
-            float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
-            limits_y = new Vector2(_limits_y, -_limits_y);
-            float goalkeeperOffset = 1.5f;
-            if (teamID == 1)
-                limits_x = new Vector2(limits_x.y- goalkeeperOffset, limits_x.y);
-            else
-                limits_x = new Vector2(limits_x.x, limits_x.x + goalkeeperOffset);
-        }
+        //if (type == types.GOALKEEPER)
+        //{
+        //    float _limits_y = Data.Instance.stadiumData.active.size_y / 3f;
+        //    limits_y = new Vector2(_limits_y, -_limits_y);
+        //    float goalkeeperOffset = 2f;
+        //    if (teamID == 1)
+        //        limits_x = new Vector2(limits_x.y- goalkeeperOffset, limits_x.y);
+        //    else
+        //        limits_x = new Vector2(limits_x.x, limits_x.x + goalkeeperOffset);
+        //}
         
     }
     public void SetLimits()
@@ -313,8 +313,6 @@ public class Character : MonoBehaviour
             pos.x = limits_x.x;
             transform.position = pos;
         }
-
-
     }
     public void SetSignal(CharacterSignal signal)
     {

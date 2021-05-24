@@ -31,15 +31,16 @@ public class AIPositionDefending : AIState
 
         timer += Time.deltaTime;
 
-        int _h, _v = 0;
+        int _h = 0;
+        int _v = 0;
         Vector3 pos = ai.transform.position;
        // gotoPosition = ai.character.SetPositionInsideLimits(gotoPosition);
 
         if (Vector3.Distance(pos, gotoPosition) > 0.5f)
         {
-            if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
-            else if (pos.x < gotoPosition.x) _h = 1;
-            else _h = -1;
+            //if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
+            //else if (pos.x < gotoPosition.x) _h = 1;
+            //else _h = -1;
 
             if (Mathf.Abs(pos.z - gotoPosition.z) < 0.25f) _v = 0;
             else if (pos.z < gotoPosition.z) _v = 1;
@@ -69,7 +70,7 @@ public class AIPositionDefending : AIState
     void UpdatePosition()
     {
         int rand = Random.Range(0, 10);
-        float offset_x = Utils.GetRandomFloatBetween(2, 6);
+        //float offset_x = Utils.GetRandomFloatBetween(2, 6);
         float offset_z = Utils.GetRandomFloatBetween(-2, 2);
 
         if (ai.character.type == Character.types.DEFENSOR)
@@ -99,10 +100,10 @@ public class AIPositionDefending : AIState
             
 
         gotoPosition.z += offset_z;
-        if (ai.character.teamID == 2)
-            gotoPosition.x -= offset_x;
-        else
-            gotoPosition.x += offset_x;
+        //if (ai.character.teamID == 2)
+        //    gotoPosition.x -= offset_x;
+        //else
+        //    gotoPosition.x += offset_x;
   
         
     }   
