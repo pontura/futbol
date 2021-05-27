@@ -7,11 +7,7 @@ public class CameraInGame : MonoBehaviour
     Animation anim;
     public Camera cam;
     float initial_y_position;
-    float speed_to_tribuna = 20;
-    public float camera_tribuna_y;
-    Transform target;
-    public Vector3 offset;
-    public float offset_lookAt;
+    [SerializeField] Transform target;
     float speed = 4.5f;
     bool filmingPlayer;
     public float filming_y;
@@ -47,10 +43,9 @@ public class CameraInGame : MonoBehaviour
     }
     public void Reset()
     {
-
         if (anim != null)
             anim.enabled = false;
-        ResetShootingPlayer();
+        filmingPlayer = false;
         cam.orthographicSize = originalSize;
     }
     public void SetTargetTo(Transform t)
@@ -62,18 +57,20 @@ public class CameraInGame : MonoBehaviour
         if (target == null)
             return;
         Vector3 pos = transform.position;
-        pos.x = target.position.x * 0.8f;
-        pos.z = target.position.z- offsetZ;
+        pos.x = target.position.x;
+        pos.z = target.position.z - offsetZ;
+
+        if (!filmingPlayer)
+            pos.x *= 0.8f;
+        else
+        {
+            pos.x *= 0.9f;
+            pos.z -= 2;
+        }
+
 
         if (pos.z < -pos_z)  pos.z = -pos_z;
         else if (pos.z > 0)   pos.z = 0;
-
-        if (filmingPlayer)
-            pos.y = filming_y;
-        else if (Game.Instance.state == Game.states.PLAYING || Game.Instance.state == Game.states.WAITING || Game.Instance.state == Game.states.GAMEOVER)
-            pos.y = initial_y_position;
-        else if (pos.y < camera_tribuna_y)
-            pos.y += Time.deltaTime * speed_to_tribuna;
         transform.position = Vector3.Lerp(transform.position, pos, speed * Time.deltaTime);
         transform.localEulerAngles = new Vector3(20, target.position.x * 15 / 20, target.position.x * 5 / 20);
     }
@@ -83,25 +80,13 @@ public class CameraInGame : MonoBehaviour
     }    
     IEnumerator GoalCoroutine(Character character)
     {
-        yield return new WaitForSeconds(1);
-        SetTargetTo(character.transform);
-        yield return new WaitForSeconds(2);        
-        ShootingPlayer(character);
-    }
-    public void ShootPlayer(Character character, float duration = 0)
-    {
-        ShootingPlayer(character);
-        if(duration > 0)
-            Invoke("ResetShootingPlayer", duration);
-    }
-    void ResetShootingPlayer()
-    {
-        filmingPlayer = false;
-    }
-    void ShootingPlayer(Character character)
-    {
-        cam.orthographicSize = zoomSize;
+        yield return new WaitForSeconds(1.25f);
         filmingPlayer = true;
-        filming_y = initial_y_position + character.transform.position.z / offsetShootingPlayer_z;
+        SetTargetTo(character.transform);
+        while (cam.orthographicSize > zoomSize)
+        {
+            yield return new WaitForEndOfFrame();
+            cam.orthographicSize -= Time.deltaTime*0.5f;
+        }
     }
 }

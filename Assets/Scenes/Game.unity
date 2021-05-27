@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 483686600}
   - component: {fileID: 483686601}
   - component: {fileID: 483686602}
+  - component: {fileID: 483686603}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -553,6 +554,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca48245323e36af45b0c67a4550240f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &483686603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483686593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ff695a72d39ca4b814c1b1e918ba3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalAxis: []
+  verticalAxis: []
 --- !u!1 &494057301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1224,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 483686594}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 20.279001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.279001, y: 0, z: -0.4717093}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,9 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  camera_tribuna_y: 7
-  offset: {x: 0, y: 1.95, z: 0}
-  offset_lookAt: 0.95
+  target: {fileID: 0}
   filming_y: 0
   offsetZ: 9
   originalSize: 5

@@ -38,19 +38,25 @@ public class GoalMoment : MonoBehaviour
         Events.PlaySound("crowd", "crowd_gol", true);
 
         yield return new WaitForSeconds(0.2f);
-        state = states.GOING_TO_TARGET;        
+        state = states.GOING_TO_TARGET;
 
         if (character.teamID == teamID)
-            character_made_goal.actions.Goal();       
+            character_made_goal.actions.Goal();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
+        Events.OnSkipOn(Done);
+        yield return new WaitForSeconds(3.7f);
+        state = states.IDLE;
+        yield return new WaitForSeconds(1);
+        character_made_goal.actions.Goal();
 
-        foreach (Character ch in winners)
-            ch.actions.Goal();
+        yield return new WaitForSeconds(2);
+        Events.ChangeVolume("croud", 0.5f);
+
 
         yield return new WaitForSeconds(0.7f);
 
-        Data.Instance.LoadLevel("Goal");
+       // Data.Instance.LoadLevel("Goal");
 
         //Events.OnSkipOn(Done);
         //yield return new WaitForSeconds(3.7f);        

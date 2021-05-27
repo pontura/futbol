@@ -213,7 +213,8 @@ public class VoicesManager : MonoBehaviour
     }
     void OnGoalDone()
     {
-        Events.OnGoalDone();
+        Game.Instance.GetComponent<GoalMoment>().Done();
+       /// Events.OnGoalDone();
     }
     private void Reset()
     {
