@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalScene : MonoBehaviour
+public class GameoverScene : MonoBehaviour
 {
     public Character character_to_instantiate;
     public GameObject[] allCharacters;
