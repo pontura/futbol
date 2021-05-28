@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -37856,7 +37856,7 @@ Transform:
   m_GameObject: {fileID: 966599588}
   m_LocalRotation: {x: 0.26057354, y: -0.6573442, z: -0.6573442, w: 0.26057354}
   m_LocalPosition: {x: -1.03, y: 1.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 101486397}
   m_RootOrder: 0
@@ -38062,7 +38062,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 5
-      minScalar: 7
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -38178,7 +38178,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.6
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -38758,7 +38758,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 55
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -40424,7 +40424,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -40482,7 +40482,7 @@ ParticleSystem:
     drag:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1.33
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -43258,7 +43258,7 @@ Transform:
   m_GameObject: {fileID: 1136014704}
   m_LocalRotation: {x: 0.26057354, y: -0.6573442, z: -0.6573442, w: 0.26057354}
   m_LocalPosition: {x: -1.03, y: 1.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 708989415}
   m_RootOrder: 0
@@ -43464,7 +43464,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 5
-      minScalar: 7
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -43580,7 +43580,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.6
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -44160,7 +44160,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 55
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -45826,7 +45826,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -45884,7 +45884,7 @@ ParticleSystem:
     drag:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1.33
       minScalar: 0
       maxCurve:
         serializedVersion: 2

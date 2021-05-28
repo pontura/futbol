@@ -62,7 +62,7 @@ AnimatorStateMachine:
     m_Position: {x: 620, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4283052795862812232}
-    m_Position: {x: 785, y: 295, z: 0}
+    m_Position: {x: 790, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6351691338393840727}
     m_Position: {x: 350, y: 220, z: 0}
@@ -75,6 +75,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -1967189782621515966}
     m_Position: {x: 605, y: 735, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -4536162217041847580}
+    m_Position: {x: 640, y: 800, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -151,6 +154,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 586f8140014d193488d3aad18e111722, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-4536162217041847580
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: head_copbot
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 30e8c02b6837dae4c813b284c8fb2272, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
