@@ -412,11 +412,12 @@ public class CharactersManager : MonoBehaviour
                         Vector3 centroPos = character.transform.position;
                         centroPos.x *= 0.85f;
                         centroPos.z *= -0.85f;
-                        characterNear = GetNearest(character.teamID, false, centroPos);
+                        characterNear = GetNearest(character.teamID, false, centroPos, true);
                         character.ballCatcher.LookAt(centroPos);
                         character.Kick(CharacterActions.kickTypes.CENTRO);
                         if (ball.character != characterNear)
                             SwapTo(character, characterNear);
+                        print("CEntro");
                         return;
                     }
                     Pasar(character);
@@ -425,9 +426,14 @@ public class CharactersManager : MonoBehaviour
             }
         }
     }
+    public Character GetCharacterEnPase(Character character)
+    {
+        return GetOtherCharacterNear(character.teamID, ball.GetForwardPosition(5), 7);
+    }
     public void Pasar(Character character)
     {
-        Character characterNear = GetOtherCharacterNear(character.teamID, ball.GetForwardPosition(5), 7);
+        print("___________pase");
+        Character characterNear = GetCharacterEnPase(character);
         if (characterNear != null)
         {
             character.ballCatcher.LookAt(characterNear.transform.position);

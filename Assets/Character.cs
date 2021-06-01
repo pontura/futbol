@@ -39,13 +39,14 @@ public class Character : MonoBehaviour
     public Vector2 limits_y;
     public Vector2 limits_x;
     CharacterFloorSignal floorSignal;
+    public LineSignal lineSignal;
 
     void Awake()
     {
         actions = GetComponent<CharacterActions>();
         ballCatcher = GetComponent<BallCatcher>();
         floorSignal = GetComponent<CharacterFloorSignal>();
-        
+
         ai = GetComponent<AI>();
     }
     public virtual void Start()

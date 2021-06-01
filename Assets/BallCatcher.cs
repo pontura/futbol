@@ -42,6 +42,8 @@ public class BallCatcher : MonoBehaviour
         ball.rb.velocity = Vector3.zero;
         ball.transform.localEulerAngles = new Vector3(0, 0, 0);
         state = states.GOT_IT;
+        if (character.lineSignal != null)
+            character.lineSignal.SetOn(true);
     }
     public void LoseBall()
     {
@@ -50,6 +52,8 @@ public class BallCatcher : MonoBehaviour
         ball = null;
         Invoke("Reset", 0.2f);
         container.gameObject.SetActive(false);
+        if (character.lineSignal != null)
+            character.lineSignal.SetOn(false);
     }
     public void Reset()
     {
