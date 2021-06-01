@@ -15,5 +15,10 @@ public class GameCanvas : MonoBehaviour
     void OnGoal(int teamID, Character c)
     {
         goalAsset.SetActive(true);
+        Invoke("Reset", 5);
+    }
+    void Reset()
+    {
+        goalAsset.SetActive(false);
     }
 }
