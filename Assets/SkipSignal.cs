@@ -62,7 +62,6 @@ public class SkipSignal : MonoBehaviour
     }
     void SetProgress()
     {
-        print(timer);
         timer += Time.deltaTime;
         progressBar.fillAmount = timer / totalTime;
         if(timer>=totalTime)
