@@ -1,7 +1,7 @@
 Accion,Default,DEFENSOR,CENTRAL,DELANTERO,GOALKEEPER
 speed,40,0,0,0,0
 speedRun,65,0,0,0,0
-speedRunFade,8,0,0,0,0
+speedRunFade,20,0,0,0,0
 speedWithBall,35,0,0,0,0
 speedRunWithBall,55,0,0,0,0
 speedDash,80,0,0,0,0
@@ -10,7 +10,7 @@ random_steal_ball,50,0,0,0,0
 distance_to_dash_ai,28,0,0,0,0
 dash_percent_attacking,200,0,0,0,0
 dash_percent_defending,400,0,0,0,0
-goalKeeperSpeed,25,0,0,0,0
+goalKeeperSpeed,50,0,0,0,0
 freeze_by_kick,30,0,0,0,0
 freeze_dash,15,0,0,0,0
 freeze_by_loseBall,10,0,0,0,0
@@ -21,7 +21,7 @@ timeToSwapCharactersAutomatically,7,0,0,0,0
 defenseDelay,11,0,0,0,0
 attackDelay,7,0,0,0,0
 gk_FlyingDuration,50,0,0,0,0
-gk_FlyingSpeed,13,0,0,0,0
+gk_FlyingSpeed,20,0,0,0,0
 gk_CatchOnAir,700,0,0,0,0
 kickHard,4000,0,0,0,0
 kickHardAngle,1900,0,0,0,0
