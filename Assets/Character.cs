@@ -384,8 +384,7 @@ public class Character : MonoBehaviour
         runCoroutine = StartCoroutine(RunSpeedDesacelerate());
     }
     IEnumerator RunSpeedDesacelerate()
-    {     
-
+    { 
         actions.SuperRun();
         float minSpeed;
         float to;

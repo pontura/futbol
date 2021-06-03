@@ -1823,7 +1823,7 @@ PrefabInstance:
     - target: {fileID: 114000013950545636, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
         type: 3}
       propertyPath: isMobile
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4627727481018733516, guid: 77f85cf8e38d2bf4bb7b2240570f3369,
         type: 3}
@@ -2123,6 +2123,7 @@ MonoBehaviour:
   oponent: {fileID: 0}
   limits_y: {x: 0, y: 0}
   limits_x: {x: 0, y: 0}
+  lineSignal: {fileID: 0}
 --- !u!136 &3160418783750167806
 CapsuleCollider:
   m_ObjectHideFlags: 0

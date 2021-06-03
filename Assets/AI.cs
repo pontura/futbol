@@ -53,7 +53,9 @@ public class AI : MonoBehaviour
 
         if (character.type == Character.types.GOALKEEPER)
         {
-            SetGoalkeeperValues();
+            if(Data.Instance.newScene == "Game")
+                SetGoalkeeperValues();
+
             aiIdleGK = new AiIdleGK();
             aiPositionGK = new AiPositionGK();
            
