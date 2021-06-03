@@ -6,27 +6,37 @@ using UnityEngine.UI;
 
 public class IngameMenu : MonoBehaviour
 {
+    public GameObject panel;
     public GameObject arcadePanel;
+    public GameObject mobilePanel;
     bool isOn;
-
+    bool isMobile;
     void Start()
     {
+        isMobile = Data.Instance.isMobile;
+        mobilePanel.SetActive(false);
+        arcadePanel.SetActive(false);
         Reset();
     }
-    void Reset()
+    public void Reset()
     {
         isOn = false;
         Time.timeScale = Data.Instance.settings.timeScale;
-        arcadePanel.SetActive(false);
+        panel.SetActive(false);
     }
     public void Open()
     {
         isOn = true;
         Time.timeScale = 0.001f;
-        arcadePanel.SetActive(true);
+        panel.SetActive(true);
+        if (isMobile)
+            mobilePanel.SetActive(true);
+        else
+            arcadePanel.SetActive(true);
     }
     private void Update()
     {
+        if (isMobile) return;
         if (!isOn)
             return;
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -41,7 +51,7 @@ public class IngameMenu : MonoBehaviour
         else
             Reset();
     }
-    void MainMenu()
+    public void MainMenu()
     {
         Time.timeScale = 1;
         Data.Instance.LoadLevel("1_MainMenu");
