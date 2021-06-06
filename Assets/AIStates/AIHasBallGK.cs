@@ -69,7 +69,7 @@ public class AIHasBallGK : AIState
         int rand = Random.Range(0, 9);
         if (rand < 3)
         {
-            ai.character.Kick(CharacterActions.kickTypes.HARD);
+            ai.character.Kick(CharacterActions.kickTypes.HARD, Utils.GetRandomFloatBetween(1.55f, 3.3f));
             return;
         }
 
@@ -79,10 +79,9 @@ public class AIHasBallGK : AIState
         Vector3 otherPos = characterToPass.transform.position;
 
         ai.character.ballCatcher.LookAt(otherPos);
-        CharacterActions.kickTypes kickType;
 
-        if (ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
-            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(0.75f, 2.5f));
+        if (Random.Range(0,10)<10 || ai.character.teamID == 2 && otherPos.x > 10 || ai.character.teamID == 1 && otherPos.x < -10)
+            ai.character.Kick(CharacterActions.kickTypes.CENTRO, Utils.GetRandomFloatBetween(2.75f, 4.5f));
         else
             ai.character.Kick(CharacterActions.kickTypes.SOFT, Utils.GetRandomFloatBetween(1.5f, 3));
     }

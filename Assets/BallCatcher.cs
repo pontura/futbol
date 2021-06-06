@@ -52,9 +52,15 @@ public class BallCatcher : MonoBehaviour
         ball.rb.velocity = Vector3.zero;
         ball.transform.localEulerAngles = new Vector3(0, 0, 0);
         state = states.GOT_IT;
-        if (!character.isBeingControlled) return;
-        if (character.lineSignal != null)
+        if (!character.isBeingControlled)
+        {
+            signal.SetActive(false);
+        }
+        else if (character.lineSignal != null)
+        {
+            signal.SetActive(true);
             character.lineSignal.SetOn(true);
+        }
     }
     public void LoseBall()
     {
@@ -132,7 +138,6 @@ public class BallCatcher : MonoBehaviour
     public float GetForce()
     {
         float v = (value) / (arrow_pos_max_z - arrow_pos_z_initial);
-        print("Get Force: " + v);
         return v;
     }
 }

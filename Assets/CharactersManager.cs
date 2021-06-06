@@ -179,19 +179,21 @@ public class CharactersManager : MonoBehaviour
     }
     void CheckStateByTeam(Character character)
     {
-        if (Game.Instance.state != Game.states.PLAYING)
-            return;
-        if(ball.character == null || ball.character.teamID != character.teamID)
+        if (Game.Instance.state != Game.states.PLAYING) return;
+        if (ball.character == null)
+        {
+            if (character.teamID == 1 && Data.Instance.matchData.team1Controlled) SwapIfNeeded(1);
+            else if (character.teamID == 2 && Data.Instance.matchData.team2Controlled) SwapIfNeeded(2);
+        } else if (ball.character.teamID != character.teamID)
             CheckForNewDefender(character.teamID);
     }
-    void SwapIfNeeded(int teamID)
+    public void SwapIfNeeded(int teamID) // busca si hay otro cerca de la pelota y le da control
     {
-        Character to = GetNearest(teamID, false, ball.transform.position, true);
-        Character from = GetNearest(teamID, true, ball.transform.position);
-        if (to == null || from == null)
-            return;
-        if (to != from && to.control_id != from.control_id)
-            SwapTo(from, to);
+        Character character = GetCharacterControlledFarest(teamID, ball.transform.position);
+        Character newCharacter = GetNearest(teamID, false, ball.transform.position, false, false, true);
+        //print("from: " + character.data.avatarName + "   to: " + newCharacter.data.avatarName);
+        if (newCharacter.data.id != character.data.id)
+            SwapTo(character, newCharacter);
     }
     void CheckForNewDefender(int teamID)
     {
@@ -218,8 +220,6 @@ public class CharactersManager : MonoBehaviour
     }
     public void AddCharacter(int id, int teamID)
     {
-        //int teamID = GetTeamByPlayer(id);
-
         Character character = GetNextCharacterByTeam(teamID);
         character.control_id = id;
         playingCharacters.Add(character);
@@ -253,6 +253,25 @@ public class CharactersManager : MonoBehaviour
         }
         return character;
     }
+    public Character GetCharacterControlledFarest(int teamID, Vector3 pos)
+    {
+        List<Character> team;
+        if (teamID == 1)
+            team = team1;
+        else team = team2;
+        float distanceNearest = 0;
+        Character character = null;
+        foreach (Character c in team)
+        {
+            float dist = Vector3.Distance(c.transform.position, pos);
+            if (c.isBeingControlled && dist > distanceNearest)
+            {
+                character = c;
+                distanceNearest = dist;
+            }
+        }
+        return character;
+    }
     public Character GetOtherCharacterNear(int teamID, Vector3 pos, float MaxDistance)
     {
         Character ch = GetNearest(teamID, false, pos);
@@ -261,7 +280,7 @@ public class CharactersManager : MonoBehaviour
             return ch;
         return null;
     }
-    public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false, bool DontGetGoalKeeper = false)
+    public Character GetNearest(int teamID, bool hasControl, Vector3 pos, bool ifHasControlGetSecond = false, bool DontGetGoalKeeper = false, bool ignoreControlls = false)
     {
         List<Character> team;
         if (teamID == 1)
@@ -285,7 +304,11 @@ public class CharactersManager : MonoBehaviour
                         character = c;
                         distanceMin = distance;
                     }
-                } else
+                } else if(ignoreControlls)
+                {
+                    character = c;
+                    distanceMin = distance;
+                }
                 if (hasControl && c.isBeingControlled)
                 {
                     character = c;
@@ -403,11 +426,11 @@ public class CharactersManager : MonoBehaviour
                         Vector3 centroPos = character.transform.position;
                         centroPos.x *= 0.85f;
                         centroPos.z *= -0.85f;
-                        characterNear = GetNearest(character.teamID, false, centroPos, true);
+                       // characterNear = GetNearest(character.teamID, false, centroPos, true);
                         character.ballCatcher.LookAt(centroPos);
                         character.Kick(CharacterActions.kickTypes.CENTRO);
-                        if (ball.character != characterNear)
-                            SwapTo(character, characterNear);
+                        //if (ball.character != characterNear)
+                        //    SwapTo(character, characterNear);
                         return;
                     }
                     Pasar(character);
@@ -422,7 +445,6 @@ public class CharactersManager : MonoBehaviour
     }
     public void Pasar(Character character)
     {
-        print("___________pase");
         Character characterNear = GetCharacterEnPase(character);
         if (characterNear != null)
         {
@@ -449,6 +471,7 @@ public class CharactersManager : MonoBehaviour
         if (newCharacter != character)
             SwapTo(character, newCharacter);
     }
+    
     public void SwapTo(Character from, Character to)
     {
         if (to == null || to.isBeingControlled) return;

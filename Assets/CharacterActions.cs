@@ -312,7 +312,7 @@ public class CharacterActions : MonoBehaviour
             return;
 
         lastAnimPlayed = animName;
-        anim.Play(animName);
+        anim.Play(animName, 0, 0);
 
         if(timeToReset>0)
             Invoke("Reset", timeToReset);

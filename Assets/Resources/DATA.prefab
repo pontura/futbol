@@ -511,7 +511,7 @@ MonoBehaviour:
   stadiumData: {fileID: 0}
   charactersPositions: {fileID: 0}
   textsData: {fileID: 864794640}
-  isMobile: 0
+  isMobile: 1
   matchData: {fileID: 0}
   inputManagerUI: {fileID: 0}
   rewiredInputManager: {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b,
@@ -1933,6 +1933,8 @@ MonoBehaviour:
   lastGoalBy: 0
   totalCharacters: 8
   charactersPositions: 0000000000000000
+  team1Controlled: 0
+  team2Controlled: 0
 --- !u!114 &1526771218
 MonoBehaviour:
   m_ObjectHideFlags: 0

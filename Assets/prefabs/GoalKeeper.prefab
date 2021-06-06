@@ -5086,6 +5086,7 @@ MonoBehaviour:
   oponent: {fileID: 0}
   limits_y: {x: 0, y: 0}
   limits_x: {x: 0, y: 0}
+  lineSignal: {fileID: 0}
 --- !u!114 &5404960763416151749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5099,6 +5100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 6938877188936727935}
+  signal: {fileID: 204451498503128401}
   arrow: {fileID: 2207913212723573053}
   colaArrow: {fileID: 526676342046066207}
   cola: {fileID: 7850233807185814207}
@@ -5372,9 +5374,9 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 8723463540205614744}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6938877188936727935 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1820632740561980391, guid: ce374de968fe1cb4d9a79a36ab387c94,
+--- !u!1 &204451498503128401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8924353609279583177, guid: ce374de968fe1cb4d9a79a36ab387c94,
     type: 3}
   m_PrefabInstance: {fileID: 8723463540205614744}
   m_PrefabAsset: {fileID: 0}
@@ -5387,6 +5389,12 @@ GameObject:
 --- !u!212 &526676342046066207 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9097507132299079815, guid: ce374de968fe1cb4d9a79a36ab387c94,
+    type: 3}
+  m_PrefabInstance: {fileID: 8723463540205614744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6938877188936727935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1820632740561980391, guid: ce374de968fe1cb4d9a79a36ab387c94,
     type: 3}
   m_PrefabInstance: {fileID: 8723463540205614744}
   m_PrefabAsset: {fileID: 0}

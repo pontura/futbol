@@ -38,9 +38,9 @@ public class AIPositionDefending : AIState
 
         if (Vector3.Distance(pos, gotoPosition) > 0.5f)
         {
-            //if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
-            //else if (pos.x < gotoPosition.x) _h = 1;
-            //else _h = -1;
+            if (Mathf.Abs(pos.x - gotoPosition.x) < 0.25f) _h = 0;
+            else if (pos.x < gotoPosition.x) _h = 1;
+            else _h = -1;
 
             if (Mathf.Abs(pos.z - gotoPosition.z) < 0.25f) _v = 0;
             else if (pos.z < gotoPosition.z) _v = 1;
@@ -70,7 +70,6 @@ public class AIPositionDefending : AIState
     void UpdatePosition()
     {
         int rand = Random.Range(0, 10);
-        //float offset_x = Utils.GetRandomFloatBetween(2, 6);
         float offset_z = Utils.GetRandomFloatBetween(-2, 2);
 
         if (ai.character.type == Character.types.DEFENSOR)
@@ -83,28 +82,20 @@ public class AIPositionDefending : AIState
 
         Vector3 ballPos = ai.ball.transform.position;
 
+        float diffPos = 0.2f;     
         
-        if (Mathf.Sign(ballPos.x) == Mathf.Sign(ai.originalPosition.x))
-            gotoPosition = ai.character.oponent.transform.position;
-        else
-        {
-            float diffPos = 0.5f;
-            if (ai.character.type == Character.types.DEFENSOR)
-                diffPos = 0.5f;
-            else if (ai.character.type == Character.types.CENTRAL)
-                diffPos = 0.7f;
-            else if (ai.character.type == Character.types.DELANTERO)
-                diffPos = 0.8f;
-            gotoPosition = Vector3.Lerp(ai.originalPosition, ai.character.oponent.transform.position, diffPos);
-        }
-            
+        if (ai.character.type == Character.types.DEFENSOR)
+            diffPos = 0.55f;
+        else if (ai.character.type == Character.types.CENTRAL)
+            diffPos = 0.6f;
+        else if (ai.character.type == Character.types.DELANTERO)
+            diffPos = 0.8f;
 
+        if (Mathf.Sign(ballPos.x) == Mathf.Sign(ai.originalPosition.x)) // si está de tu lado la pelota se posiciona más cerca de su origen
+            diffPos /= 4;
+
+        gotoPosition = Vector3.Lerp(ai.originalPosition, ai.character.oponent.transform.position, diffPos);
         gotoPosition.z += offset_z;
-        //if (ai.character.teamID == 2)
-        //    gotoPosition.x -= offset_x;
-        //else
-        //    gotoPosition.x += offset_x;
-  
         
     }   
 }

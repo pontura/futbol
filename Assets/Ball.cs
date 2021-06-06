@@ -290,7 +290,7 @@ public class Ball : MonoBehaviour
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 KickBallSound();
-                dir *= GetStats().kickHard;
+                dir *= GetStats().kickHard * Random.Range(2, 3.5f);
                
                 if (character != null && character.type == Character.types.GOALKEEPER)
                     dir += Vector3.up * GetStats().kickHardAngle * 2;

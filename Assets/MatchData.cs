@@ -13,6 +13,9 @@ public class MatchData : MonoBehaviour
     public int totalCharacters;
     public int[] charactersPositions;
 
+    public bool team1Controlled;
+    public bool team2Controlled;
+
     private void Awake()
     {
         AddPlayer(1, 1);
@@ -26,6 +29,14 @@ public class MatchData : MonoBehaviour
     {
         players[id - 1] = teamID;
         totalPlayers++;
+        if (teamID == 1) team1Controlled = true;
+        if (teamID == 2) team2Controlled = true;
+    }
+    public bool IsTeamBeingControlled(int teamID)
+    {
+        if (teamID == 1 && team1Controlled) return true;
+        if (teamID == 2 && team2Controlled) return true;
+        else return false;
     }
     private void OnDestroy()
     {
