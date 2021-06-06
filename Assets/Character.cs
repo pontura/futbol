@@ -139,18 +139,6 @@ public class Character : MonoBehaviour
             if (actions.state == CharacterActions.states.DASH)
             {
                 other.actions.Kicked();
-                //Vector3 pos = other.transform.position;
-                //if (
-                //    (pos.x > limits_x.y*0.65f && teamID == 1) || (pos.x < limits_x.x * 0.65f && teamID == 2)
-                //    &&
-                //     (pos.z < 7.25f && pos.z > -7.25f)
-                //    &&
-                //    (other.teamID != teamID)
-                //    )
-                //{
-                //    Invoke("PenaltyDelayed", 0.25f);
-                //    return;
-                //}
             }
             else
                 other.actions.Cry();
@@ -430,5 +418,26 @@ public class Character : MonoBehaviour
         speed = minSpeed;
         actions.runFast = false;
         yield break;
+    }
+    public enum PositionsInGame
+    {
+        COMMON,
+        IN_AREA_ATTACKING,
+        CENTRO
+    }
+    public PositionsInGame GetPosition()
+    {
+        float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * Data.Instance.settings.gameplay.distanceToForceCentro;
+        if (
+            (teamID == 1 && transform.position.x < -distanceToForceCentro
+            ||
+            teamID == 2 && transform.position.x > distanceToForceCentro))
+        {
+            if (Mathf.Abs(transform.position.z) > 7.5f)
+                return PositionsInGame.CENTRO;
+            return PositionsInGame.IN_AREA_ATTACKING;
+        }
+        else
+            return PositionsInGame.COMMON;
     }
 }

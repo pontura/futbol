@@ -136,15 +136,12 @@ public class Ball : MonoBehaviour
                 else
                     character.actions.GoalKeeperJump();
             }            
-            else if (transform.localPosition.y > 1.5f &&
-                      (character.teamID == 1 && transform.position.x < -limits.x / 5
-                    || character.teamID == 2 && transform.position.x > limits.x / 5))
+            else if ((character.GetPosition()== Character.PositionsInGame.IN_AREA_ATTACKING 
+                || character.GetPosition() == Character.PositionsInGame.CENTRO)
+                && transform.localPosition.y > 1.3f)
             {
                 characterThatKicked = character;
-
-               // if (character.actions.state != CharacterActions.states.JUMP)
-                    character.actions.Kick(CharacterActions.kickTypes.CHILENA);
-
+                character.actions.Kick(CharacterActions.kickTypes.CHILENA);
                 transform.LookAt(AimGoal(character));
                 Kick(CharacterActions.kickTypes.CHILENA);
             }
@@ -203,8 +200,9 @@ public class Ball : MonoBehaviour
         transform.SetParent(container);
     }
     float AddForceToKick()
-    {       
-        float force = UIMain.Instance.uIForce.GetForce();
+    {
+        if (character == null || character.ballCatcher == null) return 0;
+        float force = character.ballCatcher.GetForce()*1.5f;
         if (force <= 0 && character != null)
         {
             if (character.transform.localScale.x == -1)
@@ -221,7 +219,7 @@ public class Ball : MonoBehaviour
     {
         ballAI.Reset();
         float force = 1;
-        if (kickType == CharacterActions.kickTypes.HARD && UIMain.Instance.uIForce.GetForce() > 0.6f)
+        if (kickType == CharacterActions.kickTypes.HARD && character.ballCatcher.GetForce() > 0.5f)
         {
             if(character != null && !character.isBeingControlled)
                 kickType = CharacterActions.kickTypes.KICK_TO_GOAL;
@@ -282,17 +280,17 @@ public class Ball : MonoBehaviour
                 break;
             case CharacterActions.kickTypes.HEAD:
                 KickBallSound();
-                dir *= GetStats().kickHead * force;
-                dir += Vector3.up * GetStats().kickHeadAngle * force;
+                dir *= GetStats().kickHead * 1.5f;
+                dir += Vector3.up * GetStats().kickHeadAngle;// * force;
                 break;
             case CharacterActions.kickTypes.CHILENA:
                 KickBallSound();
-                dir *= GetStats().kickChilena * force;
-                dir += Vector3.up * GetStats().kickChilenaAngle * force;
+                dir *= GetStats().kickChilena * (Random.Range(17, 32) / 10);
+                dir += Vector3.up * GetStats().kickChilenaAngle*(Random.Range(17,28)/10);// * force;
                 break;
             case CharacterActions.kickTypes.KICK_TO_GOAL:
                 KickBallSound();
-                dir *= GetStats().kickHard * force;
+                dir *= GetStats().kickHard;
                
                 if (character != null && character.type == Character.types.GOALKEEPER)
                     dir += Vector3.up * GetStats().kickHardAngle * 2;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallCatcher : MonoBehaviour
 {
     public Transform container;
+    public GameObject signal;
     Ball ball;
     states state;
     Character character;
@@ -13,8 +14,15 @@ public class BallCatcher : MonoBehaviour
     Animation anim;
     float arrow_pos_z_initial;
     float arrow_pos_max_z = 17;
-    float speed = 10;
+    float speed;
+    float value;
     public GameObject cola;
+    AimState aimState;
+    public enum AimState
+    {
+        STANDARD,
+        CENTRO
+    }
 
     enum states
     {
@@ -26,12 +34,14 @@ public class BallCatcher : MonoBehaviour
     }
     private void Start()
     {
+        speed = Data.Instance.settings.forceBarSpeed * 10;
         container.gameObject.SetActive(false);
         anim = container.GetComponent<Animation>();
         character = GetComponent<Character>();
         Show(false);
         arrow_pos_z_initial = arrow.transform.localPosition.z;
     }
+    
     public void Catch(Ball _ball)
     {
         Reset();
@@ -42,6 +52,7 @@ public class BallCatcher : MonoBehaviour
         ball.rb.velocity = Vector3.zero;
         ball.transform.localEulerAngles = new Vector3(0, 0, 0);
         state = states.GOT_IT;
+        if (!character.isBeingControlled) return;
         if (character.lineSignal != null)
             character.lineSignal.SetOn(true);
     }
@@ -57,6 +68,7 @@ public class BallCatcher : MonoBehaviour
     }
     public void Reset()
     {
+        CancelInvoke();
         container.gameObject.SetActive(false);
         cola.transform.localScale = Vector3.one;
         Vector3 pos = arrow.transform.localPosition;
@@ -93,6 +105,7 @@ public class BallCatcher : MonoBehaviour
     }
     public void InitKick(int buttonID)
     {
+        value = 0;
         Color arrowColor = Color.yellow;
         switch(buttonID)
         {
@@ -106,12 +119,20 @@ public class BallCatcher : MonoBehaviour
     }
     private void Update()
     {
-        if (state != states.KICKING) return;
-
-        Vector3 pos = arrow.transform.localPosition;
-        pos.z += speed * Time.deltaTime;
-        if (pos.z > arrow_pos_max_z) pos.z = arrow_pos_max_z;
-        arrow.transform.localPosition = pos;
-        cola.transform.localScale = new Vector3(1, 1, (1+(pos.z-arrow_pos_z_initial)*0.7f));
+        if (state == states.KICKING)
+        {
+            Vector3 pos = arrow.transform.localPosition;
+            value += speed * Time.deltaTime;
+            pos.z = arrow_pos_z_initial + value;
+            if (pos.z > arrow_pos_max_z) pos.z = arrow_pos_max_z;
+            arrow.transform.localPosition = pos;
+            cola.transform.localScale = new Vector3(1, 1, (1 + (pos.z - arrow_pos_z_initial) * 0.7f));
+        }
+    }
+    public float GetForce()
+    {
+        float v = (value) / (arrow_pos_max_z - arrow_pos_z_initial);
+        print("Get Force: " + v);
+        return v;
     }
 }

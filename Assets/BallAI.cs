@@ -19,7 +19,6 @@ public class BallAI : MonoBehaviour
         Invoke("Reset", 0.6f);
         this.characterReceiving = characterReceiving;
         state = states.PASE;
-        print("VA a:" + characterReceiving.data.avatarName);
     }
     public void Reset()
     {

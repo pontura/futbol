@@ -53,21 +53,7 @@ public class GoalMoment : MonoBehaviour
         yield return new WaitForSeconds(2);
         Events.ChangeVolume("croud", 0.5f);
 
-
         yield return new WaitForSeconds(0.7f);
-
-       // Data.Instance.LoadLevel("Goal");
-
-        //Events.OnSkipOn(Done);
-        //yield return new WaitForSeconds(3.7f);        
-        //state = states.IDLE;
-        //yield return new WaitForSeconds(1);
-
-        //foreach (Character ch in winners)
-        //    ch.actions.Goal();
-
-        //yield return new WaitForSeconds(2);
-        //Events.ChangeVolume("croud", 0.5f);
 
     }
     public void Done()

@@ -9,7 +9,6 @@ public class UIMain : MonoBehaviour
     public TeamUI team1;
     public TeamUI team2;
     public GameObject all;
-    public UIForce uIForce;
     public IngameMenu ingameMenu;
 
     public static UIMain Instance

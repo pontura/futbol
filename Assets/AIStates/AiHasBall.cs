@@ -98,7 +98,6 @@ public class AiHasBall : AIState
         }
         //else 
         float _z = (stadiumSize.y / 2) * 0.7f;
-        Debug.Log(_z);
         if (Mathf.Abs(ai.character.transform.position.z) > _z && Random.Range(0,10)<4)
         {
             Character characterToPass = Game.Instance.charactersManager.GetNearestTo(ai.character, ai.character.teamID);

@@ -398,17 +398,8 @@ public class CharactersManager : MonoBehaviour
                 //pasa:
                 case 2:
                     Character characterNear;
-                    float uiForceValue = UIMain.Instance.uIForce.GetForce();
-                    float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * gameplaySettings.distanceToForceCentro;
-
-                    //CENTRO::::::::::::::::
-                    if (
-                        Mathf.Abs(character.transform.position.z) > 7.5f &&
-                        (character.teamID == 1 && character.transform.position.x < -distanceToForceCentro
-                        ||
-                        character.teamID == 2 && character.transform.position.x > distanceToForceCentro))
-                    {
-                      
+                    if (character.GetPosition() == Character.PositionsInGame.CENTRO)
+                    {                      
                         Vector3 centroPos = character.transform.position;
                         centroPos.x *= 0.85f;
                         centroPos.z *= -0.85f;
@@ -417,7 +408,6 @@ public class CharactersManager : MonoBehaviour
                         character.Kick(CharacterActions.kickTypes.CENTRO);
                         if (ball.character != characterNear)
                             SwapTo(character, characterNear);
-                        print("CEntro");
                         return;
                     }
                     Pasar(character);
@@ -444,16 +434,12 @@ public class CharactersManager : MonoBehaviour
         }
         else
         {
-            float uiForceValue = UIMain.Instance.uIForce.GetForce();
-            PasarNotDirectional(character, uiForceValue);
+            float uiForceValue = character.ballCatcher.GetForce();
+            if (uiForceValue > 0.6f)
+                character.Kick(CharacterActions.kickTypes.BALOON);
+            else
+                character.Kick(CharacterActions.kickTypes.SOFT);
         }
-    }
-    void PasarNotDirectional(Character character, float uiForceValue)
-    {
-        if (uiForceValue > 0.7f)
-            character.Kick(CharacterActions.kickTypes.BALOON);
-        else
-            character.Kick(CharacterActions.kickTypes.SOFT);
     }
     public void Swap(int control_id)
     {
