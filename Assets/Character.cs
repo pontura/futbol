@@ -242,7 +242,7 @@ public class Character : MonoBehaviour
         {
             if (_x == 0)
                 return;
-            else ballCatcher.Reset();
+            else ballCatcher.ResetJueguito();
         }
 
 
@@ -277,7 +277,18 @@ public class Character : MonoBehaviour
         if (pos.z > limits_y.x) _y = -1;
         else if (pos.z < limits_y.y) _y = 1;
 
-        Vector3 forwardVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
+        float xtraSpeedX = 1;
+        float xtraSpeedZ = 1;
+        if (type == types.GOALKEEPER && ai.currentState == ai.aiFlyingGK)
+        {
+            xtraSpeedX = 0.7f;
+            xtraSpeedZ = 2f;
+        }
+
+        Vector3 speedX = Vector3.right * _x * speed * xtraSpeedX;
+        Vector3 speedZ = Vector3.forward * _y * speed * xtraSpeedZ;
+
+        Vector3 forwardVector = (speedX + speedZ) * Time.deltaTime;
         
         if (actions.state == CharacterActions.states.AIMING_KICK)
             aimVector = aimVector / 10;

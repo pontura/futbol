@@ -52,11 +52,13 @@ public class BallCatcher : MonoBehaviour
         ball.rb.velocity = Vector3.zero;
         ball.transform.localEulerAngles = new Vector3(0, 0, 0);
         state = states.GOT_IT;
-        if (!character.isBeingControlled)
-        {
+
+        if (ball.character == null || ball.character != character)
             signal.SetActive(false);
-        }
-        else if (character.lineSignal != null)
+        else
+            signal.SetActive(true);
+
+        if (character.lineSignal != null)
         {
             signal.SetActive(true);
             character.lineSignal.SetOn(true);
@@ -72,7 +74,7 @@ public class BallCatcher : MonoBehaviour
         if (character.lineSignal != null)
             character.lineSignal.SetOn(false);
     }
-    public void Reset()
+    void Reset()
     {
         CancelInvoke();
         container.gameObject.SetActive(false);
@@ -108,6 +110,11 @@ public class BallCatcher : MonoBehaviour
     {
         state = states.JUEGUITO;
         anim.Play("ball_jueguito");
+    }
+    public void ResetJueguito()
+    {
+        state = states.GOT_IT;
+        anim.Play("ball_idle");
     }
     public void InitKick(int buttonID)
     {

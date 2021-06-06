@@ -2,7 +2,8 @@
 	"isArcade":false,
 	"rewired":true,
 	"debug": false,
-	"turn_off_team2": false,
+	"turn_off_team2": true,
+	"turn_on_only_other_goalkeeper": true,
 	"force_mode": "FulboStars - Easy",
 	"stadium_id": 1
 }

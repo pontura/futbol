@@ -16,7 +16,15 @@ public class AiIdleGK : AIState
     public override AIState UpdatedByAI()
     {
         timer += Time.deltaTime;
-        if (timer > 0.5f)
+        float distToBall = Vector3.Distance(ai.ball.transform.position, ai.transform.position);
+        if (distToBall < 5)
+        {
+            if(IsBallComingToGoal(distToBall))
+                SetState(ai.aiFlyingGK);
+            else
+                SetState(ai.aiAlertGK);
+        }
+        else if (timer > 0.5f)
         {
             timer = 0;
             SetState(ai.aiPositionGK);
@@ -31,7 +39,7 @@ public class AiIdleGK : AIState
         else if (character.teamID== ai.character.teamID)
             SetState(ai.aiPositionGK);
         else
-            SetState(ai.aiAlertGK);
+            SetState(ai.aiIdleGK);
     }
     public override void OnBallNearOnAir()
     {
@@ -40,5 +48,22 @@ public class AiIdleGK : AIState
     public override void OnFollow(Transform target)
     {
         SetState(ai.aiGotoBall);
+    }
+    public bool IsBallComingToGoal(float distanceToBall)
+    {
+        if (distanceToBall < 12)
+        {
+            float ballSpeed = Mathf.Abs(ai.ball.rb.velocity.x);
+
+            if (ballSpeed > 9
+                &&
+                (ai.character.teamID == 2 && Mathf.Abs(ai.ball.rb.velocity.x) < 0
+                || (ai.character.teamID == 1 && Mathf.Abs(ai.ball.rb.velocity.x) > 0))
+                )
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

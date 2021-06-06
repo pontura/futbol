@@ -19,6 +19,7 @@ public class AiAlertGK : AIState
             SetState(ai.aiHasBallGK);
         else if (character.teamID == ai.character.teamID)
             SetState(ai.aiPositionGK);
+        else SetState(ai.aiIdleGK);
     }
     public override void OnBallNearOnAir()
     {
@@ -35,40 +36,32 @@ public class AiAlertGK : AIState
             SetState(ai.aiHasBallGK);
 
         Vector3 ballPos = ai.ball.transform.position;
-        
-        float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
-
-        if (diff_Z > 0.15f)
+        float distanceToBall = Vector3.Distance(ai.transform.position, ballPos);
+        if (distanceToBall < ball_distance_to_go)
         {
-            if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;
+            Vector3 dest = ai.GetPositionInsideArea(ballPos);
+            if (ai.character.transform.position.x > dest.x+0.1f) _x = -1;
+            else if (ai.character.transform.position.x < dest.x-0.1f) _x = 1;
+            if (ai.character.transform.position.z > dest.z + 0.1f) _z = -1;
+            else if (ai.character.transform.position.z < dest.z - 0.1f) _z = 1;
+            if (IsBallComingToGoal(distanceToBall))
+                SetState(ai.aiFlyingGK);
+        } else  {
+            float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
+
+            if (diff_Z > 0.15f)
+                if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;
+
+            if (ai.character.teamID == 1 && ai.transform.position.x < ai.originalPosition.x)
+                _x = 1;
+            else if (ai.character.teamID == 2 && ai.transform.position.x > ai.originalPosition.x)
+                _x = -1;
+            else _x = 0;
         }
 
-      //  float dest_x = ai.ball.transform.position.x;
-
-        if (ai.character.teamID == 1 && ai.transform.position.x < ai.originalPosition.x)
-            _x = 1;
-        else if (ai.character.teamID == 2 && ai.transform.position.x > ai.originalPosition.x)
-            _x = -1;
-        else _x = 0;
-
-        //if (Mathf.Abs(dest_x) > Mathf.Abs(ai.originalPosition.x)) _x = 0;
-        //else if (ai.transform.position.x < dest_x) _x = 1;
-        //else if (ai.transform.position.x > dest_x) _x = -1;
-
-        //if(_x != 0 && IsOutsideAreaInX()) _x = 0;
-        //if (_z != 0 && IsOutsideAreaInZ()) _z = 0;
-
-        if (Vector3.Distance(ai.transform.position,  ballPos) < ball_distance_to_go)
-            UpdateInArea();
-
         ai.character.MoveTo(_x, _z);
+
         return State();
-    }
-    void UpdateInArea()
-    {
-        Vector3 dest = ai.ball.transform.position;
-        dest.y = ai.transform.position.y;
-        ai.transform.position = Vector3.Lerp(ai.transform.position, ai.GetPositionInsideArea(dest), smoothSale);
     }
   
     bool IsOutsideAreaInX()
@@ -81,6 +74,23 @@ public class AiAlertGK : AIState
     {
         if (_z == -1 && ai.transform.position.z < -areaLimits_z) return true;
         if (_z == 1 && ai.transform.position.z > areaLimits_z) return true;
+        return false;
+    }
+    public bool IsBallComingToGoal(float distanceToBall)
+    {
+        if (distanceToBall < 12)
+        {
+            float ballSpeed = Mathf.Abs(ai.ball.rb.velocity.x);
+
+            if (ballSpeed > 9
+                &&
+                (ai.character.teamID == 2 && Mathf.Abs(ai.ball.rb.velocity.x) < 0
+                || (ai.character.teamID == 1 && Mathf.Abs(ai.ball.rb.velocity.x) > 0))
+                )
+            {
+                return true;
+            }
+        }
         return false;
     }
 

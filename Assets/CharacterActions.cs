@@ -153,6 +153,7 @@ public class CharacterActions : MonoBehaviour
     }  
     public void GoalKeeperJumpType(int id, bool resetJump = true)
     {
+        character.MoveCollidersTo(new Vector3(0, 0.8f, 0));
         if (id == 0 || lastAnimPlayed == "jump2")
         {
             PlayAnim("jump");

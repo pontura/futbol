@@ -31,7 +31,7 @@ public class AIHasBallGK : AIState
         else if (character.teamID == ai.character.teamID)
             SetState(ai.aiPositionGK);
         else
-            SetState(ai.aiAlertGK);
+            SetState(ai.aiIdleGK);
     }
     public override AIState UpdatedByAI()
     {

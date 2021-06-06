@@ -2,7 +2,7 @@
 
 public class AIFlyingGK: AIState
 {   
-    float timeToChange = 1;
+    float timeToChange = 1f;
     float flyingDuration;
 
     public override void Init(AI ai)
@@ -12,6 +12,7 @@ public class AIFlyingGK: AIState
     }
     public override void SetActive()
     {
+        Debug.Log("_________FFLY");
         flyingDuration = ai.character.stats.gk_FlyingDuration;
         timer = 0;
         ai.character.actions.GoalKeeperJump();
@@ -26,9 +27,15 @@ public class AIFlyingGK: AIState
         }
         if (timer < flyingDuration)
         {
-            Vector3 dest = ai.ball.transform.position;
-            dest.y = ai.transform.position.y;
-            ai.transform.position = Vector3.Lerp(ai.transform.position, ai.GetPositionInsideArea(dest), ai.character.stats.gk_FlyingSpeed/10);
+            int _x = 0; int _z = 0;
+            Vector3 ballPos = ai.ball.transform.position;
+            Vector3 dest = ai.GetPositionInsideArea(ballPos);
+            if (ai.character.transform.position.x > dest.x + 0.5f) _x = -1;
+            else if (ai.character.transform.position.x < dest.x - 0.5f) _x = 1;
+            if (ai.character.transform.position.z > dest.z + 0.5f) _z = -1;
+            else if (ai.character.transform.position.z < dest.z - 0.5f) _z = 1;
+
+            ai.character.MoveTo(_x, _z);
         }
         return State();
     }

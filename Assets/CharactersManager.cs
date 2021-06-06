@@ -81,7 +81,13 @@ public class CharactersManager : MonoBehaviour
             
 
         ResetAll();
-        if (Data.Instance.settings.mainSettings.turn_off_team2)
+        if (Data.Instance.settings.mainSettings.turn_on_only_other_goalkeeper)
+        {
+            foreach (Character ch in team2)
+                if(ch.type != Character.types.GOALKEEPER)
+                    ch.gameObject.SetActive(false);
+        }
+        else if (Data.Instance.settings.mainSettings.turn_off_team2)
             containerTeam2.SetActive(false);
 
         if (Data.Instance.newScene == "Game")
@@ -338,11 +344,24 @@ public class CharactersManager : MonoBehaviour
         }
         return null;    
     }
+    bool CantControl(int teamID)
+    {
+        if (Game.Instance.ball != null
+            && Game.Instance.ball.character != null
+            && Game.Instance.ball.character.type == Character.types.GOALKEEPER
+            && Game.Instance.ball.character.teamID != teamID)
+            return true;
+        return false;
+    }
     public void SetPosition(int playerID, float _x, float _y)
     {
+
         Character character = GetPlayer(playerID);
         if (character == null)
             return;
+
+        if ((_x != 0 || _y != 0) && CantControl(character.teamID)) return;// no te deja controlar al avatar si la tiene el arquero contrario:
+
         if (character.transform.position.x >= limits.x && _x>0 || character.transform.position.x <= -limits.x && _x < 0) _x = 0;
         if (character.transform.position.z >= limits.y && _y > 0 || character.transform.position.z <= -limits.y && _y < 0) _y = 0;
         character.SetPosition(_x, _y);
@@ -359,7 +378,6 @@ public class CharactersManager : MonoBehaviour
     }
     public void ButtonPressed(int buttonID, int control_id)
     {
-       // print("buttonID " + buttonID);
         Character character = GetPlayer(control_id);
         if (character == null) return;
         if (buttonID == 3)
@@ -367,9 +385,7 @@ public class CharactersManager : MonoBehaviour
             if (character.actions.state == CharacterActions.states.IDLE)
             {
                 if (ball.character == character)
-                {
                     character.Jueguito();
-                }
                 else
                     character.Jump();
             }

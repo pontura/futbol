@@ -22,7 +22,7 @@ defenseDelay,11,5,5,5,5
 attackDelay,7,5,5,5,5
 gk_FlyingDuration,50,,,,-10
 gk_FlyingSpeed,20,,,,-2
-gk_CatchOnAir,700,0,0,0,-200
+gk_CatchOnAir,500,0,0,0,-200
 kickHard,4000,-400,-400,-400,-600
 kickHardAngle,1900,0,0,0,0
 kickSoft,3900,-100,-100,-100,-200

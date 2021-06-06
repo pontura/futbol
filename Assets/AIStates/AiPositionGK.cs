@@ -12,24 +12,18 @@ public class AiPositionGK : AIState
 
     public override AIState UpdatedByAI()
     {
-        //timer += Time.deltaTime;
-        //if (timer > 1)
-        //    SetState(ai.aiIdleGK);
-
         float _x = 0;
         float _z = 0;
         Vector3 ballPos = ai.ball.transform.position;
+        ballPos.y = 0;
         float diff_X;
-        // gotoPosition = ai.character.SetPositionInsideLimits(gotoPosition);
-        //if (ai.transform.position.x > ai.originalPosition.x)
-        //        _x = -1;
-        //    else _x = 1;
 
+        float dest_z = ballPos.z / 1.8f;
 
-        float diff_Z = Mathf.Abs(ai.transform.position.z - ballPos.z);
+        float diff_Z = Mathf.Abs(ai.transform.position.z - dest_z);
 
         if (diff_Z > 0.15f)
-            if (ai.transform.position.z > ballPos.z) _z = -1; else _z = 1;  
+            if (ai.transform.position.z > dest_z) _z = -1; else _z = 1;  
 
         //limites del area:
         if (_z > 0 && ai.transform.position.z >= areaLimits_z)
@@ -43,7 +37,12 @@ public class AiPositionGK : AIState
             _x = -1;
         else _x = 0;
 
-        if (_x == 0 && _z == 0)
+        float distanceToBall = Vector3.Distance(ballPos, ai.transform.position);
+        if (IsBallComingToGoal(distanceToBall))
+            SetState(ai.aiFlyingGK);
+        if (distanceToBall < Data.Instance.settings.gkSpeed_sale_x)
+            SetState(ai.aiAlertGK);
+        else if (_x == 0 && _z == 0)
             SetState(ai.aiIdleGK);
         else
             ai.character.MoveTo(_x, _z);
@@ -56,7 +55,22 @@ public class AiPositionGK : AIState
             SetState(ai.aiHasBallGK);
         else if (character.teamID == ai.character.teamID)
             SetState(ai.aiPositionGK);
-        else
-            SetState(ai.aiAlertGK);
+    }
+    public bool IsBallComingToGoal(float distanceToBall)
+    {
+        if (distanceToBall < 12)
+        {
+            float ballSpeed = Mathf.Abs(ai.ball.rb.velocity.x);
+            
+            if (ballSpeed > 9
+                &&
+                (ai.character.teamID == 2 && Mathf.Abs(ai.ball.rb.velocity.x) < 0
+                || (ai.character.teamID == 1 && Mathf.Abs(ai.ball.rb.velocity.x) > 0))
+                )
+            {
+                return true;
+            }
+        }
+        return false;           
     }
 }

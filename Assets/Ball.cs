@@ -133,8 +133,6 @@ public class Ball : MonoBehaviour
                 int rand = Random.Range(0, 100);
                 if (rand < character.stats.gk_CatchOnAir)
                     CharacterCatchBall(character);
-                else
-                    character.actions.GoalKeeperJump();
             }            
             else if ((character.GetPosition()== Character.PositionsInGame.IN_AREA_ATTACKING 
                 || character.GetPosition() == Character.PositionsInGame.CENTRO)

@@ -26,9 +26,9 @@ public class AI : MonoBehaviour
 
     public string aiStateName;
     public MeshRenderer debugAsset;
-    
 
-    float areaEnding_x;
+
+    public float areaEnding_x;
 
     //public enum states
     //{
@@ -150,7 +150,17 @@ public class AI : MonoBehaviour
     private void Update()
     {        
         if (Game.Instance.state != Game.states.PLAYING) return;
-        if (character.isBeingControlled)   return;
+        if (character.isBeingControlled)
+        {
+            if(
+                ball.character != null && ball.character.type == Character.types.GOALKEEPER && 
+                ball.character.teamID != character.teamID)
+            {
+                if (currentState != aiPositionDefending)
+                    currentState.SetState(aiPositionDefending);
+            } else
+                return;
+        }
 
         currentState = currentState.UpdatedByAI();
         aiStateName = currentState.ToString();
@@ -159,9 +169,13 @@ public class AI : MonoBehaviour
     {
         debugAsset.material.color = color;
     }
-    void OnGoal(int teamID, Character character)
+    void OnGoal(int teamID, Character _character)
     {
-        ResetAll();
+        if (teamID != character.teamID && character.type == Character.types.GOALKEEPER)
+        {
+            //se come el gol
+        } else
+            ResetAll();
     }
     void OnBallKicked(CharacterActions.kickTypes kickType, float forceForce, Character _character)
     {

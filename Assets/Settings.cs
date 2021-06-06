@@ -20,6 +20,7 @@ public class Settings : MonoBehaviour
         public bool rewired;
         public bool debug;
         public bool turn_off_team2;
+        public bool turn_on_only_other_goalkeeper;
         public string force_mode;
         public int stadium_id;
     }
@@ -116,6 +117,7 @@ public class Settings : MonoBehaviour
             mainSettings.isArcade = false;
             mainSettings.rewired = false;
             mainSettings.turn_off_team2 = false;
+            mainSettings.turn_on_only_other_goalkeeper = false;
         }
 
         loaded = true;
