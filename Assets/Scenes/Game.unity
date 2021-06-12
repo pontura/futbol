@@ -3217,26 +3217,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 968984449, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[0].volume
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 968984449, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[1].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968984449, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[2].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968984449, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[3].volume
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 968984449, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
-      propertyPath: all.Array.data[4].volume
-      value: 0.35
-      objectReference: {fileID: 0}
     - target: {fileID: 1000013221123710, guid: 77f85cf8e38d2bf4bb7b2240570f3369, type: 3}
       propertyPath: m_Name
       value: DATA
@@ -5176,49 +5156,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2043899916154453873, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
-      propertyPath: Pan2D
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2043899916154453873, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
       propertyPath: m_Pitch
-      value: 1.44
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 4823537679716861328, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
       propertyPath: m_Name
       value: Voices
       objectReference: {fileID: 0}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: comentario_gol.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: comentario_gol.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: 298bb564357aa9a4788c2938b71fe536, type: 3}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: comentario_gol.Array.data[8]
-      value: 
-      objectReference: {fileID: 8300000, guid: 609da043b125eaa438e48c038bec563f, type: 3}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: comentario_gol.Array.data[14]
-      value: 
-      objectReference: {fileID: 8300000, guid: 609da043b125eaa438e48c038bec563f, type: 3}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: responde_comentario_gol.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: d2d238a9017f76c4f897a3ee466daab0, type: 3}
-    - target: {fileID: 4823537679716861329, guid: ac0a57f1064ccae4382487600a9b9f12,
-        type: 3}
-      propertyPath: responde_comentario_gol.Array.data[14]
-      value: 
-      objectReference: {fileID: 8300000, guid: 82e3c17afd918dd42b6f2062edac36e6, type: 3}
     - target: {fileID: 4823537679716861330, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
       propertyPath: m_RootOrder
@@ -5276,8 +5221,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823537679716861331, guid: ac0a57f1064ccae4382487600a9b9f12,
         type: 3}
-      propertyPath: Pan2D
-      value: -0.07
+      propertyPath: m_Volume
+      value: 0.78
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac0a57f1064ccae4382487600a9b9f12, type: 3}

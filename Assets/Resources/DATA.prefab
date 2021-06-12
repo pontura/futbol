@@ -2045,7 +2045,7 @@ MonoBehaviour:
   all:
   - sourceName: crowd
     audioSource: {fileID: 0}
-    volume: 0.5
+    volume: 0.4
   - sourceName: common
     audioSource: {fileID: 0}
     volume: 1
@@ -2054,10 +2054,10 @@ MonoBehaviour:
     volume: 1
   - sourceName: shouts
     audioSource: {fileID: 0}
-    volume: 0.2
+    volume: 0.35
   - sourceName: common2
     audioSource: {fileID: 0}
-    volume: 0.3
+    volume: 0.7
 --- !u!114 &1515485348
 MonoBehaviour:
   m_ObjectHideFlags: 0
