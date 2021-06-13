@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1808001032}
   - component: {fileID: 1808001036}
   - component: {fileID: 1808001035}
+  - component: {fileID: 2558945830318647476}
   m_Layer: 0
   m_Name: Floor_Render
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2558945830318647476
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808001031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &19914177052157425
 GameObject:
   m_ObjectHideFlags: 0
@@ -27064,15 +27079,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97239fa8a04835c49b38bd90ddd1090a, type: 3}
---- !u!4 &8900429239504452788 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 95925708088993374, guid: 97239fa8a04835c49b38bd90ddd1090a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8849686315521891050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &230268333499668775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8782710886437848013, guid: 97239fa8a04835c49b38bd90ddd1090a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8849686315521891050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8900429239504452788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 95925708088993374, guid: 97239fa8a04835c49b38bd90ddd1090a,
     type: 3}
   m_PrefabInstance: {fileID: 8849686315521891050}
   m_PrefabAsset: {fileID: 0}
