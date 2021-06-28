@@ -11,6 +11,8 @@ public class IngameMenu : MonoBehaviour
     public GameObject mobilePanel;
     bool isOn;
     bool isMobile;
+
+
     void Start()
     {
         isMobile = Data.Instance.isMobile;
@@ -55,5 +57,9 @@ public class IngameMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         Data.Instance.LoadLevel("1_MainMenu");
+    }
+    public void ScreenshotMenu( bool isOn)
+    {
+
     }
 }
