@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 2085480492}
   - component: {fileID: 4210853430889230933}
   - component: {fileID: 9120901708347960376}
+  - component: {fileID: 496768988}
   m_Layer: 0
   m_Name: DATA
   m_TagString: Untagged
@@ -517,6 +518,7 @@ MonoBehaviour:
   rewiredInputManager: {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b,
     type: 3}
   spreadsheetLoader: {fileID: 0}
+  myTeam: {fileID: 496768988}
 --- !u!114 &999694241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4338,6 +4340,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalAsset: {fileID: 7924295455654007100}
+--- !u!114 &496768988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013221123710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414dff1ca28bfe148823957ebceae14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters: 
+  goalkeepers: 
 --- !u!1 &576399259873782392
 GameObject:
   m_ObjectHideFlags: 0

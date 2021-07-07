@@ -27,6 +27,22 @@ public class StoryModeLevelsUI : MonoBehaviour
         Data.Instance.matchData.secs = data.duration;
         Data.Instance.matchData.charactersPositions = data.charactersPositions;
         CharactersData.Instance.team2 = data.characters;
+
+        if (Data.Instance.myTeam.goalkeepers.Count > 0)
+            CharactersData.Instance.team1[0] = Data.Instance.myTeam.goalkeepers[Random.Range(0, Data.Instance.myTeam.goalkeepers.Count)];
+
+        if (Data.Instance.myTeam.characters.Count > 0)
+        {
+            Utils.Shuffle(Data.Instance.myTeam.characters);
+            int chID = 1;
+            foreach (int teamCharacterID in Data.Instance.myTeam.characters)
+            {
+                if(chID<8) // HACK para no poner de mas:
+                    CharactersData.Instance.team1[chID] = teamCharacterID;
+                chID++;
+            }
+        }
+
         Data.Instance.LoadLevel("GameIntro");
     }
 }

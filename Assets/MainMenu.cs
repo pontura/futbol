@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
             return;
         GotoSelector();
     }
+    public void GotoYourTeam()
+    {
+        Data.Instance.LoadLevel("Characters");
+        //GetComponent<DifficultSelector>().Init();
+    }
     public void GotoStoryMode()
     {
         Data.Instance.LoadLevel("Levels");

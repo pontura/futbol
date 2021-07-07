@@ -21,6 +21,7 @@ public class Data : MonoBehaviour
     [HideInInspector] public InputManagerUI inputManagerUI;
     public GameObject rewiredInputManager;
     public SpreadsheetLoader spreadsheetLoader;
+    public MyTeam myTeam;
 
     public static Data Instance
     {
