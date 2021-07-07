@@ -5764,6 +5764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoryModeData
       objectReference: {fileID: 0}
+    - target: {fileID: 1683358970320488585, guid: 3592fcc37f39caa4196aea2e976233be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1683358970320488590, guid: 3592fcc37f39caa4196aea2e976233be,
         type: 3}
       propertyPath: m_RootOrder
@@ -7107,6 +7112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4978833693890832255, guid: f057faebf3a99b54e9253ecaae07a6a0,
+        type: 3}
+      propertyPath: team1.Array.data[1]
+      value: 26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f057faebf3a99b54e9253ecaae07a6a0, type: 3}

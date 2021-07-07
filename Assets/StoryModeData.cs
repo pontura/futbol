@@ -25,7 +25,9 @@ public class StoryModeData : MonoBehaviour
     {
         public string name;
         public int stadium_id;
-        public int[] characters;
+        public int duration;
+        public int[] charactersPositions;
+        public List<int> characters;
     }
 
     public int id;

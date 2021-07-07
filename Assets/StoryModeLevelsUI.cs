@@ -22,6 +22,11 @@ public class StoryModeLevelsUI : MonoBehaviour
     public void Clicked(int id)
     {
         StoryModeData.Instance.id = id;
-        Data.Instance.LoadLevel("Game");
+        StoryModeData.LevelData data = StoryModeData.Instance.GetLevelActual();
+        Data.Instance.stadiumData.SetActiveStadium(data.stadium_id);
+        Data.Instance.matchData.secs = data.duration;
+        Data.Instance.matchData.charactersPositions = data.charactersPositions;
+        CharactersData.Instance.team2 = data.characters;
+        Data.Instance.LoadLevel("GameIntro");
     }
 }

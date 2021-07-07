@@ -29,13 +29,16 @@ public class MainMenu : MonoBehaviour
     }
     void OnButtonClick(int buttonID, int playerID)
     {
-
         if (controlMapper != null && controlMapper.isOpen)
             return;
-        GotoGame();
-
+        GotoSelector();
     }
-    public void GotoGame()
+    public void GotoStoryMode()
+    {
+        Data.Instance.LoadLevel("Levels");
+        //GetComponent<DifficultSelector>().Init();
+    }
+    public void GotoSelector()
     {
         Data.Instance.stadiumData.SetActiveStadium(Data.Instance.stadiumData.id);
         Data.Instance.LoadLevel("Selector");
