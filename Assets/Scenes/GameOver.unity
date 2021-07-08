@@ -37790,7 +37790,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 9.89, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12.27366, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37804,9 +37804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  camera_tribuna_y: 0
-  offset: {x: 0, y: 0, z: 0}
-  offset_lookAt: 0
+  target: {fileID: 0}
   filming_y: 0
   offsetZ: 25
   originalSize: 5
@@ -43082,6 +43080,8 @@ MonoBehaviour:
   oponent: {fileID: 0}
   limits_y: {x: 0, y: 0}
   limits_x: {x: 0, y: 0}
+  lineSignal: {fileID: 0}
+  isInsideGame: 0
 --- !u!114 &1015451658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43105,7 +43105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015451656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53999996, z: 15.870001}
+  m_LocalPosition: {x: 0, y: 0.53999996, z: -12.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 496036024}
@@ -66277,7 +66277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975456280591726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.42, z: -13.92}
+  m_LocalPosition: {x: 8.87, y: 2.42, z: -13.92}
   m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_Children:
   - {fileID: 5741302759072228301}

@@ -20,8 +20,7 @@ public class GameoverScene : MonoBehaviour
         Events.OnGoalDone -= OnSkip;
     }
     IEnumerator On()
-    {        
-
+    {
         int totalCharacters = Data.Instance.matchData.totalCharacters;
         Character character;
         for (int a = 0; a < totalCharacters; a++)
@@ -55,6 +54,12 @@ public class GameoverScene : MonoBehaviour
             if(id == 0)
                 SetCharacterOn(character);
         }
+
+       
+
+        yield return new WaitForSeconds(0.2f);
+        print("pita");
+        charactersManager.referi.actions.Pita();
 
         SetGoalToCharacter();
         yield return new WaitForSeconds(9);

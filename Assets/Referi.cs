@@ -6,6 +6,7 @@ public class Referi : Character
 {
     Vector3 initialPos;
     Ball ball;
+    public bool isInsideGame = true;
 
     public override void Start()
     {        
@@ -54,7 +55,8 @@ public class Referi : Character
     }
     public override void SetPosition(float _x, float _y)
     {
-       MoveTo(_x, _y);
+        if (!isInsideGame) return;
+        MoveTo(_x, _y);
     }
     int destZ;
     void ChangeZ()
@@ -69,6 +71,7 @@ public class Referi : Character
     float timer;
     void Update()
     {
+        if (!isInsideGame) return;
         if (ball == null)
             return;
         if (Game.Instance.state != Game.states.GOAL && actions.state != CharacterActions.states.SPECIAL_ACTION)

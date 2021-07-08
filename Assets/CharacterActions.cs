@@ -312,6 +312,8 @@ public class CharacterActions : MonoBehaviour
         if (lastAnimPlayed == animName)
             return;
 
+        
+
         lastAnimPlayed = animName;
         anim.Play(animName, 0, 0);
 
