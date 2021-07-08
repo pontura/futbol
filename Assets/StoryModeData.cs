@@ -47,4 +47,5 @@ public class StoryModeData : MonoBehaviour
     {
         return all.levels[id];
     }
+    
 }

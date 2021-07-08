@@ -72,6 +72,7 @@ public class CharactersSelector : MonoBehaviour
     }
     public void Ready()
     {
+        Data.Instance.myTeam.Save();
         Data.Instance.LoadLevel("1_MainMenu");
     }
 }
