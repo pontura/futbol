@@ -7,7 +7,8 @@ public class CharacterActions : MonoBehaviour
     [HideInInspector] protected Animator anim;
     [HideInInspector] protected Character character;    
 
-    public states state;    
+    public states state;
+    public CharacterHitCollider hitCollider;
 
     public enum states
     {
@@ -68,7 +69,7 @@ public class CharacterActions : MonoBehaviour
         {
             PlayAnim("idle");
             return;
-        } else if (state == states.FREEZE || state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH_WITH_BALL || state == states.DASH)
+        } else if (state == states.JUMP || state == states.KICKED || state == states.SPECIAL_ACTION || state == states.KICK || state == states.DASH_WITH_BALL || state == states.DASH)
             return;
         CancelInvoke();
         this.state = states.IDLE;
@@ -101,6 +102,7 @@ public class CharacterActions : MonoBehaviour
     public bool runFast;
     public virtual void SuperRun()
     {
+        if (state == states.FREEZE || state == states.GOAL) return;
         runFast = true;
         anim.Play("runBoost", 0);
     }
@@ -258,13 +260,31 @@ public class CharacterActions : MonoBehaviour
         StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_loseBall);        
         Events.PlaySound("shouts", "cry", false);        
     }
+    public void Hit()
+    {
+        if (state == states.FREEZE) return;       
+        CancelInvoke();
+
+        if (hitCollider != null) hitCollider.Activate(true, 0.1f);
+
+        PlayAnim("hit");
+        StartFreeze(0, 0.5f);
+        Events.PlaySound("shouts", "dash", false);
+    }
     public void Kicked()
     {
         CancelInvoke();
         PlayAnim("kicked");
         StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_dashBall);
         Events.PlaySound("shouts", "foul", false);        
-    }   
+    }
+    public void Hitted()
+    {
+        CancelInvoke();
+        PlayAnim("kicked");
+        StartFreeze(0, Data.Instance.settings.gameplay.freeze_by_hit);
+        Events.PlaySound("shouts", "foul", false);
+    }
     Coroutine freezeCoroutine;
     public void StartFreeze(float delay, float duration)
     {
@@ -280,6 +300,7 @@ public class CharacterActions : MonoBehaviour
         state = states.FREEZE;
         character.Freeze();
         yield return new WaitForSeconds(duration);
+        if(hitCollider != null)  hitCollider.gameObject.SetActive(false);
         Reset();
     }
     public void Pita()
@@ -289,7 +310,7 @@ public class CharacterActions : MonoBehaviour
     }
     public void Action()
     {
-        if (state == states.KICKED || state == states.SPECIAL_ACTION)
+        if (state == states.FREEZE || state == states.KICKED || state == states.SPECIAL_ACTION)
             return;
         CancelInvoke();
         state = states.SPECIAL_ACTION;

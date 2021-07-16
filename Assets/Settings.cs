@@ -41,6 +41,7 @@ public class Settings : MonoBehaviour
     public GamePlay gameplay;
     public Vector2 dialoguesTimeToAppear = new Vector2(2, 4);
 
+    public Vector2 hitScale = new Vector2(30,30);
     public float timeScale = 0.8f;
     public float referiSpeed = 1.1f;
     public float dialoguesDuration = 4;
@@ -63,6 +64,7 @@ public class Settings : MonoBehaviour
         public float freeze_by_kick;
         public float freeze_by_loseBall;
         public float freeze_by_dashBall;
+        public float freeze_by_hit;
         public float freeze_dash;
         public float distance_to_dash_ai;
         public float dash_percent_attacking;
@@ -233,6 +235,7 @@ public class Settings : MonoBehaviour
             case "freeze_by_kick": gameplayStats.freeze_by_kick = value; break;
             case "freeze_by_loseBall": gameplayStats.freeze_by_loseBall = value; break;
             case "freeze_by_dashBall": gameplayStats.freeze_by_dashBall = value; break;
+            case "freeze_by_hit": gameplayStats.freeze_by_hit = value; break;
             case "freeze_dash": gameplayStats.freeze_dash = value; break;
             case "distance_to_dash_ai": gameplayStats.distance_to_dash_ai = value; break;
             case "dash_percent_attacking": gameplayStats.dash_percent_attacking = value; break;

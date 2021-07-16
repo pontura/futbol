@@ -14,6 +14,7 @@ goalKeeperSpeed,50,0,0,0,-5
 freeze_by_kick,30,5,5,5,0
 freeze_dash,15,5,5,5,0
 freeze_by_loseBall,10,5,5,5,0
+freeze_by_hit,20,0,0,0,0
 freeze_by_dashBall,30,5,5,5,0
 height_to_dominate_ball,11,-2,-2,-2,0
 distanceToForceCentro,7,0,0,0,0

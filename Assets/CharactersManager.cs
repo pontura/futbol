@@ -67,7 +67,6 @@ public class CharactersManager : MonoBehaviour
             id++;
         }
         
-        print("_________CharactersManager");
         print("Data.Instance.newScene: " + Data.Instance.newScene);
         if (Data.Instance.newScene == "Game")
         {
@@ -171,7 +170,7 @@ public class CharactersManager : MonoBehaviour
             CheckStateByTeam(team1[0]);
             CheckStateByTeam(team2[0]);
             BallInsideChecker();
-            CheckPosicionAdelantadas();
+           // CheckPosicionAdelantadas();
         }            
     }
     void  BallInsideChecker()
@@ -190,8 +189,13 @@ public class CharactersManager : MonoBehaviour
         {
             if (character.teamID == 1 && Data.Instance.matchData.team1Controlled) SwapIfNeeded(1);
             else if (character.teamID == 2 && Data.Instance.matchData.team2Controlled) SwapIfNeeded(2);
-        } else if (ball.character.teamID != character.teamID)
-            CheckForNewDefender(character.teamID);
+        }
+        else if (ball.character.teamID != character.teamID)
+        {
+            if (character.teamID == 1 && Data.Instance.matchData.team1Controlled) SwapIfNeeded(1);
+            else if (character.teamID == 2 && Data.Instance.matchData.team2Controlled) SwapIfNeeded(2);
+            else CheckForNewDefender(character.teamID);
+        }
     }
     public void SwapIfNeeded(int teamID) // busca si hay otro cerca de la pelota y le da control
     {
@@ -208,8 +212,8 @@ public class CharactersManager : MonoBehaviour
         if (teamID == 1)  ballPos.x += offset;   else  ballPos.x -= offset;
 
         Character nearestToDefend = GetNearest(teamID, false, ballPos, false, true);
-        if (nearestToDefend.ai.aiStateName == "AiGotoBall")
-            return;
+        //if (nearestToDefend.ai.aiStateName == "AiGotoBall")
+        //    return;
         if (ball.character != null && ball.character.type == Character.types.GOALKEEPER)
             return;
         if (nearestToDefend.isBeingControlled)
@@ -399,7 +403,8 @@ public class CharactersManager : MonoBehaviour
             switch (buttonID)
             {
                 case 1: character.Dash(); break;
-                case 2: Swap(control_id); break;
+                //case 2: Swap(control_id); break;
+                case 2: character.Hit(); break;
                     // case 3: KickAllTheOthers(characterID); break;
             }
         }

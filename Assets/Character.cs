@@ -188,6 +188,13 @@ public class Character : MonoBehaviour
         dashCoroutine = StartCoroutine(DashC());
         actions.Dash();
     }
+    public void Hit()
+    {
+        if (type == types.GOALKEEPER || actions.state == CharacterActions.states.FREEZE)
+            return;
+        StopAllCoroutines();
+        actions.Hit();
+    }
     public void Jueguito()
     {
         if (type == types.GOALKEEPER || actions.state == CharacterActions.states.JUEGUITO)
