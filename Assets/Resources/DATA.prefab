@@ -512,7 +512,7 @@ MonoBehaviour:
   stadiumData: {fileID: 0}
   charactersPositions: {fileID: 0}
   textsData: {fileID: 864794640}
-  isMobile: 1
+  isMobile: 0
   matchData: {fileID: 0}
   inputManagerUI: {fileID: 0}
   rewiredInputManager: {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b,
@@ -611,6 +611,8 @@ MonoBehaviour:
     clothColorB: {r: 0, g: 0.6509804, b: 0.31764707, a: 1}
     clothColorC: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
     clothColorD: {r: 0, g: 0, b: 0, a: 1}
+  ball_offsetForward: 0.45
+  ball_smooth: 12
   mainSettings:
     isArcade: 0
     rewired: 1
@@ -628,6 +630,7 @@ MonoBehaviour:
     freeze_by_kick: 3
     freeze_by_loseBall: 1
     freeze_by_dashBall: 3
+    freeze_by_hit: 0
     freeze_dash: 1.5
     distance_to_dash_ai: 2.8
     dash_percent_attacking: 20
@@ -658,6 +661,7 @@ MonoBehaviour:
     kickCentro: 320
     kickCentroAngle: 230
   dialoguesTimeToAppear: {x: 2, y: 4}
+  hitScale: {x: 20, y: 20}
   timeScale: 0.9
   referiSpeed: 1.1
   dialoguesDuration: 4
@@ -677,6 +681,7 @@ MonoBehaviour:
     freeze_by_kick: 3.5
     freeze_by_loseBall: 1.5
     freeze_by_dashBall: 3.5
+    freeze_by_hit: 0
     freeze_dash: 2
     distance_to_dash_ai: 2.3
     dash_percent_attacking: 15
@@ -713,6 +718,7 @@ MonoBehaviour:
     freeze_by_kick: 3.5
     freeze_by_loseBall: 1.5
     freeze_by_dashBall: 3.5
+    freeze_by_hit: 0
     freeze_dash: 2
     distance_to_dash_ai: 2.3
     dash_percent_attacking: 15
@@ -749,6 +755,7 @@ MonoBehaviour:
     freeze_by_kick: 3.5
     freeze_by_loseBall: 1.5
     freeze_by_dashBall: 3.5
+    freeze_by_hit: 0
     freeze_dash: 2
     distance_to_dash_ai: 2.3
     dash_percent_attacking: 17
@@ -785,6 +792,7 @@ MonoBehaviour:
     freeze_by_kick: 3
     freeze_by_loseBall: 1
     freeze_by_dashBall: 3
+    freeze_by_hit: 0
     freeze_dash: 1.5
     distance_to_dash_ai: 2.8
     dash_percent_attacking: 20
@@ -821,6 +829,7 @@ MonoBehaviour:
     freeze_by_kick: 0
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
+    freeze_by_hit: 0
     freeze_dash: 0
     distance_to_dash_ai: 0
     dash_percent_attacking: 0
@@ -857,6 +866,7 @@ MonoBehaviour:
     freeze_by_kick: 0
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
+    freeze_by_hit: 0
     freeze_dash: 0
     distance_to_dash_ai: 0
     dash_percent_attacking: 0
@@ -893,6 +903,7 @@ MonoBehaviour:
     freeze_by_kick: 0
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
+    freeze_by_hit: 0
     freeze_dash: 0
     distance_to_dash_ai: 0
     dash_percent_attacking: 0
@@ -929,6 +940,7 @@ MonoBehaviour:
     freeze_by_kick: 0
     freeze_by_loseBall: 0
     freeze_by_dashBall: 0
+    freeze_by_hit: 0
     freeze_dash: 0
     distance_to_dash_ai: 0
     dash_percent_attacking: 0
@@ -4354,6 +4366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characters: 
   goalkeepers: 
+  saved_characters: 
+  saved_goalkeepers: 
 --- !u!1 &576399259873782392
 GameObject:
   m_ObjectHideFlags: 0

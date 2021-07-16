@@ -13,7 +13,7 @@ public class BallCatcher : MonoBehaviour
     public SpriteRenderer colaArrow;
     Animation anim;
     float arrow_pos_z_initial;
-    float arrow_pos_max_z = 17;
+    float arrow_pos_max_z = 14;
     float speed;
     float value;
     public GameObject cola;
@@ -36,7 +36,7 @@ public class BallCatcher : MonoBehaviour
     }
     private void Start()
     {
-        speed = Data.Instance.settings.forceBarSpeed * 10;
+        speed = Data.Instance.settings.forceBarSpeed * 8;
         container.gameObject.SetActive(false);
         anim = container.GetComponent<Animation>();
         character = GetComponent<Character>();

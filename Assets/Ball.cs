@@ -257,7 +257,7 @@ public class Ball : MonoBehaviour
         {
             case CharacterActions.kickTypes.HARD:
                 KickBallSound();
-                float kickHard = GetStats().kickHard;
+                float kickHard = GetStats().kickHard * 1.25f;
                 if (character != null && 
                     (character.actions.state == CharacterActions.states.JUEGUITO)
                     ||
