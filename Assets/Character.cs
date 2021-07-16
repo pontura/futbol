@@ -267,6 +267,7 @@ public class Character : MonoBehaviour
                 else actions.LookTo(1);
             }
             actions.Run();
+            if (type != types.GOALKEEPER && ballCatcher != null) ballCatcher.Run(false);
         }      
 
         Vector3 aimVector = (Vector3.right * _x * speed * Time.deltaTime) + (Vector3.forward * _y * speed * Time.deltaTime);
@@ -387,11 +388,13 @@ public class Character : MonoBehaviour
             return;
         if (runCoroutine != null)
             StopCoroutine(runCoroutine);
+
+        actions.SuperRun();
         runCoroutine = StartCoroutine(RunSpeedDesacelerate());
+        if (type != types.GOALKEEPER) ballCatcher.Run(true);
     }
     IEnumerator RunSpeedDesacelerate()
     { 
-        actions.SuperRun();
         float minSpeed;
         float to;
         if(Game.Instance.ball.character == this)
@@ -431,8 +434,11 @@ public class Character : MonoBehaviour
             speed -= stats.speedRunFade * Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        if(Game.Instance.state == Game.states.PLAYING)
+        if (Game.Instance.state == Game.states.PLAYING)
+        {
+            if(type != types.GOALKEEPER) ballCatcher.ResetFastRun();
             actions.Run();
+        }
         speed = minSpeed;
         actions.runFast = false;
         yield break;

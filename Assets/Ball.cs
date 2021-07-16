@@ -13,8 +13,14 @@ public class Ball : MonoBehaviour
     float timeCatched;
     CombaFX combaFX;
 
+    float catchedOffsetY = -1f;
+    float offsetForward;
+    float smooth;
+
     void Start()
     {
+        offsetForward = Data.Instance.settings.ball_offsetForward;
+        smooth = Data.Instance.settings.ball_smooth;
         ballAI = GetComponent<BallAI>();
         Events.OnRestartGame += OnRestartGame;
         limits = new Vector2(Data.Instance.stadiumData.active.size_x, Data.Instance.stadiumData.active.size_y);
@@ -194,6 +200,7 @@ public class Ball : MonoBehaviour
     }
     void FreeBall()
     {
+        customContainer = null;
         rb.constraints = RigidbodyConstraints.None;
         transform.SetParent(container);
     }
@@ -329,5 +336,26 @@ public class Ball : MonoBehaviour
     public void PaseTo(Character character)
     {
         ballAI.Pase(character);
+    }
+
+    
+
+    Transform customContainer;
+    private void Update()
+    {
+        if (customContainer == null)
+            return;
+
+        Vector3 dest = customContainer.transform.position + (customContainer.forward * offsetForward);
+        dest.y += catchedOffsetY;
+        transform.localEulerAngles = customContainer.transform.eulerAngles;
+        transform.localPosition = Vector3.Lerp(transform.localPosition, dest, Time.deltaTime* smooth);
+    }
+    public void Catched(Transform customContainer)
+    {
+        this.customContainer = customContainer;
+        transform.localPosition = customContainer.transform.position + new Vector3(0,catchedOffsetY,0);
+        rb.velocity = Vector3.zero;
+        transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 }

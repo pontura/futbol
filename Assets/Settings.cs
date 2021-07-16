@@ -12,6 +12,10 @@ public class Settings : MonoBehaviour
     public int totalTime;
     public TeamSettings[] teamSettings;
 
+    //BALL
+    public float ball_offsetForward = 0.45f;
+    public float ball_smooth = 12;
+
     public MainSettings mainSettings;
     [Serializable]
     public class MainSettings
@@ -53,6 +57,7 @@ public class Settings : MonoBehaviour
     public float gkSpeed_sale_x = 2.7f;
     public float gkSpeed_sale_z = 4;
     public bool loaded;
+    
 
     [Serializable]
     public class GamePlay

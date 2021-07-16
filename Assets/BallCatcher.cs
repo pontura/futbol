@@ -30,6 +30,8 @@ public class BallCatcher : MonoBehaviour
         GOT_IT,
         WAITING,
         JUEGUITO,
+        RUN,
+        RUN_FAST,
         KICKING
     }
     private void Start()
@@ -47,10 +49,7 @@ public class BallCatcher : MonoBehaviour
         Reset();
         container.gameObject.SetActive(true);
         ball = _ball;
-        ball.transform.SetParent(container);
-        ball.transform.localPosition = Vector3.zero;
-        ball.rb.velocity = Vector3.zero;
-        ball.transform.localEulerAngles = new Vector3(0, 0, 0);
+        ball.Catched(container);
         state = states.GOT_IT;
 
         if (ball.character == null || ball.character != character)
@@ -111,10 +110,32 @@ public class BallCatcher : MonoBehaviour
         state = states.JUEGUITO;
         anim.Play("ball_jueguito");
     }
-    public void ResetJueguito()
+    public void ResetFastRun()
+    {
+        state = states.RUN;
+    }
+    public void Run(bool fast)
+    {
+        if (state == states.KICKING)  return;
+        if (fast)
+        {
+            state = states.RUN_FAST;
+            anim.Play("ball_run_fast");
+        }
+        else if (state != states.RUN_FAST)
+        {
+            state = states.RUN;
+            anim.Play("ball_run");
+        }
+    }
+    public void Idle()
     {
         state = states.GOT_IT;
         anim.Play("ball_idle");
+    }
+    public void ResetJueguito()
+    {
+        Idle();
     }
     public void InitKick(int buttonID)
     {
