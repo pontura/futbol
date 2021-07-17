@@ -69,7 +69,7 @@ public class GameOver : MonoBehaviour
     void Sigue()
     {
         Done();
-        //Events.OnGameOverVoiceHappy(team_win[Random.Range(0,5)], Done);
+        
     }
     void Done()
     {

@@ -11,16 +11,31 @@ public class GameoverScene : MonoBehaviour
 
     void Start()
     {
-        Events.OnGoalDone += OnSkip;
+        Events.OnGoalDone += GoOn;
         Events.OnSkipOn(OnSkip);
         StartCoroutine(On());
     }
     void OnDestroy()
     {
-        Events.OnGoalDone -= OnSkip;
+        Events.OnGoalDone -= GoOn;
     }
+    int audioID = 0;
+    void OnPita()
+    {
+        audioID++;
+        if (audioID >= 3)
+            Sigue();
+        else
+            Events.OnOutroSound(OnPita, audioID);
+    }
+    void Sigue()
+    {
+        Events.OnGameOverVoiceHappy(winCharacter, OnSkip);
+    }
+    Character winCharacter;
     IEnumerator On()
     {
+        Events.OnOutroSound(OnPita, audioID);
         int totalCharacters = Data.Instance.matchData.totalCharacters;
         Character character;
         for (int a = 0; a < totalCharacters; a++)
@@ -51,8 +66,8 @@ public class GameoverScene : MonoBehaviour
             character.transform.localScale = Vector3.one;
             character.actions.Goal();
 
-            if(id == 0)
-                SetCharacterOn(character);
+            if (id == 0)
+                winCharacter = character;
         }
 
        
@@ -60,11 +75,9 @@ public class GameoverScene : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         print("pita");
         charactersManager.referi.actions.Pita();
-
         SetGoalToCharacter();
         yield return new WaitForSeconds(9);
         Events.ChangeVolume("croud", 0.5f);
-        OnSkip();
     }
     void SetGoalToCharacter()
     {
@@ -95,14 +108,18 @@ public class GameoverScene : MonoBehaviour
 
         print(characterGoalID + "::  characterToSwitch.data.id: " +  characterToSwitch.data.id + " __________________id: " + character.data.id);
     }
-    void SetCharacterOn(Character character)
-    {
-        Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("goal", character.data.id, character.type == Character.types.GOALKEEPER));
-    }
+    //void SetCharacterOn(Character character)
+    //{
+    //    Events.SetDialogue(character, Data.Instance.textsData.GetRandomDialogue("goal", character.data.id, character.type == Character.types.GOALKEEPER));
+    //}
     void OnSkip()
     {
+        Invoke("GoOn", 15);
+    }
+    void GoOn()
+    {
         StopAllCoroutines();
-        Data.Instance.LoadLevel("Game");
+        Data.Instance.LoadLevel("1_MainMenu");
         Events.OnSkipOff();
     }
 }
