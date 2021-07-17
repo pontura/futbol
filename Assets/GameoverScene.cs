@@ -11,13 +11,8 @@ public class GameoverScene : MonoBehaviour
 
     void Start()
     {
-        Events.OnGoalDone += GoOn;
-        Events.OnSkipOn(OnSkip);
+        Events.OnSkipOn(GoOn);
         StartCoroutine(On());
-    }
-    void OnDestroy()
-    {
-        Events.OnGoalDone -= GoOn;
     }
     int audioID = 0;
     void OnPita()
