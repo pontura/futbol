@@ -91,6 +91,7 @@ public class BallCatcher : MonoBehaviour
     {
         targetPos.y = container.transform.position.y;
         container.transform.LookAt(targetPos);
+        ball.ForcePosition(container);
     }
     public void RotateTo(Vector3 targetPos)
     {

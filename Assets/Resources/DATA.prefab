@@ -512,7 +512,7 @@ MonoBehaviour:
   stadiumData: {fileID: 0}
   charactersPositions: {fileID: 0}
   textsData: {fileID: 864794640}
-  isMobile: 0
+  isMobile: 1
   matchData: {fileID: 0}
   inputManagerUI: {fileID: 0}
   rewiredInputManager: {fileID: 5486076649419771000, guid: d4a964824dc02e343a71e1f2cd44b42b,

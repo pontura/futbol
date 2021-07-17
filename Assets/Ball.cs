@@ -140,9 +140,7 @@ public class Ball : MonoBehaviour
                 if (rand < character.stats.gk_CatchOnAir)
                     CharacterCatchBall(character);
             }            
-            else if ((character.GetPosition()== Character.PositionsInGame.IN_AREA_ATTACKING 
-                || character.GetPosition() == Character.PositionsInGame.CENTRO)
-                && transform.localPosition.y > 1.3f)
+            else if (character.CheckIfIsInAreaRival() && transform.localPosition.y > 1.2f)
             {
                 characterThatKicked = character;
                 character.actions.Kick(CharacterActions.kickTypes.CHILENA);
@@ -354,8 +352,12 @@ public class Ball : MonoBehaviour
     public void Catched(Transform customContainer)
     {
         this.customContainer = customContainer;
-        transform.localPosition = customContainer.transform.position + new Vector3(0,catchedOffsetY,0);
+        ForcePosition(customContainer);
+    }
+    public void ForcePosition(Transform customContainer)
+    {
+        transform.localPosition = customContainer.transform.position + new Vector3(0, catchedOffsetY, 0);
         rb.velocity = Vector3.zero;
-        transform.localEulerAngles = new Vector3(0, 0, 0);
+        transform.localEulerAngles = customContainer.transform.localEulerAngles;
     }
 }

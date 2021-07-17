@@ -6126,7 +6126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &6194736257973059356
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6273,7 +6273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: STORY-MODE
+  m_Text: JUGAR
 --- !u!224 &6194736257977843812
 RectTransform:
   m_ObjectHideFlags: 0

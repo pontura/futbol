@@ -449,6 +449,13 @@ public class Character : MonoBehaviour
         IN_AREA_ATTACKING,
         CENTRO
     }
+    public bool CheckIfIsInAreaRival()
+    {
+        PositionsInGame p = GetPosition();
+        if (p == Character.PositionsInGame.IN_AREA_ATTACKING || p == Character.PositionsInGame.CENTRO)
+            return true;
+        return false;
+    }
     public PositionsInGame GetPosition()
     {
         float distanceToForceCentro = (Data.Instance.stadiumData.active.size_x / 2) * Data.Instance.settings.gameplay.distanceToForceCentro;

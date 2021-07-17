@@ -441,17 +441,13 @@ public class CharactersManager : MonoBehaviour
                     break;
                 //pasa:
                 case 2:
-                    Character characterNear;
                     if (character.GetPosition() == Character.PositionsInGame.CENTRO)
                     {                      
                         Vector3 centroPos = character.transform.position;
-                        centroPos.x *= 0.85f;
+                        centroPos.x *= 1.2f;
                         centroPos.z *= -0.85f;
-                       // characterNear = GetNearest(character.teamID, false, centroPos, true);
                         character.ballCatcher.LookAt(centroPos);
                         character.Kick(CharacterActions.kickTypes.CENTRO);
-                        //if (ball.character != characterNear)
-                        //    SwapTo(character, characterNear);
                         return;
                     }
                     Pasar(character);
